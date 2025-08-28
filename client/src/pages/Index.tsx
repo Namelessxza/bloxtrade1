@@ -656,10 +656,19 @@ export default function Index() {
                 >
                   <div className="flex gap-3">
                     <div className="relative flex-shrink-0">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-slate-600 to-slate-700 border-2 border-slate-500/70 flex items-center justify-center text-base overflow-hidden">
+                      <div className={`w-9 h-9 rounded-full flex items-center justify-center text-base overflow-hidden border-2 ${
+                        index === 0 ? 'border-orange-400 bg-gradient-to-br from-orange-500 to-red-600' :
+                        index === 1 ? 'border-blue-400 bg-gradient-to-br from-blue-500 to-indigo-600' :
+                        index === 2 ? 'border-blue-400 bg-gradient-to-br from-blue-500 to-purple-600' :
+                        index === 3 ? 'border-orange-400 bg-gradient-to-br from-orange-500 to-yellow-600' :
+                        index === 4 ? 'border-blue-400 bg-gradient-to-br from-blue-500 to-cyan-600' :
+                        index === 5 ? 'border-orange-400 bg-gradient-to-br from-orange-500 to-red-600' :
+                        index === 6 ? 'border-yellow-400 bg-gradient-to-br from-yellow-500 to-orange-600' :
+                        'border-red-400 bg-gradient-to-br from-red-500 to-pink-600'
+                      }`}>
                         {msg.avatar}
                       </div>
-                      <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-slate-900"></div>
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-3 h-3 bg-green-500 rounded-full border-2 border-slate-900"></div>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
@@ -667,7 +676,7 @@ export default function Index() {
                           {msg.username}
                         </span>
                         {msg.isAdmin && (
-                          <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs px-2 py-0.5 rounded-md font-bold">
+                          <span className="bg-gradient-to-r from-red-600 to-orange-600 text-white text-xs px-2 py-0.5 rounded-md font-bold">
                             ADMIN
                           </span>
                         )}
