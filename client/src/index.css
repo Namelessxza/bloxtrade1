@@ -28,6 +28,8 @@ All colors MUST be HSL.
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    min-width: 320px;
   }
 
   :root {
@@ -110,7 +112,7 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Typography improvements */
+  /* Typography improvements with responsive clamp() */
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
@@ -120,18 +122,18 @@ All colors MUST be HSL.
   }
   
   h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 4rem);
     font-weight: 900;
     letter-spacing: -0.03em;
   }
   
   h2 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 800;
   }
   
   h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     font-weight: 700;
   }
   
@@ -244,44 +246,122 @@ All colors MUST be HSL.
     letter-spacing: 0.01em;
   }
   
-  /* Responsive text improvements */
+  /* Responsive container and layout improvements */
+  .responsive-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+  }
+  
+  .responsive-grid {
+    display: grid;
+    gap: clamp(1rem, 3vw, 2rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  }
+  
+  .responsive-grid-2 {
+    display: grid;
+    gap: clamp(1rem, 3vw, 2rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  }
+  
+  .responsive-grid-4 {
+    display: grid;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  }
+  
+  /* Table responsive wrapper */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.3) hsl(var(--muted));
+  }
+  
+  .table-responsive::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .table-responsive::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+  
+  .table-responsive::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 4px;
+  }
+  
+  .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.7);
+  }
+  
+  /* Comprehensive breakpoint system */
+  @media (max-width: 1200px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
   @media (max-width: 768px) {
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.1;
-    }
-    
-    h2 {
-      font-size: 1.75rem;
-    }
-    
-    h3 {
-      font-size: 1.25rem;
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
     
     .table-header-improved th {
       font-size: 0.75rem;
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 0.5rem;
+      white-space: nowrap;
     }
     
     .table-cell-improved {
-      padding: 1rem 1rem;
+      padding: 1rem 0.5rem;
+    }
+    
+    .responsive-grid-4 {
+      grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
     }
   }
   
   @media (max-width: 640px) {
-    .gradient-text-improved {
-      font-size: 2rem;
-      line-height: 1.1;
+    .container {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
     }
     
     .table-header-improved th {
       font-size: 0.7rem;
-      padding: 0.5rem 0.75rem;
+      padding: 0.5rem 0.25rem;
     }
     
     .table-cell-improved {
-      padding: 0.75rem 0.75rem;
+      padding: 0.75rem 0.25rem;
+    }
+    
+    .responsive-grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .responsive-grid-4 {
+      grid-template-columns: 1fr;
+    }
+    
+    .table-responsive table {
+      min-width: 600px;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .container {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
   }
   

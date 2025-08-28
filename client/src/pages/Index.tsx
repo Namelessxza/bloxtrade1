@@ -125,21 +125,21 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="responsive-container py-4 sm:py-6 lg:py-8">
         {/* Hero Section */}
-        <section className="mb-12">
-          <div className="text-center space-y-4 mb-8">
-            <h1 className="text-4xl md:text-6xl gradient-text-improved gaming-text-glow">
+        <section className="mb-8 lg:mb-12">
+          <div className="text-center space-y-4 mb-6 lg:mb-8">
+            <h1 className="gradient-text-improved gaming-text-glow">
               GameXchange Marketplace
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               Trade, collect, and discover rare gaming items from your favorite games. 
               Join thousands of gamers in the ultimate digital marketplace.
             </p>
           </div>
           
           {/* Quick Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+          <div className="responsive-grid-4 mb-6 lg:mb-8">
             <StatsCard
               title="Total Items"
               value="12,547"
@@ -173,11 +173,11 @@ const Index = () => {
 
         {/* Marketplace Section */}
         <section>
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <h2 className="text-2xl font-bold text-foreground">Featured Marketplace</h2>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <Select defaultValue="trending">
-                <SelectTrigger className="w-40">
+                <SelectTrigger className="w-32 sm:w-40">
                   <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
                 <SelectContent>
@@ -195,24 +195,24 @@ const Index = () => {
             </div>
           </div>
 
-          <Tabs defaultValue="grid" className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div className="flex space-x-2">
+          <Tabs defaultValue="grid" className="space-y-4 lg:space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex flex-wrap gap-2">
                 <Button variant="outline" size="sm" className="gaming-button-secondary">
                   All Games
                 </Button>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
                   CyberStrike 2077
                 </Button>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" className="hidden md:inline-flex">
                   Fantasy Realms
                 </Button>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" className="hidden lg:inline-flex">
                   Dragon's Quest
                 </Button>
               </div>
               
-              <TabsList className="bg-gaming-card border border-border/50">
+              <TabsList className="bg-gaming-card border border-border/50 self-start sm:self-auto">
                 <TabsTrigger value="grid" className="data-[state=active]:bg-primary/20">
                   <Grid3X3 className="h-4 w-4" />
                 </TabsTrigger>
@@ -224,8 +224,9 @@ const Index = () => {
 
             <TabsContent value="grid">
               <div className="gaming-card border border-border/20 rounded-lg overflow-hidden">
-                <Table>
-                  <TableHeader className="table-header-improved">
+                <div className="table-responsive">
+                  <Table>
+                    <TableHeader className="table-header-improved">
                     <TableRow>
                       <TableHead>Player Username & Profile</TableHead>
                       <TableHead>Item/Name</TableHead>
@@ -288,35 +289,38 @@ const Index = () => {
                     ))}
                   </TableBody>
                 </Table>
+                </div>
               </div>
             </TabsContent>
 
             <TabsContent value="list">
-              <div className="space-y-4">
+              <div className="space-y-3 lg:space-y-4">
                 {gameItems.map((item) => (
-                  <div key={item.id} className="gaming-card p-4 flex items-center space-x-4">
+                  <div key={item.id} className="gaming-card p-3 lg:p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                     <img 
                       src={item.image} 
                       alt={item.title}
-                      className="w-16 h-16 rounded-lg object-cover"
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover"
                     />
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-foreground">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">{item.game}</p>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-foreground truncate">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground truncate">{item.game}</p>
                     </div>
-                    <div className="text-right">
-                      <div className="text-lg font-bold text-success">
-                        ${item.currentPrice}
-                      </div>
-                      {item.originalPrice && (
-                        <div className="text-sm text-muted-foreground line-through">
-                          ${item.originalPrice}
+                    <div className="flex items-center justify-between sm:flex-col sm:items-end gap-2">
+                      <div className="text-right">
+                        <div className="text-lg font-bold text-success">
+                          ${item.currentPrice.toFixed(2)}
                         </div>
-                      )}
+                        {item.originalPrice && (
+                          <div className="text-sm text-muted-foreground line-through">
+                            ${item.originalPrice.toFixed(2)}
+                          </div>
+                        )}
+                      </div>
+                      <Button size="sm" className="gaming-button-primary whitespace-nowrap">
+                        Buy Now
+                      </Button>
                     </div>
-                    <Button size="sm" className="gaming-button-primary">
-                      Buy Now
-                    </Button>
                   </div>
                 ))}
               </div>
