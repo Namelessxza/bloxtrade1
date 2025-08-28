@@ -256,16 +256,9 @@ const Index = () => {
                           </div>
                         </TableCell>
                         <TableCell className="table-cell-improved">
-                          <div className="flex items-center space-x-3">
-                            <img 
-                              src={item.image} 
-                              alt={item.title}
-                              className="w-12 h-12 rounded-lg object-cover border border-border/20"
-                            />
-                            <div>
-                              <div className="font-semibold text-foreground">{item.title}</div>
-                              <div className="text-sm text-muted-foreground font-medium">{item.game}</div>
-                            </div>
+                          <div>
+                            <div className="font-semibold text-foreground">{item.title}</div>
+                            <div className="text-sm text-muted-foreground font-medium">{item.game}</div>
                           </div>
                         </TableCell>
                         <TableCell className="table-cell-improved">
@@ -298,11 +291,6 @@ const Index = () => {
               <div className="space-y-3 lg:space-y-4">
                 {gameItems.map((item) => (
                   <div key={item.id} className="gaming-card p-3 lg:p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover"
-                    />
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-foreground truncate">{item.title}</h3>
                       <p className="text-sm text-muted-foreground truncate">{item.game}</p>
