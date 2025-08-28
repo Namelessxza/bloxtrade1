@@ -33,7 +33,7 @@ All colors MUST be HSL.
   }
 
   :root {
-    /* Dark gaming theme - Enhanced contrast */
+    /* Standardized GameXchange Brand Colors - #00d4ff Primary Theme */
     --background: 228 14% 8%;
     --foreground: 220 20% 98%;
 
@@ -43,24 +43,32 @@ All colors MUST be HSL.
     --popover: 228 14% 12%;
     --popover-foreground: 220 20% 98%;
 
+    /* Primary Brand Color: #00d4ff - Used for logos, primary buttons, main CTAs */
     --primary: 195 100% 50%;
     --primary-foreground: 228 14% 8%;
     --primary-glow: 195 100% 60%;
+    --primary-hover: 195 100% 45%;
+    --primary-active: 195 100% 40%;
 
-    --secondary: 270 50% 55%;
+    /* Secondary Brand Color: Consistent purple for secondary actions */
+    --secondary: 270 60% 55%;
     --secondary-foreground: 220 20% 98%;
-    --secondary-glow: 270 50% 65%;
+    --secondary-glow: 270 60% 65%;
+    --secondary-hover: 270 60% 50%;
 
     --muted: 228 14% 14%;
     --muted-foreground: 220 10% 75%;
 
-    --accent: 150 100% 45%;
-    --accent-foreground: 228 14% 8%;
-    --accent-glow: 150 100% 55%;
+    /* Accent Color: Consistent green for success states */
+    --accent: 142 76% 36%;
+    --accent-foreground: 220 20% 98%;
+    --accent-glow: 142 76% 46%;
+    --accent-hover: 142 76% 31%;
 
-    --success: 120 60% 50%;
-    --warning: 45 90% 55%;
-    --destructive: 0 70% 55%;
+    /* Status Colors - Standardized across platform */
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 220 20% 95%;
 
     --border: 228 14% 18%;
@@ -69,25 +77,26 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Gaming specific colors */
-    --gaming-purple: 270 50% 55%;
-    --gaming-cyan: 195 100% 50%;
-    --gaming-green: 150 100% 45%;
+    /* Standardized Gaming Colors - Aligned with brand palette */
+    --gaming-primary: 195 100% 50%;  /* Same as --primary for consistency */
+    --gaming-secondary: 270 60% 55%; /* Same as --secondary for consistency */
+    --gaming-accent: 142 76% 36%;    /* Same as --accent for consistency */
     --gaming-dark: 228 14% 6%;
     --gaming-card: 228 14% 10%;
     --gaming-hover: 228 14% 12%;
 
-    /* Gradients */
+    /* Brand-Consistent Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
     --gradient-success: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-gaming: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-cyan)));
+    --gradient-brand: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(228 14% 12%));
 
-    /* Shadows */
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    /* Brand-Consistent Shadows */
+    --shadow-primary: 0 0 20px hsl(var(--primary) / 0.3);
+    --shadow-secondary: 0 0 20px hsl(var(--secondary) / 0.3);
     --shadow-card: 0 8px 32px hsl(228 14% 4% / 0.4);
-    --shadow-gaming: 0 0 40px hsl(var(--gaming-cyan) / 0.2);
+    --shadow-accent: 0 0 20px hsl(var(--accent) / 0.3);
 
     /* Performance-optimized animations */
     --transition-fast: transform 0.15s ease-out, opacity 0.15s ease-out;
@@ -223,11 +232,11 @@ All colors MUST be HSL.
     opacity: 1;
   }
   
-  /* Performance-optimized Gaming Buttons */
+  /* Brand-consistent Gaming Buttons */
   .gaming-button-primary {
     @apply relative font-semibold px-6 py-2 rounded-lg text-primary-foreground overflow-hidden;
-    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    outline: 1px solid hsl(var(--primary) / 0.3);
+    background: var(--gradient-primary);
+    border: 1px solid hsl(var(--primary) / 0.4);
     transform: translateZ(0);
     contain: layout style;
     transition: var(--transition-hover);
@@ -256,7 +265,8 @@ All colors MUST be HSL.
   }
   
   .gaming-button-primary:hover {
-    outline: 1px solid hsl(var(--primary) / 0.6);
+    background: linear-gradient(45deg, hsl(var(--primary-hover)), hsl(var(--primary)));
+    border-color: hsl(var(--primary) / 0.8);
     transform: translateY(-1px) translateZ(0);
   }
   
@@ -267,26 +277,24 @@ All colors MUST be HSL.
   
   .gaming-button-secondary {
     @apply relative font-semibold px-6 py-2 rounded-lg text-secondary-foreground overflow-hidden;
-    background: linear-gradient(45deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    outline: 1px solid hsl(var(--secondary) / 0.2);
+    background: var(--gradient-secondary);
+    border: 1px solid hsl(var(--secondary) / 0.4);
     transform: translateZ(0);
     transition: var(--transition-hover);
     will-change: transform;
   }
   
   .gaming-button-secondary:hover {
-    outline: 1px solid hsl(var(--secondary) / 0.4);
+    background: linear-gradient(45deg, hsl(var(--secondary-hover)), hsl(var(--secondary)));
+    border-color: hsl(var(--secondary) / 0.8);
     transform: translateY(-1px) translateZ(0);
   }
   
-  /* Performance-optimized Action Buttons */
+  /* Brand-consistent Action Buttons */
   .gaming-action-button {
     @apply relative font-bold px-8 py-3 rounded-lg text-white overflow-hidden;
-    background: linear-gradient(135deg, 
-      hsl(var(--accent)), 
-      hsl(var(--accent-glow))
-    );
-    outline: 1px solid hsl(var(--accent) / 0.3);
+    background: var(--gradient-success);
+    border: 1px solid hsl(var(--accent) / 0.4);
     transform: translateZ(0);
     contain: layout style;
     transition: var(--transition-hover);
@@ -315,7 +323,8 @@ All colors MUST be HSL.
   }
   
   .gaming-action-button:hover {
-    outline: 1px solid hsl(var(--accent) / 0.5);
+    background: linear-gradient(135deg, hsl(var(--accent-hover)), hsl(var(--accent)));
+    border-color: hsl(var(--accent) / 0.8);
     transform: translateY(-1px) translateZ(0);
   }
   
@@ -334,10 +343,7 @@ All colors MUST be HSL.
   
   .gaming-title {
     @apply gaming-text-glow;
-    background: linear-gradient(135deg, 
-      hsl(var(--primary)), 
-      hsl(var(--accent))
-    );
+    background: var(--gradient-brand);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -360,12 +366,7 @@ All colors MUST be HSL.
     left: 0;
     width: 30%;
     height: 2px;
-    background: linear-gradient(90deg, 
-      hsl(var(--primary)), 
-      hsl(var(--accent)), 
-      transparent
-    );
-    animation: slideInFromLeft 1s ease-out;
+    background: var(--gradient-brand);
   }
   
   /* Performance-optimized Status Indicators */
@@ -381,51 +382,39 @@ All colors MUST be HSL.
     right: 0;
     width: 8px;
     height: 8px;
-    background: hsl(var(--accent));
+    background: hsl(var(--success));
     border-radius: 50%;
-    outline: 1px solid hsl(var(--accent) / 0.3);
+    border: 1px solid hsl(var(--success) / 0.5);
     transform: translateZ(0);
   }
   
-  /* Performance-optimized Rarity Effects */
+  /* Brand-consistent Rarity Effects */
   .rarity-mythic {
-    background: linear-gradient(135deg, 
-      hsl(var(--secondary)), 
-      hsl(var(--secondary-glow))
-    );
-    outline: 1px solid hsl(var(--secondary) / 0.4);
+    background: var(--gradient-secondary);
+    border: 1px solid hsl(var(--secondary) / 0.5);
     transform: translateZ(0);
   }
   
   .rarity-legendary {
-    background: linear-gradient(135deg, 
-      hsl(45, 90%, 55%), 
-      hsl(45, 90%, 65%)
-    );
-    outline: 1px solid hsl(45, 90%, 55% / 0.4);
+    background: linear-gradient(135deg, hsl(var(--warning)), hsl(38 92% 60%));
+    border: 1px solid hsl(var(--warning) / 0.5);
     transform: translateZ(0);
   }
   
   .rarity-epic {
-    background: linear-gradient(135deg, 
-      hsl(var(--primary)), 
-      hsl(var(--primary-glow))
-    );
-    outline: 1px solid hsl(var(--primary) / 0.4);
+    background: var(--gradient-primary);
+    border: 1px solid hsl(var(--primary) / 0.5);
     transform: translateZ(0);
   }
   
   .rarity-rare {
-    background: linear-gradient(135deg, 
-      hsl(var(--accent)), 
-      hsl(var(--accent-glow))
-    );
-    outline: 1px solid hsl(var(--accent) / 0.4);
+    background: var(--gradient-success);
+    border: 1px solid hsl(var(--accent) / 0.5);
     transform: translateZ(0);
   }
   
   .gaming-border-glow {
-    outline: 1px solid hsl(var(--primary) / 0.3);
+    border: 1px solid hsl(var(--primary) / 0.4);
     transform: translateZ(0);
   }
   
@@ -461,9 +450,9 @@ All colors MUST be HSL.
     vertical-align: middle;
   }
   
-  /* Improved gradient text */
+  /* Brand-consistent gradient text */
   .gradient-text-improved {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--gaming-cyan)));
+    background: var(--gradient-brand);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

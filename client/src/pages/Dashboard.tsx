@@ -254,9 +254,9 @@ export default function Dashboard() {
 
                     {/* Stats Cards - Much Larger and Readable */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-blue-500/10 to-purple-500/10">
+                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-primary/10 to-secondary/10">
                         <CardContent className="p-6 text-center">
-                          <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mx-auto mb-4">
+                          <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto mb-4">
                             <Package className="h-8 w-8 text-white" />
                           </div>
                           <p className="text-3xl font-bold text-foreground mb-2" data-testid="text-total-trades">
@@ -312,7 +312,7 @@ export default function Dashboard() {
                       <Link href="/my-trades">
                         <Card className="gaming-card border-border/20 hover:scale-105 transition-all duration-300 cursor-pointer group">
                           <CardContent className="p-4 text-center">
-                            <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                            <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                               <Gamepad2 className="h-6 w-6 text-white" />
                             </div>
                             <h4 className="text-sm font-semibold text-foreground mb-1">My Trades</h4>
@@ -335,7 +335,7 @@ export default function Dashboard() {
 
                       <Card className="gaming-card border-border/20 hover:scale-105 transition-all duration-300 cursor-pointer group">
                         <CardContent className="p-4 text-center">
-                          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-secondary to-secondary-glow flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                             <BookOpen className="h-6 w-6 text-white" />
                           </div>
                           <h4 className="text-sm font-semibold text-foreground mb-1">Learn Trading</h4>
@@ -371,8 +371,8 @@ export default function Dashboard() {
                           <Badge className="bg-green-500/20 text-green-500 text-xs">Trending</Badge>
                         </div>
 
-                        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-blue-500/5 to-purple-500/5 border border-border/10">
-                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-primary/5 to-secondary/5 border border-border/10">
+                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                             <Sparkles className="h-5 w-5 text-white" />
                           </div>
                           <div className="flex-1">

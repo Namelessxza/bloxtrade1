@@ -31,13 +31,13 @@ const GameItemCard = ({
       case "Common":
         return "bg-gray-500/20 text-gray-300 border-gray-500/30";
       case "Rare":
-        return "bg-blue-500/20 text-blue-300 border-blue-500/30";
+        return "bg-primary/20 text-primary border-primary/30";
       case "Epic":
-        return "bg-purple-500/20 text-purple-300 border-purple-500/30";
+        return "bg-secondary/20 text-secondary border-secondary/30";
       case "Legendary":
-        return "bg-orange-500/20 text-orange-300 border-orange-500/30";
+        return "bg-warning/20 text-warning border-warning/30";
       case "Mythic":
-        return "bg-gaming-cyan/20 text-gaming-cyan border-gaming-cyan/30";
+        return "bg-primary/20 text-primary border-primary/30";
       default:
         return "bg-gray-500/20 text-gray-300 border-gray-500/30";
     }

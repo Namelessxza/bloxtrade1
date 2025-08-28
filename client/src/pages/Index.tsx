@@ -301,7 +301,7 @@ const Index = () => {
                     <div key={tier.name} className="marketplace-card rounded-xl overflow-hidden">
                       {/* Battle Entry - Exact Reference Design */}
                       <div 
-                        className="relative p-6 bg-gradient-to-r from-blue-600/15 via-blue-500/10 to-blue-600/15 backdrop-blur-lg border border-white/20 pt-[24px] pb-[24px] cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:from-blue-600/25 hover:via-blue-500/20 hover:to-blue-600/25 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
+                        className="relative p-6 bg-gradient-to-r from-primary/15 via-primary/10 to-primary/15 backdrop-blur-lg border border-white/20 pt-[24px] pb-[24px] cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:from-primary/25 hover:via-primary/20 hover:to-primary/25 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
                         onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
                       >
                         {/* Tier Label - Top Left */}
@@ -352,7 +352,7 @@ const Index = () => {
                                   <div className="flex items-center gap-2">
                                     <span className="text-lg font-bold text-white">{item.title}</span>
                                     <span className="text-sm text-white/60">•</span>
-                                    <span className="text-sm font-medium text-blue-300">{item.game}</span>
+                                    <span className="text-sm font-medium text-primary">{item.game}</span>
                                   </div>
                                   <p className="text-sm text-white/80 leading-relaxed">
                                     Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
@@ -393,8 +393,8 @@ const Index = () => {
                       {/* Battle Entry - Exact Reference Design */}
                       <div 
                         className={`relative p-6 cursor-pointer transition-all duration-200 hover:scale-[1.02] ${
-                          tier.name === 'NORMAL' ? 'bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-600/20 hover:from-blue-600/30 hover:via-blue-500/25 hover:to-blue-600/30' :
-                          tier.name === 'INVERSE' ? 'bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-600/20 hover:from-blue-600/30 hover:via-blue-500/25 hover:to-blue-600/30' :
+                          tier.name === 'NORMAL' ? 'bg-gradient-to-r from-primary/20 via-primary/15 to-primary/20 hover:from-primary/30 hover:via-primary/25 hover:to-primary/30' :
+                          tier.name === 'INVERSE' ? 'bg-gradient-to-r from-primary/20 via-primary/15 to-primary/20 hover:from-primary/30 hover:via-primary/25 hover:to-primary/30' :
                           'bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-600/20 hover:from-red-600/30 hover:via-red-500/25 hover:to-red-600/30'
                         } backdrop-blur-sm border border-white/10 hover:border-white/20`}
                         onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
@@ -447,7 +447,7 @@ const Index = () => {
                                   <div className="flex items-center gap-2">
                                     <span className="text-lg font-bold text-white">{item.title}</span>
                                     <span className="text-sm text-white/60">•</span>
-                                    <span className="text-sm font-medium text-blue-300">{item.game}</span>
+                                    <span className="text-sm font-medium text-primary">{item.game}</span>
                                   </div>
                                   <p className="text-sm text-white/80 leading-relaxed">
                                     Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
