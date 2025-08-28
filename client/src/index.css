@@ -89,7 +89,7 @@ All colors MUST be HSL.
 @layer components {
   /* Gaming specific components */
   .gaming-card {
-    @apply bg-gradient-to-br from-card to-gaming-card border border-border/50 rounded-xl shadow-[0_8px_32px_hsl(var(--gaming-dark)/0.4)] backdrop-blur-sm;
+    @apply bg-gradient-to-br from-card to-gaming-hover border border-border/50 rounded-xl shadow-[0_8px_32px_hsl(var(--gaming-dark)/0.4)] backdrop-blur-sm;
     transition: var(--transition-smooth);
   }
   

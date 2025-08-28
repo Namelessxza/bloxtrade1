@@ -7,13 +7,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-// Import images
-import item1 from "@/assets/item1.jpg";
-import item2 from "@/assets/item2.jpg";
-import item3 from "@/assets/item3.jpg";
-import item4 from "@/assets/item4.jpg";
-import item5 from "@/assets/item5.jpg";
-import item6 from "@/assets/item6.jpg";
+// Placeholder images for game items
+const item1 = "https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?w=400&h=300&fit=crop";
+const item2 = "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop";
+const item3 = "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400&h=300&fit=crop";
+const item4 = "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop";
+const item5 = "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop";
+const item6 = "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=300&fit=crop";
 
 const gameItems = [
   {
