@@ -286,7 +286,7 @@ const Index = () => {
                         <div key={tier.name} className="rounded-xl overflow-hidden">
                           {/* Battle Entry - Exact Reference Design */}
                           <div 
-                            className="relative p-6 bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 backdrop-blur-sm border border-white/10 pt-[0px] pb-[0px]"
+                            className="relative p-6 bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 backdrop-blur-sm border border-white/10 pt-[24px] pb-[24px]"
                           >
                             {/* Tier Label - Top Left */}
                             <div className="absolute top-4 left-6">
