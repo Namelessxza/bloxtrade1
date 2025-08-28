@@ -150,8 +150,7 @@ const Index = () => {
   };
   
   const handleRowClick = (itemId: string) => {
-    // TODO: Navigate to trade thread page
-    console.log('Clicked item:', itemId);
+    window.location.href = `/trade/${itemId}`;
   };
   
   const handleSendOffer = (itemId: string, e: React.MouseEvent) => {
