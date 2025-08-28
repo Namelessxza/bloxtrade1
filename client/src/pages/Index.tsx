@@ -271,140 +271,115 @@ const Index = () => {
 
             <TabsContent value="grid">
               {(() => {
-                // Group items by rarity tier and create battle entries
-                const rarityTiers = ['Mythic', 'Legendary', 'Epic', 'Rare'];
-                const groupedItems = rarityTiers.reduce((acc, rarity) => {
-                  acc[rarity] = paginatedItems.filter(item => item.rarity === rarity);
-                  return acc;
-                }, {} as Record<string, typeof paginatedItems>);
-
-                // Create battle entries by grouping players together
-                const createBattleEntries = (items: typeof paginatedItems) => {
-                  const battleEntries = [];
-                  let currentBattle = [];
-                  
-                  for (let i = 0; i < items.length; i++) {
-                    currentBattle.push(items[i]);
-                    
-                    // Create battle entry when we have 2-4 players or reached end
-                    if (currentBattle.length >= 3 || i === items.length - 1) {
-                      const totalCost = currentBattle.reduce((sum, item) => sum + (item.currentPrice || 0), 0);
-                      battleEntries.push({
-                        id: `battle-${i}`,
-                        players: currentBattle,
-                        totalCost,
-                        itemCount: currentBattle.length
-                      });
-                      currentBattle = [];
-                    }
-                  }
-                  
-                  return battleEntries;
-                };
+                // Define exact tier structure from reference image
+                const battleTiers = [
+                  { name: 'NORMAL', items: paginatedItems.slice(0, 2) },
+                  { name: 'INVERSE', items: paginatedItems.slice(2, 4) },
+                  { name: 'TERMINAL', items: paginatedItems.slice(4, 6) }
+                ];
 
                 return (
-                  <div className="space-y-6">
-                    {rarityTiers.map(rarity => {
-                      const tierItems = groupedItems[rarity];
-                      if (tierItems.length === 0) return null;
-
-                      const battleEntries = createBattleEntries(tierItems);
+                  <div className="space-y-4">
+                    {battleTiers.map((tier, tierIndex) => {
+                      if (tier.items.length === 0) return null;
 
                       return (
-                        <div key={rarity} className="gaming-card border border-border/20 rounded-lg overflow-hidden">
-                          {/* Tier Header */}
-                          <div className={`px-6 py-4 border-b border-border/20 ${
-                            rarity === 'Mythic' ? 'bg-gaming-purple/10' :
-                            rarity === 'Legendary' ? 'bg-yellow-500/10' :
-                            rarity === 'Epic' ? 'bg-gaming-cyan/10' :
-                            'bg-gaming-green/10'
-                          }`}>
-                            <div className="flex items-center justify-between">
-                              <h3 className={`text-lg font-bold ${
-                                rarity === 'Mythic' ? 'text-gaming-purple gaming-text-glow' :
-                                rarity === 'Legendary' ? 'text-yellow-400 gaming-text-glow' :
-                                rarity === 'Epic' ? 'text-gaming-cyan gaming-text-glow' :
-                                'text-gaming-green'
-                              }`}>
-                                {rarity}
-                              </h3>
-                              <span className="text-sm text-muted-foreground font-medium">
-                                {tierItems.length} {tierItems.length === 1 ? 'item' : 'items'}
+                        <div key={tier.name} className="rounded-xl overflow-hidden">
+                          {/* Battle Entry - Exact Reference Design */}
+                          <div 
+                            className={`relative p-6 ${
+                              tier.name === 'NORMAL' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20' :
+                              tier.name === 'INVERSE' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20' :
+                              'bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-600/20'
+                            } backdrop-blur-sm border border-white/10`}
+                          >
+                            {/* Tier Label - Top Left */}
+                            <div className="absolute top-4 left-6">
+                              <span className="text-xs font-bold text-white/60 tracking-wider">
+                                {tier.name}
                               </span>
                             </div>
-                          </div>
 
-                          {/* Battle Entries */}
-                          <div className="divide-y divide-border/10">
-                            {battleEntries.map((battle) => (
-                              <div 
-                                key={battle.id} 
-                                className="p-6 cursor-pointer hover:bg-muted/5 transition-colors"
-                                onClick={() => console.log('View battle:', battle.id)}
-                              >
-                                <div className="flex items-center gap-6">
-                                  {/* Left: Player Avatars */}
-                                  <div className="flex items-center space-x-2 min-w-[160px]">
-                                    {battle.players.map((player, index) => (
-                                      <div key={player.id} className="relative">
-                                        <img 
-                                          src={player.player.avatar} 
-                                          alt={`${player.player.username} avatar`}
-                                          className="w-10 h-10 rounded-full object-cover border-2 border-border/20 flex-shrink-0"
-                                          style={{ marginLeft: index > 0 ? '-8px' : '0' }}
-                                        />
-                                        {player.player.isOnline && (
-                                          <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-success border-2 border-background" />
-                                        )}
+                            {/* Item Count - Top Right */}
+                            <div className="absolute top-4 right-6">
+                              <span className="text-sm font-medium text-white/80">
+                                {tier.items.length}/6
+                              </span>
+                            </div>
+
+                            <div className="flex items-center gap-8 mt-6">
+                              {/* Left: Player Avatars */}
+                              <div className="flex items-center space-x-1">
+                                {tier.items.map((item, index) => (
+                                  <div key={item.id} className="relative">
+                                    <img 
+                                      src={item.player.avatar} 
+                                      alt={item.player.username}
+                                      className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
+                                    />
+                                    {/* X separator between avatars */}
+                                    {index < tier.items.length - 1 && (
+                                      <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
+                                        <span className="text-white/40 text-sm font-bold">×</span>
                                       </div>
-                                    ))}
-                                    <div className="text-xs text-muted-foreground ml-2">
-                                      {battle.players.length}/{battle.players.length}
-                                    </div>
+                                    )}
                                   </div>
-
-                                  {/* Center: Item Collection */}
-                                  <div className="flex-1 flex items-center gap-3">
-                                    {battle.players.map((item, index) => (
-                                      <div key={item.id} className="flex items-center gap-2">
-                                        <img 
-                                          src={item.image} 
-                                          alt={item.title}
-                                          className="w-12 h-12 rounded-lg object-cover border border-border/20"
-                                        />
-                                        {index < battle.players.length - 1 && (
-                                          <div className="text-muted-foreground">+</div>
-                                        )}
+                                ))}
+                                {/* Add placeholder avatars to fill 6 slots */}
+                                {Array.from({ length: 6 - tier.items.length }).map((_, index) => (
+                                  <div key={`placeholder-${index}`} className="relative">
+                                    <div className="w-10 h-10 rounded-full bg-white/10 border-2 border-white/10" />
+                                    {index < 6 - tier.items.length - 1 && (
+                                      <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
+                                        <span className="text-white/40 text-sm font-bold">×</span>
                                       </div>
-                                    ))}
+                                    )}
                                   </div>
+                                ))}
+                              </div>
 
-                                  {/* Right: Battle Cost & Button */}
-                                  <div className="flex items-center gap-4 min-w-[200px] justify-end">
-                                    <div className="text-right">
-                                      <div className="text-lg font-bold text-foreground">
-                                        ${battle.totalCost.toFixed(2)}
-                                      </div>
-                                      <div className="text-xs text-muted-foreground">
-                                        Battle cost
-                                      </div>
-                                      <div className="text-xs text-muted-foreground">
-                                        Unboxed: ${(battle.totalCost * 1.1).toFixed(2)}
-                                      </div>
+                              {/* Center: 6-Slot Item Grid */}
+                              <div className="flex-1 flex items-center justify-center">
+                                <div className="grid grid-cols-6 gap-3">
+                                  {tier.items.map((item) => (
+                                    <div key={item.id} className="w-12 h-12">
+                                      <img 
+                                        src={item.image} 
+                                        alt={item.title}
+                                        className="w-full h-full rounded object-cover"
+                                      />
                                     </div>
-                                    <Button 
-                                      className="gaming-button-primary"
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        console.log('View battle:', battle.id);
-                                      }}
-                                    >
-                                      View battle
-                                    </Button>
+                                  ))}
+                                  {/* Fill remaining slots with placeholder */}
+                                  {Array.from({ length: 6 - tier.items.length }).map((_, index) => (
+                                    <div key={`item-placeholder-${index}`} className="w-12 h-12 bg-white/10 rounded" />
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* Right: Price and Button */}
+                              <div className="flex items-center gap-6">
+                                <div className="text-right">
+                                  <div className="text-xl font-bold text-white">
+                                    $90.99
+                                  </div>
+                                  <div className="text-xs text-white/60">
+                                    Battle cost
+                                  </div>
+                                </div>
+                                <div className="flex flex-col items-end gap-2">
+                                  <button 
+                                    className="px-6 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all"
+                                    onClick={() => console.log('View battle:', tier.name)}
+                                  >
+                                    View battle
+                                  </button>
+                                  <div className="text-xs text-white/60">
+                                    Unboxed: $904.44
                                   </div>
                                 </div>
                               </div>
-                            ))}
+                            </div>
                           </div>
                         </div>
                       );
@@ -416,141 +391,115 @@ const Index = () => {
 
             <TabsContent value="list">
               {(() => {
-                // Group items by rarity tier and create battle entries
-                const rarityTiers = ['Mythic', 'Legendary', 'Epic', 'Rare'];
-                const groupedItems = rarityTiers.reduce((acc, rarity) => {
-                  acc[rarity] = paginatedItems.filter(item => item.rarity === rarity);
-                  return acc;
-                }, {} as Record<string, typeof paginatedItems>);
-
-                // Create battle entries by grouping players together
-                const createBattleEntries = (items: typeof paginatedItems) => {
-                  const battleEntries = [];
-                  let currentBattle = [];
-                  
-                  for (let i = 0; i < items.length; i++) {
-                    currentBattle.push(items[i]);
-                    
-                    // Create battle entry when we have 2-4 players or reached end
-                    if (currentBattle.length >= 3 || i === items.length - 1) {
-                      const totalCost = currentBattle.reduce((sum, item) => sum + (item.currentPrice || 0), 0);
-                      battleEntries.push({
-                        id: `battle-${i}`,
-                        players: currentBattle,
-                        totalCost,
-                        itemCount: currentBattle.length
-                      });
-                      currentBattle = [];
-                    }
-                  }
-                  
-                  return battleEntries;
-                };
+                // Define exact tier structure from reference image
+                const battleTiers = [
+                  { name: 'NORMAL', items: paginatedItems.slice(0, 2) },
+                  { name: 'INVERSE', items: paginatedItems.slice(2, 4) },
+                  { name: 'TERMINAL', items: paginatedItems.slice(4, 6) }
+                ];
 
                 return (
-                  <div className="space-y-6">
-                    {rarityTiers.map(rarity => {
-                      const tierItems = groupedItems[rarity];
-                      if (tierItems.length === 0) return null;
-
-                      const battleEntries = createBattleEntries(tierItems);
+                  <div className="space-y-4">
+                    {battleTiers.map((tier, tierIndex) => {
+                      if (tier.items.length === 0) return null;
 
                       return (
-                        <div key={rarity} className="gaming-card border border-border/20 rounded-lg overflow-hidden">
-                          {/* Tier Header */}
-                          <div className={`px-6 py-4 border-b border-border/20 ${
-                            rarity === 'Mythic' ? 'bg-gaming-purple/10' :
-                            rarity === 'Legendary' ? 'bg-yellow-500/10' :
-                            rarity === 'Epic' ? 'bg-gaming-cyan/10' :
-                            'bg-gaming-green/10'
-                          }`}>
-                            <div className="flex items-center justify-between">
-                              <h3 className={`text-lg font-bold ${
-                                rarity === 'Mythic' ? 'text-gaming-purple gaming-text-glow' :
-                                rarity === 'Legendary' ? 'text-yellow-400 gaming-text-glow' :
-                                rarity === 'Epic' ? 'text-gaming-cyan gaming-text-glow' :
-                                'text-gaming-green'
-                              }`}>
-                                {rarity}
-                              </h3>
-                              <span className="text-sm text-muted-foreground font-medium">
-                                {tierItems.length} {tierItems.length === 1 ? 'item' : 'items'}
+                        <div key={tier.name} className="rounded-xl overflow-hidden">
+                          {/* Battle Entry - Exact Reference Design */}
+                          <div 
+                            className={`relative p-6 ${
+                              tier.name === 'NORMAL' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20' :
+                              tier.name === 'INVERSE' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20' :
+                              'bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-600/20'
+                            } backdrop-blur-sm border border-white/10`}
+                          >
+                            {/* Tier Label - Top Left */}
+                            <div className="absolute top-4 left-6">
+                              <span className="text-xs font-bold text-white/60 tracking-wider">
+                                {tier.name}
                               </span>
                             </div>
-                          </div>
 
-                          {/* Battle Entries */}
-                          <div className="space-y-3 lg:space-y-4 p-4">
-                            {battleEntries.map((battle) => (
-                              <div 
-                                key={battle.id} 
-                                className="gaming-card p-4 lg:p-6 cursor-pointer hover:bg-muted/10 transition-colors"
-                                onClick={() => console.log('View battle:', battle.id)}
-                              >
-                                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                                  {/* Left: Player Avatars */}
-                                  <div className="flex items-center space-x-2 min-w-[140px]">
-                                    {battle.players.map((player, index) => (
-                                      <div key={player.id} className="relative">
-                                        <img 
-                                          src={player.player.avatar} 
-                                          alt={`${player.player.username} avatar`}
-                                          className="w-8 h-8 rounded-full object-cover border-2 border-border/20 flex-shrink-0"
-                                          style={{ marginLeft: index > 0 ? '-6px' : '0' }}
-                                        />
-                                        {player.player.isOnline && (
-                                          <div className="absolute -bottom-1 -right-1 w-2 h-2 rounded-full bg-success border border-background" />
-                                        )}
+                            {/* Item Count - Top Right */}
+                            <div className="absolute top-4 right-6">
+                              <span className="text-sm font-medium text-white/80">
+                                {tier.items.length}/6
+                              </span>
+                            </div>
+
+                            <div className="flex items-center gap-8 mt-6">
+                              {/* Left: Player Avatars */}
+                              <div className="flex items-center space-x-1">
+                                {tier.items.map((item, index) => (
+                                  <div key={item.id} className="relative">
+                                    <img 
+                                      src={item.player.avatar} 
+                                      alt={item.player.username}
+                                      className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
+                                    />
+                                    {/* X separator between avatars */}
+                                    {index < tier.items.length - 1 && (
+                                      <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
+                                        <span className="text-white/40 text-sm font-bold">×</span>
                                       </div>
-                                    ))}
-                                    <div className="text-xs text-muted-foreground ml-2">
-                                      {battle.players.length}/{battle.players.length}
-                                    </div>
+                                    )}
                                   </div>
-
-                                  {/* Center: Item Collection */}
-                                  <div className="flex-1 flex items-center gap-2 flex-wrap">
-                                    {battle.players.map((item, index) => (
-                                      <div key={item.id} className="flex items-center gap-1">
-                                        <img 
-                                          src={item.image} 
-                                          alt={item.title}
-                                          className="w-10 h-10 rounded object-cover border border-border/20"
-                                        />
-                                        {index < battle.players.length - 1 && (
-                                          <div className="text-muted-foreground text-sm">+</div>
-                                        )}
+                                ))}
+                                {/* Add placeholder avatars to fill 6 slots */}
+                                {Array.from({ length: 6 - tier.items.length }).map((_, index) => (
+                                  <div key={`placeholder-${index}`} className="relative">
+                                    <div className="w-10 h-10 rounded-full bg-white/10 border-2 border-white/10" />
+                                    {index < 6 - tier.items.length - 1 && (
+                                      <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
+                                        <span className="text-white/40 text-sm font-bold">×</span>
                                       </div>
-                                    ))}
+                                    )}
                                   </div>
+                                ))}
+                              </div>
 
-                                  {/* Right: Battle Cost & Button */}
-                                  <div className="flex items-center justify-between sm:justify-end gap-4 min-w-[180px]">
-                                    <div className="text-right">
-                                      <div className="text-lg font-bold text-foreground">
-                                        ${battle.totalCost.toFixed(2)}
-                                      </div>
-                                      <div className="text-xs text-muted-foreground">
-                                        Battle cost
-                                      </div>
-                                      <div className="text-xs text-muted-foreground">
-                                        Unboxed: ${(battle.totalCost * 1.1).toFixed(2)}
-                                      </div>
+                              {/* Center: 6-Slot Item Grid */}
+                              <div className="flex-1 flex items-center justify-center">
+                                <div className="grid grid-cols-6 gap-3">
+                                  {tier.items.map((item) => (
+                                    <div key={item.id} className="w-12 h-12">
+                                      <img 
+                                        src={item.image} 
+                                        alt={item.title}
+                                        className="w-full h-full rounded object-cover"
+                                      />
                                     </div>
-                                    <Button 
-                                      size="sm"
-                                      className="gaming-button-primary"
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        console.log('View battle:', battle.id);
-                                      }}
-                                    >
-                                      View battle
-                                    </Button>
+                                  ))}
+                                  {/* Fill remaining slots with placeholder */}
+                                  {Array.from({ length: 6 - tier.items.length }).map((_, index) => (
+                                    <div key={`item-placeholder-${index}`} className="w-12 h-12 bg-white/10 rounded" />
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* Right: Price and Button */}
+                              <div className="flex items-center gap-6">
+                                <div className="text-right">
+                                  <div className="text-xl font-bold text-white">
+                                    $90.99
+                                  </div>
+                                  <div className="text-xs text-white/60">
+                                    Battle cost
+                                  </div>
+                                </div>
+                                <div className="flex flex-col items-end gap-2">
+                                  <button 
+                                    className="px-6 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all"
+                                    onClick={() => console.log('View battle:', tier.name)}
+                                  >
+                                    View battle
+                                  </button>
+                                  <div className="text-xs text-white/60">
+                                    Unboxed: $904.44
                                   </div>
                                 </div>
                               </div>
-                            ))}
+                            </div>
                           </div>
                         </div>
                       );
