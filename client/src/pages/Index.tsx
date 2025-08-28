@@ -270,108 +270,190 @@ const Index = () => {
             </div>
 
             <TabsContent value="grid">
-              <div className="gaming-card border border-border/20 rounded-lg overflow-hidden">
-                <div className="table-responsive">
-                  <Table>
-                    <TableHeader className="table-header-improved">
-                    <TableRow>
-                      <TableHead>Player Username & Profile</TableHead>
-                      <TableHead>Item/Name</TableHead>
-                      <TableHead>Label/Rarity</TableHead>
-                      <TableHead>Category</TableHead>
-                      <TableHead className="text-right">Send Offer</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {paginatedItems.map((item) => (
-                      <TableRow 
-                        key={item.id} 
-                        className="table-row-improved cursor-pointer hover:bg-muted/10 transition-colors" 
-                        onClick={() => handleRowClick(item.id)}
-                      >
-                        <TableCell className="table-cell-improved">
-                          <div className="flex items-center space-x-3">
-                            <img 
-                              src={item.player.avatar} 
-                              alt={`${item.player.username} avatar`}
-                              className="w-10 h-10 rounded-full object-cover border border-border/20"
-                            />
-                            <div>
-                              <div className="font-semibold text-foreground flex items-center space-x-2">
-                                <span>{item.player.username}</span>
-                                <div className={`w-2 h-2 rounded-full ${item.player.isOnline ? 'bg-success' : 'bg-muted-foreground/30'}`} />
-                              </div>
+              {(() => {
+                // Group items by rarity tier
+                const rarityTiers = ['Mythic', 'Legendary', 'Epic', 'Rare'];
+                const groupedItems = rarityTiers.reduce((acc, rarity) => {
+                  acc[rarity] = paginatedItems.filter(item => item.rarity === rarity);
+                  return acc;
+                }, {} as Record<string, typeof paginatedItems>);
+
+                return (
+                  <div className="space-y-6">
+                    {rarityTiers.map(rarity => {
+                      const tierItems = groupedItems[rarity];
+                      if (tierItems.length === 0) return null;
+
+                      return (
+                        <div key={rarity} className="gaming-card border border-border/20 rounded-lg overflow-hidden">
+                          {/* Tier Header */}
+                          <div className={`px-6 py-4 border-b border-border/20 ${
+                            rarity === 'Mythic' ? 'bg-gaming-purple/10' :
+                            rarity === 'Legendary' ? 'bg-yellow-500/10' :
+                            rarity === 'Epic' ? 'bg-gaming-cyan/10' :
+                            'bg-gaming-green/10'
+                          }`}>
+                            <div className="flex items-center justify-between">
+                              <h3 className={`text-lg font-bold ${
+                                rarity === 'Mythic' ? 'text-gaming-purple gaming-text-glow' :
+                                rarity === 'Legendary' ? 'text-yellow-400 gaming-text-glow' :
+                                rarity === 'Epic' ? 'text-gaming-cyan gaming-text-glow' :
+                                'text-gaming-green'
+                              }`}>
+                                {rarity}
+                              </h3>
+                              <span className="text-sm text-muted-foreground font-medium">
+                                {tierItems.length} {tierItems.length === 1 ? 'item' : 'items'}
+                              </span>
                             </div>
                           </div>
-                        </TableCell>
-                        <TableCell className="table-cell-improved">
-                          <div>
-                            <div className="font-semibold text-foreground">{item.title}</div>
-                            <div className="text-sm text-muted-foreground font-medium">{item.game}</div>
+
+                          {/* Tier Items */}
+                          <div className="divide-y divide-border/10">
+                            {tierItems.map((item) => (
+                              <div 
+                                key={item.id} 
+                                className="p-4 cursor-pointer hover:bg-muted/5 transition-colors"
+                                onClick={() => handleRowClick(item.id)}
+                              >
+                                <div className="flex items-center gap-4">
+                                  {/* Player Avatar & Profile */}
+                                  <div className="flex items-center space-x-3 min-w-0 flex-1">
+                                    <img 
+                                      src={item.player.avatar} 
+                                      alt={`${item.player.username} avatar`}
+                                      className="w-10 h-10 rounded-full object-cover border border-border/20 flex-shrink-0"
+                                    />
+                                    <div className="min-w-0">
+                                      <div className="font-semibold text-foreground flex items-center space-x-2">
+                                        <span className="truncate">{item.player.username}</span>
+                                        <div className={`w-2 h-2 rounded-full flex-shrink-0 ${item.player.isOnline ? 'bg-success' : 'bg-muted-foreground/30'}`} />
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* Item Info */}
+                                  <div className="flex-1 min-w-0">
+                                    <div className="font-semibold text-foreground truncate">{item.title}</div>
+                                    <div className="text-sm text-muted-foreground font-medium truncate">{item.game}</div>
+                                  </div>
+
+                                  {/* Rarity Badge */}
+                                  <div className="flex-shrink-0">
+                                    <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${
+                                      item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
+                                      item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
+                                      item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
+                                      'bg-gaming-green/20 text-gaming-green'
+                                    }`}>
+                                      {item.rarity}
+                                    </span>
+                                  </div>
+
+                                  {/* Category */}
+                                  <div className="text-muted-foreground font-semibold text-sm min-w-[80px] text-center">
+                                    {item.category}
+                                  </div>
+
+                                  {/* Send Offer Button */}
+                                  <div className="flex-shrink-0">
+                                    <Button 
+                                      size="sm" 
+                                      className="gaming-button-primary"
+                                      onClick={(e) => handleSendOffer(item.id, e)}
+                                    >
+                                      Send Offer
+                                    </Button>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
                           </div>
-                        </TableCell>
-                        <TableCell className="table-cell-improved">
-                          <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${
-                            item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
-                            item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
-                            item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
-                            'bg-gaming-green/20 text-gaming-green'
-                          }`}>
-                            {item.rarity}
-                          </span>
-                        </TableCell>
-                        <TableCell className="table-cell-improved text-muted-foreground font-semibold">
-                          {item.category}
-                        </TableCell>
-                        <TableCell className="table-cell-improved text-right">
-                          <Button 
-                            size="sm" 
-                            className="gaming-button-primary"
-                            onClick={(e) => handleSendOffer(item.id, e)}
-                          >
-                            Send Offer
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-                </div>
-              </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
             </TabsContent>
 
             <TabsContent value="list">
-              <div className="space-y-3 lg:space-y-4">
-                {paginatedItems.map((item) => (
-                  <div 
-                    key={item.id} 
-                    className="gaming-card p-3 lg:p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 cursor-pointer hover:bg-muted/10 transition-colors"
-                    onClick={() => handleRowClick(item.id)}
-                  >
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-foreground truncate">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground truncate">{item.game}</p>
-                      <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold mt-1 ${
-                        item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
-                        item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
-                        item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
-                        'bg-gaming-green/20 text-gaming-green'
-                      }`}>
-                        {item.rarity}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-end">
-                      <Button 
-                        size="sm" 
-                        className="gaming-button-primary"
-                        onClick={(e) => handleSendOffer(item.id, e)}
-                      >
-                        Send Offer
-                      </Button>
-                    </div>
+              {(() => {
+                // Group items by rarity tier
+                const rarityTiers = ['Mythic', 'Legendary', 'Epic', 'Rare'];
+                const groupedItems = rarityTiers.reduce((acc, rarity) => {
+                  acc[rarity] = paginatedItems.filter(item => item.rarity === rarity);
+                  return acc;
+                }, {} as Record<string, typeof paginatedItems>);
+
+                return (
+                  <div className="space-y-6">
+                    {rarityTiers.map(rarity => {
+                      const tierItems = groupedItems[rarity];
+                      if (tierItems.length === 0) return null;
+
+                      return (
+                        <div key={rarity} className="gaming-card border border-border/20 rounded-lg overflow-hidden">
+                          {/* Tier Header */}
+                          <div className={`px-6 py-4 border-b border-border/20 ${
+                            rarity === 'Mythic' ? 'bg-gaming-purple/10' :
+                            rarity === 'Legendary' ? 'bg-yellow-500/10' :
+                            rarity === 'Epic' ? 'bg-gaming-cyan/10' :
+                            'bg-gaming-green/10'
+                          }`}>
+                            <div className="flex items-center justify-between">
+                              <h3 className={`text-lg font-bold ${
+                                rarity === 'Mythic' ? 'text-gaming-purple gaming-text-glow' :
+                                rarity === 'Legendary' ? 'text-yellow-400 gaming-text-glow' :
+                                rarity === 'Epic' ? 'text-gaming-cyan gaming-text-glow' :
+                                'text-gaming-green'
+                              }`}>
+                                {rarity}
+                              </h3>
+                              <span className="text-sm text-muted-foreground font-medium">
+                                {tierItems.length} {tierItems.length === 1 ? 'item' : 'items'}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Tier Items */}
+                          <div className="space-y-3 lg:space-y-4 p-4">
+                            {tierItems.map((item) => (
+                              <div 
+                                key={item.id} 
+                                className="gaming-card p-3 lg:p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 cursor-pointer hover:bg-muted/10 transition-colors"
+                                onClick={() => handleRowClick(item.id)}
+                              >
+                                <div className="flex-1 min-w-0">
+                                  <h3 className="font-semibold text-foreground truncate">{item.title}</h3>
+                                  <p className="text-sm text-muted-foreground truncate">{item.game}</p>
+                                  <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold mt-1 ${
+                                    item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
+                                    item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
+                                    item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
+                                    'bg-gaming-green/20 text-gaming-green'
+                                  }`}>
+                                    {item.rarity}
+                                  </span>
+                                </div>
+                                <div className="flex items-center justify-end">
+                                  <Button 
+                                    size="sm" 
+                                    className="gaming-button-primary"
+                                    onClick={(e) => handleSendOffer(item.id, e)}
+                                  >
+                                    Send Offer
+                                  </Button>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                ))}
-              </div>
+                );
+              })()}
             </TabsContent>
           </Tabs>
 
