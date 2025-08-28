@@ -647,11 +647,7 @@ export default function Index() {
               return (
                 <div
                   key={msg.id}
-                  className={`p-3 rounded-2xl transition-all ${
-                    isHighlighted 
-                      ? 'bg-slate-700/70' 
-                      : 'bg-slate-800/40 hover:bg-slate-800/60'
-                  }`}
+                  className="p-3"
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-3">
@@ -687,9 +683,15 @@ export default function Index() {
                     </div>
                   </div>
                   <div className="mt-1 ml-12">
-                    <p className="text-sm text-white leading-relaxed break-words">
-                      {msg.message}
-                    </p>
+                    <div className={`p-3 rounded-2xl transition-all ${
+                      isHighlighted 
+                        ? 'bg-slate-700/70' 
+                        : 'bg-slate-800/40 hover:bg-slate-800/60'
+                    }`}>
+                      <p className="text-sm text-white leading-relaxed break-words">
+                        {msg.message}
+                      </p>
+                    </div>
                   </div>
                 </div>
               );
