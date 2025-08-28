@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { Router, Route } from "wouter";
+import { Router, Route, Switch } from "wouter";
 import { queryClient } from "@/lib/queryClient";
 import Index from "./pages/Index";
 import TradeListing from "./pages/TradeListing";
@@ -19,14 +19,16 @@ const App = () => (
       <Toaster />
       <Sonner />
       <Router>
-        <Route path="/" component={Index} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/my-trades" component={MyTrades} />
-        <Route path="/create-trade" component={CreateTrade} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/settings" component={Settings} />
-        <Route path="/trade/:id" component={TradeListing} />
-        <Route component={NotFound} />
+        <Switch>
+          <Route path="/" component={Index} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/my-trades" component={MyTrades} />
+          <Route path="/create-trade" component={CreateTrade} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/settings" component={Settings} />
+          <Route path="/trade/:id" component={TradeListing} />
+          <Route component={NotFound} />
+        </Switch>
       </Router>
     </TooltipProvider>
   </QueryClientProvider>
