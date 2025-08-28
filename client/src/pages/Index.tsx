@@ -6,12 +6,38 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { 
-  Sparkles, Gamepad2, Trophy, Crown, Star, Heart, Diamond,
-  Coins, Gift, Zap, Flame, TrendingUp, Users, MessageCircle,
-  Send, ChevronRight, Play, Dice1, Dice2, Dice3, Dice4, Dice5, Dice6,
-  Home, Grid3x3, Layers, BarChart3, Settings, HelpCircle,
-  CreditCard, HeadphonesIcon
+import {
+  Sparkles,
+  Gamepad2,
+  Trophy,
+  Crown,
+  Star,
+  Heart,
+  Diamond,
+  Coins,
+  Gift,
+  Zap,
+  Flame,
+  TrendingUp,
+  Users,
+  MessageCircle,
+  Send,
+  ChevronRight,
+  Play,
+  Dice1,
+  Dice2,
+  Dice3,
+  Dice4,
+  Dice5,
+  Dice6,
+  Home,
+  Grid3x3,
+  Layers,
+  BarChart3,
+  Settings,
+  HelpCircle,
+  CreditCard,
+  HeadphonesIcon,
 } from "lucide-react";
 
 interface GameCard {
@@ -30,17 +56,72 @@ interface ChatMessage {
   message: string;
   avatar?: string;
   timestamp: Date;
+  isAdmin?: boolean;
 }
 
 export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
-    { id: "1", username: "FireManager", message: "Welcome to Fire Casino!", timestamp: new Date(), avatar: "FM" },
-    { id: "2", username: "LuckyPlayer", message: "Just won big on Mega Slots!", timestamp: new Date(), avatar: "LP" },
-    { id: "3", username: "ProGamer", message: "Love the new games!", timestamp: new Date(), avatar: "PG" },
+    {
+      id: "1",
+      username: "Manager",
+      message: "What JB equivalent to money?",
+      timestamp: new Date(Date.now() - 2 * 60 * 1000),
+      avatar: "🎯",
+    },
+    {
+      id: "2",
+      username: "Manager",
+      message: "please do not believe those who contact you from other webs/apps. if you encounter problems, please contact Live Support",
+      timestamp: new Date(Date.now() - 2 * 60 * 1000),
+      avatar: "🎯",
+    },
+    {
+      id: "3",
+      username: "Manager",
+      message: "being empty doesnt feel sucks anymore",
+      timestamp: new Date(Date.now() - 2 * 60 * 1000),
+      avatar: "😭",
+    },
+    {
+      id: "4",
+      username: "Manager",
+      message: "lol...its well for eyes....u know whats my meant? 😍 lol",
+      timestamp: new Date(Date.now() - 2 * 60 * 1000),
+      avatar: "🤤",
+    },
+    {
+      id: "5",
+      username: "Manager",
+      message: "ban",
+      timestamp: new Date(Date.now() - 2 * 60 * 1000),
+      avatar: "🛡️",
+      isAdmin: true,
+    },
+    {
+      id: "6",
+      username: "Manager",
+      message: "HIRING: Looking for someone to take care of me financially. full time only.",
+      timestamp: new Date(Date.now() - 2 * 60 * 1000),
+      avatar: "💰",
+    },
+    {
+      id: "7",
+      username: "Manager",
+      message: "congrats",
+      timestamp: new Date(Date.now() - 2 * 60 * 1000),
+      avatar: "💡",
+    },
+    {
+      id: "8",
+      username: "Manager",
+      message: "My payment not completed",
+      timestamp: new Date(Date.now() - 2 * 60 * 1000),
+      avatar: "🚫",
+    },
   ]);
   const [newMessage, setNewMessage] = useState("");
-  const [onlineUsers] = useState(Math.floor(Math.random() * 500) + 2000);
+  const [onlineUsers] = useState(122);
 
   const gameCategories = [
     { id: "all", label: "All Games", icon: Grid3x3, count: 145 },
@@ -54,19 +135,81 @@ export default function Index() {
   ];
 
   const topGames: GameCard[] = [
-    { id: "1", title: "Sweet Bonanza", category: "Slots", image: "🍬", value: "+60.43" },
-    { id: "2", title: "Gates of Olympus", category: "Slots", image: "⚡", value: "+100.8" },
-    { id: "3", title: "Wolf Gold", category: "Slots", image: "🐺", value: "+130.02" },
-    { id: "4", title: "Book of Dead", category: "Slots", image: "📚", value: "+234.5" },
-    { id: "5", title: "Crazy Time", category: "Live", image: "🎯", value: "+90.3", isHot: true },
-    { id: "6", title: "Mega Moolah", category: "Jackpot", image: "🦁", value: "+170.05" },
-    { id: "7", title: "Starburst", category: "Slots", image: "⭐", value: "+240.02" },
-    { id: "8", title: "Fire Joker", category: "Classic", image: "🔥", value: "+40.02", isNew: true },
+    {
+      id: "1",
+      title: "Sweet Bonanza",
+      category: "Slots",
+      image: "🍬",
+      value: "+60.43",
+    },
+    {
+      id: "2",
+      title: "Gates of Olympus",
+      category: "Slots",
+      image: "⚡",
+      value: "+100.8",
+    },
+    {
+      id: "3",
+      title: "Wolf Gold",
+      category: "Slots",
+      image: "🐺",
+      value: "+130.02",
+    },
+    {
+      id: "4",
+      title: "Book of Dead",
+      category: "Slots",
+      image: "📚",
+      value: "+234.5",
+    },
+    {
+      id: "5",
+      title: "Crazy Time",
+      category: "Live",
+      image: "🎯",
+      value: "+90.3",
+      isHot: true,
+    },
+    {
+      id: "6",
+      title: "Mega Moolah",
+      category: "Jackpot",
+      image: "🦁",
+      value: "+170.05",
+    },
+    {
+      id: "7",
+      title: "Starburst",
+      category: "Slots",
+      image: "⭐",
+      value: "+240.02",
+    },
+    {
+      id: "8",
+      title: "Fire Joker",
+      category: "Classic",
+      image: "🔥",
+      value: "+40.02",
+      isNew: true,
+    },
   ];
 
   const slotGames: GameCard[] = [
-    { id: "s1", title: "Dog House", category: "Slots", image: "🐕", isHot: true },
-    { id: "s2", title: "Big Bass Splash", category: "Fishing", image: "🎣", isNew: true },
+    {
+      id: "s1",
+      title: "Dog House",
+      category: "Slots",
+      image: "🐕",
+      isHot: true,
+    },
+    {
+      id: "s2",
+      title: "Big Bass Splash",
+      category: "Fishing",
+      image: "🎣",
+      isNew: true,
+    },
     { id: "s3", title: "Hot Triple Sevens", category: "Classic", image: "7️⃣" },
     { id: "s4", title: "Crank It Up", category: "Music", image: "🎵" },
     { id: "s5", title: "Juicy Fruits", category: "Fruits", image: "🍉" },
@@ -80,7 +223,7 @@ export default function Index() {
         username: "You",
         message: newMessage,
         timestamp: new Date(),
-        avatar: "ME"
+        avatar: "ME",
       };
       setChatMessages([...chatMessages, message]);
       setNewMessage("");
@@ -130,11 +273,18 @@ export default function Index() {
 
         {/* Bottom Actions */}
         <div className="p-4 border-t border-border space-y-2">
-          <Button className="w-full justify-start gap-2 bg-primary/10 hover:bg-primary/20 text-primary" data-testid="button-buy-crypto">
+          <Button
+            className="w-full justify-start gap-2 bg-primary/10 hover:bg-primary/20 text-primary"
+            data-testid="button-buy-crypto"
+          >
             <CreditCard className="h-4 w-4" />
             Buy Crypto
           </Button>
-          <Button variant="ghost" className="w-full justify-start gap-2" data-testid="button-support">
+          <Button
+            variant="ghost"
+            className="w-full justify-start gap-2"
+            data-testid="button-support"
+          >
             <HeadphonesIcon className="h-4 w-4" />
             Support
           </Button>
@@ -148,18 +298,34 @@ export default function Index() {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm">
               <Coins className="h-4 w-4 text-primary" />
-              <span className="font-semibold" data-testid="text-balance">19,390</span>
-              <Badge variant="secondary" className="ml-2" data-testid="badge-balance-change">+5.1%</Badge>
+              <span className="font-semibold" data-testid="text-balance">
+                19,390
+              </span>
+              <Badge
+                variant="secondary"
+                className="ml-2"
+                data-testid="badge-balance-change"
+              >
+                +5.1%
+              </Badge>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-3">
-            <Button size="sm" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90" data-testid="button-daily-bonus">
+            <Button
+              size="sm"
+              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+              data-testid="button-daily-bonus"
+            >
               <Gift className="h-4 w-4 mr-2" />
               Daily Bonus
             </Button>
             <Link href="/dashboard">
-              <Button size="sm" variant="outline" data-testid="button-dashboard">
+              <Button
+                size="sm"
+                variant="outline"
+                data-testid="button-dashboard"
+              >
                 Dashboard
               </Button>
             </Link>
@@ -175,17 +341,39 @@ export default function Index() {
               <div className="relative p-8 flex items-center justify-between">
                 <div className="space-y-4 max-w-md">
                   <div className="flex items-center gap-2">
-                    <Badge className="bg-secondary text-secondary-foreground" data-testid="badge-limited-time">Limited Time</Badge>
+                    <Badge
+                      className="bg-secondary text-secondary-foreground"
+                      data-testid="badge-limited-time"
+                    >
+                      Limited Time
+                    </Badge>
                     <Sparkles className="h-4 w-4 text-primary animate-pulse" />
                   </div>
                   <h1 className="text-4xl font-bold">
-                    <span className="block text-foreground" data-testid="text-signup-heading">SIGN UP & GET REWARDS UP TO</span>
-                    <span className="text-5xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent" data-testid="text-reward-amount">
+                    <span
+                      className="block text-foreground"
+                      data-testid="text-signup-heading"
+                    >
+                      SIGN UP & GET REWARDS UP TO
+                    </span>
+                    <span
+                      className="text-5xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
+                      data-testid="text-reward-amount"
+                    >
                       $20,000
                     </span>
-                    <span className="block text-2xl text-foreground mt-2" data-testid="text-freespins">and 20 FreeSpins</span>
+                    <span
+                      className="block text-2xl text-foreground mt-2"
+                      data-testid="text-freespins"
+                    >
+                      and 20 FreeSpins
+                    </span>
                   </h1>
-                  <Button size="lg" className="bg-gradient-to-r from-secondary to-primary hover:opacity-90 text-lg px-8" data-testid="button-claim-now">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-secondary to-primary hover:opacity-90 text-lg px-8"
+                    data-testid="button-claim-now"
+                  >
                     Claim Now
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -193,7 +381,9 @@ export default function Index() {
                 <div className="hidden lg:block">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 blur-3xl" />
-                    <div className="relative text-8xl" data-testid="img-wizard">🧙‍♂️</div>
+                    <div className="relative text-8xl" data-testid="img-wizard">
+                      🧙‍♂️
+                    </div>
                   </div>
                 </div>
               </div>
@@ -206,30 +396,59 @@ export default function Index() {
                   <Flame className="h-6 w-6 text-primary" />
                   Hot Games
                 </h2>
-                <Button variant="ghost" size="sm" data-testid="button-view-all-games">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  data-testid="button-view-all-games"
+                >
                   View All
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
               </div>
-              
+
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
                 {topGames.map((game) => (
-                  <Card key={game.id} className="group relative overflow-hidden hover:scale-105 transition-transform cursor-pointer bg-card/50 border-border/50 hover:border-primary/50" data-testid={`card-game-${game.id}`}>
+                  <Card
+                    key={game.id}
+                    className="group relative overflow-hidden hover:scale-105 transition-transform cursor-pointer bg-card/50 border-border/50 hover:border-primary/50"
+                    data-testid={`card-game-${game.id}`}
+                  >
                     <div className="aspect-square flex flex-col items-center justify-center p-4 relative">
                       {game.isHot && (
-                        <Badge className="absolute top-2 right-2 bg-red-500 text-white text-xs" data-testid={`badge-hot-${game.id}`}>
+                        <Badge
+                          className="absolute top-2 right-2 bg-red-500 text-white text-xs"
+                          data-testid={`badge-hot-${game.id}`}
+                        >
                           HOT
                         </Badge>
                       )}
                       {game.isNew && (
-                        <Badge className="absolute top-2 right-2 bg-green-500 text-white text-xs" data-testid={`badge-new-${game.id}`}>
+                        <Badge
+                          className="absolute top-2 right-2 bg-green-500 text-white text-xs"
+                          data-testid={`badge-new-${game.id}`}
+                        >
                           NEW
                         </Badge>
                       )}
-                      <div className="text-4xl mb-2" data-testid={`img-game-${game.id}`}>{game.image}</div>
-                      <p className="text-xs font-medium text-center" data-testid={`text-game-title-${game.id}`}>{game.title}</p>
+                      <div
+                        className="text-4xl mb-2"
+                        data-testid={`img-game-${game.id}`}
+                      >
+                        {game.image}
+                      </div>
+                      <p
+                        className="text-xs font-medium text-center"
+                        data-testid={`text-game-title-${game.id}`}
+                      >
+                        {game.title}
+                      </p>
                       {game.value && (
-                        <p className="text-xs text-primary font-semibold mt-1" data-testid={`text-game-value-${game.id}`}>{game.value}</p>
+                        <p
+                          className="text-xs text-primary font-semibold mt-1"
+                          data-testid={`text-game-value-${game.id}`}
+                        >
+                          {game.value}
+                        </p>
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <Play className="h-8 w-8 text-white" />
@@ -250,12 +469,22 @@ export default function Index() {
                       <Dice6 className="h-5 w-5 text-primary" />
                       Roulette
                     </h3>
-                    <Badge variant="secondary" data-testid="badge-roulette-count">12 games</Badge>
+                    <Badge
+                      variant="secondary"
+                      data-testid="badge-roulette-count"
+                    >
+                      12 games
+                    </Badge>
                   </div>
                   <div className="aspect-video rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                    <div className="text-6xl" data-testid="img-roulette">🎰</div>
+                    <div className="text-6xl" data-testid="img-roulette">
+                      🎰
+                    </div>
                   </div>
-                  <Button className="w-full mt-4 bg-gradient-to-r from-primary to-secondary" data-testid="button-play-roulette">
+                  <Button
+                    className="w-full mt-4 bg-gradient-to-r from-primary to-secondary"
+                    data-testid="button-play-roulette"
+                  >
                     Play Now
                   </Button>
                 </div>
@@ -269,12 +498,19 @@ export default function Index() {
                       <TrendingUp className="h-5 w-5 text-secondary" />
                       Crash
                     </h3>
-                    <Badge variant="secondary" data-testid="badge-crash-count">8 games</Badge>
+                    <Badge variant="secondary" data-testid="badge-crash-count">
+                      8 games
+                    </Badge>
                   </div>
                   <div className="aspect-video rounded-lg bg-gradient-to-br from-secondary/10 to-accent/10 flex items-center justify-center">
-                    <div className="text-6xl" data-testid="img-crash">🚀</div>
+                    <div className="text-6xl" data-testid="img-crash">
+                      🚀
+                    </div>
                   </div>
-                  <Button className="w-full mt-4 bg-gradient-to-r from-secondary to-accent" data-testid="button-play-crash">
+                  <Button
+                    className="w-full mt-4 bg-gradient-to-r from-secondary to-accent"
+                    data-testid="button-play-crash"
+                  >
                     Play Now
                   </Button>
                 </div>
@@ -288,29 +524,66 @@ export default function Index() {
                   <Diamond className="h-6 w-6 text-primary" />
                   Slot Games
                 </h2>
-                <Button variant="ghost" size="sm" data-testid="button-view-all-slots">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  data-testid="button-view-all-slots"
+                >
                   View All
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
               </div>
-              
+
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 {slotGames.map((game) => (
-                  <Card key={game.id} className="group overflow-hidden hover:scale-105 transition-transform cursor-pointer" data-testid={`card-slot-${game.id}`}>
+                  <Card
+                    key={game.id}
+                    className="group overflow-hidden hover:scale-105 transition-transform cursor-pointer"
+                    data-testid={`card-slot-${game.id}`}
+                  >
                     <div className="aspect-[4/5] relative bg-gradient-to-b from-card to-card/50">
                       <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
                         {game.isHot && (
-                          <Badge className="absolute top-2 right-2 bg-red-500 text-white text-xs" data-testid={`badge-slot-hot-${game.id}`}>HOT</Badge>
+                          <Badge
+                            className="absolute top-2 right-2 bg-red-500 text-white text-xs"
+                            data-testid={`badge-slot-hot-${game.id}`}
+                          >
+                            HOT
+                          </Badge>
                         )}
                         {game.isNew && (
-                          <Badge className="absolute top-2 right-2 bg-green-500 text-white text-xs" data-testid={`badge-slot-new-${game.id}`}>NEW</Badge>
+                          <Badge
+                            className="absolute top-2 right-2 bg-green-500 text-white text-xs"
+                            data-testid={`badge-slot-new-${game.id}`}
+                          >
+                            NEW
+                          </Badge>
                         )}
-                        <div className="text-6xl mb-3" data-testid={`img-slot-${game.id}`}>{game.image}</div>
-                        <h4 className="font-bold text-center" data-testid={`text-slot-title-${game.id}`}>{game.title}</h4>
-                        <p className="text-xs text-muted-foreground" data-testid={`text-slot-category-${game.id}`}>{game.category}</p>
+                        <div
+                          className="text-6xl mb-3"
+                          data-testid={`img-slot-${game.id}`}
+                        >
+                          {game.image}
+                        </div>
+                        <h4
+                          className="font-bold text-center"
+                          data-testid={`text-slot-title-${game.id}`}
+                        >
+                          {game.title}
+                        </h4>
+                        <p
+                          className="text-xs text-muted-foreground"
+                          data-testid={`text-slot-category-${game.id}`}
+                        >
+                          {game.category}
+                        </p>
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <Button size="sm" className="bg-white/90 text-primary hover:bg-white" data-testid={`button-play-slot-${game.id}`}>
+                        <Button
+                          size="sm"
+                          className="bg-white/90 text-primary hover:bg-white"
+                          data-testid={`button-play-slot-${game.id}`}
+                        >
                           <Play className="h-4 w-4 mr-1" />
                           Play
                         </Button>
@@ -325,67 +598,118 @@ export default function Index() {
       </div>
 
       {/* Right Chat Panel */}
-      <div className="w-[320px] bg-card border-l border-border flex flex-col">
+      <div className="w-[280px] bg-gradient-to-b from-card/95 to-card border-l border-border/30 flex flex-col">
+        {/* Balance Display */}
+        <div className="p-3 border-b border-border/30 bg-gradient-to-r from-card to-gaming-hover">
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-muted-foreground">$90.4</span>
+            <span className="text-muted-foreground">$500</span>
+          </div>
+          <div className="flex items-center justify-between mt-1">
+            <span className="text-foreground font-medium">$500 left</span>
+            <Button size="sm" className="bg-gradient-to-r from-secondary to-primary text-white px-4 py-1 text-xs h-7">
+              Deposit
+            </Button>
+          </div>
+        </div>
+        
         {/* Chat Header */}
-        <div className="p-4 border-b border-border">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="font-semibold flex items-center gap-2">
-              <MessageCircle className="h-4 w-4 text-primary" />
-              Online Chat
-            </h3>
-            <div className="flex items-center gap-1">
-              <div className="flex -space-x-2">
-                {[1, 2, 3].map((i) => (
-                  <Avatar key={i} className="h-6 w-6 border-2 border-background" data-testid={`avatar-user-${i}`}>
-                    <AvatarFallback className="text-xs bg-primary/20">U{i}</AvatarFallback>
-                  </Avatar>
-                ))}
+        <div className="p-3 border-b border-border/30">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
+                <MessageCircle className="h-3 w-3 text-blue-400" />
               </div>
-              <span className="text-xs text-muted-foreground ml-2" data-testid="text-online-count">
-                {onlineUsers.toLocaleString()} online
-              </span>
+              <span className="text-sm font-medium text-foreground">Online chat</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <span className="text-xs text-muted-foreground">{onlineUsers}</span>
+              <div className="flex -space-x-1 ml-1">
+                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-orange-400 to-red-500 border border-background flex items-center justify-center text-xs">
+                  👨
+                </div>
+                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border border-background flex items-center justify-center text-xs">
+                  👩
+                </div>
+                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-green-400 to-teal-500 border border-background flex items-center justify-center text-xs">
+                  👤
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Chat Messages */}
-        <ScrollArea className="flex-1 p-4">
-          <div className="space-y-4">
+        <ScrollArea className="flex-1 p-2" style={{ maxHeight: 'calc(100vh - 240px)' }}>
+          <div className="space-y-2">
             {chatMessages.map((msg) => (
-              <div key={msg.id} className="flex gap-3" data-testid={`message-${msg.id}`}>
-                <Avatar className="h-8 w-8">
-                  <AvatarFallback className="text-xs bg-primary/10">
-                    {msg.avatar || msg.username.substring(0, 2).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="flex-1">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-sm font-medium" data-testid={`text-username-${msg.id}`}>{msg.username}</span>
-                    <span className="text-xs text-muted-foreground" data-testid={`text-timestamp-${msg.id}`}>
-                      {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              <div
+                key={msg.id}
+                className="flex gap-2 p-2 rounded-lg hover:bg-muted/5 transition-colors"
+                data-testid={`message-${msg.id}`}
+              >
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-lg bg-gradient-to-br from-muted to-muted/50 border border-border/30 relative">
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-background"></div>
+                  {msg.avatar}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-medium text-foreground">
+                      {msg.username}
+                    </span>
+                    {msg.isAdmin && (
+                      <span className="bg-red-500 text-white text-xs px-1 rounded font-medium">
+                        ADMIN
+                      </span>
+                    )}
+                    <span className="text-xs text-muted-foreground ml-auto">
+                      2 min ago
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-0.5" data-testid={`text-message-${msg.id}`}>{msg.message}</p>
+                  <p className="text-xs text-foreground leading-relaxed break-words">
+                    {msg.message}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </ScrollArea>
 
-        {/* Chat Input */}
-        <div className="p-4 border-t border-border">
-          <form onSubmit={(e) => { e.preventDefault(); sendMessage(); }} className="flex gap-2">
-            <Input
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
-              placeholder="Type a message..."
-              className="flex-1"
-              data-testid="input-chat-message"
-            />
-            <Button type="submit" size="icon" className="bg-primary hover:bg-primary/90" data-testid="button-send-message">
-              <Send className="h-4 w-4" />
+        {/* Chat Controls */}
+        <div className="border-t border-border/30 bg-card/50">
+          <div className="flex items-center justify-center gap-4 p-3 border-b border-border/20">
+            <Button variant="ghost" size="sm" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <span className="text-xs">📷</span>
+              <span className="text-xs">GIF</span>
             </Button>
-          </form>
+            <Button variant="ghost" size="sm" className="text-yellow-400 hover:text-yellow-300 flex items-center gap-1">
+              <span className="text-xs">😊</span>
+              <span className="text-xs">Emoji</span>
+            </Button>
+            <Button variant="ghost" size="sm" className="text-green-400 hover:text-green-300 flex items-center gap-1">
+              <span className="text-xs">📋</span>
+              <span className="text-xs">Rules</span>
+            </Button>
+          </div>
+          <div className="p-3">
+            <form onSubmit={(e) => { e.preventDefault(); sendMessage(); }} className="flex gap-2">
+              <Input
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                placeholder="Send a message"
+                className="flex-1 bg-muted/30 border-border/50 text-sm h-9"
+                data-testid="input-chat-message"
+              />
+              <Button
+                type="submit"
+                size="sm"
+                className="bg-blue-500 hover:bg-blue-600 w-9 h-9 p-0"
+                data-testid="button-send-message"
+              >
+                <Send className="h-3 w-3" />
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
