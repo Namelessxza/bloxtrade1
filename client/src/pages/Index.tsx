@@ -72,7 +72,8 @@ export default function Index() {
     {
       id: "2",
       username: "Manager",
-      message: "please do not believe those who contact you from other webs/apps. if you encounter problems, please contact Live Support",
+      message:
+        "please do not believe those who contact you from other webs/apps. if you encounter problems, please contact Live Support",
       timestamp: new Date(Date.now() - 2 * 60 * 1000),
       avatar: "🎯",
     },
@@ -101,7 +102,8 @@ export default function Index() {
     {
       id: "6",
       username: "Manager",
-      message: "HIRING: Looking for someone to take care of me financially. full time only.",
+      message:
+        "HIRING: Looking for someone to take care of me financially. full time only.",
       timestamp: new Date(Date.now() - 2 * 60 * 1000),
       avatar: "💰",
     },
@@ -605,12 +607,15 @@ export default function Index() {
           </div>
           <div className="flex items-center justify-between mt-1">
             <span className="text-white font-medium">$500 left</span>
-            <Button size="sm" className="bg-gradient-to-r from-secondary to-primary text-white px-4 py-1 text-xs h-7">
+            <Button
+              size="sm"
+              className="bg-gradient-to-r from-secondary to-primary text-white px-4 py-1 text-xs h-7"
+            >
               Deposit
             </Button>
           </div>
         </div>
-        
+
         {/* Chat Header */}
         <div className="p-3 border-b border-border/30">
           <div className="flex items-center justify-between">
@@ -618,10 +623,14 @@ export default function Index() {
               <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
                 <MessageCircle className="h-3 w-3 text-blue-400" />
               </div>
-              <span className="text-sm font-medium text-foreground">Online chat</span>
+              <span className="text-sm font-medium text-foreground">
+                Online chat
+              </span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="text-xs text-muted-foreground">{onlineUsers}</span>
+              <span className="text-xs text-muted-foreground">
+                {onlineUsers}
+              </span>
               <div className="flex -space-x-1 ml-1">
                 <div className="w-5 h-5 rounded-full bg-gradient-to-br from-orange-400 to-red-500 border border-background flex items-center justify-center text-xs">
                   👨
@@ -638,7 +647,10 @@ export default function Index() {
         </div>
 
         {/* Chat Messages */}
-        <ScrollArea className="flex-1 p-2 bg-slate-900" style={{ maxHeight: 'calc(100vh - 240px)' }}>
+        <ScrollArea
+          className="flex-1 p-2 bg-slate-900"
+          style={{ maxHeight: "calc(100vh - 240px)" }}
+        >
           <div className="space-y-2">
             {chatMessages.map((msg, index) => {
               const isHighlighted = msg.isAdmin || index === 1; // Admin message gets highlighted background
@@ -646,24 +658,33 @@ export default function Index() {
                 <div
                   key={msg.id}
                   className={`p-3 rounded-2xl transition-all ${
-                    msg.isAdmin 
-                      ? 'bg-gradient-to-r from-orange-800/40 to-red-800/40' 
-                      : 'bg-slate-800/40 hover:bg-slate-800/60'
+                    msg.isAdmin
+                      ? "bg-[#2c2734]"
+                      : "bg-slate-800/40 hover:bg-slate-800/60"
                   }`}
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-3">
                     <div className="relative flex-shrink-0">
-                      <div className={`w-9 h-9 rounded-full flex items-center justify-center text-base border-2 relative ${
-                        index === 0 ? 'border-orange-400 bg-gradient-to-br from-orange-500 to-red-600' :
-                        index === 1 ? 'border-blue-400 bg-gradient-to-br from-blue-500 to-indigo-600' :
-                        index === 2 ? 'border-blue-400 bg-gradient-to-br from-blue-500 to-purple-600' :
-                        index === 3 ? 'border-orange-400 bg-gradient-to-br from-orange-500 to-yellow-600' :
-                        index === 4 ? 'border-blue-400 bg-gradient-to-br from-blue-500 to-cyan-600' :
-                        index === 5 ? 'border-orange-400 bg-gradient-to-br from-orange-500 to-red-600' :
-                        index === 6 ? 'border-yellow-400 bg-gradient-to-br from-yellow-500 to-orange-600' :
-                        'border-red-400 bg-gradient-to-br from-red-500 to-pink-600'
-                      }`}>
+                      <div
+                        className={`w-9 h-9 rounded-full flex items-center justify-center text-base border-2 relative ${
+                          index === 0
+                            ? "border-orange-400 bg-gradient-to-br from-orange-500 to-red-600"
+                            : index === 1
+                              ? "border-blue-400 bg-gradient-to-br from-blue-500 to-indigo-600"
+                              : index === 2
+                                ? "border-blue-400 bg-gradient-to-br from-blue-500 to-purple-600"
+                                : index === 3
+                                  ? "border-orange-400 bg-gradient-to-br from-orange-500 to-yellow-600"
+                                  : index === 4
+                                    ? "border-blue-400 bg-gradient-to-br from-blue-500 to-cyan-600"
+                                    : index === 5
+                                      ? "border-orange-400 bg-gradient-to-br from-orange-500 to-red-600"
+                                      : index === 6
+                                        ? "border-yellow-400 bg-gradient-to-br from-yellow-500 to-orange-600"
+                                        : "border-red-400 bg-gradient-to-br from-red-500 to-pink-600"
+                        }`}
+                      >
                         {msg.avatar}
                         <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-slate-900"></div>
                       </div>
@@ -696,21 +717,39 @@ export default function Index() {
         {/* Chat Controls */}
         <div className="border-t border-border/30 bg-card/50">
           <div className="flex items-center justify-center gap-4 p-3 border-b border-border/20">
-            <Button variant="ghost" size="sm" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-blue-400 hover:text-blue-300 flex items-center gap-1"
+            >
               <span className="text-xs">📷</span>
               <span className="text-xs">GIF</span>
             </Button>
-            <Button variant="ghost" size="sm" className="text-yellow-400 hover:text-yellow-300 flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-yellow-400 hover:text-yellow-300 flex items-center gap-1"
+            >
               <span className="text-xs">😊</span>
               <span className="text-xs">Emoji</span>
             </Button>
-            <Button variant="ghost" size="sm" className="text-green-400 hover:text-green-300 flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-green-400 hover:text-green-300 flex items-center gap-1"
+            >
               <span className="text-xs">📋</span>
               <span className="text-xs">Rules</span>
             </Button>
           </div>
           <div className="p-3">
-            <form onSubmit={(e) => { e.preventDefault(); sendMessage(); }} className="flex gap-2">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendMessage();
+              }}
+              className="flex gap-2"
+            >
               <Input
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
