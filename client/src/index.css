@@ -159,17 +159,16 @@ All colors MUST be HSL.
   }
   
   .gaming-card:hover {
-    @apply border-primary/30 shadow-[0_0_30px_hsl(var(--primary)/0.3)];
+    @apply border-primary/30;
     transform: translateY(-2px);
   }
   
   .gaming-button-primary {
-    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold px-6 py-2 rounded-lg shadow-[0_0_20px_hsl(var(--primary)/0.4)];
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold px-6 py-2 rounded-lg;
     transition: var(--transition-bounce);
   }
   
   .gaming-button-primary:hover {
-    @apply shadow-[0_0_30px_hsl(var(--primary)/0.6)];
     transform: translateY(-1px) scale(1.02);
   }
   
@@ -179,18 +178,15 @@ All colors MUST be HSL.
   }
   
   .gaming-button-secondary:hover {
-    @apply shadow-[0_0_20px_hsl(var(--secondary)/0.4)];
     transform: translateY(-1px);
   }
   
   .gaming-text-glow {
-    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
     font-weight: 900;
     letter-spacing: -0.02em;
   }
   
   .gaming-border-glow {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
   }
   
   /* Table improvements */
