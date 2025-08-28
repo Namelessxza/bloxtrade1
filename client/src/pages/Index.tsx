@@ -645,7 +645,7 @@ export default function Index() {
               return (
                 <div
                   key={msg.id}
-                  className="p-3 rounded-2xl transition-all bg-[#123045]"
+                  className="p-3 rounded-2xl transition-all bg-[#0c2536]"
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-3">
