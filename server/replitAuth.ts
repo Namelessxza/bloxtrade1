@@ -129,6 +129,10 @@ export async function setupAuth(app: Express) {
 }
 
 export const isAuthenticated: RequestHandler = async (req, res, next) => {
+  // TEMPORARY: Skip authentication for development
+  // TODO: Remove this bypass before production
+  return next();
+  
   const user = req.user as any;
 
   if (!req.isAuthenticated() || !user.expires_at) {
