@@ -654,7 +654,7 @@ export default function Index() {
                 >
                   <div className="flex gap-3">
                     <div className="relative flex-shrink-0">
-                      <div className={`w-9 h-9 rounded-full flex items-center justify-center text-base overflow-hidden border-2 relative ${
+                      <div className={`w-9 h-9 rounded-full flex items-center justify-center text-base border-2 relative ${
                         index === 0 ? 'border-orange-400 bg-gradient-to-br from-orange-500 to-red-600' :
                         index === 1 ? 'border-blue-400 bg-gradient-to-br from-blue-500 to-indigo-600' :
                         index === 2 ? 'border-blue-400 bg-gradient-to-br from-blue-500 to-purple-600' :
