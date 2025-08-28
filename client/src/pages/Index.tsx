@@ -290,7 +290,6 @@ export default function Index() {
           </Button>
         </div>
       </div>
-
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col">
         {/* Top Navigation Bar */}
@@ -596,7 +595,6 @@ export default function Index() {
           </div>
         </ScrollArea>
       </div>
-
       {/* Right Chat Panel */}
       <div className="w-[280px] bg-slate-900 border-l border-slate-700/50 flex flex-col">
         {/* Balance Display */}
@@ -647,11 +645,7 @@ export default function Index() {
               return (
                 <div
                   key={msg.id}
-                  className={`p-3 rounded-2xl transition-all ${
-                    isHighlighted 
-                      ? 'bg-slate-700/70' 
-                      : 'bg-slate-800/40 hover:bg-slate-800/60'
-                  }`}
+                  className="p-3 rounded-2xl transition-all bg-[#123045]"
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-3">
