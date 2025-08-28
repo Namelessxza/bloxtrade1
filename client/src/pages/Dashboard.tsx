@@ -126,7 +126,7 @@ export default function Dashboard() {
       {/* Main Layout */}
       <div className="flex h-screen">
         {/* Sidebar */}
-        <div className="w-80 bg-gaming-card/40 border-r border-border/20 p-6 backdrop-blur-sm">
+        <div className="w-96 bg-gaming-card/40 border-r border-border/20 p-6 backdrop-blur-sm">
           <div className="mb-8">
             {/* User Profile Card */}
             <Card className="gaming-card border-border/20 bg-gradient-to-br from-primary/10 to-secondary/10 mb-6">
