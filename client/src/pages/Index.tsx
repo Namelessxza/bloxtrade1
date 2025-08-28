@@ -306,6 +306,14 @@ const Index = () => {
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-foreground truncate">{item.title}</h3>
                       <p className="text-sm text-muted-foreground truncate">{item.game}</p>
+                      <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold mt-1 ${
+                        item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
+                        item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
+                        item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
+                        'bg-gaming-green/20 text-gaming-green'
+                      }`}>
+                        {item.rarity}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between sm:flex-col sm:items-end gap-2">
                       <div className="text-right">
