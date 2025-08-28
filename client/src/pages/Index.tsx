@@ -164,6 +164,14 @@ const Index = () => {
   // Paginate items
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedItems = gameItems.slice(startIndex, startIndex + itemsPerPage);
+
+  // Define exact tier structure from reference image
+  const battleTiers = [
+    { name: 'NORMAL', items: paginatedItems.slice(0, 1) },
+    { name: 'INVERSE', items: paginatedItems.slice(1, 2) },
+    { name: 'TERMINAL', items: paginatedItems.slice(2, 3) }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -271,215 +279,189 @@ const Index = () => {
             </div>
 
             <TabsContent value="grid">
-              {(() => {
-                // Define exact tier structure from reference image
-                const battleTiers = [
-                  { name: 'NORMAL', items: paginatedItems.slice(0, 1) },
-                  { name: 'INVERSE', items: paginatedItems.slice(1, 2) },
-                  { name: 'TERMINAL', items: paginatedItems.slice(2, 3) }
-                ];
+              <div className="space-y-4">
+                {battleTiers.map((tier, tierIndex) => {
+                  if (tier.items.length === 0) return null;
 
-                return (
-                  <div className="space-y-4">
-                    {battleTiers.map((tier, tierIndex) => {
-                      if (tier.items.length === 0) return null;
-
-                      return (
-                        <div key={tier.name} className="rounded-xl overflow-hidden">
-                          {/* Battle Entry - Exact Reference Design */}
-                          <div 
-                            className="relative p-6 bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 backdrop-blur-sm border border-white/10 pt-[24px] pb-[24px] cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:from-purple-600/30 hover:via-purple-500/25 hover:to-purple-600/30 hover:border-white/20"
-                            onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
-                          >
-                            {/* Tier Label - Top Left */}
-                            <div className="absolute top-4 left-6">
-                              <span className="text-xs font-bold text-white/60 tracking-wider">
-                                {tier.name}
-                              </span>
-                            </div>
-
-
-
-                            <div className="flex items-center gap-8 mt-6">
-                              {/* Left: Player Avatars */}
-                              <div className="flex items-center space-x-1">
-                                {tier.items.map((item, index) => (
-                                  <div key={item.id} className="relative">
-                                    <img 
-                                      src={item.player.avatar} 
-                                      alt={item.player.username}
-                                      className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
-                                    />
-                                    {/* X separator between avatars */}
-                                    {index < tier.items.length - 1 && (
-                                      <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
-                                        <span className="text-white/40 text-sm font-bold">×</span>
-                                      </div>
-                                    )}
-                                  </div>
-                                ))}
-
-                              </div>
-
-                              {/* Center: Item Details and Description */}
-                              <div className="flex-1 flex items-center gap-6">
-                                {/* Item Image */}
-                                <div className="w-16 h-16">
-                                  {tier.items.map((item) => (
-                                    <img 
-                                      key={item.id}
-                                      src={item.image} 
-                                      alt={item.title}
-                                      className="w-full h-full rounded-lg object-cover border-2 border-white/20"
-                                    />
-                                  ))}
-                                </div>
-                                
-                                {/* Item Info and Description */}
-                                <div className="flex flex-col gap-2">
-                                  {tier.items.map((item) => (
-                                    <div key={item.id} className="flex flex-col gap-1">
-                                      <div className="flex items-center gap-2">
-                                        <span className="text-lg font-bold text-white">{item.title}</span>
-                                        <span className="text-sm text-white/60">•</span>
-                                        <span className="text-sm font-medium text-purple-300">{item.game}</span>
-                                      </div>
-                                      <p className="text-sm text-white/80 leading-relaxed">
-                                        Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
-                                      </p>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-
-                              {/* Right: Action Button */}
-                              <div className="flex items-center">
-                                <button 
-                                  className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    console.log('Contact trader:', tier.name);
-                                  }}
-                                >
-                                  Send Offer
-                                </button>
-                              </div>
-                            </div>
+                  return (
+                    <div key={tier.name} className="rounded-xl overflow-hidden">
+                      {/* Battle Entry - Exact Reference Design */}
+                      <div 
+                        className="relative p-6 bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 backdrop-blur-sm border border-white/10 pt-[24px] pb-[24px] cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:from-purple-600/30 hover:via-purple-500/25 hover:to-purple-600/30 hover:border-white/20"
+                        onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
+                      >
+                        {/* Tier Label - Top Left */}
+                        <div className="absolute top-4 left-6">
+                          <span className="text-xs font-bold text-white/60 tracking-wider">
+                            {tier.name}
+                          </span>
                         </div>
-                      );
-                    })}
-                  </div>
-                );
-              })()}
+
+                        <div className="flex items-center gap-8 mt-6">
+                          {/* Left: Player Avatars */}
+                          <div className="flex items-center space-x-1">
+                            {tier.items.map((item, index) => (
+                              <div key={item.id} className="relative">
+                                <img 
+                                  src={item.player.avatar} 
+                                  alt={item.player.username}
+                                  className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
+                                />
+                                {/* X separator between avatars */}
+                                {index < tier.items.length - 1 && (
+                                  <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
+                                    <span className="text-white/40 text-sm font-bold">×</span>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Center: Item Details and Description */}
+                          <div className="flex-1 flex items-center gap-6">
+                            {/* Item Image */}
+                            <div className="w-16 h-16">
+                              {tier.items.map((item) => (
+                                <img 
+                                  key={item.id}
+                                  src={item.image} 
+                                  alt={item.title}
+                                  className="w-full h-full rounded-lg object-cover border-2 border-white/20"
+                                />
+                              ))}
+                            </div>
+                            
+                            {/* Item Info and Description */}
+                            <div className="flex flex-col gap-2">
+                              {tier.items.map((item) => (
+                                <div key={item.id} className="flex flex-col gap-1">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-lg font-bold text-white">{item.title}</span>
+                                    <span className="text-sm text-white/60">•</span>
+                                    <span className="text-sm font-medium text-purple-300">{item.game}</span>
+                                  </div>
+                                  <p className="text-sm text-white/80 leading-relaxed">
+                                    Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Right: Action Button */}
+                          <div className="flex items-center">
+                            <button 
+                              className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('Contact trader:', tier.name);
+                              }}
+                            >
+                              Send Offer
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </TabsContent>
 
             <TabsContent value="list">
-              {(() => {
-                // Define exact tier structure from reference image
-                const battleTiers = [
-                  { name: 'NORMAL', items: paginatedItems.slice(0, 1) },
-                  { name: 'INVERSE', items: paginatedItems.slice(1, 2) },
-                  { name: 'TERMINAL', items: paginatedItems.slice(2, 3) }
-                ];
+              <div className="space-y-4">
+                {battleTiers.map((tier, tierIndex) => {
+                  if (tier.items.length === 0) return null;
 
-                return (
-                  <div className="space-y-4">
-                    {battleTiers.map((tier, tierIndex) => {
-                      if (tier.items.length === 0) return null;
-
-                      return (
-                        <div key={tier.name} className="rounded-xl overflow-hidden">
-                          {/* Battle Entry - Exact Reference Design */}
-                          <div 
-                            className={`relative p-6 cursor-pointer transition-all duration-200 hover:scale-[1.02] ${
-                              tier.name === 'NORMAL' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 hover:from-purple-600/30 hover:via-purple-500/25 hover:to-purple-600/30' :
-                              tier.name === 'INVERSE' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 hover:from-purple-600/30 hover:via-purple-500/25 hover:to-purple-600/30' :
-                              'bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-600/20 hover:from-red-600/30 hover:via-red-500/25 hover:to-red-600/30'
-                            } backdrop-blur-sm border border-white/10 hover:border-white/20`}
-                            onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
-                          >
-                            {/* Tier Label - Top Left */}
-                            <div className="absolute top-4 left-6">
-                              <span className="text-xs font-bold text-white/60 tracking-wider">
-                                {tier.name}
-                              </span>
-                            </div>
-
-
-
-                            <div className="flex items-center gap-8 mt-6">
-                              {/* Left: Player Avatars */}
-                              <div className="flex items-center space-x-1">
-                                {tier.items.map((item, index) => (
-                                  <div key={item.id} className="relative">
-                                    <img 
-                                      src={item.player.avatar} 
-                                      alt={item.player.username}
-                                      className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
-                                    />
-                                    {/* X separator between avatars */}
-                                    {index < tier.items.length - 1 && (
-                                      <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
-                                        <span className="text-white/40 text-sm font-bold">×</span>
-                                      </div>
-                                    )}
-                                  </div>
-                                ))}
-
-                              </div>
-
-                              {/* Center: Item Details and Description */}
-                              <div className="flex-1 flex items-center gap-6">
-                                {/* Item Image */}
-                                <div className="w-16 h-16">
-                                  {tier.items.map((item) => (
-                                    <img 
-                                      key={item.id}
-                                      src={item.image} 
-                                      alt={item.title}
-                                      className="w-full h-full rounded-lg object-cover border-2 border-white/20"
-                                    />
-                                  ))}
-                                </div>
-                                
-                                {/* Item Info and Description */}
-                                <div className="flex flex-col gap-2">
-                                  {tier.items.map((item) => (
-                                    <div key={item.id} className="flex flex-col gap-1">
-                                      <div className="flex items-center gap-2">
-                                        <span className="text-lg font-bold text-white">{item.title}</span>
-                                        <span className="text-sm text-white/60">•</span>
-                                        <span className="text-sm font-medium text-purple-300">{item.game}</span>
-                                      </div>
-                                      <p className="text-sm text-white/80 leading-relaxed">
-                                        Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
-                                      </p>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-
-                              {/* Right: Action Button */}
-                              <div className="flex items-center">
-                                <button 
-                                  className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    console.log('Contact trader:', tier.name);
-                                  }}
-                                >
-                                  Send Offer
-                                </button>
-                              </div>
-                            </div>
+                  return (
+                    <div key={tier.name} className="rounded-xl overflow-hidden">
+                      {/* Battle Entry - Exact Reference Design */}
+                      <div 
+                        className={`relative p-6 cursor-pointer transition-all duration-200 hover:scale-[1.02] ${
+                          tier.name === 'NORMAL' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 hover:from-purple-600/30 hover:via-purple-500/25 hover:to-purple-600/30' :
+                          tier.name === 'INVERSE' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 hover:from-purple-600/30 hover:via-purple-500/25 hover:to-purple-600/30' :
+                          'bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-600/20 hover:from-red-600/30 hover:via-red-500/25 hover:to-red-600/30'
+                        } backdrop-blur-sm border border-white/10 hover:border-white/20`}
+                        onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
+                      >
+                        {/* Tier Label - Top Left */}
+                        <div className="absolute top-4 left-6">
+                          <span className="text-xs font-bold text-white/60 tracking-wider">
+                            {tier.name}
+                          </span>
                         </div>
-                      );
-                    })}
-                  </div>
-                );
-              })()}
+
+                        <div className="flex items-center gap-8 mt-6">
+                          {/* Left: Player Avatars */}
+                          <div className="flex items-center space-x-1">
+                            {tier.items.map((item, index) => (
+                              <div key={item.id} className="relative">
+                                <img 
+                                  src={item.player.avatar} 
+                                  alt={item.player.username}
+                                  className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
+                                />
+                                {/* X separator between avatars */}
+                                {index < tier.items.length - 1 && (
+                                  <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
+                                    <span className="text-white/40 text-sm font-bold">×</span>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Center: Item Details and Description */}
+                          <div className="flex-1 flex items-center gap-6">
+                            {/* Item Image */}
+                            <div className="w-16 h-16">
+                              {tier.items.map((item) => (
+                                <img 
+                                  key={item.id}
+                                  src={item.image} 
+                                  alt={item.title}
+                                  className="w-full h-full rounded-lg object-cover border-2 border-white/20"
+                                />
+                              ))}
+                            </div>
+                            
+                            {/* Item Info and Description */}
+                            <div className="flex flex-col gap-2">
+                              {tier.items.map((item) => (
+                                <div key={item.id} className="flex flex-col gap-1">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-lg font-bold text-white">{item.title}</span>
+                                    <span className="text-sm text-white/60">•</span>
+                                    <span className="text-sm font-medium text-purple-300">{item.game}</span>
+                                  </div>
+                                  <p className="text-sm text-white/80 leading-relaxed">
+                                    Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Right: Action Button */}
+                          <div className="flex items-center">
+                            <button 
+                              className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('Contact trader:', tier.name);
+                              }}
+                            >
+                              Send Offer
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </TabsContent>
           </Tabs>
 
