@@ -203,48 +203,47 @@ export default function Dashboard() {
           <div className="max-w-6xl mx-auto p-6">
             {activeSection === "overview" && (
               <div className="space-y-4">
-                {/* Welcome Header - Compact */}
-                <Card className="gaming-card border-border/20 bg-gradient-to-r from-primary/15 via-secondary/8 to-accent/15">
-                  <CardContent className="p-4">
+                {/* Welcome Header - Minimal */}
+                <Card className="gaming-card border-border/20 bg-gradient-to-r from-primary/10 via-secondary/5 to-accent/10">
+                  <CardContent className="p-3">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h2 className="text-xl font-bold text-foreground mb-1">
+                        <h2 className="text-lg font-bold text-foreground mb-1">
                           Welcome back, {(user as any)?.firstName || (user as any)?.username || "Trader"}! 🎮
                         </h2>
-                        <p className="text-sm text-muted-foreground mb-2">Ready to level up your trading game?</p>
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-3">
                           <div className="flex items-center space-x-1">
-                            <Coins className="h-4 w-4 text-yellow-500" />
+                            <Coins className="h-3 w-3 text-yellow-500" />
                             <span className="text-xs font-medium">25 XP</span>
                           </div>
                           <div className="flex items-center space-x-1">
-                            <Flame className="h-4 w-4 text-orange-500" />
+                            <Flame className="h-3 w-3 text-orange-500" />
                             <span className="text-xs font-medium">0 day streak</span>
                           </div>
                         </div>
                       </div>
-                      <div className="text-3xl">🚀</div>
+                      <div className="text-2xl">🚀</div>
                     </div>
                   </CardContent>
                 </Card>
 
-                {/* Main Content Grid - Two Columns */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                  {/* Left Column - Main Actions & Checklist */}
-                  <div className="lg:col-span-2 space-y-4">
-                    {/* Primary Action - Compact */}
-                    <Card className="gaming-card border-border/20 bg-gradient-to-br from-primary/10 to-secondary/10 hover:scale-[1.01] transition-all duration-300 cursor-pointer group">
-                      <CardContent className="p-4">
-                        <div className="flex items-center space-x-4">
-                          <div className="h-14 w-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <Package className="h-7 w-7 text-white" />
+                {/* Main Content Grid - Better Proportions */}
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                  {/* Left Column - Main Actions */}
+                  <div className="lg:col-span-3 space-y-4">
+                    {/* Primary Action - Reduced Size */}
+                    <Card className="gaming-card border-border/20 bg-gradient-to-br from-primary/8 to-secondary/8 hover:scale-[1.01] transition-all duration-300 cursor-pointer group">
+                      <CardContent className="p-3">
+                        <div className="flex items-center space-x-3">
+                          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <Package className="h-6 w-6 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h3 className="text-lg font-bold text-foreground mb-1">Start Your Trading Journey!</h3>
-                            <p className="text-sm text-muted-foreground mb-3">Create your first trade and earn 50 XP</p>
+                            <h3 className="text-base font-bold text-foreground mb-1">Start Your Trading Journey!</h3>
+                            <p className="text-xs text-muted-foreground mb-2">Create your first trade and earn 50 XP</p>
                             <Link href="/create-trade">
-                              <Button className="gaming-button-primary" data-testid="button-create-trade">
-                                <Zap className="h-4 w-4 mr-2" />
+                              <Button size="sm" className="gaming-button-primary" data-testid="button-create-trade">
+                                <Zap className="h-3 w-3 mr-2" />
                                 Create Your First Trade
                               </Button>
                             </Link>
@@ -253,16 +252,71 @@ export default function Dashboard() {
                       </CardContent>
                     </Card>
 
+                    {/* Stats Cards - Much Larger and Readable */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-blue-500/10 to-purple-500/10">
+                        <CardContent className="p-6 text-center">
+                          <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mx-auto mb-4">
+                            <Package className="h-8 w-8 text-white" />
+                          </div>
+                          <p className="text-3xl font-bold text-foreground mb-2" data-testid="text-total-trades">
+                            {statsLoading ? "..." : stats?.totalTrades || "0"}
+                          </p>
+                          <p className="text-sm font-medium text-muted-foreground mb-1">Total Trades</p>
+                          <p className="text-xs text-primary">Start your journey!</p>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-green-500/10 to-emerald-500/10">
+                        <CardContent className="p-6 text-center">
+                          <div className="h-16 w-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mx-auto mb-4">
+                            <TrendingUp className="h-8 w-8 text-white" />
+                          </div>
+                          <p className="text-3xl font-bold text-foreground mb-2" data-testid="text-active-trades">
+                            {statsLoading ? "..." : stats?.activeTrades || "0"}
+                          </p>
+                          <p className="text-sm font-medium text-muted-foreground mb-1">Active Trades</p>
+                          <p className="text-xs text-green-500">Ready to trade!</p>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-yellow-500/10 to-orange-500/10">
+                        <CardContent className="p-6 text-center">
+                          <div className="h-16 w-16 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center mx-auto mb-4">
+                            <Trophy className="h-8 w-8 text-white" />
+                          </div>
+                          <p className="text-3xl font-bold text-foreground mb-2" data-testid="text-completed-trades">
+                            {statsLoading ? "..." : stats?.completedTrades || "0"}
+                          </p>
+                          <p className="text-sm font-medium text-muted-foreground mb-1">Completed</p>
+                          <p className="text-xs text-yellow-500">First win awaits!</p>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-pink-500/10 to-red-500/10">
+                        <CardContent className="p-6 text-center">
+                          <div className="h-16 w-16 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center mx-auto mb-4">
+                            <Star className="h-8 w-8 text-white" />
+                          </div>
+                          <p className="text-3xl font-bold text-foreground mb-2" data-testid="text-reputation">
+                            Level 1
+                          </p>
+                          <p className="text-sm font-medium text-muted-foreground mb-1">Trader Level</p>
+                          <p className="text-xs text-pink-500">Building reputation!</p>
+                        </CardContent>
+                      </Card>
+                    </div>
+
                     {/* Quick Actions Grid */}
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-3 gap-4">
                       <Link href="/my-trades">
                         <Card className="gaming-card border-border/20 hover:scale-105 transition-all duration-300 cursor-pointer group">
                           <CardContent className="p-4 text-center">
-                            <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
+                            <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                               <Gamepad2 className="h-6 w-6 text-white" />
                             </div>
                             <h4 className="text-sm font-semibold text-foreground mb-1">My Trades</h4>
-                            <p className="text-xs text-muted-foreground">Manage listings</p>
+                            <p className="text-xs text-muted-foreground">Manage your listings</p>
                           </CardContent>
                         </Card>
                       </Link>
@@ -270,7 +324,7 @@ export default function Dashboard() {
                       <Link href="/messages">
                         <Card className="gaming-card border-border/20 hover:scale-105 transition-all duration-300 cursor-pointer group">
                           <CardContent className="p-4 text-center">
-                            <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
+                            <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                               <MessageSquare className="h-6 w-6 text-white" />
                             </div>
                             <h4 className="text-sm font-semibold text-foreground mb-1">Messages</h4>
@@ -281,7 +335,7 @@ export default function Dashboard() {
 
                       <Card className="gaming-card border-border/20 hover:scale-105 transition-all duration-300 cursor-pointer group">
                         <CardContent className="p-4 text-center">
-                          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
+                          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                             <BookOpen className="h-6 w-6 text-white" />
                           </div>
                           <h4 className="text-sm font-semibold text-foreground mb-1">Learn Trading</h4>
@@ -290,68 +344,13 @@ export default function Dashboard() {
                       </Card>
                     </div>
 
-                    {/* Stats Cards - Compact */}
-                    <div className="grid grid-cols-4 gap-3">
-                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-blue-500/10 to-purple-500/10">
-                        <CardContent className="p-3 text-center">
-                          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mx-auto mb-2">
-                            <Package className="h-4 w-4 text-white" />
-                          </div>
-                          <p className="text-lg font-bold text-foreground" data-testid="text-total-trades">
-                            {statsLoading ? "..." : stats?.totalTrades || "0"}
-                          </p>
-                          <p className="text-xs text-muted-foreground">Total</p>
-                          <p className="text-xs text-primary">Start now!</p>
-                        </CardContent>
-                      </Card>
-
-                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-green-500/10 to-emerald-500/10">
-                        <CardContent className="p-3 text-center">
-                          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mx-auto mb-2">
-                            <TrendingUp className="h-4 w-4 text-white" />
-                          </div>
-                          <p className="text-lg font-bold text-foreground" data-testid="text-active-trades">
-                            {statsLoading ? "..." : stats?.activeTrades || "0"}
-                          </p>
-                          <p className="text-xs text-muted-foreground">Active</p>
-                          <p className="text-xs text-green-500">Ready!</p>
-                        </CardContent>
-                      </Card>
-
-                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-yellow-500/10 to-orange-500/10">
-                        <CardContent className="p-3 text-center">
-                          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center mx-auto mb-2">
-                            <Trophy className="h-4 w-4 text-white" />
-                          </div>
-                          <p className="text-lg font-bold text-foreground" data-testid="text-completed-trades">
-                            {statsLoading ? "..." : stats?.completedTrades || "0"}
-                          </p>
-                          <p className="text-xs text-muted-foreground">Done</p>
-                          <p className="text-xs text-yellow-500">First win!</p>
-                        </CardContent>
-                      </Card>
-
-                      <Card className="gaming-card border-border/20 bg-gradient-to-br from-pink-500/10 to-red-500/10">
-                        <CardContent className="p-3 text-center">
-                          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center mx-auto mb-2">
-                            <Star className="h-4 w-4 text-white" />
-                          </div>
-                          <p className="text-lg font-bold text-foreground" data-testid="text-reputation">
-                            L1
-                          </p>
-                          <p className="text-xs text-muted-foreground">Level</p>
-                          <p className="text-xs text-pink-500">Growing!</p>
-                        </CardContent>
-                      </Card>
-                    </div>
-
-                    {/* Recent Activity */}
+                    {/* Community Activity Combined */}
                     <Card className="gaming-card border-border/20">
                       <CardHeader className="pb-3">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <Clock className="h-5 w-5 text-primary" />
-                            <CardTitle className="text-lg">Recent Activity</CardTitle>
+                            <Users className="h-5 w-5 text-primary" />
+                            <CardTitle className="text-lg">Community Activity</CardTitle>
                           </div>
                           <Link href="/my-trades">
                             <Button variant="outline" size="sm" className="gaming-button-secondary" data-testid="link-view-all-trades">
@@ -360,197 +359,123 @@ export default function Dashboard() {
                           </Link>
                         </div>
                       </CardHeader>
-                      <CardContent>
-                        {tradesLoading ? (
-                          <div className="space-y-3">
-                            {[...Array(2)].map((_, i) => (
-                              <div key={i} className="animate-pulse flex items-center space-x-3">
-                                <div className="h-8 w-8 bg-muted rounded-full"></div>
-                                <div className="flex-1 space-y-1">
-                                  <div className="h-3 bg-muted rounded w-3/4"></div>
-                                  <div className="h-2 bg-muted rounded w-1/2"></div>
-                                </div>
-                              </div>
-                            ))}
+                      <CardContent className="space-y-3">
+                        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-green-500/5 to-emerald-500/5 border border-border/10">
+                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                            <Trophy className="h-5 w-5 text-white" />
                           </div>
-                        ) : recentTrades && recentTrades.length > 0 ? (
-                          <div className="space-y-3">
-                            {recentTrades.slice(0, 3).map((trade) => (
-                              <div
-                                key={trade.id}
-                                className="flex items-center space-x-3 p-3 rounded-lg border border-border/10 hover:bg-muted/5 transition-colors"
-                                data-testid={`trade-item-${trade.id}`}
-                              >
-                                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
-                                  <Package className="h-4 w-4 text-white" />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <h4 className="text-sm font-medium text-foreground truncate">{trade.title}</h4>
-                                  <p className="text-xs text-muted-foreground">{trade.game}</p>
-                                </div>
-                                <Badge variant={trade.status === "active" ? "default" : "secondary"} className="text-xs">
-                                  {trade.status}
-                                </Badge>
-                              </div>
-                            ))}
+                          <div className="flex-1">
+                            <h4 className="text-sm font-medium text-foreground">🎉 1,000+ Trades This Month!</h4>
+                            <p className="text-xs text-muted-foreground">Community is actively trading</p>
                           </div>
-                        ) : (
-                          <div className="text-center py-6">
-                            <Package className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                            <h4 className="text-sm font-medium text-foreground mb-1">No activity yet</h4>
-                            <p className="text-xs text-muted-foreground mb-3">Create your first trade to get started</p>
-                            <Link href="/create-trade">
-                              <Button size="sm" className="gaming-button-primary" data-testid="button-create-first-trade">
-                                Create Trade
-                              </Button>
-                            </Link>
+                          <Badge className="bg-green-500/20 text-green-500 text-xs">Trending</Badge>
+                        </div>
+
+                        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-blue-500/5 to-purple-500/5 border border-border/10">
+                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                            <Sparkles className="h-5 w-5 text-white" />
                           </div>
-                        )}
+                          <div className="flex-1">
+                            <h4 className="text-sm font-medium text-foreground">✨ Epic CS:GO Trade</h4>
+                            <p className="text-xs text-muted-foreground">Rare knife for Valorant skins</p>
+                          </div>
+                          <Badge variant="secondary" className="text-xs">Hot</Badge>
+                        </div>
+
+                        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-yellow-500/5 to-orange-500/5 border border-border/10">
+                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                            <Award className="h-5 w-5 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="text-sm font-medium text-foreground">🏆 Top Trader: @ProGamer</h4>
+                            <p className="text-xs text-muted-foreground">15 successful trades this week</p>
+                          </div>
+                          <Badge variant="outline" className="text-xs">New</Badge>
+                        </div>
                       </CardContent>
                     </Card>
                   </div>
 
-                  {/* Right Column - Checklist & Community */}
+                  {/* Right Column - Focused Sidebar */}
                   <div className="space-y-4">
-                    {/* Getting Started Checklist - Compact */}
+                    {/* Getting Started Progress */}
                     <Card className="gaming-card border-border/20">
                       <CardHeader className="pb-3">
                         <div className="flex items-center space-x-2">
                           <CheckCircle className="h-5 w-5 text-green-500" />
-                          <CardTitle className="text-lg">Getting Started</CardTitle>
+                          <CardTitle className="text-base">Your Progress</CardTitle>
                         </div>
-                        <CardDescription className="text-xs">Complete steps to level up!</CardDescription>
+                        <CardDescription className="text-xs">Complete all steps to unlock rewards</CardDescription>
                       </CardHeader>
                       <CardContent className="space-y-3">
                         <div className="flex items-center space-x-3 p-3 rounded-lg border border-border/10 bg-muted/5">
-                          <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                            <span className="text-xs font-bold text-primary">1</span>
+                          <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
+                            <span className="text-sm font-bold text-primary">1</span>
                           </div>
-                          <div className="flex-1 min-w-0">
+                          <div className="flex-1">
                             <h4 className="text-sm font-medium text-foreground">Complete profile</h4>
                             <p className="text-xs text-muted-foreground">Add picture & bio</p>
-                          </div>
-                          <div className="flex flex-col items-end space-y-1">
-                            <Badge variant="secondary" className="text-xs">+25 XP</Badge>
-                            <Button variant="outline" size="sm" className="gaming-button-secondary text-xs px-2 py-1">
-                              Start
-                            </Button>
+                            <div className="flex items-center justify-between mt-2">
+                              <Badge variant="secondary" className="text-xs">+25 XP</Badge>
+                              <Button variant="outline" size="sm" className="gaming-button-secondary text-xs">
+                                Start
+                              </Button>
+                            </div>
                           </div>
                         </div>
 
                         <div className="flex items-center space-x-3 p-3 rounded-lg border border-primary/30 bg-primary/5">
-                          <div className="h-6 w-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                            <span className="text-xs font-bold text-white">2</span>
+                          <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
+                            <span className="text-sm font-bold text-white">2</span>
                           </div>
-                          <div className="flex-1 min-w-0">
+                          <div className="flex-1">
                             <h4 className="text-sm font-medium text-foreground">Create first trade</h4>
                             <p className="text-xs text-muted-foreground">List an item to trade</p>
+                            <div className="flex items-center justify-between mt-2">
+                              <Badge className="bg-primary/20 text-primary text-xs">+50 XP</Badge>
+                              <Link href="/create-trade">
+                                <Button size="sm" className="gaming-button-primary text-xs">
+                                  Do It!
+                                </Button>
+                              </Link>
+                            </div>
                           </div>
-                          <div className="flex flex-col items-end space-y-1">
-                            <Badge className="bg-primary/20 text-primary text-xs">+50 XP</Badge>
-                            <Link href="/create-trade">
-                              <Button size="sm" className="gaming-button-primary text-xs px-2 py-1">
-                                Do It!
+                        </div>
+
+                        <div className="flex items-center space-x-3 p-3 rounded-lg border border-border/10 bg-muted/5 opacity-60">
+                          <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
+                            <span className="text-sm font-bold text-muted-foreground">3</span>
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="text-sm font-medium text-muted-foreground">Complete trade</h4>
+                            <p className="text-xs text-muted-foreground">Finish your first deal</p>
+                            <div className="flex items-center justify-between mt-2">
+                              <Badge variant="outline" className="text-xs">+100 XP</Badge>
+                              <Button variant="outline" size="sm" disabled className="text-xs">
+                                Locked
                               </Button>
-                            </Link>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center space-x-3 p-3 rounded-lg border border-border/10 bg-muted/5 opacity-60">
-                          <div className="h-6 w-6 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
-                            <span className="text-xs font-bold text-muted-foreground">3</span>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-medium text-muted-foreground">Complete first trade</h4>
-                            <p className="text-xs text-muted-foreground">Finish a trade deal</p>
-                          </div>
-                          <div className="flex flex-col items-end space-y-1">
-                            <Badge variant="outline" className="text-xs">+100 XP</Badge>
-                            <Button variant="outline" size="sm" disabled className="text-xs px-2 py-1">
-                              Locked
-                            </Button>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center space-x-3 p-3 rounded-lg border border-border/10 bg-muted/5 opacity-60">
-                          <div className="h-6 w-6 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
-                            <span className="text-xs font-bold text-muted-foreground">4</span>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-medium text-muted-foreground">Join community</h4>
-                            <p className="text-xs text-muted-foreground">Follow other traders</p>
-                          </div>
-                          <div className="flex flex-col items-end space-y-1">
-                            <Badge variant="outline" className="text-xs">+25 XP</Badge>
-                            <Button variant="outline" size="sm" disabled className="text-xs px-2 py-1">
-                              Locked
-                            </Button>
+                            </div>
                           </div>
                         </div>
                       </CardContent>
                     </Card>
 
-                    {/* Community Highlights - Compact */}
-                    <Card className="gaming-card border-border/20">
-                      <CardHeader className="pb-3">
-                        <div className="flex items-center space-x-2">
-                          <Users className="h-5 w-5 text-primary" />
-                          <CardTitle className="text-lg">Community</CardTitle>
-                        </div>
-                        <CardDescription className="text-xs">See what's trending!</CardDescription>
-                      </CardHeader>
-                      <CardContent className="space-y-3">
-                        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-green-500/5 to-emerald-500/5 border border-border/10">
-                          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
-                            <Trophy className="h-4 w-4 text-white" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-medium text-foreground">🎉 1K Trades!</h4>
-                            <p className="text-xs text-muted-foreground">Monthly milestone reached</p>
-                          </div>
-                          <Badge className="bg-green-500/20 text-green-500 text-xs">Hot</Badge>
-                        </div>
-
-                        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-blue-500/5 to-purple-500/5 border border-border/10">
-                          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
-                            <Sparkles className="h-4 w-4 text-white" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-medium text-foreground">✨ Epic Trade</h4>
-                            <p className="text-xs text-muted-foreground">Rare CS:GO skin deal</p>
-                          </div>
-                          <Badge variant="secondary" className="text-xs">New</Badge>
-                        </div>
-
-                        <div className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-yellow-500/5 to-orange-500/5 border border-border/10">
-                          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center flex-shrink-0">
-                            <Award className="h-4 w-4 text-white" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-medium text-foreground">🏆 Top Trader</h4>
-                            <p className="text-xs text-muted-foreground">@ProGamer2024 wins!</p>
-                          </div>
-                          <Badge variant="outline" className="text-xs">Week</Badge>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    {/* Trading Tip - Compact */}
+                    {/* Trading Tip */}
                     <Card className="gaming-card border-border/20 bg-gradient-to-br from-accent/8 to-primary/8">
                       <CardHeader className="pb-3">
                         <div className="flex items-center space-x-2">
-                          <Play className="h-5 w-5 text-accent" />
-                          <CardTitle className="text-lg">Trading Tip</CardTitle>
+                          <Play className="h-4 w-4 text-accent" />
+                          <CardTitle className="text-base">Daily Tip</CardTitle>
                         </div>
                       </CardHeader>
                       <CardContent>
                         <div className="flex items-start space-x-3">
-                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center flex-shrink-0">
+                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
                             <Zap className="h-5 w-5 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="text-sm font-semibold text-foreground mb-1">💡 Check item conditions!</h4>
-                            <p className="text-xs text-muted-foreground">Always verify authenticity before trading. This builds community trust!</p>
+                            <h4 className="text-sm font-semibold text-foreground mb-1">💡 Check item conditions</h4>
+                            <p className="text-xs text-muted-foreground">Always verify authenticity before trading to build trust!</p>
                           </div>
                         </div>
                       </CardContent>
