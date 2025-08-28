@@ -1,0 +1,340 @@
+import { TrendingUp, Users, DollarSign, Package, Filter, Grid3X3, List } from "lucide-react";
+import Header from "@/components/Header";
+import GameItemCard from "@/components/GameItemCard";
+import StatsCard from "@/components/StatsCard";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+// Import images
+import item1 from "@/assets/item1.jpg";
+import item2 from "@/assets/item2.jpg";
+import item3 from "@/assets/item3.jpg";
+import item4 from "@/assets/item4.jpg";
+import item5 from "@/assets/item5.jpg";
+import item6 from "@/assets/item6.jpg";
+
+const gameItems = [
+  {
+    id: "1",
+    title: "Cyberpunk Assault Rifle X-7",
+    image: item1,
+    currentPrice: 89.99,
+    originalPrice: 129.99,
+    discount: 31,
+    rarity: "Legendary" as const,
+    game: "CyberStrike 2077",
+    category: "Weapons",
+    isOnSale: true,
+    isTrending: true,
+    player: {
+      username: "CyberNinja_X",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=CyberNinja",
+      level: 47,
+      isOnline: true
+    }
+  },
+  {
+    id: "2", 
+    title: "Crystal Mystique Staff",
+    image: item2,
+    currentPrice: 156.50,
+    rarity: "Epic" as const,
+    game: "Fantasy Realms",
+    category: "Magic Items",
+    isTrending: false,
+    player: {
+      username: "MysticMage_92",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=MysticMage",
+      level: 33,
+      isOnline: false
+    }
+  },
+  {
+    id: "3",
+    title: "Dragon Lord Armor Set",
+    image: item3,
+    currentPrice: 299.99,
+    originalPrice: 399.99,
+    discount: 25,
+    rarity: "Mythic" as const,
+    game: "Dragon's Quest",
+    category: "Armor",
+    isOnSale: true,
+    player: {
+      username: "DragonSlayer_001",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=DragonSlayer",
+      level: 89,
+      isOnline: true
+    }
+  },
+  {
+    id: "4",
+    title: "Neon Drift Hoverboard",
+    image: item4,
+    currentPrice: 67.00,
+    rarity: "Rare" as const,
+    game: "Velocity Racing",
+    category: "Vehicles",
+    isTrending: true,
+    player: {
+      username: "SpeedDemon_77",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=SpeedDemon",
+      level: 25,
+      isOnline: true
+    }
+  },
+  {
+    id: "5",
+    title: "Celestial Wing Pack",
+    image: item5,
+    currentPrice: 199.99,
+    rarity: "Mythic" as const,
+    game: "Angel Wars",
+    category: "Cosmetics",
+    player: {
+      username: "AngelicWarrior",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=AngelicWarrior",
+      level: 62,
+      isOnline: false
+    }
+  },
+  {
+    id: "6",
+    title: "Frost Blade Legendary",
+    image: item6,
+    currentPrice: 134.99,
+    originalPrice: 159.99,
+    discount: 16,
+    rarity: "Legendary" as const,
+    game: "Ice Kingdom",
+    category: "Weapons",
+    isOnSale: true,
+    player: {
+      username: "IceQueen_2024",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=IceQueen",
+      level: 55,
+      isOnline: true
+    }
+  },
+];
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Hero Section */}
+        <section className="mb-12">
+          <div className="text-center space-y-4 mb-8">
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-gaming bg-clip-text text-transparent gaming-text-glow">
+              GameXchange Marketplace
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Trade, collect, and discover rare gaming items from your favorite games. 
+              Join thousands of gamers in the ultimate digital marketplace.
+            </p>
+          </div>
+          
+          {/* Quick Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <StatsCard
+              title="Total Items"
+              value="12,547"
+              subtitle="Active listings"
+              icon={<Package className="h-5 w-5" />}
+              trend={{ value: 12, isPositive: true }}
+            />
+            <StatsCard
+              title="Active Traders"
+              value="8,293"
+              subtitle="This month"
+              icon={<Users className="h-5 w-5" />}
+              trend={{ value: 8, isPositive: true }}
+            />
+            <StatsCard
+              title="Volume Traded"
+              value="$2.4M"
+              subtitle="Last 30 days"
+              icon={<DollarSign className="h-5 w-5" />}
+              trend={{ value: 23, isPositive: true }}
+            />
+            <StatsCard
+              title="Trending Games"
+              value="147"
+              subtitle="Popular today"
+              icon={<TrendingUp className="h-5 w-5" />}
+              trend={{ value: 5, isPositive: true }}
+            />
+          </div>
+        </section>
+
+        {/* Marketplace Section */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-foreground">Featured Marketplace</h2>
+            <div className="flex items-center space-x-4">
+              <Select defaultValue="trending">
+                <SelectTrigger className="w-40">
+                  <SelectValue placeholder="Sort by" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="trending">Trending</SelectItem>
+                  <SelectItem value="price-low">Price: Low to High</SelectItem>
+                  <SelectItem value="price-high">Price: High to Low</SelectItem>
+                  <SelectItem value="newest">Newest</SelectItem>
+                  <SelectItem value="rarity">Rarity</SelectItem>
+                </SelectContent>
+              </Select>
+              
+              <Button variant="outline" size="icon">
+                <Filter className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+
+          <Tabs defaultValue="grid" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div className="flex space-x-2">
+                <Button variant="outline" size="sm" className="gaming-button-secondary">
+                  All Games
+                </Button>
+                <Button variant="ghost" size="sm">
+                  CyberStrike 2077
+                </Button>
+                <Button variant="ghost" size="sm">
+                  Fantasy Realms
+                </Button>
+                <Button variant="ghost" size="sm">
+                  Dragon's Quest
+                </Button>
+              </div>
+              
+              <TabsList className="bg-gaming-card border border-border/50">
+                <TabsTrigger value="grid" className="data-[state=active]:bg-primary/20">
+                  <Grid3X3 className="h-4 w-4" />
+                </TabsTrigger>
+                <TabsTrigger value="list" className="data-[state=active]:bg-primary/20">
+                  <List className="h-4 w-4" />
+                </TabsTrigger>
+              </TabsList>
+            </div>
+
+            <TabsContent value="grid">
+              <div className="gaming-card border border-border/20 rounded-lg overflow-hidden">
+                <Table>
+                  <TableHeader>
+                    <TableRow className="border-b border-border/30">
+                      <TableHead className="text-foreground font-semibold">Player Username & Profile</TableHead>
+                      <TableHead className="text-foreground font-semibold">Item/Name</TableHead>
+                      <TableHead className="text-foreground font-semibold">Label/Rarity</TableHead>
+                      <TableHead className="text-foreground font-semibold">Category</TableHead>
+                      <TableHead className="text-foreground font-semibold text-right">Send Offer</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {gameItems.map((item) => (
+                      <TableRow key={item.id} className="hover:bg-gaming-hover/20">
+                        <TableCell className="py-4">
+                          <div className="flex items-center space-x-3">
+                            <img 
+                              src={item.player.avatar} 
+                              alt={`${item.player.username} avatar`}
+                              className="w-10 h-10 rounded-full object-cover border border-border/20"
+                            />
+                            <div>
+                              <div className="font-semibold text-foreground flex items-center space-x-2">
+                                <span>{item.player.username}</span>
+                                <div className={`w-2 h-2 rounded-full ${item.player.isOnline ? 'bg-success' : 'bg-muted-foreground/30'}`} />
+                              </div>
+                              <div className="text-sm text-muted-foreground">Level {item.player.level}</div>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell className="py-4">
+                          <div className="flex items-center space-x-3">
+                            <img 
+                              src={item.image} 
+                              alt={item.title}
+                              className="w-12 h-12 rounded-lg object-cover border border-border/20"
+                            />
+                            <div>
+                              <div className="font-semibold text-foreground">{item.title}</div>
+                              <div className="text-sm text-muted-foreground">{item.game}</div>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <span className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
+                            item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple' :
+                            item.rarity === 'Legendary' ? 'bg-warning/20 text-warning' :
+                            item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan' :
+                            'bg-gaming-green/20 text-gaming-green'
+                          }`}>
+                            {item.rarity}
+                          </span>
+                        </TableCell>
+                        <TableCell className="text-muted-foreground font-medium">
+                          {item.category}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <Button size="sm" className="gaming-button-primary">
+                            Send Offer
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="list">
+              <div className="space-y-4">
+                {gameItems.map((item) => (
+                  <div key={item.id} className="gaming-card p-4 flex items-center space-x-4">
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-16 h-16 rounded-lg object-cover"
+                    />
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-foreground">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.game}</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-lg font-bold text-success">
+                        ${item.currentPrice}
+                      </div>
+                      {item.originalPrice && (
+                        <div className="text-sm text-muted-foreground line-through">
+                          ${item.originalPrice}
+                        </div>
+                      )}
+                    </div>
+                    <Button size="sm" className="gaming-button-primary">
+                      Buy Now
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
+
+          {/* Load More */}
+          <div className="text-center mt-8">
+            <Button 
+              className="gaming-button-primary px-8 py-3 text-base"
+            >
+              Load More Items
+            </Button>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+};
+
+export default Index;

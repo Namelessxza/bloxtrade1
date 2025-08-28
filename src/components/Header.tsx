@@ -1,0 +1,89 @@
+import { Search, ShoppingCart, User, Wallet, Bell } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+const Header = () => {
+  return (
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-card">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-gaming rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">GX</span>
+              </div>
+              <h1 className="text-xl font-bold bg-gradient-gaming bg-clip-text text-transparent">
+                GameXchange
+              </h1>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <nav className="hidden md:flex items-center space-x-6">
+            <Button variant="ghost" className="text-foreground hover:text-primary">
+              Marketplace
+            </Button>
+            <Button variant="ghost" className="text-foreground hover:text-primary">
+              Inventory
+            </Button>
+            <Button variant="ghost" className="text-foreground hover:text-primary">
+              Trading
+            </Button>
+            <Button variant="ghost" className="text-foreground hover:text-primary">
+              Leaderboard
+            </Button>
+          </nav>
+
+          {/* Search */}
+          <div className="flex-1 max-w-md mx-4 hidden sm:block">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <Input
+                placeholder="Search items, skins, collectibles..."
+                className="pl-10 bg-gaming-card border-border/50 focus:border-primary/50 focus:ring-primary/20"
+              />
+            </div>
+          </div>
+
+          {/* User Actions */}
+          <div className="flex items-center space-x-3">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="relative text-muted-foreground hover:text-primary"
+            >
+              <Bell className="h-5 w-5" />
+              <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                3
+              </span>
+            </Button>
+            
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-muted-foreground hover:text-primary"
+            >
+              <ShoppingCart className="h-5 w-5" />
+            </Button>
+
+            <div className="flex items-center space-x-2 bg-gaming-card px-3 py-2 rounded-lg border border-border/50">
+              <Wallet className="h-4 w-4 text-success" />
+              <span className="text-success font-semibold">$2,485</span>
+            </div>
+
+            <Button
+              variant="outline"
+              className="gaming-button-primary border-primary/30"
+            >
+              <User className="h-4 w-4 mr-2" />
+              Profile
+            </Button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;

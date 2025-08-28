@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark gaming theme */
+    --background: 228 14% 8%;
+    --foreground: 220 20% 95%;
+
+    --card: 228 14% 10%;
+    --card-foreground: 220 20% 95%;
+
+    --popover: 228 14% 12%;
+    --popover-foreground: 220 20% 95%;
+
+    --primary: 195 100% 50%;
+    --primary-foreground: 228 14% 8%;
+    --primary-glow: 195 100% 60%;
+
+    --secondary: 270 50% 55%;
+    --secondary-foreground: 220 20% 95%;
+    --secondary-glow: 270 50% 65%;
+
+    --muted: 228 14% 14%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 150 100% 45%;
+    --accent-foreground: 228 14% 8%;
+    --accent-glow: 150 100% 55%;
+
+    --success: 120 60% 50%;
+    --warning: 45 90% 55%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 220 20% 95%;
+
+    --border: 228 14% 18%;
+    --input: 228 14% 16%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Gaming specific colors */
+    --gaming-purple: 270 50% 55%;
+    --gaming-cyan: 195 100% 50%;
+    --gaming-green: 150 100% 45%;
+    --gaming-dark: 228 14% 6%;
+    --gaming-card: 228 14% 10%;
+    --gaming-hover: 228 14% 12%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-gaming: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-cyan)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(228 14% 12%));
+
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 8px 32px hsl(228 14% 4% / 0.4);
+    --shadow-gaming: 0 0 40px hsl(var(--gaming-cyan) / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer components {
+  /* Gaming specific components */
+  .gaming-card {
+    @apply bg-gradient-to-br from-card to-gaming-card border border-border/50 rounded-xl shadow-[0_8px_32px_hsl(var(--gaming-dark)/0.4)] backdrop-blur-sm;
+    transition: var(--transition-smooth);
+  }
+  
+  .gaming-card:hover {
+    @apply border-primary/30 shadow-[0_0_30px_hsl(var(--primary)/0.3)];
+    transform: translateY(-2px);
+  }
+  
+  .gaming-button-primary {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold px-6 py-2 rounded-lg shadow-[0_0_20px_hsl(var(--primary)/0.4)];
+    transition: var(--transition-bounce);
+  }
+  
+  .gaming-button-primary:hover {
+    @apply shadow-[0_0_30px_hsl(var(--primary)/0.6)];
+    transform: translateY(-1px) scale(1.02);
+  }
+  
+  .gaming-button-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary-glow text-secondary-foreground font-semibold px-6 py-2 rounded-lg;
+    transition: var(--transition-smooth);
+  }
+  
+  .gaming-button-secondary:hover {
+    @apply shadow-[0_0_20px_hsl(var(--secondary)/0.4)];
+    transform: translateY(-1px);
+  }
+  
+  .gaming-text-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+  
+  .gaming-border-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: 
+      radial-gradient(circle at 20% 20%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.08) 0%, transparent 50%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
