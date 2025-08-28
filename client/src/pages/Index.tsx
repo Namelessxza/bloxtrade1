@@ -640,38 +640,49 @@ export default function Index() {
         </div>
 
         {/* Chat Messages */}
-        <ScrollArea className="flex-1 p-2" style={{ maxHeight: 'calc(100vh - 240px)' }}>
-          <div className="space-y-2">
-            {chatMessages.map((msg) => (
-              <div
-                key={msg.id}
-                className="flex gap-2 p-2 rounded-lg hover:bg-muted/5 transition-colors"
-                data-testid={`message-${msg.id}`}
-              >
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-lg bg-gradient-to-br from-muted to-muted/50 border border-border/30 relative">
-                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-background"></div>
-                  {msg.avatar}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-medium text-foreground">
-                      {msg.username}
-                    </span>
-                    {msg.isAdmin && (
-                      <span className="bg-red-500 text-white text-xs px-1 rounded font-medium">
-                        ADMIN
-                      </span>
-                    )}
-                    <span className="text-xs text-muted-foreground ml-auto">
-                      2 min ago
-                    </span>
+        <ScrollArea className="flex-1 p-3" style={{ maxHeight: 'calc(100vh - 240px)' }}>
+          <div className="space-y-3">
+            {chatMessages.map((msg, index) => {
+              const isHighlighted = msg.isAdmin || index === 1; // Admin message gets highlighted background
+              return (
+                <div
+                  key={msg.id}
+                  className={`p-3 rounded-xl transition-all ${
+                    isHighlighted 
+                      ? 'bg-gradient-to-r from-slate-700/80 to-slate-600/60 border border-slate-500/30' 
+                      : 'hover:bg-slate-800/30'
+                  }`}
+                  data-testid={`message-${msg.id}`}
+                >
+                  <div className="flex gap-3">
+                    <div className="relative flex-shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-600 to-slate-700 border-2 border-slate-500/50 flex items-center justify-center text-lg overflow-hidden">
+                        {msg.avatar}
+                      </div>
+                      <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full border-2 border-slate-800"></div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-sm font-medium text-slate-300">
+                          {msg.username}
+                        </span>
+                        {msg.isAdmin && (
+                          <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs px-2 py-0.5 rounded-md font-bold">
+                            ADMIN
+                          </span>
+                        )}
+                        <span className="text-xs text-slate-500 ml-auto">
+                          2 min ago
+                        </span>
+                      </div>
+                      <p className="text-sm text-slate-200 leading-relaxed break-words">
+                        {msg.message}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs text-foreground leading-relaxed break-words">
-                    {msg.message}
-                  </p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </ScrollArea>
 
