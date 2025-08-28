@@ -24,7 +24,7 @@ const gameItems = [
     originalPrice: 129.99,
     discount: 31,
     rarity: "Legendary" as const,
-    game: "CyberStrike 2077",
+    game: "Steal A brainrot",
     category: "Weapons",
     isOnSale: true,
     isTrending: true,
@@ -41,7 +41,7 @@ const gameItems = [
     image: item2,
     currentPrice: 156.50,
     rarity: "Epic" as const,
-    game: "Fantasy Realms",
+    game: "Grow A garden",
     category: "Magic Items",
     isTrending: false,
     player: {
@@ -204,10 +204,10 @@ const Index = () => {
                   All Games
                 </Button>
                 <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
-                  CyberStrike 2077
+                  Steal A brainrot
                 </Button>
                 <Button variant="ghost" size="sm" className="hidden md:inline-flex">
-                  Fantasy Realms
+                  Grow A garden
                 </Button>
                 <Button variant="ghost" size="sm" className="hidden lg:inline-flex">
                   Dragon's Quest
@@ -252,7 +252,6 @@ const Index = () => {
                                 <span>{item.player.username}</span>
                                 <div className={`w-2 h-2 rounded-full ${item.player.isOnline ? 'bg-success' : 'bg-muted-foreground/30'}`} />
                               </div>
-                              <div className="text-sm text-muted-foreground font-medium">Level {item.player.level}</div>
                             </div>
                           </div>
                         </TableCell>
@@ -271,9 +270,9 @@ const Index = () => {
                         </TableCell>
                         <TableCell className="table-cell-improved">
                           <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${
-                            item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple' :
-                            item.rarity === 'Legendary' ? 'bg-warning/20 text-warning' :
-                            item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan' :
+                            item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
+                            item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
+                            item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
                             'bg-gaming-green/20 text-gaming-green'
                           }`}>
                             {item.rarity}
