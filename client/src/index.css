@@ -164,7 +164,7 @@ All colors MUST be HSL.
   }
   
   .gaming-button-primary {
-    @apply bg-primary text-white font-semibold px-6 py-3;
+    @apply bg-primary text-white font-semibold px-6 py-2 rounded-lg;
     transition: var(--transition-smooth);
   }
   
@@ -173,7 +173,7 @@ All colors MUST be HSL.
   }
   
   .gaming-button-secondary {
-    @apply bg-secondary text-white font-semibold px-6 py-3;
+    @apply bg-secondary text-white font-semibold px-6 py-2 rounded-lg;
     transition: var(--transition-smooth);
   }
   
