@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { TrendingUp, Users, DollarSign, Package, Filter, Grid3X3, List } from "lucide-react";
-import Header from "@/components/Header";
+import MainLayout from "@/components/MainLayout";
 import GameItemCard from "@/components/GameItemCard";
 import StatsCard from "@/components/StatsCard";
-import LiveChatSidebar from "@/components/LiveChatSidebar";
 import SearchBar from "@/components/SearchBar";
 import QuickFilters from "@/components/QuickFilters";
 import Pagination from "@/components/Pagination";
@@ -163,10 +162,8 @@ const Index = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedItems = gameItems.slice(startIndex, startIndex + itemsPerPage);
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="responsive-container py-4 sm:py-6 lg:py-8">
+    <MainLayout showChat={true} isLoggedIn={false}>
+      <div className="responsive-container py-4 sm:py-6 lg:py-8">
         {/* Hero Section */}
         <section className="mb-8 lg:mb-12">
           <div className="text-center space-y-4 mb-6 lg:mb-8">
@@ -384,11 +381,8 @@ const Index = () => {
             onPageChange={setCurrentPage}
           />
         </section>
-      </main>
-      
-      {/* Live Chat Sidebar */}
-      <LiveChatSidebar isLoggedIn={false} />
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 

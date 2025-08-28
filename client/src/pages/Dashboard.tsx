@@ -9,6 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { Bell, Package, Star, Clock, ArrowUpCircle, MessageSquare, Settings, Gamepad2, Gift, Zap, Trophy, Crown, Sparkles, Heart, ChevronLeft, BarChart3, User, Target, TrendingUp, Users, CheckCircle, Coins, Flame, Award, BookOpen, Play } from "lucide-react";
 import { Link } from "wouter";
+import MainLayout from "@/components/MainLayout";
 
 interface DashboardStats {
   totalTrades: number;
@@ -87,8 +88,8 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gaming-bg">
-      {/* Header */}
+    <MainLayout showChat={true} isLoggedIn={isAuthenticated}>
+      {/* Custom Header for Dashboard */}
       <div className="border-b border-border/20 bg-gaming-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
@@ -123,8 +124,8 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Main Layout */}
-      <div className="flex h-screen">
+      {/* Dashboard Content */}
+      <div className="flex flex-1">
         {/* Sidebar */}
         <div className="w-72 bg-gaming-card/40 border-r border-border/20 p-6 backdrop-blur-sm">
           <div className="mb-8">
@@ -598,6 +599,6 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 }
