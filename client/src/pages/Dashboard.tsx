@@ -5,10 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Progress } from "@/components/ui/progress";
-import { Bell, TrendingUp, Users, Package, Star, Clock, ArrowUpCircle, MessageSquare, Settings } from "lucide-react";
+import { Bell, Package, Star, Clock, ArrowUpCircle, MessageSquare, Settings, Gamepad2, Gift, Zap, Trophy, Crown, Sparkles, Heart } from "lucide-react";
 import { Link } from "wouter";
 
 interface DashboardStats {
@@ -79,7 +77,7 @@ export default function Dashboard() {
     );
   }
 
-  const completionRate = stats ? (stats.completedTrades / Math.max(stats.totalTrades, 1)) * 100 : 0;
+  // Remove complex calculations for younger audience
 
   return (
     <div className="min-h-screen bg-gaming-bg">
@@ -127,230 +125,233 @@ export default function Dashboard() {
       </div>
 
       <div className="container mx-auto px-4 py-6 space-y-6">
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card className="gaming-card border-border/20">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Trades</CardTitle>
-              <Package className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-primary" data-testid="text-total-trades">
-                {statsLoading ? "..." : stats?.totalTrades || 0}
+        {/* Fun Action Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card className="gaming-card border-border/20 bg-gradient-to-br from-purple-500/10 to-pink-500/10 hover:from-purple-500/20 hover:to-pink-500/20 transition-all duration-300 group cursor-pointer">
+            <CardContent className="p-6 text-center">
+              <div className="mb-4 flex justify-center">
+                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Package className="h-8 w-8 text-white" />
+                </div>
               </div>
-              <p className="text-xs text-muted-foreground">
-                {stats?.activeTrades || 0} currently active
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="gaming-card border-border/20">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Completion Rate</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-accent" data-testid="text-completion-rate">
-                {statsLoading ? "..." : `${Math.round(completionRate)}%`}
-              </div>
-              <Progress value={completionRate} className="mt-2" />
-            </CardContent>
-          </Card>
-
-          <Card className="gaming-card border-border/20">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Reputation</CardTitle>
-              <Star className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-yellow-500" data-testid="text-reputation">
-                {statsLoading ? "..." : stats?.reputation || 0}
-              </div>
-              <p className="text-xs text-muted-foreground">
-                {stats?.badges?.length || 0} badges earned
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="gaming-card border-border/20">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Trades</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-secondary" data-testid="text-active-trades">
-                {statsLoading ? "..." : stats?.activeTrades || 0}
-              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">Create Trade</h3>
+              <p className="text-sm text-muted-foreground mb-4">Start trading your awesome items!</p>
               <Link href="/create-trade">
-                <Button size="sm" className="mt-2 gaming-button-primary" data-testid="button-create-trade">
-                  Create New
+                <Button className="gaming-button-primary w-full" data-testid="button-create-trade">
+                  <Zap className="h-4 w-4 mr-2" />
+                  Let's Trade!
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card className="gaming-card border-border/20 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 hover:from-blue-500/20 hover:to-cyan-500/20 transition-all duration-300 group cursor-pointer">
+            <CardContent className="p-6 text-center">
+              <div className="mb-4 flex justify-center">
+                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Gamepad2 className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">My Games</h3>
+              <p className="text-sm text-muted-foreground mb-4">Check out your collection!</p>
+              <Link href="/my-trades">
+                <Button variant="outline" className="gaming-button-secondary w-full" data-testid="button-my-trades">
+                  <Star className="h-4 w-4 mr-2" />
+                  View Collection
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card className="gaming-card border-border/20 bg-gradient-to-br from-green-500/10 to-emerald-500/10 hover:from-green-500/20 hover:to-emerald-500/20 transition-all duration-300 group cursor-pointer">
+            <CardContent className="p-6 text-center">
+              <div className="mb-4 flex justify-center">
+                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <MessageSquare className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">Messages</h3>
+              <p className="text-sm text-muted-foreground mb-4">Chat with other traders!</p>
+              <Link href="/messages">
+                <Button variant="outline" className="gaming-button-secondary w-full" data-testid="button-messages">
+                  <Heart className="h-4 w-4 mr-2" />
+                  Let's Chat!
                 </Button>
               </Link>
             </CardContent>
           </Card>
         </div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Recent Trades */}
-          <div className="lg:col-span-2">
-            <Card className="gaming-card border-border/20">
-              <CardHeader>
-                <div className="flex items-center justify-between">
+        {/* Recent Activity & Fun Stuff */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* My Recent Trades */}
+          <Card className="gaming-card border-border/20">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                    <Package className="h-4 w-4 text-white" />
+                  </div>
                   <div>
-                    <CardTitle>Recent Trades</CardTitle>
-                    <CardDescription>Your latest trading activity</CardDescription>
+                    <CardTitle className="text-lg">My Cool Trades</CardTitle>
+                    <CardDescription>Check out what you've been up to!</CardDescription>
                   </div>
-                  <Link href="/my-trades">
-                    <Button variant="outline" size="sm" data-testid="link-view-all-trades">
-                      View All
-                    </Button>
-                  </Link>
                 </div>
-              </CardHeader>
-              <CardContent>
-                {tradesLoading ? (
-                  <div className="space-y-3">
-                    {[...Array(3)].map((_, i) => (
-                      <div key={i} className="animate-pulse">
-                        <div className="h-4 bg-muted rounded w-3/4 mb-2"></div>
-                        <div className="h-3 bg-muted rounded w-1/2"></div>
+                <Link href="/my-trades">
+                  <Button variant="outline" size="sm" className="gaming-button-secondary" data-testid="link-view-all-trades">
+                    <Sparkles className="h-4 w-4 mr-1" />
+                    See All
+                  </Button>
+                </Link>
+              </div>
+            </CardHeader>
+            <CardContent>
+              {tradesLoading ? (
+                <div className="space-y-3">
+                  {[...Array(3)].map((_, i) => (
+                    <div key={i} className="animate-pulse">
+                      <div className="h-4 bg-muted rounded w-3/4 mb-2"></div>
+                      <div className="h-3 bg-muted rounded w-1/2"></div>
+                    </div>
+                  ))}
+                </div>
+              ) : recentTrades && recentTrades.length > 0 ? (
+                <div className="space-y-4">
+                  {recentTrades.map((trade) => (
+                    <div
+                      key={trade.id}
+                      className="flex items-center space-x-3 p-3 rounded-lg border border-border/10 hover:bg-muted/5 transition-colors bg-gradient-to-r from-transparent to-primary/5"
+                      data-testid={`trade-item-${trade.id}`}
+                    >
+                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <Gamepad2 className="h-5 w-5 text-white" />
                       </div>
-                    ))}
-                  </div>
-                ) : recentTrades && recentTrades.length > 0 ? (
-                  <div className="space-y-4">
-                    {recentTrades.map((trade) => (
-                      <div
-                        key={trade.id}
-                        className="flex items-center justify-between p-3 rounded-lg border border-border/10 hover:bg-muted/5 transition-colors"
-                        data-testid={`trade-item-${trade.id}`}
-                      >
-                        <div className="flex-1">
-                          <h4 className="font-medium text-foreground">{trade.title}</h4>
-                          <div className="flex items-center space-x-2 mt-1">
-                            <Badge variant="secondary" className="text-xs">
-                              {trade.game}
-                            </Badge>
-                            <Badge 
-                              variant={trade.status === "active" ? "default" : "outline"}
-                              className="text-xs"
-                            >
-                              {trade.status}
-                            </Badge>
-                          </div>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <div className="text-right text-sm text-muted-foreground">
-                            <div className="flex items-center">
-                              <ArrowUpCircle className="h-3 w-3 mr-1" />
-                              {trade.bumpCount}
-                            </div>
-                            <div className="flex items-center">
-                              <Clock className="h-3 w-3 mr-1" />
-                              {new Date(trade.lastBumped).toLocaleDateString()}
-                            </div>
-                          </div>
+                      <div className="flex-1">
+                        <h4 className="font-medium text-foreground">{trade.title}</h4>
+                        <div className="flex items-center space-x-2 mt-1">
+                          <Badge variant="secondary" className="text-xs bg-gradient-to-r from-purple-500/20 to-pink-500/20">
+                            {trade.game}
+                          </Badge>
                           {trade.status === "active" && (
-                            <Button size="sm" variant="ghost" data-testid={`button-bump-${trade.id}`}>
-                              <ArrowUpCircle className="h-4 w-4" />
-                            </Button>
+                            <Badge className="text-xs bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-300">
+                              ✨ Active
+                            </Badge>
                           )}
                         </div>
                       </div>
-                    ))}
+                      {trade.status === "active" && (
+                        <Button size="sm" variant="ghost" className="hover:bg-primary/10" data-testid={`button-bump-${trade.id}`}>
+                          <ArrowUpCircle className="h-4 w-4 text-primary" />
+                        </Button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-4">
+                    <Gift className="h-8 w-8 text-white" />
                   </div>
-                ) : (
-                  <div className="text-center py-8">
-                    <Package className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground mb-4">No trades yet</p>
-                    <Link href="/create-trade">
-                      <Button className="gaming-button-primary" data-testid="button-create-first-trade">
-                        Create Your First Trade
-                      </Button>
-                    </Link>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
+                  <h3 className="text-lg font-medium text-foreground mb-2">Ready to Trade?</h3>
+                  <p className="text-muted-foreground mb-4">Start your first trade and have fun!</p>
+                  <Link href="/create-trade">
+                    <Button className="gaming-button-primary" data-testid="button-create-first-trade">
+                      <Zap className="h-4 w-4 mr-2" />
+                      Let's Start Trading!
+                    </Button>
+                  </Link>
+                </div>
+              )}
+            </CardContent>
+          </Card>
 
-          {/* Quick Actions & Notifications */}
+          {/* Achievements & Fun Stuff */}
           <div className="space-y-6">
-            {/* Quick Actions */}
-            <Card className="gaming-card border-border/20">
-              <CardHeader>
-                <CardTitle>Quick Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Link href="/create-trade">
-                  <Button className="w-full gaming-button-primary" data-testid="button-quick-create-trade">
-                    <Package className="h-4 w-4 mr-2" />
-                    Create Trade
-                  </Button>
-                </Link>
-                <Link href="/my-trades">
-                  <Button variant="outline" className="w-full gaming-button-secondary" data-testid="button-quick-my-trades">
-                    <TrendingUp className="h-4 w-4 mr-2" />
-                    Manage Trades
-                  </Button>
-                </Link>
-                <Link href="/messages">
-                  <Button variant="outline" className="w-full gaming-button-secondary" data-testid="button-quick-messages">
-                    <MessageSquare className="h-4 w-4 mr-2" />
-                    Messages
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            {/* Badges */}
-            {stats?.badges && stats.badges.length > 0 && (
-              <Card className="gaming-card border-border/20">
+            {/* Achievements */}
+            {stats?.badges && stats.badges.length > 0 ? (
+              <Card className="gaming-card border-border/20 bg-gradient-to-br from-yellow-500/10 to-orange-500/10">
                 <CardHeader>
-                  <CardTitle>Your Badges</CardTitle>
-                  <CardDescription>Achievements you've unlocked</CardDescription>
+                  <div className="flex items-center space-x-2">
+                    <div className="h-8 w-8 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                      <Trophy className="h-4 w-4 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg">Your Achievements</CardTitle>
+                      <CardDescription>Look what you've earned!</CardDescription>
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-3">
                     {stats.badges.map((badge) => (
                       <div
                         key={badge.id}
-                        className="text-center p-3 rounded-lg border border-border/10 bg-muted/5"
+                        className="text-center p-3 rounded-lg border border-border/10 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 hover:scale-105 transition-transform duration-200"
                         data-testid={`badge-${badge.badgeType}`}
                       >
-                        <Star className="h-6 w-6 text-yellow-500 mx-auto mb-1" />
+                        <Trophy className="h-6 w-6 text-yellow-500 mx-auto mb-1" />
                         <p className="text-xs font-medium">{badge.badgeName}</p>
                       </div>
                     ))}
                   </div>
                 </CardContent>
               </Card>
+            ) : (
+              <Card className="gaming-card border-border/20 bg-gradient-to-br from-yellow-500/10 to-orange-500/10">
+                <CardHeader>
+                  <div className="flex items-center space-x-2">
+                    <div className="h-8 w-8 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                      <Trophy className="h-4 w-4 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg">Achievements</CardTitle>
+                      <CardDescription>Start trading to earn cool badges!</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-center py-6">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center mx-auto mb-3">
+                      <Star className="h-6 w-6 text-white opacity-50" />
+                    </div>
+                    <p className="text-sm text-muted-foreground">Complete trades to unlock awesome badges!</p>
+                  </div>
+                </CardContent>
+              </Card>
             )}
 
-            {/* Bump Status */}
-            <Card className="gaming-card border-border/20">
-              <CardHeader>
-                <CardTitle>Bump Status</CardTitle>
-                <CardDescription>Keep your trades visible</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-center py-4">
-                  <div className="text-2xl font-bold text-accent mb-2" data-testid="text-available-bumps">
-                    {stats?.activeTrades || 0}
+            {/* Quick Boost */}
+            {stats?.activeTrades && stats.activeTrades > 0 && (
+              <Card className="gaming-card border-border/20 bg-gradient-to-br from-green-500/10 to-emerald-500/10">
+                <CardHeader>
+                  <div className="flex items-center space-x-2">
+                    <div className="h-8 w-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                      <Zap className="h-4 w-4 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg">Boost Your Trades</CardTitle>
+                      <CardDescription>Make them more visible!</CardDescription>
+                    </div>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Trades ready to bump
-                  </p>
-                  <Link href="/my-trades">
-                    <Button size="sm" className="gaming-button-primary" data-testid="button-bump-trades">
-                      <ArrowUpCircle className="h-4 w-4 mr-2" />
-                      Bump Trades
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-center py-4">
+                    <div className="text-3xl font-bold text-emerald-400 mb-2" data-testid="text-available-bumps">
+                      {stats?.activeTrades || 0}
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      trades ready for a boost! ⚡
+                    </p>
+                    <Link href="/my-trades">
+                      <Button className="gaming-button-primary w-full" data-testid="button-bump-trades">
+                        <ArrowUpCircle className="h-4 w-4 mr-2" />
+                        Boost Now!
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </div>
