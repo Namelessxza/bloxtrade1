@@ -13,7 +13,7 @@ const Header = () => {
               <div className="w-8 h-8 bg-gradient-gaming rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">GX</span>
               </div>
-              <h1 className="text-xl font-bold bg-gradient-gaming bg-clip-text text-transparent">
+              <h1 className="text-xl font-bold gradient-text-improved">
                 GameXchange
               </h1>
             </div>

@@ -129,7 +129,7 @@ const Index = () => {
         {/* Hero Section */}
         <section className="mb-12">
           <div className="text-center space-y-4 mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-gaming bg-clip-text text-transparent gaming-text-glow">
+            <h1 className="text-4xl md:text-6xl gradient-text-improved gaming-text-glow">
               GameXchange Marketplace
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -225,19 +225,19 @@ const Index = () => {
             <TabsContent value="grid">
               <div className="gaming-card border border-border/20 rounded-lg overflow-hidden">
                 <Table>
-                  <TableHeader>
-                    <TableRow className="border-b border-border/30">
-                      <TableHead className="text-foreground font-semibold">Player Username & Profile</TableHead>
-                      <TableHead className="text-foreground font-semibold">Item/Name</TableHead>
-                      <TableHead className="text-foreground font-semibold">Label/Rarity</TableHead>
-                      <TableHead className="text-foreground font-semibold">Category</TableHead>
-                      <TableHead className="text-foreground font-semibold text-right">Send Offer</TableHead>
+                  <TableHeader className="table-header-improved">
+                    <TableRow>
+                      <TableHead>Player Username & Profile</TableHead>
+                      <TableHead>Item/Name</TableHead>
+                      <TableHead>Label/Rarity</TableHead>
+                      <TableHead>Category</TableHead>
+                      <TableHead className="text-right">Send Offer</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {gameItems.map((item) => (
-                      <TableRow key={item.id} className="hover:bg-gaming-hover/20">
-                        <TableCell className="py-4">
+                      <TableRow key={item.id} className="table-row-improved">
+                        <TableCell className="table-cell-improved">
                           <div className="flex items-center space-x-3">
                             <img 
                               src={item.player.avatar} 
@@ -249,11 +249,11 @@ const Index = () => {
                                 <span>{item.player.username}</span>
                                 <div className={`w-2 h-2 rounded-full ${item.player.isOnline ? 'bg-success' : 'bg-muted-foreground/30'}`} />
                               </div>
-                              <div className="text-sm text-muted-foreground">Level {item.player.level}</div>
+                              <div className="text-sm text-muted-foreground font-medium">Level {item.player.level}</div>
                             </div>
                           </div>
                         </TableCell>
-                        <TableCell className="py-4">
+                        <TableCell className="table-cell-improved">
                           <div className="flex items-center space-x-3">
                             <img 
                               src={item.image} 
@@ -262,12 +262,12 @@ const Index = () => {
                             />
                             <div>
                               <div className="font-semibold text-foreground">{item.title}</div>
-                              <div className="text-sm text-muted-foreground">{item.game}</div>
+                              <div className="text-sm text-muted-foreground font-medium">{item.game}</div>
                             </div>
                           </div>
                         </TableCell>
-                        <TableCell>
-                          <span className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
+                        <TableCell className="table-cell-improved">
+                          <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${
                             item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple' :
                             item.rarity === 'Legendary' ? 'bg-warning/20 text-warning' :
                             item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan' :
@@ -276,10 +276,10 @@ const Index = () => {
                             {item.rarity}
                           </span>
                         </TableCell>
-                        <TableCell className="text-muted-foreground font-medium">
+                        <TableCell className="table-cell-improved text-muted-foreground font-semibold">
                           {item.category}
                         </TableCell>
-                        <TableCell className="text-right">
+                        <TableCell className="table-cell-improved text-right">
                           <Button size="sm" className="gaming-button-primary">
                             Send Offer
                           </Button>
