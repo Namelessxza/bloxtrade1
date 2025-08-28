@@ -89,9 +89,10 @@ All colors MUST be HSL.
     --shadow-card: 0 8px 32px hsl(228 14% 4% / 0.4);
     --shadow-gaming: 0 0 40px hsl(var(--gaming-cyan) / 0.2);
 
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Performance-optimized animations */
+    --transition-fast: transform 0.15s ease-out, opacity 0.15s ease-out;
+    --transition-smooth: transform 0.2s ease-out, opacity 0.2s ease-out;
+    --transition-hover: transform 0.15s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -152,46 +153,53 @@ All colors MUST be HSL.
     font-weight: 500;
   }
 
-  /* Enhanced Gaming Components */
+  /* Performance-optimized Gaming Components */
   .gaming-card {
     @apply bg-gradient-to-br from-card to-gaming-hover border border-border/50 rounded-xl backdrop-blur-sm relative overflow-hidden;
-    box-shadow: 
-      0 8px 32px hsl(var(--gaming-dark) / 0.4),
-      inset 0 1px 0 hsl(var(--primary) / 0.1);
+    transform: translateZ(0); /* Force GPU acceleration */
+    contain: layout style paint;
     transition: var(--transition-smooth);
+  }
+  
+  .gaming-card:hover {
+    will-change: transform;
+  }
+  
+  .gaming-card:not(:hover) {
+    will-change: auto;
   }
   
   .gaming-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.08), transparent);
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: var(--transition-fast);
+    will-change: transform, opacity;
   }
   
   .gaming-card:hover {
     @apply border-primary/40;
-    box-shadow: 
-      0 12px 48px hsl(var(--gaming-dark) / 0.6),
-      0 0 30px hsl(var(--primary) / 0.4),
-      inset 0 1px 0 hsl(var(--primary) / 0.2);
-    transform: translateY(-4px) scale(1.02);
+    outline: 1px solid hsl(var(--primary) / 0.3);
+    transform: translateY(-2px) translateZ(0);
   }
   
   .gaming-card:hover::before {
-    left: 100%;
+    opacity: 1;
+    transform: translateX(100%);
   }
   
-  /* Enhanced Gaming Marketplace Cards */
+  /* Performance-optimized Marketplace Cards */
   .marketplace-card {
     @apply gaming-card relative;
-    background: 
-      linear-gradient(145deg, hsl(var(--card)), hsl(var(--gaming-hover))),
-      radial-gradient(circle at top right, hsl(var(--primary) / 0.05), transparent 50%);
-    animation: fadeInUp 0.6s ease-out;
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--gaming-hover)));
+    transform: translateZ(0);
+    contain: layout style paint;
   }
   
   .marketplace-card::after {
@@ -203,130 +211,137 @@ All colors MUST be HSL.
     height: 100%;
     background: linear-gradient(to bottom, 
       transparent, 
-      hsl(var(--primary) / 0.5), 
-      hsl(var(--accent) / 0.3), 
+      hsl(var(--primary) / 0.4), 
       transparent
     );
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: var(--transition-fast);
+    will-change: opacity;
   }
   
   .marketplace-card:hover::after {
     opacity: 1;
   }
   
-  /* Enhanced Gaming Buttons */
+  /* Performance-optimized Gaming Buttons */
   .gaming-button-primary {
     @apply relative font-semibold px-6 py-2 rounded-lg text-primary-foreground overflow-hidden;
     background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    box-shadow: 
-      0 0 20px hsl(var(--primary) / 0.4),
-      inset 0 1px 0 hsl(var(--primary-glow) / 0.6);
-    transition: var(--transition-bounce);
+    outline: 1px solid hsl(var(--primary) / 0.3);
+    transform: translateZ(0);
+    contain: layout style;
+    transition: var(--transition-hover);
+  }
+  
+  .gaming-button-primary:hover {
+    will-change: transform;
+  }
+  
+  .gaming-button-primary:not(:hover) {
+    will-change: auto;
   }
   
   .gaming-button-primary::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.2), transparent);
-    transition: left 0.3s ease;
+    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.15), transparent);
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: var(--transition-fast);
+    will-change: transform, opacity;
   }
   
   .gaming-button-primary:hover {
-    box-shadow: 
-      0 0 30px hsl(var(--primary) / 0.6),
-      0 5px 15px hsl(var(--primary) / 0.3),
-      inset 0 1px 0 hsl(var(--primary-glow) / 0.8);
-    transform: translateY(-2px) scale(1.05);
-    animation: pulse-glow 2s ease-in-out infinite;
+    outline: 1px solid hsl(var(--primary) / 0.6);
+    transform: translateY(-1px) translateZ(0);
   }
   
   .gaming-button-primary:hover::before {
-    left: 100%;
+    opacity: 1;
+    transform: translateX(100%);
   }
   
   .gaming-button-secondary {
     @apply relative font-semibold px-6 py-2 rounded-lg text-secondary-foreground overflow-hidden;
     background: linear-gradient(45deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    box-shadow: 
-      0 0 15px hsl(var(--secondary) / 0.3),
-      inset 0 1px 0 hsl(var(--secondary-glow) / 0.5);
-    transition: var(--transition-smooth);
+    outline: 1px solid hsl(var(--secondary) / 0.2);
+    transform: translateZ(0);
+    transition: var(--transition-hover);
+    will-change: transform;
   }
   
   .gaming-button-secondary:hover {
-    box-shadow: 
-      0 0 25px hsl(var(--secondary) / 0.5),
-      0 3px 10px hsl(var(--secondary) / 0.2);
-    transform: translateY(-1px) scale(1.02);
+    outline: 1px solid hsl(var(--secondary) / 0.4);
+    transform: translateY(-1px) translateZ(0);
   }
   
-  /* Gaming Action Buttons */
+  /* Performance-optimized Action Buttons */
   .gaming-action-button {
     @apply relative font-bold px-8 py-3 rounded-lg text-white overflow-hidden;
     background: linear-gradient(135deg, 
       hsl(var(--accent)), 
-      hsl(var(--accent-glow)), 
-      hsl(var(--primary))
+      hsl(var(--accent-glow))
     );
-    box-shadow: 
-      0 4px 15px hsl(var(--accent) / 0.3),
-      inset 0 1px 0 hsl(var(--accent-glow) / 0.7);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: 1px solid hsl(var(--accent) / 0.3);
+    transform: translateZ(0);
+    contain: layout style;
+    transition: var(--transition-hover);
+  }
+  
+  .gaming-action-button:hover {
+    will-change: transform;
+  }
+  
+  .gaming-action-button:not(:hover) {
+    will-change: auto;
   }
   
   .gaming-action-button::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, hsla(0, 0%, 100%, 0.3), transparent 60%);
-    transition: all 0.5s ease;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.1), transparent);
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: var(--transition-fast);
+    will-change: transform, opacity;
   }
   
   .gaming-action-button:hover {
-    box-shadow: 
-      0 8px 25px hsl(var(--accent) / 0.4),
-      0 0 30px hsl(var(--primary) / 0.3),
-      inset 0 1px 0 hsl(var(--accent-glow));
-    transform: translateY(-3px) scale(1.05);
+    outline: 1px solid hsl(var(--accent) / 0.5);
+    transform: translateY(-1px) translateZ(0);
   }
   
   .gaming-action-button:hover::before {
-    width: 200px;
-    height: 200px;
+    opacity: 1;
+    transform: translateX(100%);
   }
   
-  /* Enhanced Gaming Typography */
+  /* Performance-optimized Gaming Typography */
   .gaming-text-glow {
-    text-shadow: 
-      0 0 10px hsl(var(--primary) / 0.6),
-      0 0 20px hsl(var(--primary) / 0.4),
-      0 0 30px hsl(var(--primary) / 0.2);
+    text-shadow: 0 0 8px hsl(var(--primary) / 0.4);
     font-weight: 900;
     letter-spacing: -0.02em;
-    animation: digitalGlitch 8s ease-in-out infinite;
+    transform: translateZ(0);
   }
   
   .gaming-title {
     @apply gaming-text-glow;
     background: linear-gradient(135deg, 
       hsl(var(--primary)), 
-      hsl(var(--accent)), 
-      hsl(var(--secondary))
+      hsl(var(--accent))
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    background-size: 200% 200%;
-    animation: backgroundShift 5s ease-in-out infinite;
+    transform: translateZ(0);
   }
   
   .gaming-subtitle {
@@ -353,9 +368,10 @@ All colors MUST be HSL.
     animation: slideInFromLeft 1s ease-out;
   }
   
-  /* Enhanced Status Indicators */
+  /* Performance-optimized Status Indicators */
   .status-online {
     @apply relative;
+    transform: translateZ(0);
   }
   
   .status-online::before {
@@ -367,18 +383,18 @@ All colors MUST be HSL.
     height: 8px;
     background: hsl(var(--accent));
     border-radius: 50%;
-    box-shadow: 0 0 10px hsl(var(--accent) / 0.6);
-    animation: pulse-glow 2s ease-in-out infinite;
+    outline: 1px solid hsl(var(--accent) / 0.3);
+    transform: translateZ(0);
   }
   
-  /* Gaming Rarity Effects */
+  /* Performance-optimized Rarity Effects */
   .rarity-mythic {
     background: linear-gradient(135deg, 
       hsl(var(--secondary)), 
       hsl(var(--secondary-glow))
     );
-    box-shadow: 0 0 15px hsl(var(--secondary) / 0.5);
-    animation: sparkle 3s ease-in-out infinite;
+    outline: 1px solid hsl(var(--secondary) / 0.4);
+    transform: translateZ(0);
   }
   
   .rarity-legendary {
@@ -386,7 +402,8 @@ All colors MUST be HSL.
       hsl(45, 90%, 55%), 
       hsl(45, 90%, 65%)
     );
-    box-shadow: 0 0 15px hsl(45, 90%, 55% / 0.5);
+    outline: 1px solid hsl(45, 90%, 55% / 0.4);
+    transform: translateZ(0);
   }
   
   .rarity-epic {
@@ -394,7 +411,8 @@ All colors MUST be HSL.
       hsl(var(--primary)), 
       hsl(var(--primary-glow))
     );
-    box-shadow: 0 0 15px hsl(var(--primary) / 0.5);
+    outline: 1px solid hsl(var(--primary) / 0.4);
+    transform: translateZ(0);
   }
   
   .rarity-rare {
@@ -402,11 +420,13 @@ All colors MUST be HSL.
       hsl(var(--accent)), 
       hsl(var(--accent-glow))
     );
-    box-shadow: 0 0 15px hsl(var(--accent) / 0.5);
+    outline: 1px solid hsl(var(--accent) / 0.4);
+    transform: translateZ(0);
   }
   
   .gaming-border-glow {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    outline: 1px solid hsl(var(--primary) / 0.3);
+    transform: translateZ(0);
   }
   
   /* Table improvements */
@@ -426,12 +446,14 @@ All colors MUST be HSL.
   
   .table-row-improved {
     border-bottom: 1px solid hsl(var(--border) / 0.3);
-    transition: all 0.2s ease;
+    transform: translateZ(0);
+    transition: var(--transition-fast);
+    will-change: transform;
   }
   
   .table-row-improved:hover {
     background: hsl(var(--gaming-hover) / 0.3);
-    transform: translateY(-1px);
+    transform: translateY(-1px) translateZ(0);
   }
   
   .table-cell-improved {
@@ -601,16 +623,13 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-sans antialiased;
     background-image: 
-      /* Animated particle field */
-      radial-gradient(circle at 20% 20%, hsl(var(--primary) / 0.15) 0%, transparent 60%),
-      radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.12) 0%, transparent 60%),
-      radial-gradient(circle at 40% 60%, hsl(var(--accent) / 0.08) 0%, transparent 40%),
+      /* Static particle field */
+      radial-gradient(circle at 20% 20%, hsl(var(--primary) / 0.08) 0%, transparent 60%),
+      radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.06) 0%, transparent 60%),
       /* Circuit board pattern */
-      linear-gradient(90deg, transparent 49%, hsl(var(--primary) / 0.03) 50%, transparent 51%),
-      linear-gradient(0deg, transparent 49%, hsl(var(--primary) / 0.03) 50%, transparent 51%);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
-    animation: backgroundShift 20s ease-in-out infinite;
+      linear-gradient(90deg, transparent 49%, hsl(var(--primary) / 0.02) 50%, transparent 51%),
+      linear-gradient(0deg, transparent 49%, hsl(var(--primary) / 0.02) 50%, transparent 51%);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -618,62 +637,42 @@ All colors MUST be HSL.
   }
 }
 
-/* Advanced Gaming Animations and Effects */
-@keyframes backgroundShift {
-  0%, 100% { 
-    background-position: 0% 0%, 0% 0%, 0% 0%, 0 0, 0 0; 
-  }
-  25% { 
-    background-position: 10% 20%, -5% 15%, 15% -10%, -10px -10px, 5px 5px; 
-  }
-  50% { 
-    background-position: 20% 10%, -10% 30%, 30% -20%, -20px 0px, 10px -10px; 
-  }
-  75% { 
-    background-position: 5% 30%, -15% 10%, 10% -30%, -5px -15px, -5px 15px; 
-  }
-}
+/* Performance-optimized Animations with Accessibility Support */
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(2deg); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { 
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
-    filter: brightness(1);
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  50% { 
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
-    filter: brightness(1.1);
+  
+  .gaming-card:hover,
+  .gaming-button-primary:hover,
+  .gaming-button-secondary:hover,
+  .gaming-action-button:hover,
+  .table-row-improved:hover {
+    transform: none !important;
+  }
+  
+  .gaming-card::before,
+  .gaming-button-primary::before,
+  .gaming-action-button::before {
+    display: none !important;
   }
 }
 
-@keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1) rotate(180deg); }
-}
-
-@keyframes slideInFromLeft {
-  0% { transform: translateX(-100%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideInFromRight {
-  0% { transform: translateX(100%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes fadeInUp {
-  0% { transform: translateY(30px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes digitalGlitch {
-  0% { transform: translateX(0); }
-  10% { transform: translateX(-2px) skew(-5deg); }
-  20% { transform: translateX(2px) skew(5deg); }
-  30% { transform: translateX(0); }
-  100% { transform: translateX(0); }
+/* Minimal, performance-optimized animations for normal motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  .slideInFromLeft {
+    animation: slideInFromLeft 0.3s ease-out;
+  }
+  
+  @keyframes slideInFromLeft {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
 }
