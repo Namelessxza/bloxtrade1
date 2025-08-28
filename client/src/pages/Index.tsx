@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { TrendingUp, Users, DollarSign, Package, Filter, Grid3X3, List } from "lucide-react";
 import Header from "@/components/Header";
 import GameItemCard from "@/components/GameItemCard";
 import StatsCard from "@/components/StatsCard";
 import LiveChatSidebar from "@/components/LiveChatSidebar";
+import SearchBar from "@/components/SearchBar";
+import QuickFilters from "@/components/QuickFilters";
+import Pagination from "@/components/Pagination";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -122,6 +126,43 @@ const gameItems = [
 ];
 
 const Index = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState("newest");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filters, setFilters] = useState({ itemType: "all", rarity: "all", verifiedOnly: false });
+  const itemsPerPage = 20;
+  const totalItems = gameItems.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1); // Reset to first page when searching
+  };
+  
+  const handleFiltersChange = (newFilters: any) => {
+    setFilters(newFilters);
+    setCurrentPage(1); // Reset to first page when filtering
+  };
+  
+  const handleSortChange = (value: string) => {
+    setSortBy(value);
+    setCurrentPage(1); // Reset to first page when sorting
+  };
+  
+  const handleRowClick = (itemId: string) => {
+    // TODO: Navigate to trade thread page
+    console.log('Clicked item:', itemId);
+  };
+  
+  const handleSendOffer = (itemId: string, e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent row click
+    // TODO: Check if user is logged in, if not prompt login
+    console.log('Send offer for item:', itemId);
+  };
+  
+  // Paginate items
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedItems = gameItems.slice(startIndex, startIndex + itemsPerPage);
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -176,25 +217,29 @@ const Index = () => {
 
         {/* Marketplace Section */}
         <section>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-2xl font-bold text-foreground">Featured Marketplace</h2>
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              <Select defaultValue="trending">
-                <SelectTrigger className="w-32 sm:w-40">
+          <div className="space-y-6">
+            {/* Header with Search */}
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+              <h2 className="text-2xl font-bold text-foreground">Featured Marketplace</h2>
+              <SearchBar onSearch={handleSearch} />
+            </div>
+            
+            {/* Filters and Sort */}
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+              <QuickFilters onFiltersChange={handleFiltersChange} />
+              
+              <Select value={sortBy} onValueChange={handleSortChange}>
+                <SelectTrigger className="w-40 bg-gaming-card border-border/30">
                   <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="trending">Trending</SelectItem>
+                  <SelectItem value="newest">Newest</SelectItem>
+                  <SelectItem value="recently-bumped">Recently Bumped</SelectItem>
                   <SelectItem value="price-low">Price: Low to High</SelectItem>
                   <SelectItem value="price-high">Price: High to Low</SelectItem>
-                  <SelectItem value="newest">Newest</SelectItem>
                   <SelectItem value="rarity">Rarity</SelectItem>
                 </SelectContent>
               </Select>
-              
-              <Button variant="outline" size="icon">
-                <Filter className="h-4 w-4" />
-              </Button>
             </div>
           </div>
 
@@ -239,8 +284,12 @@ const Index = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {gameItems.map((item) => (
-                      <TableRow key={item.id} className="table-row-improved">
+                    {paginatedItems.map((item) => (
+                      <TableRow 
+                        key={item.id} 
+                        className="table-row-improved cursor-pointer hover:bg-muted/10 transition-colors" 
+                        onClick={() => handleRowClick(item.id)}
+                      >
                         <TableCell className="table-cell-improved">
                           <div className="flex items-center space-x-3">
                             <img 
@@ -276,7 +325,11 @@ const Index = () => {
                           {item.category}
                         </TableCell>
                         <TableCell className="table-cell-improved text-right">
-                          <Button size="sm" className="gaming-button-primary">
+                          <Button 
+                            size="sm" 
+                            className="gaming-button-primary"
+                            onClick={(e) => handleSendOffer(item.id, e)}
+                          >
                             Send Offer
                           </Button>
                         </TableCell>
@@ -290,8 +343,12 @@ const Index = () => {
 
             <TabsContent value="list">
               <div className="space-y-3 lg:space-y-4">
-                {gameItems.map((item) => (
-                  <div key={item.id} className="gaming-card p-3 lg:p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                {paginatedItems.map((item) => (
+                  <div 
+                    key={item.id} 
+                    className="gaming-card p-3 lg:p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 cursor-pointer hover:bg-muted/10 transition-colors"
+                    onClick={() => handleRowClick(item.id)}
+                  >
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-foreground truncate">{item.title}</h3>
                       <p className="text-sm text-muted-foreground truncate">{item.game}</p>
@@ -305,7 +362,11 @@ const Index = () => {
                       </span>
                     </div>
                     <div className="flex items-center justify-end">
-                      <Button size="sm" className="gaming-button-primary">
+                      <Button 
+                        size="sm" 
+                        className="gaming-button-primary"
+                        onClick={(e) => handleSendOffer(item.id, e)}
+                      >
                         Send Offer
                       </Button>
                     </div>
@@ -315,14 +376,14 @@ const Index = () => {
             </TabsContent>
           </Tabs>
 
-          {/* Load More */}
-          <div className="text-center mt-8">
-            <Button 
-              className="gaming-button-primary px-8 py-3 text-base"
-            >
-              Load More Items
-            </Button>
-          </div>
+          {/* Pagination */}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            totalItems={totalItems}
+            itemsPerPage={itemsPerPage}
+            onPageChange={setCurrentPage}
+          />
         </section>
       </main>
       
