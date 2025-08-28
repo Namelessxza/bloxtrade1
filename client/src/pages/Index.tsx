@@ -2,6 +2,7 @@ import { TrendingUp, Users, DollarSign, Package, Filter, Grid3X3, List } from "l
 import Header from "@/components/Header";
 import GameItemCard from "@/components/GameItemCard";
 import StatsCard from "@/components/StatsCard";
+import LiveChatSidebar from "@/components/LiveChatSidebar";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -324,6 +325,9 @@ const Index = () => {
           </div>
         </section>
       </main>
+      
+      {/* Live Chat Sidebar */}
+      <LiveChatSidebar isLoggedIn={false} />
     </div>
   );
 };
