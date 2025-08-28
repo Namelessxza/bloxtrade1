@@ -164,23 +164,21 @@ All colors MUST be HSL.
   }
   
   .gaming-button-primary {
-    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold px-6 py-2 rounded-lg shadow-[0_0_20px_hsl(var(--primary)/0.4)];
-    transition: var(--transition-bounce);
+    @apply bg-primary text-white font-semibold px-6 py-3;
+    transition: var(--transition-smooth);
   }
   
   .gaming-button-primary:hover {
-    @apply shadow-[0_0_30px_hsl(var(--primary)/0.6)];
-    transform: translateY(-1px) scale(1.02);
+    @apply bg-primary/90;
   }
   
   .gaming-button-secondary {
-    @apply bg-gradient-to-r from-secondary to-secondary-glow text-secondary-foreground font-semibold px-6 py-2 rounded-lg;
+    @apply bg-secondary text-white font-semibold px-6 py-3;
     transition: var(--transition-smooth);
   }
   
   .gaming-button-secondary:hover {
-    @apply shadow-[0_0_20px_hsl(var(--secondary)/0.4)];
-    transform: translateY(-1px);
+    @apply bg-secondary/90;
   }
   
   .gaming-text-glow {
@@ -238,7 +236,6 @@ All colors MUST be HSL.
   .gaming-button-primary {
     font-weight: 600;
     letter-spacing: 0.01em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
   
   .gaming-button-secondary {
