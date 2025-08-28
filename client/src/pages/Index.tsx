@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TrendingUp, Users, DollarSign, Package, Filter, Grid3X3, List } from "lucide-react";
+import { useLocation } from "wouter";
 import Header from "@/components/Header";
 import GameItemCard from "@/components/GameItemCard";
 import StatsCard from "@/components/StatsCard";
@@ -126,6 +127,7 @@ const gameItems = [
 ];
 
 const Index = () => {
+  const [, setLocation] = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState("newest");
   const [searchQuery, setSearchQuery] = useState("");
@@ -150,7 +152,7 @@ const Index = () => {
   };
   
   const handleRowClick = (itemId: string) => {
-    window.location.href = `/trade/${itemId}`;
+    setLocation(`/trade/${itemId}`);
   };
   
   const handleSendOffer = (itemId: string, e: React.MouseEvent) => {
@@ -286,7 +288,8 @@ const Index = () => {
                         <div key={tier.name} className="rounded-xl overflow-hidden">
                           {/* Battle Entry - Exact Reference Design */}
                           <div 
-                            className="relative p-6 bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 backdrop-blur-sm border border-white/10 pt-[24px] pb-[24px]"
+                            className="relative p-6 bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 backdrop-blur-sm border border-white/10 pt-[24px] pb-[24px] cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:from-purple-600/30 hover:via-purple-500/25 hover:to-purple-600/30 hover:border-white/20"
+                            onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
                           >
                             {/* Tier Label - Top Left */}
                             <div className="absolute top-4 left-6">
@@ -353,13 +356,16 @@ const Index = () => {
                               <div className="flex items-center">
                                 <button 
                                   className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
-                                  onClick={() => console.log('Contact trader:', tier.name)}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('Contact trader:', tier.name);
+                                  }}
                                 >
                                   Send Offer
                                 </button>
                               </div>
                             </div>
-                          </div>
                         </div>
                       );
                     })}
@@ -386,11 +392,12 @@ const Index = () => {
                         <div key={tier.name} className="rounded-xl overflow-hidden">
                           {/* Battle Entry - Exact Reference Design */}
                           <div 
-                            className={`relative p-6 ${
-                              tier.name === 'NORMAL' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20' :
-                              tier.name === 'INVERSE' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20' :
-                              'bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-600/20'
-                            } backdrop-blur-sm border border-white/10`}
+                            className={`relative p-6 cursor-pointer transition-all duration-200 hover:scale-[1.02] ${
+                              tier.name === 'NORMAL' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 hover:from-purple-600/30 hover:via-purple-500/25 hover:to-purple-600/30' :
+                              tier.name === 'INVERSE' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 hover:from-purple-600/30 hover:via-purple-500/25 hover:to-purple-600/30' :
+                              'bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-600/20 hover:from-red-600/30 hover:via-red-500/25 hover:to-red-600/30'
+                            } backdrop-blur-sm border border-white/10 hover:border-white/20`}
+                            onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
                           >
                             {/* Tier Label - Top Left */}
                             <div className="absolute top-4 left-6">
@@ -457,13 +464,16 @@ const Index = () => {
                               <div className="flex items-center">
                                 <button 
                                   className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
-                                  onClick={() => console.log('Contact trader:', tier.name)}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('Contact trader:', tier.name);
+                                  }}
                                 >
                                   Send Offer
                                 </button>
                               </div>
                             </div>
-                          </div>
                         </div>
                       );
                     })}
