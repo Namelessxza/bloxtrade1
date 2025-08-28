@@ -165,7 +165,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
       <main className="responsive-container py-4 sm:py-6 lg:py-8">
         {/* Hero Section */}
         <section className="mb-8 lg:mb-12">
@@ -287,11 +286,7 @@ const Index = () => {
                         <div key={tier.name} className="rounded-xl overflow-hidden">
                           {/* Battle Entry - Exact Reference Design */}
                           <div 
-                            className={`relative p-6 ${
-                              tier.name === 'NORMAL' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20' :
-                              tier.name === 'INVERSE' ? 'bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20' :
-                              'bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-600/20'
-                            } backdrop-blur-sm border border-white/10`}
+                            className="relative p-6 bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-purple-600/20 backdrop-blur-sm border border-white/10 pt-[0px] pb-[0px]"
                           >
                             {/* Tier Label - Top Left */}
                             <div className="absolute top-4 left-6">
@@ -360,7 +355,7 @@ const Index = () => {
                                   className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
                                   onClick={() => console.log('Contact trader:', tier.name)}
                                 >
-                                  Contact Trader
+                                  Send Offer
                                 </button>
                               </div>
                             </div>
@@ -464,7 +459,7 @@ const Index = () => {
                                   className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
                                   onClick={() => console.log('Contact trader:', tier.name)}
                                 >
-                                  Contact Trader
+                                  Send Offer
                                 </button>
                               </div>
                             </div>
@@ -488,7 +483,6 @@ const Index = () => {
           />
         </section>
       </main>
-      
       {/* Live Chat Sidebar */}
       <LiveChatSidebar isLoggedIn={false} />
     </div>
