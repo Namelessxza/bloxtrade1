@@ -274,8 +274,8 @@ const Index = () => {
                 // Define exact tier structure from reference image
                 const battleTiers = [
                   { name: 'NORMAL', items: paginatedItems.slice(0, 1) },
-                  { name: 'INVERSE', items: paginatedItems.slice(1, 3) },
-                  { name: 'TERMINAL', items: paginatedItems.slice(3, 5) }
+                  { name: 'INVERSE', items: paginatedItems.slice(1, 2) },
+                  { name: 'TERMINAL', items: paginatedItems.slice(2, 3) }
                 ];
 
                 return (
@@ -384,8 +384,8 @@ const Index = () => {
                 // Define exact tier structure from reference image
                 const battleTiers = [
                   { name: 'NORMAL', items: paginatedItems.slice(0, 1) },
-                  { name: 'INVERSE', items: paginatedItems.slice(1, 3) },
-                  { name: 'TERMINAL', items: paginatedItems.slice(3, 5) }
+                  { name: 'INVERSE', items: paginatedItems.slice(1, 2) },
+                  { name: 'TERMINAL', items: paginatedItems.slice(2, 3) }
                 ];
 
                 return (
