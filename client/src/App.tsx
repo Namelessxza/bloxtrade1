@@ -15,14 +15,9 @@ import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 function Router() {
-  const { isAuthenticated, isLoading } = useAuth();
-
   return (
     <Routes>
-      <Route 
-        path="/" 
-        element={isLoading || !isAuthenticated ? <Index /> : <Dashboard />} 
-      />
+      <Route path="/" element={<Index />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/my-trades" element={<MyTrades />} />
       <Route path="/create-trade" element={<CreateTrade />} />
