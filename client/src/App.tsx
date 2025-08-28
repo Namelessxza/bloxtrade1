@@ -19,18 +19,15 @@ function Router() {
 
   return (
     <Routes>
-      {isLoading || !isAuthenticated ? (
-        <Route path="/" element={<Index />} />
-      ) : (
-        <>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/my-trades" element={<MyTrades />} />
-          <Route path="/create-trade" element={<CreateTrade />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/settings" element={<Settings />} />
-        </>
-      )}
+      <Route 
+        path="/" 
+        element={isLoading || !isAuthenticated ? <Index /> : <Dashboard />} 
+      />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/my-trades" element={<MyTrades />} />
+      <Route path="/create-trade" element={<CreateTrade />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/settings" element={<Settings />} />
       <Route path="/trade/:id" element={<TradeListing />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
