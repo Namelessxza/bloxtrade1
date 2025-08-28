@@ -300,12 +300,7 @@ const Index = () => {
                               </span>
                             </div>
 
-                            {/* Item Count - Top Right */}
-                            <div className="absolute top-4 right-6">
-                              <span className="text-sm font-medium text-white/80">
-                                {tier.items.length}/6
-                              </span>
-                            </div>
+
 
                             <div className="flex items-center gap-8 mt-6">
                               {/* Left: Player Avatars */}
@@ -328,46 +323,45 @@ const Index = () => {
 
                               </div>
 
-                              {/* Center: 6-Slot Item Grid */}
-                              <div className="flex-1 flex items-center justify-center">
-                                <div className="grid grid-cols-6 gap-3">
+                              {/* Center: Item Details and Description */}
+                              <div className="flex-1 flex items-center gap-6">
+                                {/* Item Image */}
+                                <div className="w-16 h-16">
                                   {tier.items.map((item) => (
-                                    <div key={item.id} className="w-12 h-12">
-                                      <img 
-                                        src={item.image} 
-                                        alt={item.title}
-                                        className="w-full h-full rounded object-cover"
-                                      />
-                                    </div>
+                                    <img 
+                                      key={item.id}
+                                      src={item.image} 
+                                      alt={item.title}
+                                      className="w-full h-full rounded-lg object-cover border-2 border-white/20"
+                                    />
                                   ))}
-                                  {/* Fill remaining slots with placeholder */}
-                                  {Array.from({ length: 6 - tier.items.length }).map((_, index) => (
-                                    <div key={`item-placeholder-${index}`} className="w-12 h-12 bg-white/10 rounded" />
+                                </div>
+                                
+                                {/* Item Info and Description */}
+                                <div className="flex flex-col gap-2">
+                                  {tier.items.map((item) => (
+                                    <div key={item.id} className="flex flex-col gap-1">
+                                      <div className="flex items-center gap-2">
+                                        <span className="text-lg font-bold text-white">{item.title}</span>
+                                        <span className="text-sm text-white/60">•</span>
+                                        <span className="text-sm font-medium text-purple-300">{item.game}</span>
+                                      </div>
+                                      <p className="text-sm text-white/80 leading-relaxed">
+                                        Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
+                                      </p>
+                                    </div>
                                   ))}
                                 </div>
                               </div>
 
-                              {/* Right: Price and Button */}
-                              <div className="flex items-center gap-6">
-                                <div className="text-right">
-                                  <div className="text-xl font-bold text-white">
-                                    $90.99
-                                  </div>
-                                  <div className="text-xs text-white/60">
-                                    Battle cost
-                                  </div>
-                                </div>
-                                <div className="flex flex-col items-end gap-2">
-                                  <button 
-                                    className="px-6 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all"
-                                    onClick={() => console.log('View battle:', tier.name)}
-                                  >
-                                    View battle
-                                  </button>
-                                  <div className="text-xs text-white/60">
-                                    Unboxed: $904.44
-                                  </div>
-                                </div>
+                              {/* Right: Action Button */}
+                              <div className="flex items-center">
+                                <button 
+                                  className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
+                                  onClick={() => console.log('Contact trader:', tier.name)}
+                                >
+                                  Contact Trader
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -410,12 +404,7 @@ const Index = () => {
                               </span>
                             </div>
 
-                            {/* Item Count - Top Right */}
-                            <div className="absolute top-4 right-6">
-                              <span className="text-sm font-medium text-white/80">
-                                {tier.items.length}/6
-                              </span>
-                            </div>
+
 
                             <div className="flex items-center gap-8 mt-6">
                               {/* Left: Player Avatars */}
@@ -438,46 +427,45 @@ const Index = () => {
 
                               </div>
 
-                              {/* Center: 6-Slot Item Grid */}
-                              <div className="flex-1 flex items-center justify-center">
-                                <div className="grid grid-cols-6 gap-3">
+                              {/* Center: Item Details and Description */}
+                              <div className="flex-1 flex items-center gap-6">
+                                {/* Item Image */}
+                                <div className="w-16 h-16">
                                   {tier.items.map((item) => (
-                                    <div key={item.id} className="w-12 h-12">
-                                      <img 
-                                        src={item.image} 
-                                        alt={item.title}
-                                        className="w-full h-full rounded object-cover"
-                                      />
-                                    </div>
+                                    <img 
+                                      key={item.id}
+                                      src={item.image} 
+                                      alt={item.title}
+                                      className="w-full h-full rounded-lg object-cover border-2 border-white/20"
+                                    />
                                   ))}
-                                  {/* Fill remaining slots with placeholder */}
-                                  {Array.from({ length: 6 - tier.items.length }).map((_, index) => (
-                                    <div key={`item-placeholder-${index}`} className="w-12 h-12 bg-white/10 rounded" />
+                                </div>
+                                
+                                {/* Item Info and Description */}
+                                <div className="flex flex-col gap-2">
+                                  {tier.items.map((item) => (
+                                    <div key={item.id} className="flex flex-col gap-1">
+                                      <div className="flex items-center gap-2">
+                                        <span className="text-lg font-bold text-white">{item.title}</span>
+                                        <span className="text-sm text-white/60">•</span>
+                                        <span className="text-sm font-medium text-purple-300">{item.game}</span>
+                                      </div>
+                                      <p className="text-sm text-white/80 leading-relaxed">
+                                        Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
+                                      </p>
+                                    </div>
                                   ))}
                                 </div>
                               </div>
 
-                              {/* Right: Price and Button */}
-                              <div className="flex items-center gap-6">
-                                <div className="text-right">
-                                  <div className="text-xl font-bold text-white">
-                                    $90.99
-                                  </div>
-                                  <div className="text-xs text-white/60">
-                                    Battle cost
-                                  </div>
-                                </div>
-                                <div className="flex flex-col items-end gap-2">
-                                  <button 
-                                    className="px-6 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all"
-                                    onClick={() => console.log('View battle:', tier.name)}
-                                  >
-                                    View battle
-                                  </button>
-                                  <div className="text-xs text-white/60">
-                                    Unboxed: $904.44
-                                  </div>
-                                </div>
+                              {/* Right: Action Button */}
+                              <div className="flex items-center">
+                                <button 
+                                  className="px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
+                                  onClick={() => console.log('Contact trader:', tier.name)}
+                                >
+                                  Contact Trader
+                                </button>
                               </div>
                             </div>
                           </div>
