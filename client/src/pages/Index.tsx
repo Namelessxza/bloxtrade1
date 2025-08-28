@@ -657,11 +657,7 @@ export default function Index() {
               return (
                 <div
                   key={msg.id}
-                  className={`p-3 rounded-2xl transition-all ${
-                    msg.isAdmin
-                      ? "bg-[#2c2734]"
-                      : "bg-slate-800/40 hover:bg-slate-800/60"
-                  }`}
+                  className="p-3 rounded-2xl transition-all bg-slate-800/40 hover:bg-slate-800/60 mt-[0px] mb-[0px]"
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-3">
