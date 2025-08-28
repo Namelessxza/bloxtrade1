@@ -598,15 +598,15 @@ export default function Index() {
       </div>
 
       {/* Right Chat Panel */}
-      <div className="w-[280px] bg-gradient-to-b from-card/95 to-card border-l border-border/30 flex flex-col">
+      <div className="w-[280px] bg-slate-900 border-l border-slate-700/50 flex flex-col">
         {/* Balance Display */}
-        <div className="p-3 border-b border-border/30 bg-gradient-to-r from-card to-gaming-hover">
+        <div className="p-3 border-b border-slate-700/50 bg-slate-800">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-muted-foreground">$90.4</span>
-            <span className="text-muted-foreground">$500</span>
+            <span className="text-slate-400">$90.4</span>
+            <span className="text-slate-400">$500</span>
           </div>
           <div className="flex items-center justify-between mt-1">
-            <span className="text-foreground font-medium">$500 left</span>
+            <span className="text-white font-medium">$500 left</span>
             <Button size="sm" className="bg-gradient-to-r from-secondary to-primary text-white px-4 py-1 text-xs h-7">
               Deposit
             </Button>
@@ -640,30 +640,30 @@ export default function Index() {
         </div>
 
         {/* Chat Messages */}
-        <ScrollArea className="flex-1 p-3" style={{ maxHeight: 'calc(100vh - 240px)' }}>
-          <div className="space-y-3">
+        <ScrollArea className="flex-1 p-2 bg-slate-900" style={{ maxHeight: 'calc(100vh - 240px)' }}>
+          <div className="space-y-2">
             {chatMessages.map((msg, index) => {
               const isHighlighted = msg.isAdmin || index === 1; // Admin message gets highlighted background
               return (
                 <div
                   key={msg.id}
-                  className={`p-3 rounded-xl transition-all ${
+                  className={`p-3 rounded-2xl transition-all ${
                     isHighlighted 
-                      ? 'bg-gradient-to-r from-slate-700/80 to-slate-600/60 border border-slate-500/30' 
-                      : 'hover:bg-slate-800/30'
+                      ? 'bg-slate-700/70' 
+                      : 'bg-slate-800/40 hover:bg-slate-800/60'
                   }`}
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-3">
                     <div className="relative flex-shrink-0">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-600 to-slate-700 border-2 border-slate-500/50 flex items-center justify-center text-lg overflow-hidden">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-slate-600 to-slate-700 border-2 border-slate-500/70 flex items-center justify-center text-base overflow-hidden">
                         {msg.avatar}
                       </div>
-                      <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full border-2 border-slate-800"></div>
+                      <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-slate-900"></div>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-medium text-slate-300">
+                        <span className="text-sm font-medium text-white">
                           {msg.username}
                         </span>
                         {msg.isAdmin && (
@@ -671,11 +671,11 @@ export default function Index() {
                             ADMIN
                           </span>
                         )}
-                        <span className="text-xs text-slate-500 ml-auto">
+                        <span className="text-xs text-slate-400 ml-auto">
                           2 min ago
                         </span>
                       </div>
-                      <p className="text-sm text-slate-200 leading-relaxed break-words">
+                      <p className="text-sm text-white leading-relaxed break-words">
                         {msg.message}
                       </p>
                     </div>
