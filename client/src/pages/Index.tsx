@@ -138,7 +138,8 @@ const Index = () => {
             </p>
           </div>
           
-          {/* Quick Stats */}
+          {/* Quick Stats - Temporarily Hidden */}
+          {/* 
           <div className="responsive-grid-4 mb-6 lg:mb-8">
             <StatsCard
               title="Total Items"
@@ -169,6 +170,7 @@ const Index = () => {
               trend={{ value: 5, isPositive: true }}
             />
           </div>
+          */}
         </section>
 
         {/* Marketplace Section */}
