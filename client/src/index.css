@@ -33,7 +33,7 @@ All colors MUST be HSL.
   }
 
   :root {
-    /* Standardized GameXchange Brand Colors - #00d4ff Primary Theme */
+    /* Dark gaming theme - Enhanced contrast */
     --background: 228 14% 8%;
     --foreground: 220 20% 98%;
 
@@ -43,32 +43,24 @@ All colors MUST be HSL.
     --popover: 228 14% 12%;
     --popover-foreground: 220 20% 98%;
 
-    /* Primary Brand Color: #00d4ff - Used for logos, primary buttons, main CTAs */
     --primary: 195 100% 50%;
     --primary-foreground: 228 14% 8%;
     --primary-glow: 195 100% 60%;
-    --primary-hover: 195 100% 45%;
-    --primary-active: 195 100% 40%;
 
-    /* Secondary Brand Color: Consistent purple for secondary actions */
-    --secondary: 270 60% 55%;
+    --secondary: 270 50% 55%;
     --secondary-foreground: 220 20% 98%;
-    --secondary-glow: 270 60% 65%;
-    --secondary-hover: 270 60% 50%;
+    --secondary-glow: 270 50% 65%;
 
     --muted: 228 14% 14%;
     --muted-foreground: 220 10% 75%;
 
-    /* Accent Color: Consistent green for success states */
-    --accent: 142 76% 36%;
-    --accent-foreground: 220 20% 98%;
-    --accent-glow: 142 76% 46%;
-    --accent-hover: 142 76% 31%;
+    --accent: 150 100% 45%;
+    --accent-foreground: 228 14% 8%;
+    --accent-glow: 150 100% 55%;
 
-    /* Status Colors - Standardized across platform */
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
-    --destructive: 0 84% 60%;
+    --success: 120 60% 50%;
+    --warning: 45 90% 55%;
+    --destructive: 0 70% 55%;
     --destructive-foreground: 220 20% 95%;
 
     --border: 228 14% 18%;
@@ -77,31 +69,29 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Standardized Gaming Colors - Aligned with brand palette */
-    --gaming-primary: 195 100% 50%;  /* Same as --primary for consistency */
-    --gaming-secondary: 270 60% 55%; /* Same as --secondary for consistency */
-    --gaming-accent: 142 76% 36%;    /* Same as --accent for consistency */
+    /* Gaming specific colors */
+    --gaming-purple: 270 50% 55%;
+    --gaming-cyan: 195 100% 50%;
+    --gaming-green: 150 100% 45%;
     --gaming-dark: 228 14% 6%;
     --gaming-card: 228 14% 10%;
     --gaming-hover: 228 14% 12%;
 
-    /* Brand-Consistent Gradients */
+    /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
     --gradient-success: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-brand: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-gaming: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-cyan)));
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(228 14% 12%));
 
-    /* Brand-Consistent Shadows */
-    --shadow-primary: 0 0 20px hsl(var(--primary) / 0.3);
-    --shadow-secondary: 0 0 20px hsl(var(--secondary) / 0.3);
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
     --shadow-card: 0 8px 32px hsl(228 14% 4% / 0.4);
-    --shadow-accent: 0 0 20px hsl(var(--accent) / 0.3);
+    --shadow-gaming: 0 0 40px hsl(var(--gaming-cyan) / 0.2);
 
-    /* Performance-optimized animations */
-    --transition-fast: transform 0.15s ease-out, opacity 0.15s ease-out;
-    --transition-smooth: transform 0.2s ease-out, opacity 0.2s ease-out;
-    --transition-hover: transform 0.15s ease-out;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
@@ -162,260 +152,45 @@ All colors MUST be HSL.
     font-weight: 500;
   }
 
-  /* Performance-optimized Gaming Components */
+  /* Gaming specific components */
   .gaming-card {
-    @apply bg-gradient-to-br from-card to-gaming-hover border border-border/50 rounded-xl backdrop-blur-sm relative overflow-hidden;
-    transform: translateZ(0); /* Force GPU acceleration */
-    contain: layout style paint;
+    @apply bg-gradient-to-br from-card to-gaming-hover border border-border/50 rounded-xl shadow-[0_8px_32px_hsl(var(--gaming-dark)/0.4)] backdrop-blur-sm;
     transition: var(--transition-smooth);
   }
   
   .gaming-card:hover {
-    will-change: transform;
+    @apply border-primary/30 shadow-[0_0_30px_hsl(var(--primary)/0.3)];
+    transform: translateY(-2px);
   }
   
-  .gaming-card:not(:hover) {
-    will-change: auto;
-  }
-  
-  .gaming-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.08), transparent);
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: var(--transition-fast);
-    will-change: transform, opacity;
-  }
-  
-  .gaming-card:hover {
-    @apply border-primary/40;
-    outline: 1px solid hsl(var(--primary) / 0.3);
-    transform: translateY(-2px) translateZ(0);
-  }
-  
-  .gaming-card:hover::before {
-    opacity: 1;
-    transform: translateX(100%);
-  }
-  
-  /* Performance-optimized Marketplace Cards */
-  .marketplace-card {
-    @apply gaming-card relative;
-    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--gaming-hover)));
-    transform: translateZ(0);
-    contain: layout style paint;
-  }
-  
-  .marketplace-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, 
-      transparent, 
-      hsl(var(--primary) / 0.4), 
-      transparent
-    );
-    opacity: 0;
-    transition: var(--transition-fast);
-    will-change: opacity;
-  }
-  
-  .marketplace-card:hover::after {
-    opacity: 1;
-  }
-  
-  /* Brand-consistent Gaming Buttons */
   .gaming-button-primary {
-    @apply relative font-semibold px-6 py-2 rounded-lg text-primary-foreground overflow-hidden;
-    background: var(--gradient-primary);
-    border: 1px solid hsl(var(--primary) / 0.4);
-    transform: translateZ(0);
-    contain: layout style;
-    transition: var(--transition-hover);
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold px-6 py-2 rounded-lg shadow-[0_0_20px_hsl(var(--primary)/0.4)];
+    transition: var(--transition-bounce);
   }
   
   .gaming-button-primary:hover {
-    will-change: transform;
-  }
-  
-  .gaming-button-primary:not(:hover) {
-    will-change: auto;
-  }
-  
-  .gaming-button-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.15), transparent);
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: var(--transition-fast);
-    will-change: transform, opacity;
-  }
-  
-  .gaming-button-primary:hover {
-    background: linear-gradient(45deg, hsl(var(--primary-hover)), hsl(var(--primary)));
-    border-color: hsl(var(--primary) / 0.8);
-    transform: translateY(-1px) translateZ(0);
-  }
-  
-  .gaming-button-primary:hover::before {
-    opacity: 1;
-    transform: translateX(100%);
+    @apply shadow-[0_0_30px_hsl(var(--primary)/0.6)];
+    transform: translateY(-1px) scale(1.02);
   }
   
   .gaming-button-secondary {
-    @apply relative font-semibold px-6 py-2 rounded-lg text-secondary-foreground overflow-hidden;
-    background: var(--gradient-secondary);
-    border: 1px solid hsl(var(--secondary) / 0.4);
-    transform: translateZ(0);
-    transition: var(--transition-hover);
-    will-change: transform;
+    @apply bg-gradient-to-r from-secondary to-secondary-glow text-secondary-foreground font-semibold px-6 py-2 rounded-lg;
+    transition: var(--transition-smooth);
   }
   
   .gaming-button-secondary:hover {
-    background: linear-gradient(45deg, hsl(var(--secondary-hover)), hsl(var(--secondary)));
-    border-color: hsl(var(--secondary) / 0.8);
-    transform: translateY(-1px) translateZ(0);
+    @apply shadow-[0_0_20px_hsl(var(--secondary)/0.4)];
+    transform: translateY(-1px);
   }
   
-  /* Brand-consistent Action Buttons */
-  .gaming-action-button {
-    @apply relative font-bold px-8 py-3 rounded-lg text-white overflow-hidden;
-    background: var(--gradient-success);
-    border: 1px solid hsl(var(--accent) / 0.4);
-    transform: translateZ(0);
-    contain: layout style;
-    transition: var(--transition-hover);
-  }
-  
-  .gaming-action-button:hover {
-    will-change: transform;
-  }
-  
-  .gaming-action-button:not(:hover) {
-    will-change: auto;
-  }
-  
-  .gaming-action-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.1), transparent);
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: var(--transition-fast);
-    will-change: transform, opacity;
-  }
-  
-  .gaming-action-button:hover {
-    background: linear-gradient(135deg, hsl(var(--accent-hover)), hsl(var(--accent)));
-    border-color: hsl(var(--accent) / 0.8);
-    transform: translateY(-1px) translateZ(0);
-  }
-  
-  .gaming-action-button:hover::before {
-    opacity: 1;
-    transform: translateX(100%);
-  }
-  
-  /* Performance-optimized Gaming Typography */
   .gaming-text-glow {
-    text-shadow: 0 0 8px hsl(var(--primary) / 0.4);
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
     font-weight: 900;
     letter-spacing: -0.02em;
-    transform: translateZ(0);
-  }
-  
-  .gaming-title {
-    @apply gaming-text-glow;
-    background: var(--gradient-brand);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transform: translateZ(0);
-  }
-  
-  .gaming-subtitle {
-    color: hsl(var(--muted-foreground));
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    position: relative;
-    opacity: 0.9;
-  }
-  
-  .gaming-subtitle::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 30%;
-    height: 2px;
-    background: var(--gradient-brand);
-  }
-  
-  /* Performance-optimized Status Indicators */
-  .status-online {
-    @apply relative;
-    transform: translateZ(0);
-  }
-  
-  .status-online::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 8px;
-    height: 8px;
-    background: hsl(var(--success));
-    border-radius: 50%;
-    border: 1px solid hsl(var(--success) / 0.5);
-    transform: translateZ(0);
-  }
-  
-  /* Brand-consistent Rarity Effects */
-  .rarity-mythic {
-    background: var(--gradient-secondary);
-    border: 1px solid hsl(var(--secondary) / 0.5);
-    transform: translateZ(0);
-  }
-  
-  .rarity-legendary {
-    background: linear-gradient(135deg, hsl(var(--warning)), hsl(38 92% 60%));
-    border: 1px solid hsl(var(--warning) / 0.5);
-    transform: translateZ(0);
-  }
-  
-  .rarity-epic {
-    background: var(--gradient-primary);
-    border: 1px solid hsl(var(--primary) / 0.5);
-    transform: translateZ(0);
-  }
-  
-  .rarity-rare {
-    background: var(--gradient-success);
-    border: 1px solid hsl(var(--accent) / 0.5);
-    transform: translateZ(0);
   }
   
   .gaming-border-glow {
-    border: 1px solid hsl(var(--primary) / 0.4);
-    transform: translateZ(0);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
   }
   
   /* Table improvements */
@@ -435,14 +210,12 @@ All colors MUST be HSL.
   
   .table-row-improved {
     border-bottom: 1px solid hsl(var(--border) / 0.3);
-    transform: translateZ(0);
-    transition: var(--transition-fast);
-    will-change: transform;
+    transition: all 0.2s ease;
   }
   
   .table-row-improved:hover {
     background: hsl(var(--gaming-hover) / 0.3);
-    transform: translateY(-1px) translateZ(0);
+    transform: translateY(-1px);
   }
   
   .table-cell-improved {
@@ -450,9 +223,9 @@ All colors MUST be HSL.
     vertical-align: middle;
   }
   
-  /* Brand-consistent gradient text */
+  /* Improved gradient text */
   .gradient-text-improved {
-    background: var(--gradient-brand);
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--gaming-cyan)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -612,56 +385,11 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-sans antialiased;
     background-image: 
-      /* Static particle field */
-      radial-gradient(circle at 20% 20%, hsl(var(--primary) / 0.08) 0%, transparent 60%),
-      radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.06) 0%, transparent 60%),
-      /* Circuit board pattern */
-      linear-gradient(90deg, transparent 49%, hsl(var(--primary) / 0.02) 50%, transparent 51%),
-      linear-gradient(0deg, transparent 49%, hsl(var(--primary) / 0.02) 50%, transparent 51%);
-    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      radial-gradient(circle at 20% 20%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.08) 0%, transparent 50%);
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
-  }
-}
-
-/* Performance-optimized Animations with Accessibility Support */
-
-/* Accessibility: Respect user's motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  
-  .gaming-card:hover,
-  .gaming-button-primary:hover,
-  .gaming-button-secondary:hover,
-  .gaming-action-button:hover,
-  .table-row-improved:hover {
-    transform: none !important;
-  }
-  
-  .gaming-card::before,
-  .gaming-button-primary::before,
-  .gaming-action-button::before {
-    display: none !important;
-  }
-}
-
-/* Minimal, performance-optimized animations for normal motion preference */
-@media (prefers-reduced-motion: no-preference) {
-  .slideInFromLeft {
-    animation: slideInFromLeft 0.3s ease-out;
-  }
-  
-  @keyframes slideInFromLeft {
-    0% { transform: translateX(-20px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
   }
 }

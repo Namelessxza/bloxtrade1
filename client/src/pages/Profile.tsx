@@ -132,7 +132,7 @@ export default function Profile() {
                     <p className="text-sm text-muted-foreground">Completed</p>
                   </div>
                   <div className="text-center p-4 rounded-lg bg-muted/5 border border-border/10">
-                    <div className="text-2xl font-bold text-primary" data-testid="stat-active-trades">
+                    <div className="text-2xl font-bold text-blue-500" data-testid="stat-active-trades">
                       {stats?.activeTrades || 0}
                     </div>
                     <p className="text-sm text-muted-foreground">Active</p>

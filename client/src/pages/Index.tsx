@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { TrendingUp, Users, DollarSign, Package, Filter, Grid3X3, List } from "lucide-react";
-import { useLocation } from "wouter";
 import Header from "@/components/Header";
 import GameItemCard from "@/components/GameItemCard";
 import StatsCard from "@/components/StatsCard";
@@ -127,7 +126,6 @@ const gameItems = [
 ];
 
 const Index = () => {
-  const [, setLocation] = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState("newest");
   const [searchQuery, setSearchQuery] = useState("");
@@ -152,7 +150,7 @@ const Index = () => {
   };
   
   const handleRowClick = (itemId: string) => {
-    setLocation(`/trade/${itemId}`);
+    window.location.href = `/trade/${itemId}`;
   };
   
   const handleSendOffer = (itemId: string, e: React.MouseEvent) => {
@@ -164,42 +162,21 @@ const Index = () => {
   // Paginate items
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedItems = gameItems.slice(startIndex, startIndex + itemsPerPage);
-
-  // Define exact tier structure from reference image
-  const battleTiers = [
-    { name: 'NORMAL', items: paginatedItems.slice(0, 1) },
-    { name: 'INVERSE', items: paginatedItems.slice(1, 2) },
-    { name: 'TERMINAL', items: paginatedItems.slice(2, 3) }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      
       <main className="responsive-container py-4 sm:py-6 lg:py-8">
         {/* Hero Section */}
         <section className="mb-8 lg:mb-12">
-          <div className="text-center space-y-6 mb-8 lg:mb-12 relative">
-            <div className="relative">
-              <h1 className="gaming-title text-4xl lg:text-6xl xl:text-7xl mb-4">
-                GameXchange
-              </h1>
-              <div className="gaming-subtitle text-sm lg:text-base mb-6">
-                Elite Gaming Marketplace
-              </div>
-            </div>
-            <div className="relative max-w-3xl mx-auto">
-              <p className="text-lg lg:text-xl text-muted-foreground px-4 leading-relaxed">
-                🎮 <strong className="text-primary">Trade</strong>, <strong className="text-accent">collect</strong>, and <strong className="text-secondary">discover</strong> legendary gaming items from the multiverse's most exclusive games.
-              </p>
-              <p className="text-base lg:text-lg text-muted-foreground/80 mt-3 px-4">
-                Join <span className="text-primary font-bold">50,000+</span> elite gamers in the ultimate digital battleground marketplace.
-              </p>
-            </div>
-            
-            {/* Floating decoration elements */}
-            <div className="absolute top-0 left-1/4 w-1 h-16 bg-gradient-to-b from-primary to-transparent opacity-30 animate-pulse"></div>
-            <div className="absolute top-8 right-1/4 w-1 h-12 bg-gradient-to-b from-accent to-transparent opacity-20 animate-pulse" style={{animationDelay: '1s'}}></div>
-            <div className="absolute bottom-0 left-1/3 w-8 h-1 bg-gradient-to-r from-secondary to-transparent opacity-25"></div>
+          <div className="text-center space-y-4 mb-6 lg:mb-8">
+            <h1 className="gradient-text-improved gaming-text-glow">
+              GameXchange Marketplace
+            </h1>
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+              Trade, collect, and discover rare gaming items from your favorite games. 
+              Join thousands of gamers in the ultimate digital marketplace.
+            </p>
           </div>
           
           {/* Quick Stats - Temporarily Hidden */}
@@ -242,7 +219,7 @@ const Index = () => {
           <div className="space-y-6">
             {/* Header with Search */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-              <h2 className="text-2xl lg:text-3xl font-bold text-foreground gaming-text-glow">🔥 Battle-Ready Arsenal</h2>
+              <h2 className="text-2xl font-bold text-foreground">Featured Marketplace</h2>
               <SearchBar onSearch={handleSearch} />
             </div>
             
@@ -293,188 +270,107 @@ const Index = () => {
             </div>
 
             <TabsContent value="grid">
-              <div className="space-y-4">
-                {battleTiers.map((tier, tierIndex) => {
-                  if (tier.items.length === 0) return null;
-
-                  return (
-                    <div key={tier.name} className="marketplace-card rounded-xl overflow-hidden">
-                      {/* Battle Entry - Exact Reference Design */}
-                      <div 
-                        className="relative p-6 bg-gradient-to-r from-primary/15 via-primary/10 to-primary/15 backdrop-blur-lg border border-white/20 pt-[24px] pb-[24px] cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:from-primary/25 hover:via-primary/20 hover:to-primary/25 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
-                        onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
+              <div className="gaming-card border border-border/20 rounded-lg overflow-hidden">
+                <div className="table-responsive">
+                  <Table>
+                    <TableHeader className="table-header-improved">
+                    <TableRow>
+                      <TableHead>Player Username & Profile</TableHead>
+                      <TableHead>Item/Name</TableHead>
+                      <TableHead>Label/Rarity</TableHead>
+                      <TableHead>Category</TableHead>
+                      <TableHead className="text-right">Send Offer</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {paginatedItems.map((item) => (
+                      <TableRow 
+                        key={item.id} 
+                        className="table-row-improved cursor-pointer hover:bg-muted/10 transition-colors" 
+                        onClick={() => handleRowClick(item.id)}
                       >
-                        {/* Tier Label - Top Left */}
-                        <div className="absolute top-4 left-6">
-                          <span className="text-xs font-bold text-white/60 tracking-wider">
-                            {tier.name}
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-8 mt-6">
-                          {/* Left: Player Avatars */}
-                          <div className="flex items-center space-x-1">
-                            {tier.items.map((item, index) => (
-                              <div key={item.id} className="relative">
-                                <img 
-                                  src={item.player.avatar} 
-                                  alt={item.player.username}
-                                  className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
-                                />
-                                {/* X separator between avatars */}
-                                {index < tier.items.length - 1 && (
-                                  <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
-                                    <span className="text-white/40 text-sm font-bold">×</span>
-                                  </div>
-                                )}
+                        <TableCell className="table-cell-improved">
+                          <div className="flex items-center space-x-3">
+                            <img 
+                              src={item.player.avatar} 
+                              alt={`${item.player.username} avatar`}
+                              className="w-10 h-10 rounded-full object-cover border border-border/20"
+                            />
+                            <div>
+                              <div className="font-semibold text-foreground flex items-center space-x-2">
+                                <span>{item.player.username}</span>
+                                <div className={`w-2 h-2 rounded-full ${item.player.isOnline ? 'bg-success' : 'bg-muted-foreground/30'}`} />
                               </div>
-                            ))}
-                          </div>
-
-                          {/* Center: Item Details and Description */}
-                          <div className="flex-1 flex items-center gap-6">
-                            {/* Item Image */}
-                            <div className="w-16 h-16">
-                              {tier.items.map((item) => (
-                                <img 
-                                  key={item.id}
-                                  src={item.image} 
-                                  alt={item.title}
-                                  className="w-full h-full rounded-lg object-cover border-2 border-white/20"
-                                />
-                              ))}
-                            </div>
-                            
-                            {/* Item Info and Description */}
-                            <div className="flex flex-col gap-2">
-                              {tier.items.map((item) => (
-                                <div key={item.id} className="flex flex-col gap-1">
-                                  <div className="flex items-center gap-2">
-                                    <span className="text-lg font-bold text-white">{item.title}</span>
-                                    <span className="text-sm text-white/60">•</span>
-                                    <span className="text-sm font-medium text-primary">{item.game}</span>
-                                  </div>
-                                  <p className="text-sm text-white/80 leading-relaxed">
-                                    Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
-                                  </p>
-                                </div>
-                              ))}
                             </div>
                           </div>
-
-                          {/* Right: Action Button */}
-                          <div className="flex items-center">
-                            <button 
-                              className="gaming-action-button"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                console.log('Contact trader:', tier.name);
-                              }}
-                            >
-                              ⚔️ Send Offer
-                            </button>
+                        </TableCell>
+                        <TableCell className="table-cell-improved">
+                          <div>
+                            <div className="font-semibold text-foreground">{item.title}</div>
+                            <div className="text-sm text-muted-foreground font-medium">{item.game}</div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+                        </TableCell>
+                        <TableCell className="table-cell-improved">
+                          <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${
+                            item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
+                            item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
+                            item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
+                            'bg-gaming-green/20 text-gaming-green'
+                          }`}>
+                            {item.rarity}
+                          </span>
+                        </TableCell>
+                        <TableCell className="table-cell-improved text-muted-foreground font-semibold">
+                          {item.category}
+                        </TableCell>
+                        <TableCell className="table-cell-improved text-right">
+                          <Button 
+                            size="sm" 
+                            className="gaming-button-primary"
+                            onClick={(e) => handleSendOffer(item.id, e)}
+                          >
+                            Send Offer
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+                </div>
               </div>
             </TabsContent>
 
             <TabsContent value="list">
-              <div className="space-y-4">
-                {battleTiers.map((tier, tierIndex) => {
-                  if (tier.items.length === 0) return null;
-
-                  return (
-                    <div key={tier.name} className="marketplace-card rounded-xl overflow-hidden">
-                      {/* Battle Entry - Exact Reference Design */}
-                      <div 
-                        className={`relative p-6 cursor-pointer transition-all duration-200 hover:scale-[1.02] ${
-                          tier.name === 'NORMAL' ? 'bg-gradient-to-r from-primary/20 via-primary/15 to-primary/20 hover:from-primary/30 hover:via-primary/25 hover:to-primary/30' :
-                          tier.name === 'INVERSE' ? 'bg-gradient-to-r from-primary/20 via-primary/15 to-primary/20 hover:from-primary/30 hover:via-primary/25 hover:to-primary/30' :
-                          'bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-600/20 hover:from-red-600/30 hover:via-red-500/25 hover:to-red-600/30'
-                        } backdrop-blur-sm border border-white/10 hover:border-white/20`}
-                        onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
-                      >
-                        {/* Tier Label - Top Left */}
-                        <div className="absolute top-4 left-6">
-                          <span className="text-xs font-bold text-white/60 tracking-wider">
-                            {tier.name}
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-8 mt-6">
-                          {/* Left: Player Avatars */}
-                          <div className="flex items-center space-x-1">
-                            {tier.items.map((item, index) => (
-                              <div key={item.id} className="relative">
-                                <img 
-                                  src={item.player.avatar} 
-                                  alt={item.player.username}
-                                  className="w-10 h-10 rounded-full object-cover border-2 border-white/20"
-                                />
-                                {/* X separator between avatars */}
-                                {index < tier.items.length - 1 && (
-                                  <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
-                                    <span className="text-white/40 text-sm font-bold">×</span>
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Center: Item Details and Description */}
-                          <div className="flex-1 flex items-center gap-6">
-                            {/* Item Image */}
-                            <div className="w-16 h-16">
-                              {tier.items.map((item) => (
-                                <img 
-                                  key={item.id}
-                                  src={item.image} 
-                                  alt={item.title}
-                                  className="w-full h-full rounded-lg object-cover border-2 border-white/20"
-                                />
-                              ))}
-                            </div>
-                            
-                            {/* Item Info and Description */}
-                            <div className="flex flex-col gap-2">
-                              {tier.items.map((item) => (
-                                <div key={item.id} className="flex flex-col gap-1">
-                                  <div className="flex items-center gap-2">
-                                    <span className="text-lg font-bold text-white">{item.title}</span>
-                                    <span className="text-sm text-white/60">•</span>
-                                    <span className="text-sm font-medium text-primary">{item.game}</span>
-                                  </div>
-                                  <p className="text-sm text-white/80 leading-relaxed">
-                                    Trading {item.title} {item.rarity} {item.category} - Looking for good offers, DM ME for quick trades!
-                                  </p>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* Right: Action Button */}
-                          <div className="flex items-center">
-                            <button 
-                              className="gaming-action-button"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                console.log('Contact trader:', tier.name);
-                              }}
-                            >
-                              ⚔️ Send Offer
-                            </button>
-                          </div>
-                        </div>
-                      </div>
+              <div className="space-y-3 lg:space-y-4">
+                {paginatedItems.map((item) => (
+                  <div 
+                    key={item.id} 
+                    className="gaming-card p-3 lg:p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 cursor-pointer hover:bg-muted/10 transition-colors"
+                    onClick={() => handleRowClick(item.id)}
+                  >
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-foreground truncate">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground truncate">{item.game}</p>
+                      <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold mt-1 ${
+                        item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
+                        item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
+                        item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
+                        'bg-gaming-green/20 text-gaming-green'
+                      }`}>
+                        {item.rarity}
+                      </span>
                     </div>
-                  );
-                })}
+                    <div className="flex items-center justify-end">
+                      <Button 
+                        size="sm" 
+                        className="gaming-button-primary"
+                        onClick={(e) => handleSendOffer(item.id, e)}
+                      >
+                        Send Offer
+                      </Button>
+                    </div>
+                  </div>
+                ))}
               </div>
             </TabsContent>
           </Tabs>
@@ -489,6 +385,7 @@ const Index = () => {
           />
         </section>
       </main>
+      
       {/* Live Chat Sidebar */}
       <LiveChatSidebar isLoggedIn={false} />
     </div>

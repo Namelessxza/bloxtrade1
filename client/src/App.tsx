@@ -19,7 +19,10 @@ function Router() {
 
   return (
     <Routes>
-      <Route path="/" element={<Index />} />
+      <Route 
+        path="/" 
+        element={isLoading || !isAuthenticated ? <Index /> : <Dashboard />} 
+      />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/my-trades" element={<MyTrades />} />
       <Route path="/create-trade" element={<CreateTrade />} />

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link } from "wouter";
-import mascotImage from "@assets/generated_images/Gaming_marketplace_mascot_character_a0d3635a.png";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,16 +11,11 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo with Mascot */}
+          {/* Logo */}
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 relative">
-                <img 
-                  src={mascotImage} 
-                  alt="GameXchange Mascot" 
-                  className="w-full h-full object-cover rounded-lg ring-2 ring-primary/30 shadow-lg"
-                />
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-background animate-pulse"></div>
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-gaming rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">GX</span>
               </div>
               <h1 className="text-xl font-bold gradient-text-improved">
                 GameXchange

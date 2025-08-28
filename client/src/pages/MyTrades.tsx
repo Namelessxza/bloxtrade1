@@ -152,7 +152,7 @@ export default function MyTrades() {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "active":
-        return <Clock className="h-4 w-4 text-primary" />;
+        return <Clock className="h-4 w-4 text-blue-500" />;
       case "pending":
         return <Clock className="h-4 w-4 text-yellow-500" />;
       case "completed":
@@ -167,7 +167,7 @@ export default function MyTrades() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "active":
-        return "bg-primary/20 text-primary";
+        return "bg-blue-500/20 text-blue-300";
       case "pending":
         return "bg-yellow-500/20 text-yellow-300";
       case "completed":
