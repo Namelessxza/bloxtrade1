@@ -178,14 +178,28 @@ const Index = () => {
       <main className="responsive-container py-4 sm:py-6 lg:py-8">
         {/* Hero Section */}
         <section className="mb-8 lg:mb-12">
-          <div className="text-center space-y-4 mb-6 lg:mb-8">
-            <h1 className="gradient-text-improved gaming-text-glow">
-              GameXchange Marketplace
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-              Trade, collect, and discover rare gaming items from your favorite games. 
-              Join thousands of gamers in the ultimate digital marketplace.
-            </p>
+          <div className="text-center space-y-6 mb-8 lg:mb-12 relative">
+            <div className="relative">
+              <h1 className="gaming-title text-4xl lg:text-6xl xl:text-7xl mb-4">
+                GameXchange
+              </h1>
+              <div className="gaming-subtitle text-sm lg:text-base mb-6">
+                Elite Gaming Marketplace
+              </div>
+            </div>
+            <div className="relative max-w-3xl mx-auto">
+              <p className="text-lg lg:text-xl text-muted-foreground px-4 leading-relaxed">
+                🎮 <strong className="text-primary">Trade</strong>, <strong className="text-accent">collect</strong>, and <strong className="text-secondary">discover</strong> legendary gaming items from the multiverse's most exclusive games.
+              </p>
+              <p className="text-base lg:text-lg text-muted-foreground/80 mt-3 px-4">
+                Join <span className="text-primary font-bold">50,000+</span> elite gamers in the ultimate digital battleground marketplace.
+              </p>
+            </div>
+            
+            {/* Floating decoration elements */}
+            <div className="absolute top-0 left-1/4 w-1 h-16 bg-gradient-to-b from-primary to-transparent opacity-30 animate-pulse"></div>
+            <div className="absolute top-8 right-1/4 w-1 h-12 bg-gradient-to-b from-accent to-transparent opacity-20 animate-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-0 left-1/3 w-8 h-1 bg-gradient-to-r from-secondary to-transparent opacity-25"></div>
           </div>
           
           {/* Quick Stats - Temporarily Hidden */}
@@ -228,7 +242,7 @@ const Index = () => {
           <div className="space-y-6">
             {/* Header with Search */}
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-              <h2 className="text-2xl font-bold text-foreground">Featured Marketplace</h2>
+              <h2 className="text-2xl lg:text-3xl font-bold text-foreground gaming-text-glow">🔥 Battle-Ready Arsenal</h2>
               <SearchBar onSearch={handleSearch} />
             </div>
             
@@ -284,10 +298,10 @@ const Index = () => {
                   if (tier.items.length === 0) return null;
 
                   return (
-                    <div key={tier.name} className="rounded-xl overflow-hidden">
+                    <div key={tier.name} className="marketplace-card rounded-xl overflow-hidden">
                       {/* Battle Entry - Exact Reference Design */}
                       <div 
-                        className="relative p-6 bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-600/20 backdrop-blur-sm border border-white/10 pt-[24px] pb-[24px] cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:from-blue-600/30 hover:via-blue-500/25 hover:to-blue-600/30 hover:border-white/20"
+                        className="relative p-6 bg-gradient-to-r from-blue-600/15 via-blue-500/10 to-blue-600/15 backdrop-blur-lg border border-white/20 pt-[24px] pb-[24px] cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:from-blue-600/25 hover:via-blue-500/20 hover:to-blue-600/25 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
                         onClick={() => setLocation(`/trade/${tier.items[0]?.id || 1}`)}
                       >
                         {/* Tier Label - Top Left */}
@@ -351,14 +365,14 @@ const Index = () => {
                           {/* Right: Action Button */}
                           <div className="flex items-center">
                             <button 
-                              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg"
+                              className="gaming-action-button"
                               onClick={(e) => {
                                 e.preventDefault();
                                 e.stopPropagation();
                                 console.log('Contact trader:', tier.name);
                               }}
                             >
-                              Send Offer
+                              ⚔️ Send Offer
                             </button>
                           </div>
                         </div>
@@ -375,7 +389,7 @@ const Index = () => {
                   if (tier.items.length === 0) return null;
 
                   return (
-                    <div key={tier.name} className="rounded-xl overflow-hidden">
+                    <div key={tier.name} className="marketplace-card rounded-xl overflow-hidden">
                       {/* Battle Entry - Exact Reference Design */}
                       <div 
                         className={`relative p-6 cursor-pointer transition-all duration-200 hover:scale-[1.02] ${
@@ -446,14 +460,14 @@ const Index = () => {
                           {/* Right: Action Button */}
                           <div className="flex items-center">
                             <button 
-                              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg"
+                              className="gaming-action-button"
                               onClick={(e) => {
                                 e.preventDefault();
                                 e.stopPropagation();
                                 console.log('Contact trader:', tier.name);
                               }}
                             >
-                              Send Offer
+                              ⚔️ Send Offer
                             </button>
                           </div>
                         </div>
