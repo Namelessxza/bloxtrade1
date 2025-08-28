@@ -33,61 +33,61 @@ All colors MUST be HSL.
   }
 
   :root {
-    /* Dark gaming theme - Enhanced contrast */
-    --background: 228 14% 8%;
+    /* Fire Casino Purple Theme */
+    --background: 222 47% 7%;  /* Dark navy #0F172A */
     --foreground: 220 20% 98%;
 
-    --card: 228 14% 10%;
+    --card: 224 44% 10%;  /* Dark card #1E293B */
     --card-foreground: 220 20% 98%;
 
-    --popover: 228 14% 12%;
+    --popover: 224 44% 12%;
     --popover-foreground: 220 20% 98%;
 
-    --primary: 195 100% 50%;
-    --primary-foreground: 228 14% 8%;
-    --primary-glow: 195 100% 60%;
+    --primary: 271 91% 65%;  /* Purple #A855F7 */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 269 79% 69%;  /* Light purple #C084FC */
 
-    --secondary: 270 50% 55%;
-    --secondary-foreground: 220 20% 98%;
-    --secondary-glow: 270 50% 65%;
+    --secondary: 333 71% 61%;  /* Pink #EC4899 */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 330 81% 70%;  /* Light pink #F472B6 */
 
-    --muted: 228 14% 14%;
+    --muted: 224 44% 14%;
     --muted-foreground: 220 10% 75%;
 
-    --accent: 150 100% 45%;
-    --accent-foreground: 228 14% 8%;
-    --accent-glow: 150 100% 55%;
+    --accent: 269 79% 58%;  /* Purple accent #8B5CF6 */
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 269 79% 69%;
 
     --success: 120 60% 50%;
     --warning: 45 90% 55%;
     --destructive: 0 70% 55%;
     --destructive-foreground: 220 20% 95%;
 
-    --border: 228 14% 18%;
-    --input: 228 14% 16%;
-    --ring: 195 100% 50%;
+    --border: 224 44% 18%;
+    --input: 224 44% 16%;
+    --ring: 271 91% 65%;
 
     --radius: 0.75rem;
 
-    /* Gaming specific colors */
-    --gaming-purple: 270 50% 55%;
-    --gaming-cyan: 195 100% 50%;
-    --gaming-green: 150 100% 45%;
-    --gaming-dark: 228 14% 6%;
-    --gaming-card: 228 14% 10%;
-    --gaming-hover: 228 14% 12%;
+    /* Fire Casino specific colors */
+    --gaming-purple: 271 91% 65%;
+    --gaming-pink: 333 71% 61%;
+    --gaming-purple-dark: 269 79% 58%;
+    --gaming-dark: 222 47% 7%;
+    --gaming-card: 224 44% 10%;
+    --gaming-hover: 224 44% 12%;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
     --gradient-success: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-gaming: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-cyan)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(228 14% 12%));
+    --gradient-gaming: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-pink)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(224 44% 12%));
 
     /* Shadows */
     --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 8px 32px hsl(228 14% 4% / 0.4);
-    --shadow-gaming: 0 0 40px hsl(var(--gaming-cyan) / 0.2);
+    --shadow-card: 0 8px 32px hsl(222 47% 4% / 0.4);
+    --shadow-gaming: 0 0 40px hsl(var(--gaming-purple) / 0.2);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -152,15 +152,18 @@ All colors MUST be HSL.
     font-weight: 500;
   }
 
-  /* Gaming specific components */
+  /* Fire Casino Gaming Components */
   .gaming-card {
-    @apply bg-gradient-to-br from-card to-gaming-hover border border-border/50 rounded-xl shadow-[0_8px_32px_hsl(var(--gaming-dark)/0.4)] backdrop-blur-sm;
+    @apply bg-gradient-to-br from-card to-gaming-hover border border-border/50 rounded-xl backdrop-blur-sm;
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--gaming-hover) / 0.5));
+    box-shadow: 0 4px 20px hsl(var(--gaming-dark) / 0.3);
     transition: var(--transition-smooth);
   }
   
   .gaming-card:hover {
     @apply border-primary/30;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 30px hsl(var(--gaming-purple) / 0.2);
   }
   
   .gaming-button-primary {
@@ -381,11 +384,75 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-sans antialiased;
     background-image: 
-      radial-gradient(circle at 20% 20%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, hsl(var(--secondary) / 0.08) 0%, transparent 50%);
+      radial-gradient(circle at 20% 20%, hsl(var(--gaming-purple) / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(var(--gaming-pink) / 0.1) 0%, transparent 50%);
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
   }
+}
+
+/* Fire Casino Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out;
+}
+
+/* Fire Casino specific styles */
+.fire-gradient {
+  background: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-pink)));
+}
+
+.fire-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px hsl(var(--gaming-purple) / 0.2);
+}
+
+.fire-badge {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  color: white;
+  font-weight: 600;
+}
+
+.fire-sidebar-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.fire-sidebar-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: hsl(var(--primary));
+  transition: width 0.3s ease;
+}
+
+.fire-sidebar-item:hover::before {
+  width: 3px;
 }

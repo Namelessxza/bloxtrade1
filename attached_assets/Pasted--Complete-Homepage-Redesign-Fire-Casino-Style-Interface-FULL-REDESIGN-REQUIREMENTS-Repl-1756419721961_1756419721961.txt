@@ -1,0 +1,63 @@
+## Complete Homepage Redesign - Fire Casino Style Interface
+
+**FULL REDESIGN REQUIREMENTS:**
+Replace the entire homepage layout, CSS, and structure to exactly match the Fire casino interface reference.
+
+**LAYOUT STRUCTURE (3-Column):**
+- **Left Sidebar (20% width):** Navigation menu with game categories
+- **Main Content (55% width):** Central promotional area and game grid
+- **Right Chat Panel (25% width):** Live chat interface
+
+**COLOR THEME - PURPLE SCHEME:**
+- Primary: Purple/magenta gradients (#8B5CF6, #A855F7, #C084FC)
+- Accent: Pink highlights (#EC4899, #F472B6)
+- Background: Dark navy (#0F172A, #1E293B) with purple undertones
+- Remove all blue colors and replace with purple variants
+
+**LEFT SIDEBAR NAVIGATION:**
+- Dark background with purple accents
+- Game categories: Casino, Roulette, Crush, All Games, Slots, Popular, etc.
+- Icons for each category with purple hover states
+- Bottom section with "Buy crypto" and "Support" buttons
+- Exact same vertical layout and spacing as reference
+
+**MAIN CONTENT AREA:**
+- **Top Banner:** Large promotional section with:
+  - 3D character illustration (wizard/mascot style)
+  - "Sign up & get reward" messaging
+  - Purple gradient background with floating elements
+  - "Claim now" button in bright accent color
+- **Game Grid:** Horizontal scrollable game tiles showing game icons and values
+- **Game Sections:** "Fire games", "Slot games" with category headers
+- **Game Cards:** Colorful tiles with game artwork, titles, and "Play" buttons
+
+**RIGHT CHAT PANEL:**
+- Fixed right sidebar with dark background
+- "Online chat" header with user count and avatars
+- Scrollable message area with user avatars and messages
+- Bottom input box with send button
+- Purple accent colors for active states
+
+**VISUAL ELEMENTS:**
+- Gradient backgrounds with purple/pink themes
+- Card-based layouts with rounded corners
+- Floating decorative elements and particles
+- Professional game artwork and illustrations
+- Consistent purple button styling throughout
+
+**SPECIFIC COMPONENTS TO RECREATE:**
+- Top navigation bar with balance display
+- Promotional banner with 3D character
+- Game category filters and tabs  
+- Scrollable game grids with hover effects
+- Live chat with user interactions
+- Bottom game sections (Roulette, etc.)
+
+**TECHNICAL IMPLEMENTATION:**
+- Responsive grid system (CSS Grid/Flexbox)
+- Purple color variables throughout CSS
+- Smooth animations and hover effects
+- Fixed positioning for sidebar and chat
+- Mobile responsiveness considerations
+
+Transform the entire homepage to match this Fire casino aesthetic exactly - same layout proportions, color scheme, visual hierarchy, and component positioning.
