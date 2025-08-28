@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useLocation } from "wouter";
 import { ArrowLeft, Send, Flag, Shield, Clock, MessageCircle, AlertTriangle } from "lucide-react";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
@@ -39,7 +39,7 @@ interface TradeItem {
 
 const TradeListing = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  const [, setLocation] = useLocation();
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState<TradeMessage[]>([]);
   const [isLoggedIn] = useState(false); // This would come from auth context
@@ -161,7 +161,7 @@ const TradeListing = () => {
         {/* Back Button */}
         <Button
           variant="ghost"
-          onClick={() => navigate('/')}
+          onClick={() => setLocation('/')}
           className="mb-6 text-muted-foreground hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
