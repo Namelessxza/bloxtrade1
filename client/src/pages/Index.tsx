@@ -315,19 +315,9 @@ const Index = () => {
                         {item.rarity}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between sm:flex-col sm:items-end gap-2">
-                      <div className="text-right">
-                        <div className="text-lg font-bold text-success">
-                          ${item.currentPrice.toFixed(2)}
-                        </div>
-                        {item.originalPrice && (
-                          <div className="text-sm text-muted-foreground line-through">
-                            ${item.originalPrice.toFixed(2)}
-                          </div>
-                        )}
-                      </div>
-                      <Button size="sm" className="gaming-button-primary whitespace-nowrap">
-                        Buy Now
+                    <div className="flex items-center justify-end">
+                      <Button size="sm" className="gaming-button-primary">
+                        Send Offer
                       </Button>
                     </div>
                   </div>
