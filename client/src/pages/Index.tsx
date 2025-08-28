@@ -271,18 +271,44 @@ const Index = () => {
 
             <TabsContent value="grid">
               {(() => {
-                // Group items by rarity tier
+                // Group items by rarity tier and create battle entries
                 const rarityTiers = ['Mythic', 'Legendary', 'Epic', 'Rare'];
                 const groupedItems = rarityTiers.reduce((acc, rarity) => {
                   acc[rarity] = paginatedItems.filter(item => item.rarity === rarity);
                   return acc;
                 }, {} as Record<string, typeof paginatedItems>);
 
+                // Create battle entries by grouping players together
+                const createBattleEntries = (items: typeof paginatedItems) => {
+                  const battleEntries = [];
+                  let currentBattle = [];
+                  
+                  for (let i = 0; i < items.length; i++) {
+                    currentBattle.push(items[i]);
+                    
+                    // Create battle entry when we have 2-4 players or reached end
+                    if (currentBattle.length >= 3 || i === items.length - 1) {
+                      const totalCost = currentBattle.reduce((sum, item) => sum + (item.currentPrice || 0), 0);
+                      battleEntries.push({
+                        id: `battle-${i}`,
+                        players: currentBattle,
+                        totalCost,
+                        itemCount: currentBattle.length
+                      });
+                      currentBattle = [];
+                    }
+                  }
+                  
+                  return battleEntries;
+                };
+
                 return (
                   <div className="space-y-6">
                     {rarityTiers.map(rarity => {
                       const tierItems = groupedItems[rarity];
                       if (tierItems.length === 0) return null;
+
+                      const battleEntries = createBattleEntries(tierItems);
 
                       return (
                         <div key={rarity} className="gaming-card border border-border/20 rounded-lg overflow-hidden">
@@ -308,61 +334,72 @@ const Index = () => {
                             </div>
                           </div>
 
-                          {/* Tier Items */}
+                          {/* Battle Entries */}
                           <div className="divide-y divide-border/10">
-                            {tierItems.map((item) => (
+                            {battleEntries.map((battle) => (
                               <div 
-                                key={item.id} 
-                                className="p-4 cursor-pointer hover:bg-muted/5 transition-colors"
-                                onClick={() => handleRowClick(item.id)}
+                                key={battle.id} 
+                                className="p-6 cursor-pointer hover:bg-muted/5 transition-colors"
+                                onClick={() => console.log('View battle:', battle.id)}
                               >
-                                <div className="flex items-center gap-4">
-                                  {/* Player Avatar & Profile */}
-                                  <div className="flex items-center space-x-3 min-w-0 flex-1">
-                                    <img 
-                                      src={item.player.avatar} 
-                                      alt={`${item.player.username} avatar`}
-                                      className="w-10 h-10 rounded-full object-cover border border-border/20 flex-shrink-0"
-                                    />
-                                    <div className="min-w-0">
-                                      <div className="font-semibold text-foreground flex items-center space-x-2">
-                                        <span className="truncate">{item.player.username}</span>
-                                        <div className={`w-2 h-2 rounded-full flex-shrink-0 ${item.player.isOnline ? 'bg-success' : 'bg-muted-foreground/30'}`} />
+                                <div className="flex items-center gap-6">
+                                  {/* Left: Player Avatars */}
+                                  <div className="flex items-center space-x-2 min-w-[160px]">
+                                    {battle.players.map((player, index) => (
+                                      <div key={player.id} className="relative">
+                                        <img 
+                                          src={player.player.avatar} 
+                                          alt={`${player.player.username} avatar`}
+                                          className="w-10 h-10 rounded-full object-cover border-2 border-border/20 flex-shrink-0"
+                                          style={{ marginLeft: index > 0 ? '-8px' : '0' }}
+                                        />
+                                        {player.player.isOnline && (
+                                          <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-success border-2 border-background" />
+                                        )}
                                       </div>
+                                    ))}
+                                    <div className="text-xs text-muted-foreground ml-2">
+                                      {battle.players.length}/{battle.players.length}
                                     </div>
                                   </div>
 
-                                  {/* Item Info */}
-                                  <div className="flex-1 min-w-0">
-                                    <div className="font-semibold text-foreground truncate">{item.title}</div>
-                                    <div className="text-sm text-muted-foreground font-medium truncate">{item.game}</div>
+                                  {/* Center: Item Collection */}
+                                  <div className="flex-1 flex items-center gap-3">
+                                    {battle.players.map((item, index) => (
+                                      <div key={item.id} className="flex items-center gap-2">
+                                        <img 
+                                          src={item.image} 
+                                          alt={item.title}
+                                          className="w-12 h-12 rounded-lg object-cover border border-border/20"
+                                        />
+                                        {index < battle.players.length - 1 && (
+                                          <div className="text-muted-foreground">+</div>
+                                        )}
+                                      </div>
+                                    ))}
                                   </div>
 
-                                  {/* Rarity Badge */}
-                                  <div className="flex-shrink-0">
-                                    <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${
-                                      item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
-                                      item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
-                                      item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
-                                      'bg-gaming-green/20 text-gaming-green'
-                                    }`}>
-                                      {item.rarity}
-                                    </span>
-                                  </div>
-
-                                  {/* Category */}
-                                  <div className="text-muted-foreground font-semibold text-sm min-w-[80px] text-center">
-                                    {item.category}
-                                  </div>
-
-                                  {/* Send Offer Button */}
-                                  <div className="flex-shrink-0">
+                                  {/* Right: Battle Cost & Button */}
+                                  <div className="flex items-center gap-4 min-w-[200px] justify-end">
+                                    <div className="text-right">
+                                      <div className="text-lg font-bold text-foreground">
+                                        ${battle.totalCost.toFixed(2)}
+                                      </div>
+                                      <div className="text-xs text-muted-foreground">
+                                        Battle cost
+                                      </div>
+                                      <div className="text-xs text-muted-foreground">
+                                        Unboxed: ${(battle.totalCost * 1.1).toFixed(2)}
+                                      </div>
+                                    </div>
                                     <Button 
-                                      size="sm" 
                                       className="gaming-button-primary"
-                                      onClick={(e) => handleSendOffer(item.id, e)}
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        console.log('View battle:', battle.id);
+                                      }}
                                     >
-                                      Send Offer
+                                      View battle
                                     </Button>
                                   </div>
                                 </div>
@@ -379,18 +416,44 @@ const Index = () => {
 
             <TabsContent value="list">
               {(() => {
-                // Group items by rarity tier
+                // Group items by rarity tier and create battle entries
                 const rarityTiers = ['Mythic', 'Legendary', 'Epic', 'Rare'];
                 const groupedItems = rarityTiers.reduce((acc, rarity) => {
                   acc[rarity] = paginatedItems.filter(item => item.rarity === rarity);
                   return acc;
                 }, {} as Record<string, typeof paginatedItems>);
 
+                // Create battle entries by grouping players together
+                const createBattleEntries = (items: typeof paginatedItems) => {
+                  const battleEntries = [];
+                  let currentBattle = [];
+                  
+                  for (let i = 0; i < items.length; i++) {
+                    currentBattle.push(items[i]);
+                    
+                    // Create battle entry when we have 2-4 players or reached end
+                    if (currentBattle.length >= 3 || i === items.length - 1) {
+                      const totalCost = currentBattle.reduce((sum, item) => sum + (item.currentPrice || 0), 0);
+                      battleEntries.push({
+                        id: `battle-${i}`,
+                        players: currentBattle,
+                        totalCost,
+                        itemCount: currentBattle.length
+                      });
+                      currentBattle = [];
+                    }
+                  }
+                  
+                  return battleEntries;
+                };
+
                 return (
                   <div className="space-y-6">
                     {rarityTiers.map(rarity => {
                       const tierItems = groupedItems[rarity];
                       if (tierItems.length === 0) return null;
+
+                      const battleEntries = createBattleEntries(tierItems);
 
                       return (
                         <div key={rarity} className="gaming-card border border-border/20 rounded-lg overflow-hidden">
@@ -416,34 +479,75 @@ const Index = () => {
                             </div>
                           </div>
 
-                          {/* Tier Items */}
+                          {/* Battle Entries */}
                           <div className="space-y-3 lg:space-y-4 p-4">
-                            {tierItems.map((item) => (
+                            {battleEntries.map((battle) => (
                               <div 
-                                key={item.id} 
-                                className="gaming-card p-3 lg:p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 cursor-pointer hover:bg-muted/10 transition-colors"
-                                onClick={() => handleRowClick(item.id)}
+                                key={battle.id} 
+                                className="gaming-card p-4 lg:p-6 cursor-pointer hover:bg-muted/10 transition-colors"
+                                onClick={() => console.log('View battle:', battle.id)}
                               >
-                                <div className="flex-1 min-w-0">
-                                  <h3 className="font-semibold text-foreground truncate">{item.title}</h3>
-                                  <p className="text-sm text-muted-foreground truncate">{item.game}</p>
-                                  <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold mt-1 ${
-                                    item.rarity === 'Mythic' ? 'bg-gaming-purple/20 text-gaming-purple gaming-text-glow' :
-                                    item.rarity === 'Legendary' ? 'bg-yellow-500/20 text-yellow-400 gaming-text-glow' :
-                                    item.rarity === 'Epic' ? 'bg-gaming-cyan/20 text-gaming-cyan gaming-text-glow' :
-                                    'bg-gaming-green/20 text-gaming-green'
-                                  }`}>
-                                    {item.rarity}
-                                  </span>
-                                </div>
-                                <div className="flex items-center justify-end">
-                                  <Button 
-                                    size="sm" 
-                                    className="gaming-button-primary"
-                                    onClick={(e) => handleSendOffer(item.id, e)}
-                                  >
-                                    Send Offer
-                                  </Button>
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                                  {/* Left: Player Avatars */}
+                                  <div className="flex items-center space-x-2 min-w-[140px]">
+                                    {battle.players.map((player, index) => (
+                                      <div key={player.id} className="relative">
+                                        <img 
+                                          src={player.player.avatar} 
+                                          alt={`${player.player.username} avatar`}
+                                          className="w-8 h-8 rounded-full object-cover border-2 border-border/20 flex-shrink-0"
+                                          style={{ marginLeft: index > 0 ? '-6px' : '0' }}
+                                        />
+                                        {player.player.isOnline && (
+                                          <div className="absolute -bottom-1 -right-1 w-2 h-2 rounded-full bg-success border border-background" />
+                                        )}
+                                      </div>
+                                    ))}
+                                    <div className="text-xs text-muted-foreground ml-2">
+                                      {battle.players.length}/{battle.players.length}
+                                    </div>
+                                  </div>
+
+                                  {/* Center: Item Collection */}
+                                  <div className="flex-1 flex items-center gap-2 flex-wrap">
+                                    {battle.players.map((item, index) => (
+                                      <div key={item.id} className="flex items-center gap-1">
+                                        <img 
+                                          src={item.image} 
+                                          alt={item.title}
+                                          className="w-10 h-10 rounded object-cover border border-border/20"
+                                        />
+                                        {index < battle.players.length - 1 && (
+                                          <div className="text-muted-foreground text-sm">+</div>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+
+                                  {/* Right: Battle Cost & Button */}
+                                  <div className="flex items-center justify-between sm:justify-end gap-4 min-w-[180px]">
+                                    <div className="text-right">
+                                      <div className="text-lg font-bold text-foreground">
+                                        ${battle.totalCost.toFixed(2)}
+                                      </div>
+                                      <div className="text-xs text-muted-foreground">
+                                        Battle cost
+                                      </div>
+                                      <div className="text-xs text-muted-foreground">
+                                        Unboxed: ${(battle.totalCost * 1.1).toFixed(2)}
+                                      </div>
+                                    </div>
+                                    <Button 
+                                      size="sm"
+                                      className="gaming-button-primary"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        console.log('View battle:', battle.id);
+                                      }}
+                                    >
+                                      View battle
+                                    </Button>
+                                  </div>
                                 </div>
                               </div>
                             ))}
