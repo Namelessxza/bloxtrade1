@@ -2,6 +2,7 @@ import { Search, ShoppingCart, User, Wallet, Bell, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { Link } from "wouter";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -75,13 +76,15 @@ const Header = () => {
               <span className="text-success font-semibold">$2,485</span>
             </div>
 
-            <Button
-              variant="outline"
-              className="gaming-button-primary border-primary/30"
-            >
-              <User className="h-4 w-4 mr-2" />
-              <span className="hidden lg:inline">Profile</span>
-            </Button>
+            <Link href="/profile">
+              <Button
+                variant="outline"
+                className="gaming-button-primary border-primary/30"
+              >
+                <User className="h-4 w-4 mr-2" />
+                <span className="hidden lg:inline">Profile</span>
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -145,10 +148,12 @@ const Header = () => {
                     </Button>
                   </div>
                 </div>
-                <Button className="w-full gaming-button-primary">
-                  <User className="h-4 w-4 mr-2" />
-                  Profile
-                </Button>
+                <Link href="/profile">
+                  <Button className="w-full gaming-button-primary">
+                    <User className="h-4 w-4 mr-2" />
+                    Profile
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
