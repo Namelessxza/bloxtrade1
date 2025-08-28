@@ -325,17 +325,7 @@ const Index = () => {
                                     )}
                                   </div>
                                 ))}
-                                {/* Add placeholder avatars to fill 6 slots */}
-                                {Array.from({ length: 6 - tier.items.length }).map((_, index) => (
-                                  <div key={`placeholder-${index}`} className="relative">
-                                    <div className="w-10 h-10 rounded-full bg-white/10 border-2 border-white/10" />
-                                    {index < 6 - tier.items.length - 1 && (
-                                      <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
-                                        <span className="text-white/40 text-sm font-bold">×</span>
-                                      </div>
-                                    )}
-                                  </div>
-                                ))}
+
                               </div>
 
                               {/* Center: 6-Slot Item Grid */}
@@ -445,17 +435,7 @@ const Index = () => {
                                     )}
                                   </div>
                                 ))}
-                                {/* Add placeholder avatars to fill 6 slots */}
-                                {Array.from({ length: 6 - tier.items.length }).map((_, index) => (
-                                  <div key={`placeholder-${index}`} className="relative">
-                                    <div className="w-10 h-10 rounded-full bg-white/10 border-2 border-white/10" />
-                                    {index < 6 - tier.items.length - 1 && (
-                                      <div className="absolute -right-3 top-1/2 transform -translate-y-1/2">
-                                        <span className="text-white/40 text-sm font-bold">×</span>
-                                      </div>
-                                    )}
-                                  </div>
-                                ))}
+
                               </div>
 
                               {/* Center: 6-Slot Item Grid */}
