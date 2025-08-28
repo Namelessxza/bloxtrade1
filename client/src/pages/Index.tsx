@@ -647,7 +647,11 @@ export default function Index() {
               return (
                 <div
                   key={msg.id}
-                  className="p-3"
+                  className={`p-3 rounded-2xl transition-all ${
+                    isHighlighted 
+                      ? 'bg-slate-700/70' 
+                      : 'bg-slate-800/40 hover:bg-slate-800/60'
+                  }`}
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-3">
@@ -667,27 +671,19 @@ export default function Index() {
                       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-3 h-3 bg-green-500 rounded-full border-2 border-slate-900"></div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-sm font-medium text-slate-300">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-sm font-medium text-white">
                           {msg.username}
                         </span>
                         {msg.isAdmin && (
                           <span className="bg-gradient-to-r from-red-600 to-orange-600 text-white text-xs px-2 py-0.5 rounded-md font-bold">
-                            admin
+                            ADMIN
                           </span>
                         )}
                         <span className="text-xs text-slate-400 ml-auto">
-                          3:32 AM
+                          2 min ago
                         </span>
                       </div>
-                    </div>
-                  </div>
-                  <div className="mt-1 ml-12">
-                    <div className={`p-3 rounded-2xl transition-all ${
-                      isHighlighted 
-                        ? 'bg-slate-700/70' 
-                        : 'bg-slate-800/40 hover:bg-slate-800/60'
-                    }`}>
                       <p className="text-sm text-white leading-relaxed break-words">
                         {msg.message}
                       </p>
