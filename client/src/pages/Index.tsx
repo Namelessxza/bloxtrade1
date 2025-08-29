@@ -615,7 +615,7 @@ export default function Index() {
       {/* Right Panel */}
       <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
         {/* Top Section with Profile and Controls */}
-        <div className="p-4 bg-[#0a1628]">
+        <div className="px-6 py-4 bg-[#0a1628]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               {/* Notification Bell */}
