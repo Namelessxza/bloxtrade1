@@ -758,7 +758,7 @@ export default function Index() {
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Send a message"
-              className="flex-1 bg-[#1b2838] border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4"
+              className="flex-1 border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 bg-[#0e234a]"
               data-testid="input-chat-message"
             />
             <Button
