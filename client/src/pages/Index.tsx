@@ -363,47 +363,14 @@ export default function Index() {
             />
           </div>
           
-          {/* Right Side Icons */}
-          <div className="flex items-center gap-4 ml-6">
-            {/* Notification Bell */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="relative p-2 rounded-full hover:bg-slate-700/50"
-              data-testid="button-notifications"
-            >
-              <Bell className="h-5 w-5 text-slate-400 hover:text-white" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full flex items-center justify-center">
-                <span className="text-xs text-white font-bold">3</span>
-              </div>
-            </Button>
-            
-            {/* Shopping Cart */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="p-2 rounded-full hover:bg-slate-700/50"
-              data-testid="button-cart"
-            >
-              <ShoppingCart className="h-5 w-5 text-slate-400 hover:text-white" />
-            </Button>
-            
-            {/* Wallet/Balance */}
+          {/* Right Side Balance */}
+          <div className="flex items-center gap-2 ml-6">
             <div className="flex items-center gap-2 bg-slate-800/50 px-3 py-2 rounded-lg">
               <Wallet className="h-4 w-4 text-slate-400" />
               <span className="text-white font-semibold" data-testid="text-wallet-balance">
                 $2,485
               </span>
             </div>
-            
-            {/* Profile Button */}
-            <Button
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4 py-2 rounded-lg flex items-center gap-2"
-              data-testid="button-profile"
-            >
-              <User className="h-4 w-4" />
-              Profile
-            </Button>
           </div>
         </header>
 
@@ -645,27 +612,67 @@ export default function Index() {
           </div>
         </ScrollArea>
       </div>
-      {/* Right Chat Panel */}
-      <div className="w-[280px] bg-[#0a1628] border-l border-slate-800/30 flex flex-col flex-shrink-0 h-screen">
-        {/* Balance Display */}
-        <div className="p-4 bg-[#0f1a2e] border-b border-slate-800/30">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-slate-400">$500</span>
-            <span className="text-sm text-slate-400">left</span>
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="text-lg font-semibold text-green-400">$500</span>
+      {/* Right Panel */}
+      <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
+        {/* Top Section with Balance and Profile */}
+        <div className="p-4 bg-[#0f1a2e] border-b border-slate-800/30 border-l border-slate-800/30">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              {/* Notification Bell */}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="relative p-2 rounded-full hover:bg-slate-700/50"
+                data-testid="button-notifications-right"
+              >
+                <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
+                <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+              </Button>
+              
+              {/* Shopping Cart */}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="p-2 rounded-full hover:bg-slate-700/50"
+                data-testid="button-cart-right"
+              >
+                <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
+              </Button>
+            </div>
+            
+            {/* Profile Button */}
             <Button
-              size="sm"
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4 py-1 text-xs h-7 rounded-full"
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 text-sm"
+              data-testid="button-profile-right"
             >
-              Deposit
+              <User className="h-3 w-3" />
+              Profile
             </Button>
           </div>
+          
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Wallet className="h-4 w-4 text-slate-400" />
+              <span className="text-sm text-slate-400">$500</span>
+              <span className="text-sm text-slate-400">left</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-lg font-semibold text-green-400">$500</span>
+              <Button
+                size="sm"
+                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-3 py-1 text-xs h-6 rounded-full"
+              >
+                Deposit
+              </Button>
+            </div>
+          </div>
         </div>
+        
+        {/* Spacer to push chat down */}
+        <div className="flex-1 bg-[#0a1628] border-l border-slate-800/30"></div>
 
         {/* Chat Header */}
-        <div className="p-3 bg-[#0f1a2e] border-b border-slate-800/30">
+        <div className="p-3 bg-[#0f1a2e] border-b border-slate-800/30 border-l border-slate-800/30">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -695,7 +702,7 @@ export default function Index() {
         </div>
 
         {/* Chat Messages */}
-        <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628]">
+        <ScrollArea className="h-64 px-3 py-2 bg-[#0a1628] border-l border-slate-800/30">
           <div className="space-y-3">
             {chatMessages.map((msg, index) => {
               const avatarColors = [
@@ -747,7 +754,7 @@ export default function Index() {
         </ScrollArea>
 
         {/* Chat Controls */}
-        <div className="p-3 bg-[#0f1a2e] border-t border-slate-800/30">
+        <div className="p-3 bg-[#0f1a2e] border-t border-slate-800/30 border-l border-slate-800/30">
           <div className="flex items-center gap-2 mb-3">
             <Button
               variant="ghost"
