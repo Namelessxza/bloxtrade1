@@ -38,6 +38,9 @@ import {
   HelpCircle,
   CreditCard,
   HeadphonesIcon,
+  Image,
+  Smile,
+  FileText,
 } from "lucide-react";
 
 interface GameCard {
@@ -711,35 +714,35 @@ export default function Index() {
         </ScrollArea>
 
         {/* Chat Controls */}
-        <div className="p-4 bg-[#1a2332] space-y-3">
+        <div className="p-4 bg-[#0d1b2a] space-y-3">
           <div className="flex items-center justify-start gap-3">
             <Button
               variant="ghost"
               size="sm"
-              className="bg-[#2d3748] hover:bg-[#3d4755] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium"
+              className="bg-[#1b2838] hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441]"
             >
-              <div className="w-5 h-5 rounded-full bg-blue-500/80 flex items-center justify-center">
-                <span className="text-white text-xs">📷</span>
+              <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
+                <Image className="h-3 w-3 text-white" />
               </div>
               GIF
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              className="bg-[#2d3748] hover:bg-[#3d4755] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium"
+              className="bg-[#1b2838] hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441]"
             >
-              <div className="w-5 h-5 rounded-full bg-orange-500/80 flex items-center justify-center">
-                <span className="text-white text-xs">😊</span>
+              <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                <Smile className="h-3 w-3 text-white" />
               </div>
               Emoji
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              className="bg-[#2d3748] hover:bg-[#3d4755] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium"
+              className="bg-[#1b2838] hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441]"
             >
-              <div className="w-5 h-5 rounded-full bg-blue-600/80 flex items-center justify-center">
-                <span className="text-white text-xs">📋</span>
+              <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
+                <FileText className="h-3 w-3 text-white" />
               </div>
               Rules
             </Button>
@@ -755,7 +758,7 @@ export default function Index() {
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Send a message"
-              className="flex-1 bg-[#2d3748] border-[#3d4755] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 border-0"
+              className="flex-1 bg-[#1b2838] border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4"
               data-testid="input-chat-message"
             />
             <Button
@@ -765,7 +768,7 @@ export default function Index() {
               data-testid="button-send-message"
             >
               <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
-                <span className="text-blue-500 text-sm font-bold">A</span>
+                <Send className="h-3 w-3 text-blue-500" />
               </div>
             </Button>
           </form>
