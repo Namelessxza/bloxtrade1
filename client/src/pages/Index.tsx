@@ -426,9 +426,8 @@ export default function Index() {
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-black/30" />
                 </div>
-                <div className="relative p-6 flex flex-col items-center">
-                  {/* Top section */}
-                  <div className="flex space-x-3 mb-6">
+                <div className="relative p-6 flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
                     {/* Left box */}
                     <div className="flex items-center space-x-3 rounded-lg px-5 py-4 bg-gradient-to-r from-[#a12bd4] via-[#4623ff] to-[#142447] shadow-md">
                       <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-br from-[#c041f3] to-[#6f2be3]">
@@ -449,11 +448,21 @@ export default function Index() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Sign up button */}
-                  <button className="bg-[#16d34a] hover:bg-[#12b23f] text-white font-semibold px-10 py-3 rounded-md shadow-md transition" data-testid="button-sign-up">
-                    Sign up
-                  </button>
+                  <div className="flex flex-col gap-3">
+                    <Button
+                      size="lg"
+                      className="bg-[#16d34a] hover:bg-[#12b23f] text-white font-semibold px-10 py-3 rounded-md shadow-md w-fit"
+                      data-testid="button-sign-up"
+                    >
+                      Sign up
+                    </Button>
+                    <div className="flex items-center gap-2 text-sm text-white/70">
+                      <div className="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center">
+                        <span className="text-xs text-white">i</span>
+                      </div>
+                      <span>How do vault rewards work?</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
