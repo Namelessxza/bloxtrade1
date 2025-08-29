@@ -144,7 +144,7 @@ export default function Index() {
   };
 
   return (
-    <div className="h-screen bg-background flex flex-col w-full overflow-hidden">
+    <div className="h-screen bg-gradient-to-br from-[#0a1628] via-[#0f1629] to-[#142447] flex flex-col w-full overflow-hidden">
       {/* Global Header */}
       <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-gradient-to-r from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg">
         {/* Left Section - Logo */}
@@ -216,7 +216,7 @@ export default function Index() {
       {/* Content Row */}
       <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
-        <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0">
+        <div className="w-[220px] bg-transparent flex flex-col flex-shrink-0">
           {/* Games/Sport Toggle */}
           <div className="p-4 bg-gradient-to-b from-[#0a1628] to-[#0f1a2e]">
             <div className="flex bg-slate-800/50 rounded-full p-1 relative">
@@ -304,7 +304,7 @@ export default function Index() {
         <div className="flex-1 flex flex-col min-w-0">
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
-            <div className="min-h-full px-3 py-2 bg-[#0f1629] relative">
+            <div className="min-h-full px-3 py-2 bg-transparent relative">
               {/* Promotional Banner */}
               <div className="relative overflow-hidden rounded-2xl min-h-[200px] mb-16 shadow-2xl shadow-purple-500/20">
                 <div 
@@ -362,11 +362,11 @@ export default function Index() {
         </div>
 
         {/* Right Panel */}
-        <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 relative">
+        <div className="w-[280px] bg-transparent flex flex-col flex-shrink-0 relative">
           {/* Chat - no longer needs top positioning since header is global */}
-          <div className="flex flex-col bg-[#0a1628] h-full">
+          <div className="flex flex-col bg-transparent h-full">
             {/* Chat Header */}
-            <div className="p-3 bg-gradient-to-r from-[#0f1a2e] to-[#142447] rounded-t-xl">
+            <div className="p-3 bg-gradient-to-r from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -396,7 +396,7 @@ export default function Index() {
             </div>
 
             {/* Chat Messages */}
-            <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628] max-h-[calc(100vh-120px)] overflow-y-auto">
+            <ScrollArea className="flex-1 px-3 py-2 bg-gradient-to-b from-[#0f1a2e]/40 to-[#0a1628]/40 rounded-xl mb-2 backdrop-blur-sm max-h-[calc(100vh-120px)] overflow-y-auto">
               <div className="space-y-3">
                 {chatMessages.map((msg, index) => {
                   return (
@@ -440,7 +440,7 @@ export default function Index() {
             </ScrollArea>
 
             {/* Chat Controls */}
-            <div className="p-4 bg-gradient-to-r from-[#0f1a2e] to-[#142447] rounded-b-xl">
+            <div className="p-4 bg-gradient-to-r from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl backdrop-blur-sm">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
