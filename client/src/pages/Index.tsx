@@ -219,10 +219,10 @@ export default function Index() {
         <div className="w-[220px] flex flex-col flex-shrink-0 bg-[#01112d]">
           {/* Games/Sport Toggle */}
           <div className="px-4 py-6 bg-[#01112d]">
-            <div className="flex rounded-2xl p-1 relative">
+            <div className="flex rounded-2xl p-1 relative bg-slate-800/60">
               <button
                 onClick={() => setActiveMode("games")}
-                className={`flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 min-w-0 ${
+                className={`flex items-center justify-center gap-2 px-8 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
                   activeMode === "games"
                     ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg"
                     : "text-slate-400 hover:text-white"
@@ -231,11 +231,11 @@ export default function Index() {
                 <div className="w-5 h-5 rounded-full border-2 border-current flex items-center justify-center">
                   <div className="w-2 h-2 bg-current rounded-full"></div>
                 </div>
-                <span className="truncate">Casino</span>
+                <span>Casino</span>
               </button>
               <button
                 onClick={() => setActiveMode("sport")}
-                className={`flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 min-w-0 ${
+                className={`flex items-center justify-center gap-2 px-8 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
                   activeMode === "sport"
                     ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg"
                     : "text-slate-500 hover:text-white"
@@ -246,7 +246,7 @@ export default function Index() {
                     <div className="w-1.5 h-1.5 bg-current rounded-full"></div>
                   </div>
                 </div>
-                <span className="truncate">Sport</span>
+                <span>Sport</span>
               </button>
             </div>
           </div>
