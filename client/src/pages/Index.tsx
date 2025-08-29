@@ -310,8 +310,8 @@ export default function Index() {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-all ${
                     selectedCategory === category.id
-                      ? "bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-400 border-l-2 border-orange-500"
-                      : "hover:bg-slate-800/50 text-slate-400 hover:text-white"
+                      ? "bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border-l-2 border-blue-500"
+                      : "hover:bg-slate-800/50 text-slate-400 hover:text-blue-400"
                   }`}
                   data-testid={`button-category-${category.id}`}
                 >
