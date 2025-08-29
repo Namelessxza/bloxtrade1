@@ -389,7 +389,7 @@ export default function Index() {
           </ScrollArea>
 
           {/* Bottom Actions */}
-          <div className="p-2 space-y-1 bg-[#0a1628] border-t border-slate-800/30 mt-[35px] mb-[35px]">
+          <div className="p-2 space-y-1 bg-[#0a1628] border-t border-slate-800/30 mt-[15px] mb-[15px]">
             <Button
               className="w-full justify-start gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm"
               data-testid="button-buy-crypto"
