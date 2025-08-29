@@ -425,9 +425,9 @@ export default function Index() {
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-black/30" />
                 </div>
-                <div className="relative p-5 flex flex-col">
+                <div className="relative p-5 pb-16">
                   {/* Top row with both boxes */}
-                  <div className="flex items-start gap-8 mb-8">
+                  <div className="flex items-start gap-8 mb-4">
                     {/* Purple box with spotlight */}
                     <div className="relative">
                       {/* Purple spotlight effect on left side */}
@@ -459,8 +459,8 @@ export default function Index() {
                     </div>
                   </div>
 
-                  {/* Centered Sign up button and info in the middle-bottom area */}
-                  <div className="flex flex-col items-center gap-3 mt-4">
+                  {/* Sign up button and info positioned at bottom, overlapping the div */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10">
                     <Button
                       size="lg"
                       className="bg-[#00d563] hover:bg-[#00c055] text-white font-bold py-3 px-12 rounded-2xl text-lg"
