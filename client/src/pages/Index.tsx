@@ -396,7 +396,7 @@ export default function Index() {
             </div>
 
             {/* Chat Messages */}
-            <ScrollArea className="flex-1 px-3 py-2 bg-gradient-to-b from-[#0f1a2e]/40 to-[#0a1628]/40 rounded-xl mb-2 backdrop-blur-sm max-h-[calc(100vh-120px)] overflow-y-auto">
+            <ScrollArea className="flex-1 px-3 py-2 bg-slate-800/20 rounded-lg mb-2 max-h-[calc(100vh-120px)] overflow-y-auto">
               <div className="space-y-3">
                 {chatMessages.map((msg, index) => {
                   return (
@@ -427,7 +427,7 @@ export default function Index() {
                             <MessageCircle className="h-3 w-3 text-gray-400" />
                           </div>
                         </div>
-                        <div className="bg-slate-800/30 rounded-xl px-4 py-2 inline-block max-w-full backdrop-blur-sm shadow-lg">
+                        <div className="bg-slate-800/40 rounded-lg px-3 py-2 inline-block max-w-full">
                           <p className="text-sm text-white leading-relaxed break-words">
                             {msg.message}
                           </p>
@@ -440,7 +440,7 @@ export default function Index() {
             </ScrollArea>
 
             {/* Chat Controls */}
-            <div className="p-4 bg-gradient-to-r from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl backdrop-blur-sm">
+            <div className="p-4 bg-slate-800/30 rounded-lg">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -452,7 +452,7 @@ export default function Index() {
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   placeholder="Your message"
-                  className="flex-1 h-12 px-4 bg-slate-800/30 rounded-xl text-white placeholder:text-gray-400 focus:bg-slate-700/30 text-sm backdrop-blur-sm transition-all"
+                  className="flex-1 h-12 px-4 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
                   data-testid="input-chat-message"
                 />
                 <Button
