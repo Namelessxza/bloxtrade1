@@ -295,7 +295,7 @@ export default function Index() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col">
         {/* Top Navigation Bar */}
-        <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm flex items-center justify-between px-6">
+        <header className="h-16 border-b border-border backdrop-blur-sm flex items-center justify-between px-6 bg-[#01112d]">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm">
               <Coins className="h-4 w-4 text-primary" />
