@@ -236,7 +236,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className="bg-background flex">
       {/* Left Sidebar - Navigation */}
       <div className="w-[200px] bg-card flex flex-col flex-shrink-0">
         {/* Logo */}
