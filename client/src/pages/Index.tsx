@@ -645,147 +645,153 @@ export default function Index() {
       </div>
       {/* Right Panel */}
       <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen relative">
-        {/* Chat Header */}
-        <div className="p-3 bg-[#0f1a2e]">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
-                <MessageCircle className="h-3 w-3 text-green-400" />
+        {/* Space for header controls */}
+        <div className="h-16 bg-[#0a1628]"></div>
+        
+        {/* Chat Container */}
+        <div className="flex flex-col flex-1">
+          {/* Chat Header */}
+          <div className="p-3 bg-[#0f1a2e]">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                  <MessageCircle className="h-3 w-3 text-green-400" />
+                </div>
+                <span className="text-sm font-medium text-white">
+                  Online chat
+                </span>
               </div>
-              <span className="text-sm font-medium text-white">
-                Online chat
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-green-400 font-medium">
-                {onlineUsers}
-              </span>
-              <div className="flex -space-x-1">
-                <div className="w-4 h-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 border border-slate-900 flex items-center justify-center text-xs">
-                  👨
-                </div>
-                <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border border-slate-900 flex items-center justify-center text-xs">
-                  👩
-                </div>
-                <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-teal-500 border border-slate-900 flex items-center justify-center text-xs">
-                  👤
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Chat Messages */}
-        <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628]">
-          <div className="space-y-3">
-            {chatMessages.map((msg, index) => {
-              const avatarColors = [
-                "border-orange-400 bg-orange-900/30",
-                "border-blue-400 bg-blue-900/30", 
-                "border-green-400 bg-green-900/30",
-                "border-purple-400 bg-purple-900/30",
-                "border-pink-400 bg-pink-900/30",
-                "border-yellow-400 bg-yellow-900/30",
-                "border-red-400 bg-red-900/30"
-              ];
-              return (
-                <div
-                  key={msg.id}
-                  className="p-2 rounded-lg transition-all hover:bg-slate-800/30 bg-slate-800/20"
-                  data-testid={`message-${msg.id}`}
-                >
-                  <div className="flex gap-2 items-start">
-                    <div className="relative flex-shrink-0">
-                      <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs border-2 ${avatarColors[index % avatarColors.length]}`}
-                      >
-                        {msg.avatar}
-                      </div>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-medium text-cyan-400">
-                          {msg.username}
-                        </span>
-                        {msg.isAdmin && (
-                          <span className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs px-1 py-0.5 rounded font-bold">
-                            ADMIN
-                          </span>
-                        )}
-                        <span className="text-xs text-slate-500 ml-auto">
-                          2 min ago
-                        </span>
-                      </div>
-                      <p className="text-xs text-white leading-relaxed break-words">
-                        {msg.message}
-                      </p>
-                    </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-green-400 font-medium">
+                  {onlineUsers}
+                </span>
+                <div className="flex -space-x-1">
+                  <div className="w-4 h-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 border border-slate-900 flex items-center justify-center text-xs">
+                    👨
+                  </div>
+                  <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border border-slate-900 flex items-center justify-center text-xs">
+                    👩
+                  </div>
+                  <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-teal-500 border border-slate-900 flex items-center justify-center text-xs">
+                    👤
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </div>
-        </ScrollArea>
 
-        {/* Chat Controls */}
-        <div className="p-3 bg-[#0f1a2e]">
-          <div className="flex items-center gap-2 mb-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
+          {/* Chat Messages */}
+          <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628]">
+            <div className="space-y-3">
+              {chatMessages.map((msg, index) => {
+                const avatarColors = [
+                  "border-orange-400 bg-orange-900/30",
+                  "border-blue-400 bg-blue-900/30", 
+                  "border-green-400 bg-green-900/30",
+                  "border-purple-400 bg-purple-900/30",
+                  "border-pink-400 bg-pink-900/30",
+                  "border-yellow-400 bg-yellow-900/30",
+                  "border-red-400 bg-red-900/30"
+                ];
+                return (
+                  <div
+                    key={msg.id}
+                    className="p-2 rounded-lg transition-all hover:bg-slate-800/30 bg-slate-800/20"
+                    data-testid={`message-${msg.id}`}
+                  >
+                    <div className="flex gap-2 items-start">
+                      <div className="relative flex-shrink-0">
+                        <div
+                          className={`w-8 h-8 rounded-full flex items-center justify-center text-xs border-2 ${avatarColors[index % avatarColors.length]}`}
+                        >
+                          {msg.avatar}
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-xs font-medium text-cyan-400">
+                            {msg.username}
+                          </span>
+                          {msg.isAdmin && (
+                            <span className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs px-1 py-0.5 rounded font-bold">
+                              ADMIN
+                            </span>
+                          )}
+                          <span className="text-xs text-slate-500 ml-auto">
+                            2 min ago
+                          </span>
+                        </div>
+                        <p className="text-xs text-white leading-relaxed break-words">
+                          {msg.message}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </ScrollArea>
+
+          {/* Chat Controls */}
+          <div className="p-3 bg-[#0f1a2e]">
+            <div className="flex items-center gap-2 mb-3">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
+              >
+                <div className="w-4 h-4 rounded-full bg-blue-600 flex items-center justify-center mr-1">
+                  <Image className="h-2 w-2 text-white" />
+                </div>
+                GIF
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
+              >
+                <div className="w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center mr-1">
+                  <Smile className="h-2 w-2 text-white" />
+                </div>
+                Emoji
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
+              >
+                <div className="w-4 h-4 rounded-full bg-green-600 flex items-center justify-center mr-1">
+                  <FileText className="h-2 w-2 text-white" />
+                </div>
+                Rules
+              </Button>
+            </div>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendMessage();
+              }}
+              className="flex gap-3"
             >
-              <div className="w-4 h-4 rounded-full bg-blue-600 flex items-center justify-center mr-1">
-                <Image className="h-2 w-2 text-white" />
-              </div>
-              GIF
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
-            >
-              <div className="w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center mr-1">
-                <Smile className="h-2 w-2 text-white" />
-              </div>
-              Emoji
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
-            >
-              <div className="w-4 h-4 rounded-full bg-green-600 flex items-center justify-center mr-1">
-                <FileText className="h-2 w-2 text-white" />
-              </div>
-              Rules
-            </Button>
+              <Input
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                placeholder="Send a message"
+                className="flex w-full border py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm flex-1 border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 bg-[#0e234a]"
+                data-testid="input-chat-message"
+              />
+              <Button
+                type="submit"
+                size="sm"
+                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 rounded-full w-11 h-11 p-0 flex items-center justify-center"
+                data-testid="button-send-message"
+              >
+                <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+                  <Send className="h-3 w-3 text-blue-500" />
+                </div>
+              </Button>
+            </form>
           </div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              sendMessage();
-            }}
-            className="flex gap-3"
-          >
-            <Input
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
-              placeholder="Send a message"
-              className="flex w-full border py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm flex-1 border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 bg-[#0e234a]"
-              data-testid="input-chat-message"
-            />
-            <Button
-              type="submit"
-              size="sm"
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 rounded-full w-11 h-11 p-0 flex items-center justify-center"
-              data-testid="button-send-message"
-            >
-              <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
-                <Send className="h-3 w-3 text-blue-500" />
-              </div>
-            </Button>
-          </form>
         </div>
       </div>
     </div>
