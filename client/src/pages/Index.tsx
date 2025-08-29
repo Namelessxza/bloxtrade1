@@ -146,7 +146,7 @@ export default function Index() {
   return (
     <div className="h-screen bg-background flex flex-col w-full overflow-hidden">
       {/* Global Header */}
-      <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-[#0a1628] border-b border-slate-800/30 w-full z-10">
+      <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-gradient-to-r from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg">
         {/* Left Section - Logo */}
         <div className="flex items-center gap-2 w-1/4">
           <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
@@ -163,7 +163,7 @@ export default function Index() {
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
             <Input
               placeholder="Search items, skins, collectibles..."
-              className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-slate-200 placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 h-12"
+              className="w-full pl-12 pr-4 py-3 bg-slate-800/30 rounded-xl text-slate-200 placeholder:text-slate-400 focus:bg-slate-700/30 transition-all h-12 backdrop-blur-sm"
               data-testid="input-search"
             />
           </div>
@@ -218,7 +218,7 @@ export default function Index() {
         {/* Left Sidebar - Navigation */}
         <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0">
           {/* Games/Sport Toggle */}
-          <div className="p-4 bg-[#0a1628] border-b border-slate-800/30">
+          <div className="p-4 bg-gradient-to-b from-[#0a1628] to-[#0f1a2e]">
             <div className="flex bg-slate-800/50 rounded-full p-1 relative">
               <div
                 className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
@@ -264,7 +264,7 @@ export default function Index() {
                     onClick={() => setSelectedCategory(category.id)}
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-all ${
                       selectedCategory === category.id
-                        ? "bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border-l-2 border-blue-500"
+                        ? "bg-gradient-to-r from-blue-500/30 to-cyan-500/20 text-blue-400 shadow-lg shadow-blue-500/10"
                         : "hover:bg-slate-800/50 text-slate-400 hover:text-blue-400"
                     }`}
                     data-testid={`button-category-${category.id}`}
@@ -281,9 +281,9 @@ export default function Index() {
           </ScrollArea>
 
           {/* Bottom Actions */}
-          <div className="p-2 space-y-1 bg-[#0a1628] border-t border-slate-800/30 mt-[15px] mb-[15px]">
+          <div className="p-3 space-y-2 bg-gradient-to-t from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl">
             <Button
-              className="w-full justify-start gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm"
+              className="w-full justify-start gap-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105"
               data-testid="button-buy-crypto"
             >
               <CreditCard className="h-4 w-4" />
@@ -291,7 +291,7 @@ export default function Index() {
             </Button>
             <Button
               variant="ghost"
-              className="w-full justify-start gap-2 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm"
+              className="w-full justify-start gap-3 text-slate-400 hover:text-white hover:bg-slate-800/40 text-sm rounded-xl transition-all hover:scale-105"
               data-testid="button-support"
             >
               <HeadphonesIcon className="h-4 w-4" />
@@ -306,7 +306,7 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-3 py-2 bg-[#0f1629] relative">
               {/* Promotional Banner */}
-              <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 min-h-[200px] mb-16">
+              <div className="relative overflow-hidden rounded-2xl min-h-[200px] mb-16 shadow-2xl shadow-purple-500/20">
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
@@ -341,7 +341,7 @@ export default function Index() {
                   <div className="flex flex-col gap-3">
                     <Button
                       size="lg"
-                      className="hover:bg-[#12b23f] text-white font-semibold px-10 py-3 rounded-md shadow-md w-fit bg-[#109edb]"
+                      className="hover:bg-[#12b23f] text-white font-semibold px-10 py-3 rounded-xl shadow-lg w-fit bg-[#109edb] hover:shadow-xl transition-all hover:scale-105"
                       data-testid="button-sign-up"
                     >Enter Giveaway</Button>
                     <div className="flex items-center gap-2 text-sm text-white/70">
@@ -366,7 +366,7 @@ export default function Index() {
           {/* Chat - no longer needs top positioning since header is global */}
           <div className="flex flex-col bg-[#0a1628] h-full">
             {/* Chat Header */}
-            <div className="p-2 bg-[#0f1a2e]">
+            <div className="p-3 bg-gradient-to-r from-[#0f1a2e] to-[#142447] rounded-t-xl">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -381,13 +381,13 @@ export default function Index() {
                     {onlineUsers}
                   </span>
                   <div className="flex -space-x-1">
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 border border-slate-900 flex items-center justify-center text-xs">
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-xs shadow-md">
                       👨
                     </div>
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border border-slate-900 flex items-center justify-center text-xs">
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-xs shadow-md">
                       👩
                     </div>
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-teal-500 border border-slate-900 flex items-center justify-center text-xs">
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center text-xs shadow-md">
                       👤
                     </div>
                   </div>
@@ -427,7 +427,7 @@ export default function Index() {
                             <MessageCircle className="h-3 w-3 text-gray-400" />
                           </div>
                         </div>
-                        <div className="bg-slate-800/40 rounded-lg px-3 py-2 inline-block max-w-full">
+                        <div className="bg-slate-800/30 rounded-xl px-4 py-2 inline-block max-w-full backdrop-blur-sm shadow-lg">
                           <p className="text-sm text-white leading-relaxed break-words">
                             {msg.message}
                           </p>
@@ -440,7 +440,7 @@ export default function Index() {
             </ScrollArea>
 
             {/* Chat Controls */}
-            <div className="p-3 bg-[#0f1a2e] border-t border-slate-700/30">
+            <div className="p-4 bg-gradient-to-r from-[#0f1a2e] to-[#142447] rounded-b-xl">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -452,23 +452,23 @@ export default function Index() {
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   placeholder="Your message"
-                  className="flex-1 h-12 px-4 bg-slate-800/50 border border-slate-600/50 rounded-xl text-white placeholder:text-gray-400 focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 text-sm"
+                  className="flex-1 h-12 px-4 bg-slate-800/30 rounded-xl text-white placeholder:text-gray-400 focus:bg-slate-700/30 text-sm backdrop-blur-sm transition-all"
                   data-testid="input-chat-message"
                 />
                 <Button
                   type="submit"
                   size="sm"
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-xl w-12 h-12 p-0 flex items-center justify-center"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-xl w-12 h-12 p-0 flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-105"
                   data-testid="button-send-message"
                 >
                   <Send className="h-5 w-5 text-white" />
                 </Button>
               </form>
-              <div className="flex items-center gap-4 mt-3 pt-2 border-t border-slate-700/30">
+              <div className="flex items-center gap-4 mt-3 pt-3 bg-slate-800/20 rounded-lg -mx-1 px-3">
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2"
+                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/30 transition-all"
                 >
                   <FileText className="h-3 w-3" />
                   Rules
@@ -476,7 +476,7 @@ export default function Index() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2"
+                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/30 transition-all"
                 >
                   <Smile className="h-3 w-3" />
                   Emojies
