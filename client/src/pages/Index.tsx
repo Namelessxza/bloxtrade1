@@ -285,7 +285,7 @@ export default function Index() {
 
           {/* Bottom Actions */}
           <div className="p-3 space-y-2 from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl bg-[#01112d]">
-            <div className="bg-slate-800/40 rounded-lg p-3">
+            <div className="bg-slate-800/40 rounded-lg p-3 space-y-2">
               <Button
                 className="w-full justify-center gap-3 bg-slate-700/60 hover:bg-slate-600/60 text-slate-300 hover:text-white text-sm rounded-lg font-semibold"
                 data-testid="button-buy-crypto"
@@ -293,15 +293,15 @@ export default function Index() {
                 <CreditCard className="h-4 w-4" />
                 Buy crypto
               </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-center gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg"
+                data-testid="button-support"
+              >
+                <HeadphonesIcon className="h-4 w-4" />
+                Support
+              </Button>
             </div>
-            <Button
-              variant="ghost"
-              className="w-full justify-center gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg"
-              data-testid="button-support"
-            >
-              <HeadphonesIcon className="h-4 w-4" />
-              Support
-            </Button>
           </div>
         </div>
 
