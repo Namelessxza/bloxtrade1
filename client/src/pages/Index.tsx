@@ -254,7 +254,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-row w-full overflow-hidden">
+    <div className="min-h-screen bg-background flex flex-row w-screen max-w-full overflow-hidden">
       {/* Left Sidebar - Navigation */}
       <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
         {/* Logo */}
@@ -351,7 +351,7 @@ export default function Index() {
         </div>
       </div>
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 h-screen">
+      <div className="flex-1 flex flex-col min-w-0 h-screen w-[calc(100vw-500px)] max-w-[calc(100vw-500px)]">
         {/* Top Navigation Bar */}
         <header className="h-16 backdrop-blur-sm flex items-center justify-between px-6 bg-[#0a1628] border-b border-slate-800/30">
           <div className="relative w-full max-w-2xl">
