@@ -224,7 +224,7 @@ export default function Index() {
                 onClick={() => setActiveMode("games")}
                 className={`flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
                   activeMode === "games"
-                    ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg"
+                    ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -234,16 +234,15 @@ export default function Index() {
                 <span>Casino</span>
               </button>
               <button
-                onClick={() => setActiveMode("sport")}
-                className={`flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
-                  activeMode === "sport"
-                    ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg"
-                    : "text-slate-500 hover:text-white"
-                }`}
+                disabled
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 text-slate-600 cursor-not-allowed relative"
               >
-                <div className="w-5 h-5 rounded-full flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full flex items-center justify-center relative">
                   <div className="w-4 h-4 rounded-full border-2 border-current flex items-center justify-center">
                     <div className="w-1.5 h-1.5 bg-current rounded-full"></div>
+                  </div>
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center shadow-lg">
+                    <Lock className="h-1.5 w-1.5 text-white" />
                   </div>
                 </div>
                 <span>Sport</span>
