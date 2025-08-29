@@ -137,7 +137,9 @@ export default function Index() {
 
   const gameCategories = [
     { id: "live", label: "Trading", icon: Users, count: 45 },
-    { id: "petsniper", label: "Pet Sniper", icon: Dice6, count: 28 },
+    { id: "Private", label: "Private Servers", icon: Gamepad2, count: 20 },
+    { id: "events", label: "Events", icon: Star },
+    { id: "petsniper", label: "Pet Sniper", icon: Dice6 },
   ];
 
   const sportCategories = [
@@ -253,8 +255,8 @@ export default function Index() {
     <div className="h-screen bg-background flex flex-col w-full overflow-hidden">
       {/* Global Header */}
       <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-[#0a1628] border-b border-slate-800/30 w-full z-10">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
+        {/* Left Section - Logo */}
+        <div className="flex items-center gap-2 w-1/3">
           <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
             <Flame className="h-5 w-5 text-white" />
           </div>
@@ -263,21 +265,20 @@ export default function Index() {
           </span>
         </div>
 
-        {/* Center Spacer */}
-        <div className="flex-1"></div>
-
-        {/* Centered Search */}
-        <div className="relative w-full max-w-2xl">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
-          <Input
-            placeholder="Search items, skins, collectibles..."
-            className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-slate-200 placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 h-12"
-            data-testid="input-search"
-          />
+        {/* Center Section - Search */}
+        <div className="flex justify-center w-1/3">
+          <div className="relative w-full max-w-md">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+            <Input
+              placeholder="Search items, skins, collectibles..."
+              className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-slate-200 placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 h-12"
+              data-testid="input-search"
+            />
+          </div>
         </div>
 
-        {/* Right Side Controls */}
-        <div className="flex items-center gap-4 ml-6 flex-1 justify-end">
+        {/* Right Section - Controls */}
+        <div className="flex items-center gap-4 w-1/3 justify-end">
           {/* Notification Bell */}
           <Button
             variant="ghost"
