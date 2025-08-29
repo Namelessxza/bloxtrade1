@@ -598,7 +598,7 @@ export default function Index() {
         </ScrollArea>
       </div>
       {/* Right Chat Panel */}
-      <div className="w-[280px] bg-slate-900 border-l border-slate-700/50 flex flex-col">
+      <div className="w-[320px] bg-slate-900 border-l border-slate-700/50 flex flex-col">
         {/* Balance Display */}
         <div className="p-3 border-b border-slate-700/50 bg-slate-800">
           <div className="flex items-center justify-between text-sm">
