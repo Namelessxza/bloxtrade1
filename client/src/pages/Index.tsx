@@ -363,7 +363,7 @@ export default function Index() {
         {/* Right Panel */}
         <div className="w-[280px] bg-transparent flex flex-col flex-shrink-0 relative">
           {/* Chat - no longer needs top positioning since header is global */}
-          <div className="flex flex-col bg-transparent h-full">
+          <div className="flex flex-col h-full bg-[#081834]">
             {/* Chat Header */}
             <div className="p-3 bg-gradient-to-r from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm">
               <div className="flex items-center justify-between">
