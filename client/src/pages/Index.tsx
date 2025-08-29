@@ -413,16 +413,64 @@ export default function Index() {
         <div className="flex-1 flex flex-col min-w-0">
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
-            <div className="min-h-full px-3 py-2 space-y-3 bg-[#0f1629]">
-              {/* Game Tiles Row */}
-              <div className="relative">
+            <div className="min-h-full px-3 py-2 bg-[#0f1629] relative">
+              {/* Promotional Banner */}
+              <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 min-h-[200px] mb-16">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  style={{
+                    backgroundImage: 'url(/vca.jpg)'
+                  }}
+                ></div>
+                <div className="absolute inset-0">
+                  <div className="absolute inset-0 bg-black/30" />
+                </div>
+                <div className="relative p-6 flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    {/* Left box */}
+                    <div className="flex items-center space-x-3 rounded-lg px-5 py-4 bg-gradient-to-r from-[#a12bd4] via-[#142447] to-[#142447] shadow-md">
+                      <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-br from-[#c041f3] to-[#6f2be3]">
+                        <Lock className="w-5 h-5 text-white opacity-90" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[15px] text-white/90 font-medium">Unlock in 7 days</span>
+                        <span className="text-[17px] font-extrabold text-white">$200,44</span>
+                      </div>
+                    </div>
+
+                    {/* Right box */}
+                    <div className="flex items-center space-x-3 rounded-lg px-5 py-4 bg-[#142447] shadow-md">
+                      <Clock className="w-5 h-5 text-green-400" />
+                      <div className="flex flex-col">
+                        <span className="text-[15px] text-white/90 font-medium">02:34:00</span>
+                        <span className="text-[17px] font-extrabold text-white">$200,44</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <Button
+                      size="lg"
+                      className="hover:bg-[#12b23f] text-white font-semibold px-10 py-3 rounded-md shadow-md w-fit bg-[#109edb]"
+                      data-testid="button-sign-up"
+                    >Enter Giveaway</Button>
+                    <div className="flex items-center gap-2 text-sm text-white/70">
+                      <div className="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center">
+                        <span className="text-xs text-white">i</span>
+                      </div>
+                      <span>How do vault rewards work?</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Game Tiles Row - Overlapping bottom of banner */}
+              <div className="absolute left-3 right-3 z-10" style={{ top: '170px' }}>
                 <div className="flex items-center justify-between mb-2">
-                  <h2 className="text-lg font-bold text-white">Popular Games</h2>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 ml-auto">
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="h-8 w-8 p-0 text-slate-400 hover:text-white hover:bg-slate-700/50"
+                      className="h-8 w-8 p-0 text-slate-400 hover:text-white hover:bg-slate-700/50 bg-black/20 backdrop-blur-sm"
                       onClick={() => {
                         const container = document.getElementById('game-tiles-container');
                         if (container) {
@@ -436,7 +484,7 @@ export default function Index() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="h-8 w-8 p-0 text-slate-400 hover:text-white hover:bg-slate-700/50"
+                      className="h-8 w-8 p-0 text-slate-400 hover:text-white hover:bg-slate-700/50 bg-black/20 backdrop-blur-sm"
                       onClick={() => {
                         const container = document.getElementById('game-tiles-container');
                         if (container) {
@@ -457,30 +505,30 @@ export default function Index() {
                   {gameTiles.map((tile) => (
                     <div
                       key={tile.id}
-                      className={`flex-shrink-0 w-24 rounded-lg bg-gradient-to-br ${tile.gradient} p-3 cursor-pointer hover:scale-105 transition-transform shadow-lg`}
+                      className={`flex-shrink-0 w-20 rounded-lg bg-gradient-to-br ${tile.gradient} p-2.5 cursor-pointer hover:scale-105 transition-transform shadow-lg`}
                       data-testid={`tile-game-${tile.id}`}
                     >
                       <div className="flex flex-col items-center text-center">
                         <div
-                          className="text-2xl mb-1"
+                          className="text-xl mb-1"
                           data-testid={`img-tile-${tile.id}`}
                         >
                           {tile.icon}
                         </div>
                         <h4
-                          className="text-xs font-bold text-white leading-tight mb-1 truncate w-full"
+                          className="text-[10px] font-bold text-white leading-tight mb-1 truncate w-full"
                           data-testid={`text-tile-name-${tile.id}`}
                         >
                           {tile.name}
                         </h4>
                         <div
-                          className="text-xs font-semibold text-green-300 mb-1"
+                          className="text-[10px] font-semibold text-green-300 mb-1"
                           data-testid={`text-tile-value-${tile.id}`}
                         >
                           {tile.value}
                         </div>
                         <div
-                          className="text-xs text-white/80 truncate w-full"
+                          className="text-[9px] text-white/80 truncate w-full"
                           data-testid={`text-tile-username-${tile.id}`}
                         >
                           {tile.username}
@@ -490,6 +538,8 @@ export default function Index() {
                   ))}
                 </div>
               </div>
+
+              <div className="space-y-3">
               {/* Category Filter Tabs */}
               <div className="flex items-center gap-2 overflow-x-auto pb-2">
                 <Button
@@ -585,56 +635,7 @@ export default function Index() {
                 </Button>
               </div>
 
-              {/* Promotional Banner */}
-              <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 min-h-[200px]">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{
-                    backgroundImage: 'url(/vca.jpg)'
-                  }}
-                ></div>
-                <div className="absolute inset-0">
-                  <div className="absolute inset-0 bg-black/30" />
-                </div>
-                <div className="relative p-6 flex flex-col gap-4">
-                  <div className="flex items-center gap-4">
-                    {/* Left box */}
-                    <div className="flex items-center space-x-3 rounded-lg px-5 py-4 bg-gradient-to-r from-[#a12bd4] via-[#142447] to-[#142447] shadow-md">
-                      <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-br from-[#c041f3] to-[#6f2be3]">
-                        <Lock className="w-5 h-5 text-white opacity-90" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-[15px] text-white/90 font-medium">Unlock in 7 days</span>
-                        <span className="text-[17px] font-extrabold text-white">$200,44</span>
-                      </div>
-                    </div>
-
-                    {/* Right box */}
-                    <div className="flex items-center space-x-3 rounded-lg px-5 py-4 bg-[#142447] shadow-md">
-                      <Clock className="w-5 h-5 text-green-400" />
-                      <div className="flex flex-col">
-                        <span className="text-[15px] text-white/90 font-medium">02:34:00</span>
-                        <span className="text-[17px] font-extrabold text-white">$200,44</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <Button
-                      size="lg"
-                      className="hover:bg-[#12b23f] text-white font-semibold px-10 py-3 rounded-md shadow-md w-fit bg-[#109edb]"
-                      data-testid="button-sign-up"
-                    >Enter Giveaway</Button>
-                    <div className="flex items-center gap-2 text-sm text-white/70">
-                      <div className="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center">
-                        <span className="text-xs text-white">i</span>
-                      </div>
-                      <span>How do vault rewards work?</span>
-                    </div>
-                  </div>
-                </div>
               </div>
-
-
 
             </div>
           </ScrollArea>
