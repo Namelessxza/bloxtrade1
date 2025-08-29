@@ -398,7 +398,7 @@ export default function Index() {
             </ScrollArea>
 
             {/* Chat Controls */}
-            <div className="p-4 rounded-lg bg-[#081834]">
+            <div className="p-4 rounded-lg bg-[#0C1321]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
