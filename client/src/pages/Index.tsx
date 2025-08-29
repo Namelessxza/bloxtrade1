@@ -224,7 +224,7 @@ export default function Index() {
                 onClick={() => setActiveMode("games")}
                 className={`flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
                   activeMode === "games"
-                    ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg"
+                    ? "bg-blue-600 text-white shadow-lg"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
