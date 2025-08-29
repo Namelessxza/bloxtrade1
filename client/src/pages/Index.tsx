@@ -410,7 +410,7 @@ export default function Index() {
         <div className="flex-1 flex flex-col min-w-0 h-full">
           {/* Main Content */}
           <ScrollArea className="flex-1">
-          <div className="p-4 space-y-4 bg-[#0f1629]">
+          <div className="p-2 space-y-2 bg-[#0f1629]">
             {/* Promotional Banner */}
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-pink-900/40 border border-blue-500/30">
               <div className="absolute inset-0">
@@ -418,8 +418,8 @@ export default function Index() {
                 <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-xl" />
                 <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full blur-xl" />
               </div>
-              <div className="relative p-6 flex items-center justify-between">
-                <div className="space-y-4 max-w-md">
+              <div className="relative p-3 flex items-center justify-between">
+                <div className="space-y-2 max-w-md">
                   <h1 className="text-3xl font-bold text-white leading-tight">
                     <span className="block text-white text-lg font-medium mb-2">
                       SIGN UP & GET REWARD UP TO
@@ -449,7 +449,7 @@ export default function Index() {
             </div>
 
             {/* Top Games Section */}
-            <div className="space-y-3">
+            <div className="space-y-1">
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold flex items-center gap-2 text-white">
                   <Flame className="h-5 w-5 text-orange-500" />
@@ -576,7 +576,7 @@ export default function Index() {
             </div>
 
             {/* Slot Games Section */}
-            <div className="space-y-3">
+            <div className="space-y-1">
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold flex items-center gap-2 text-white">
                   <Diamond className="h-5 w-5 text-purple-500" />
@@ -683,7 +683,7 @@ export default function Index() {
 
             {/* Chat Messages */}
             <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628]">
-              <div className="space-y-3">
+              <div className="space-y-1">
                 {chatMessages.map((msg, index) => {
                   const avatarColors = [
                     "border-orange-400 bg-orange-900/30",
