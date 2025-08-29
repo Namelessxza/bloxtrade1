@@ -425,51 +425,41 @@ export default function Index() {
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-black/30" />
                 </div>
-                <div className="relative p-4 flex items-center justify-between">
-                  <div className="space-y-3 max-w-md">
-                    <h1 className="text-white leading-tight">
-                      <span className="block text-2xl font-bold mb-1">
-                        7 day Bonus
-                      </span>
-                      <span className="block text-lg font-medium">
-                        unlock schedule
-                      </span>
-                    </h1>
-                    <div className="flex items-center gap-3">
-                      <div className="bg-purple-600/80 rounded-lg px-3 py-2 flex items-center gap-2">
-                        <div className="w-4 h-4 bg-purple-400 rounded-sm flex items-center justify-center">
-                          <Lock className="h-3 w-3 text-purple-800" />
-                        </div>
-                        <div>
-                          <div className="text-xs text-purple-200">Unlock in 7 days</div>
-                          <div className="text-sm font-bold text-white">$200.44</div>
-                        </div>
+                <div className="relative p-6 flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl p-4 flex items-center gap-3 shadow-lg">
+                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                        <Lock className="h-4 w-4 text-white" />
                       </div>
-                      <div className="bg-green-600/80 rounded-lg px-3 py-2 flex items-center gap-2">
-                        <div className="w-4 h-4 bg-green-400 rounded-sm flex items-center justify-center">
-                          <Check className="h-3 w-3 text-green-800" />
-                        </div>
-                        <div>
-                          <div className="text-xs text-green-200">02:34:00</div>
-                          <div className="text-sm font-bold text-white">$200.44</div>
-                        </div>
+                      <div>
+                        <div className="text-sm text-white/90 font-medium">Unlock in 7 days</div>
+                        <div className="text-lg font-bold text-white">$200.44</div>
                       </div>
                     </div>
+                    <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-4 flex items-center gap-3 shadow-lg">
+                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                      </div>
+                      <div>
+                        <div className="text-sm text-white/90 font-medium">02:34:00</div>
+                        <div className="text-lg font-bold text-white">$200.44</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3">
                     <Button
                       size="lg"
-                      className="bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-2 rounded-lg w-fit"
+                      className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white font-bold py-4 px-8 rounded-2xl text-lg shadow-lg w-fit"
                       data-testid="button-sign-up"
                     >
                       Sign up
                     </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="text-blue-300 hover:text-white text-xs flex items-center gap-1 p-0"
-                      data-testid="button-vault-rewards"
-                    >
-                      How do vault rewards work?
-                    </Button>
+                    <div className="flex items-center gap-2 text-sm text-white/70">
+                      <div className="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center">
+                        <span className="text-xs text-white">i</span>
+                      </div>
+                      <span>How do vault rewards work?</span>
+                    </div>
                   </div>
                 </div>
               </div>
