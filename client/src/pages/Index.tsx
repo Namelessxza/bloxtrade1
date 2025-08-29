@@ -446,17 +446,6 @@ export default function Index() {
                       </div>
                     </div>
 
-                    {/* Green box */}
-                    <div className="bg-[#0e3a2e] rounded-xl px-3 py-2 flex items-start gap-2 min-w-[120px]">
-                      <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
-                      </div>
-                      <div className="flex flex-col">
-                        <div className="text-[10px] text-gray-300 mb-0.5">Entries</div>
-                        <div className="text-sm font-bold text-white">1,247</div>
-                      </div>
-                    </div>
-
                     {/* Orange timer box */}
                     <div className="bg-[#2a1810] rounded-xl px-3 py-2 flex items-start gap-2 min-w-[120px]">
                       <div className="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
@@ -465,6 +454,17 @@ export default function Index() {
                       <div className="flex flex-col">
                         <div className="text-[10px] text-gray-300 mb-0.5">Ending in</div>
                         <div className="text-sm font-bold text-orange-400">02:34:21</div>
+                      </div>
+                    </div>
+
+                    {/* Green box */}
+                    <div className="bg-[#0e3a2e] rounded-xl px-3 py-2 flex items-start gap-2 min-w-[120px]">
+                      <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
+                      </div>
+                      <div className="flex flex-col">
+                        <div className="text-[10px] text-gray-300 mb-0.5">Entries</div>
+                        <div className="text-sm font-bold text-white">1,247</div>
                       </div>
                     </div>
                   </div>
