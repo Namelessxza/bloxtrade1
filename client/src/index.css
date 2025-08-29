@@ -494,4 +494,16 @@ All colors MUST be HSL.
   background-color: #081834 !important;
 }
 
+/* Blue focus/hover borders for search inputs */
+input[type="text"], input[data-testid*="input"] {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus, input[data-testid*="input"]:focus,
+input[type="text"]:hover, input[data-testid*="input"]:hover {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1) !important;
+  outline: none !important;
+}
+
 
