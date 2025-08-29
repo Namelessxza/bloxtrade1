@@ -467,9 +467,12 @@ export default function Index() {
                     </Button>
                   </div>
                   <div className="hidden lg:block relative">
-                    <div className="text-6xl" data-testid="img-treasure">
-                      💰🎁💎
-                    </div>
+                    <img 
+                      src="/attached_assets/image_1756447281199.png"
+                      alt="Treasure chest with coins and rewards"
+                      className="w-32 h-32 object-contain"
+                      data-testid="img-treasure"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-purple-400/20 rounded-full blur-2xl scale-150" />
                   </div>
                 </div>
