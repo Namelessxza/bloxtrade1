@@ -28,19 +28,8 @@ import {
   Trophy,
   Zap,
   Heart,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
-
-interface GameTile {
-  id: string;
-  name: string;
-  value: string;
-  username: string;
-  icon: string;
-  gradient: string;
-}
 
 interface ChatMessage {
   id: string;
@@ -118,104 +107,6 @@ export default function Index() {
   const [newMessage, setNewMessage] = useState("");
   const [onlineUsers] = useState(122);
 
-  const gameTiles: GameTile[] = [
-    {
-      id: "1",
-      name: "Player",
-      value: "+60.4$",
-      username: "Mas***ew",
-      icon: "🍬",
-      gradient: "bg-gradient-to-b from-orange-400 to-red-500"
-    },
-    {
-      id: "2",
-      name: "Player",
-      value: "+100$",
-      username: "Mas***ew",
-      icon: "🍎",
-      gradient: "bg-gradient-to-b from-green-400 to-emerald-500"
-    },
-    {
-      id: "3",
-      name: "Player",
-      value: "+1300$",
-      username: "Mas***ew",
-      icon: "🍭",
-      gradient: "bg-gradient-to-b from-pink-400 to-rose-500"
-    },
-    {
-      id: "4",
-      name: "Player",
-      value: "+234$",
-      username: "Mas***ew",
-      icon: "🎪",
-      gradient: "bg-gradient-to-b from-yellow-400 to-orange-500"
-    },
-    {
-      id: "5",
-      name: "Player",
-      value: "+90$",
-      username: "Mas***ew",
-      icon: "❤️",
-      gradient: "bg-gradient-to-b from-red-400 to-pink-500"
-    },
-    {
-      id: "6",
-      name: "Player",
-      value: "+40K",
-      username: "Mas***ew",
-      icon: "💎",
-      gradient: "bg-gradient-to-b from-purple-400 to-indigo-500"
-    },
-    {
-      id: "7",
-      name: "Player",
-      value: "+40K",
-      username: "Mas***ew",
-      icon: "🎯",
-      gradient: "bg-gradient-to-b from-blue-400 to-cyan-500"
-    },
-    {
-      id: "8",
-      name: "Player",
-      value: "+34.4K",
-      username: "Mas***ew",
-      icon: "🏆",
-      gradient: "bg-gradient-to-b from-amber-400 to-yellow-500"
-    },
-    {
-      id: "9",
-      name: "Player",
-      value: "+400$",
-      username: "Mas***ew",
-      icon: "💰",
-      gradient: "bg-gradient-to-b from-emerald-400 to-green-500"
-    },
-    {
-      id: "10",
-      name: "Player",
-      value: "+2400$",
-      username: "Mas***ew",
-      icon: "🎁",
-      gradient: "bg-gradient-to-b from-teal-400 to-blue-500"
-    },
-    {
-      id: "11",
-      name: "Player",
-      value: "+160$",
-      username: "Mas***ew",
-      icon: "🍀",
-      gradient: "bg-gradient-to-b from-lime-400 to-green-500"
-    },
-    {
-      id: "12",
-      name: "Player",
-      value: "+130$",
-      username: "Mas***ew",
-      icon: "⭐",
-      gradient: "bg-gradient-to-b from-violet-400 to-purple-500"
-    }
-  ];
 
   const gameCategories = [
     { id: "live", label: "Trading", icon: Users, count: 45 },
@@ -463,81 +354,6 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Game Tiles Row - Overlapping bottom of banner */}
-              <div className="absolute left-3 right-3 z-10" style={{ top: '170px' }}>
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex gap-2 ml-auto">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-8 w-8 p-0 text-slate-400 hover:text-white hover:bg-slate-700/50 bg-black/20 backdrop-blur-sm"
-                      onClick={() => {
-                        const container = document.getElementById('game-tiles-container');
-                        if (container) {
-                          container.scrollBy({ left: -200, behavior: 'smooth' });
-                        }
-                      }}
-                      data-testid="button-scroll-left"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-8 w-8 p-0 text-slate-400 hover:text-white hover:bg-slate-700/50 bg-black/20 backdrop-blur-sm"
-                      onClick={() => {
-                        const container = document.getElementById('game-tiles-container');
-                        if (container) {
-                          container.scrollBy({ left: 200, behavior: 'smooth' });
-                        }
-                      }}
-                      data-testid="button-scroll-right"
-                    >
-                      <ChevronRight className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-                <div
-                  id="game-tiles-container"
-                  className="flex gap-1.5 overflow-x-auto scrollbar-hide pb-2"
-                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                >
-                  {gameTiles.map((tile) => (
-                    <div
-                      key={tile.id}
-                      className={`flex-shrink-0 w-12 h-16 rounded-md ${tile.gradient} p-1.5 cursor-pointer hover:scale-105 transition-transform shadow-md relative`}
-                      data-testid={`tile-game-${tile.id}`}
-                    >
-                      <div className="flex flex-col items-center justify-center text-center h-full">
-                        <div
-                          className="text-sm mb-0.5"
-                          data-testid={`img-tile-${tile.id}`}
-                        >
-                          {tile.icon}
-                        </div>
-                        <h4
-                          className="text-[6px] font-medium text-white leading-none mb-0.5 truncate w-full"
-                          data-testid={`text-tile-name-${tile.id}`}
-                        >
-                          {tile.name}
-                        </h4>
-                        <div
-                          className="text-[6px] font-bold text-white mb-0.5"
-                          data-testid={`text-tile-value-${tile.id}`}
-                        >
-                          {tile.value}
-                        </div>
-                        <div
-                          className="text-[5px] text-white/90 truncate w-full"
-                          data-testid={`text-tile-username-${tile.id}`}
-                        >
-                          {tile.username}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
               <div className="space-y-3">
               {/* Category Filter Tabs */}
