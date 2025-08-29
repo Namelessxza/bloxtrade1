@@ -650,7 +650,7 @@ export default function Index() {
         {/* Right Panel */}
         <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 min-h-0 relative">
           {/* Chat - no longer needs top positioning since header is global */}
-          <div className="flex flex-col bg-[#0a1628] h-full">
+          <div className="flex flex-col bg-[#0a1628] h-full max-h-screen">
             {/* Chat Header */}
             <div className="p-2 bg-[#0f1a2e]">
               <div className="flex items-center justify-between">
@@ -682,7 +682,7 @@ export default function Index() {
             </div>
 
             {/* Chat Messages */}
-            <ScrollArea className="flex-1 px-2 py-1 bg-[#0a1628]">
+            <ScrollArea className="flex-1 px-2 py-1 bg-[#0a1628] max-h-[calc(100vh-120px)] overflow-y-auto">
               <div className="space-y-2">
                 {chatMessages.map((msg, index) => {
                   const avatarColors = [
