@@ -163,7 +163,7 @@ export default function Index() {
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
             <Input
               placeholder="Search items, skins, collectibles..."
-              className="w-full pl-12 pr-4 py-3 bg-slate-800/30 rounded-xl text-slate-200 placeholder:text-slate-400 focus:bg-slate-700/30 transition-all h-12 backdrop-blur-sm"
+              className="w-full pl-12 pr-4 py-3 bg-slate-800/60 border border-slate-600/50 rounded-xl text-white placeholder:text-slate-300 focus:bg-slate-700/60 focus:border-blue-400 transition-all h-12 backdrop-blur-sm shadow-sm"
               data-testid="input-search"
             />
           </div>
@@ -175,7 +175,7 @@ export default function Index() {
           <Button
             variant="ghost"
             size="sm"
-            className="relative p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
+            className="relative p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700/80 border border-slate-600/30 hover:border-slate-500/50 transition-all shadow-sm"
             data-testid="button-notifications"
           >
             <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
@@ -186,15 +186,15 @@ export default function Index() {
           <Button
             variant="ghost"
             size="sm"
-            className="p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
+            className="p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700/80 border border-slate-600/30 hover:border-slate-500/50 transition-all shadow-sm"
             data-testid="button-cart"
           >
             <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
           </Button>
 
           {/* Wallet Balance */}
-          <div className="flex items-center gap-2 bg-slate-800/60 px-4 py-2 rounded-lg">
-            <Wallet className="h-4 w-4 text-slate-400" />
+          <div className="flex items-center gap-2 bg-slate-800/60 border border-slate-600/30 px-4 py-2 rounded-lg shadow-sm">
+            <Wallet className="h-4 w-4 text-slate-300" />
             <span
               className="text-white font-semibold"
               data-testid="text-wallet-balance"
@@ -205,7 +205,7 @@ export default function Index() {
 
           {/* Profile Button */}
           <Button
-            className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold"
+            className="bg-blue-600 hover:bg-blue-500 border border-blue-500/50 hover:border-blue-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold transition-all shadow-md"
             data-testid="button-profile"
           >
             <User className="h-3 w-3" />
@@ -216,10 +216,10 @@ export default function Index() {
       {/* Content Row */}
       <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
-        <div className="w-[220px] flex flex-col flex-shrink-0 bg-[#09101d]">
+        <div className="w-[220px] flex flex-col flex-shrink-0 bg-[#09101d] border-r border-slate-700/50 shadow-xl">
           {/* Games/Sport Toggle */}
-          <div className="px-2 py-6 bg-[#09101d]">
-            <div className="flex rounded-2xl p-1.5 relative bg-slate-800/60">
+          <div className="px-3 py-6 bg-[#09101d] border-b border-slate-700/30">
+            <div className="flex rounded-2xl p-2 relative bg-slate-800/60 border border-slate-600/30 shadow-md">
               <button
                 onClick={() => setActiveMode("games")}
                 className={`flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
@@ -251,10 +251,10 @@ export default function Index() {
           </div>
 
           {/* Game Categories */}
-          <ScrollArea className="relative overflow-hidden flex-1 px-2 py-4 bg-[#09101D]">
+          <ScrollArea className="relative overflow-hidden flex-1 px-3 py-4 bg-[#09101D]">
             {/* Section Header */}
             <div className="px-2 py-1 mb-3">
-              <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+              <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                 {activeMode === "games" ? "Steal A Brainrot" : "Grow A Garden"}
               </h3>
             </div>
@@ -265,10 +265,10 @@ export default function Index() {
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-all ${
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all border ${
                       selectedCategory === category.id
-                        ? "bg-gradient-to-r from-blue-500/40 to-cyan-500/30 text-blue-300 shadow-lg shadow-blue-500/20 border-l-4 border-l-blue-400"
-                        : "hover:bg-slate-800/60 text-slate-400 hover:text-blue-400"
+                        ? "bg-blue-600/20 border-blue-400/50 text-blue-200 shadow-lg shadow-blue-500/10"
+                        : "border-transparent hover:bg-slate-800/60 hover:border-slate-600/50 text-slate-300 hover:text-white"
                     }`}
                     data-testid={`button-category-${category.id}`}
                   >
@@ -276,7 +276,7 @@ export default function Index() {
                       <Icon className="h-4 w-4" />
                       <span className="font-medium">{category.label}</span>
                     </div>
-                    <span className="text-xs opacity-60">{category.count}</span>
+                    <span className="text-xs text-slate-400 bg-slate-700/60 px-2 py-1 rounded-full">{category.count}</span>
                   </button>
                 );
               })}
@@ -284,10 +284,10 @@ export default function Index() {
           </ScrollArea>
 
           {/* Bottom Actions */}
-          <div className="p-3 space-y-2 from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl bg-[#09101d]">
-            <div className="rounded-lg p-3 space-y-2 bg-[#0c1321]">
+          <div className="p-4 space-y-3 border-t border-slate-700/50 bg-[#09101d]">
+            <div className="rounded-xl p-4 space-y-3 bg-slate-800/40 border border-slate-600/30 shadow-md">
               <Button
-                className="w-full justify-center gap-3 bg-slate-700/60 hover:bg-slate-600/60 text-slate-300 hover:text-white text-sm rounded-lg font-semibold"
+                className="w-full justify-center gap-3 bg-blue-600/80 hover:bg-blue-500 border border-blue-500/50 text-white text-sm rounded-lg font-semibold shadow-md transition-all"
                 data-testid="button-buy-crypto"
               >
                 <CreditCard className="h-4 w-4" />
@@ -295,7 +295,7 @@ export default function Index() {
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-center gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg"
+                className="w-full justify-center gap-3 text-slate-300 hover:text-white hover:bg-slate-700/60 border border-transparent hover:border-slate-600/50 text-sm rounded-lg transition-all"
                 data-testid="button-support"
               >
                 <HeadphonesIcon className="h-4 w-4" />
@@ -320,11 +320,11 @@ export default function Index() {
         </div>
 
         {/* Right Panel */}
-        <div className="w-[280px] bg-transparent flex flex-col flex-shrink-0 relative">
+        <div className="w-[280px] bg-transparent flex flex-col flex-shrink-0 relative border-l border-slate-700/50 shadow-xl">
           {/* Chat - no longer needs top positioning since header is global */}
           <div className="flex flex-col h-full bg-[#0c1321]">
             {/* Chat Header */}
-            <div className="p-3 from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm bg-[#081834]">
+            <div className="p-4 bg-slate-800/60 border border-slate-600/30 rounded-xl mb-3 backdrop-blur-sm shadow-md">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -370,7 +370,7 @@ export default function Index() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="text-sm font-semibold text-[#94a3b8]">
+                          <span className="text-sm font-semibold text-slate-200">
                             {msg.username}
                           </span>
                           {msg.isAdmin && (
@@ -379,13 +379,13 @@ export default function Index() {
                             </span>
                           )}
                           <div className="flex items-center gap-1 ml-auto">
-                            <span className="text-xs text-gray-400">
+                            <span className="text-xs text-slate-300">
                               2s ago
                             </span>
                             <MessageCircle className="h-3 w-3 text-gray-400" />
                           </div>
                         </div>
-                        <div className="rounded-lg px-3 py-2 inline-block max-w-full bg-[#12182B]">
+                        <div className="rounded-xl px-4 py-3 inline-block max-w-full bg-slate-700/60 border border-slate-600/30 shadow-sm">
                           <p className="text-sm text-white leading-relaxed break-words">
                             {msg.message}
                           </p>
@@ -398,7 +398,7 @@ export default function Index() {
             </ScrollArea>
 
             {/* Chat Controls */}
-            <div className="p-4 rounded-lg bg-[#0C1321]">
+            <div className="p-4 bg-slate-800/60 border border-slate-600/30 rounded-xl shadow-md">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -410,7 +410,7 @@ export default function Index() {
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   placeholder="Your message"
-                  className="w-full h-12 px-4 pr-14 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
+                  className="w-full h-12 px-4 pr-14 bg-slate-700/60 border border-slate-600/30 rounded-lg text-white placeholder:text-slate-300 focus:bg-slate-600/60 focus:border-blue-400 text-sm shadow-sm"
                   data-testid="input-chat-message"
                 />
                 <Button

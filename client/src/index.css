@@ -39,6 +39,22 @@ All colors MUST be HSL.
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     min-width: 320px;
+    line-height: 1.6;
+  }
+
+  /* Enhanced Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Carossoft', 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Button and UI element typography */
+  button, .btn {
+    font-family: 'Carossoft', 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
   :root {
