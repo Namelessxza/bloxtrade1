@@ -108,9 +108,11 @@ export default function Index() {
   const [onlineUsers] = useState(122);
 
   const gameCategories = [
+    { id: "home", label: "Home", icon: Home, count: 45 },
     { id: "live", label: "Trading", icon: Users, count: 45 },
-    { id: "Private", label: "Private Servers", icon: Gamepad2, count: 20 },
+    { id: "private", label: "Private Servers", icon: Gamepad2, count: 20 },
     { id: "events", label: "Events", icon: Star },
+    { id: "petsniper", label: "Pet Sniper", icon: Grid3x3 },
   ];
 
   const sportCategories = [
@@ -213,7 +215,7 @@ export default function Index() {
       {/* Content Row */}
       <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
-        <div className="w-[220px] flex flex-col flex-shrink-0 bg-[#09101d]">
+        <div className="w-[280px] flex flex-col flex-shrink-0 bg-[#09101d]">
           {/* Games/Sport Toggle */}
           <div className="px-2 py-6 bg-[#09101d]">
             <div className="flex rounded-2xl p-1.5 relative bg-slate-800/60">
@@ -292,7 +294,7 @@ export default function Index() {
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-center gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg font-semibold"
+                className="w-full justify-center gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg"
                 data-testid="button-support"
               >
                 <HeadphonesIcon className="h-4 w-4" />
