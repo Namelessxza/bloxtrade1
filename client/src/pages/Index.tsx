@@ -236,7 +236,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-start">
+    <div className="min-h-screen bg-background flex">
       {/* Left Sidebar - Navigation */}
       <div className="w-[200px] bg-card flex flex-col flex-shrink-0">
         {/* Logo */}
@@ -298,7 +298,7 @@ export default function Index() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Top Navigation Bar */}
-        <header className="h-16 border-b border-border backdrop-blur-sm flex items-center justify-between px-6 bg-[#01112d]">
+        <header className="h-16 backdrop-blur-sm flex items-center justify-between px-6 bg-[#01112d]">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm">
               <Coins className="h-4 w-4 text-primary" />
@@ -601,9 +601,9 @@ export default function Index() {
         </ScrollArea>
       </div>
       {/* Right Chat Panel */}
-      <div className="w-[240px] bg-slate-900 border-l border-slate-700/50 flex flex-col flex-shrink-0">
+      <div className="w-[240px] bg-slate-900 flex flex-col flex-shrink-0">
         {/* Balance Display */}
-        <div className="p-3 border-b border-slate-700/50 bg-slate-800">
+        <div className="p-3 bg-slate-800">
           <div className="flex items-center justify-between text-sm">
             <span className="text-slate-400">$90.4</span>
             <span className="text-slate-400">$500</span>
@@ -620,7 +620,7 @@ export default function Index() {
         </div>
 
         {/* Chat Header */}
-        <div className="p-3 border-b border-border/30 bg-[#0d234f] rounded-lg">
+        <div className="p-3 bg-[#0d234f] rounded-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
