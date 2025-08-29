@@ -218,18 +218,18 @@ export default function Index() {
         {/* Left Sidebar - Navigation */}
         <div className="w-[220px] bg-transparent flex flex-col flex-shrink-0">
           {/* Games/Sport Toggle */}
-          <div className="p-4 from-[#0a1628] to-[#0f1a2e] bg-[#01112d]">
-            <div className="flex bg-slate-800/50 rounded-full p-1 relative">
+          <div className="px-4 py-6 bg-[#01112d]">
+            <div className="flex bg-slate-800/40 rounded-xl p-1.5 relative border border-slate-700/30">
               <div
-                className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
+                className={`absolute top-1.5 left-1.5 h-9 rounded-lg bg-gradient-to-r transition-all duration-300 ease-in-out shadow-lg ${
                   activeMode === "games"
-                    ? "from-blue-600 to-cyan-500 w-[calc(50%-4px)] translate-x-0"
-                    : "from-slate-600 to-slate-500 w-[calc(50%-4px)] translate-x-full"
+                    ? "from-blue-600 to-cyan-500 w-[calc(50%-6px)] translate-x-0"
+                    : "from-slate-600 to-slate-500 w-[calc(50%-6px)] translate-x-full"
                 }`}
               />
               <button
                 onClick={() => setActiveMode("games")}
-                className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
+                className={`relative z-10 flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-300 flex-1 min-w-0 ${
                   activeMode === "games"
                     ? "text-white"
                     : "text-slate-400 hover:text-white"
@@ -239,7 +239,7 @@ export default function Index() {
               </button>
               <button
                 disabled
-                className="relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 text-slate-600 cursor-not-allowed"
+                className="relative z-10 flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-300 flex-1 min-w-0 text-slate-600 cursor-not-allowed"
               >
                 <Lock className="h-3 w-3 flex-shrink-0" />
                 <span className="truncate">GAG</span>
