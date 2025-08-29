@@ -463,7 +463,7 @@ export default function Index() {
                   <Send className="h-5 w-5 text-white" />
                 </Button>
               </form>
-              <div className="flex items-center gap-4 mt-3 pt-3 bg-slate-800/20 rounded-lg -mx-1 px-3">
+              <div className="flex items-center gap-4 mt-3 pt-3 rounded-lg -mx-1 px-3 bg-[#081834]">
                 <Button
                   variant="ghost"
                   size="sm"
