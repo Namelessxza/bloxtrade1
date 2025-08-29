@@ -285,7 +285,7 @@ export default function Index() {
 
           {/* Bottom Actions */}
           <div className="p-3 space-y-2 from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl bg-[#01112d]">
-            <div className="bg-slate-800/40 rounded-lg p-3 space-y-2">
+            <div className="rounded-lg p-3 space-y-2 bg-[#0c1321]">
               <Button
                 className="w-full justify-center gap-3 bg-slate-700/60 hover:bg-slate-600/60 text-slate-300 hover:text-white text-sm rounded-lg font-semibold"
                 data-testid="button-buy-crypto"
