@@ -121,99 +121,115 @@ export default function Index() {
   const gameTiles: GameTile[] = [
     {
       id: "1",
-      name: "Book of Dead",
+      name: "Player",
       value: "+60.4$",
       username: "Mas***ew",
-      icon: "📚",
-      gradient: "from-purple-500 to-indigo-600"
+      icon: "🎮",
+      gradient: "from-red-500 to-pink-600"
     },
     {
       id: "2",
-      name: "Sweet Bonanza",
+      name: "Player",
       value: "+100$",
-      username: "Joh***ny",
-      icon: "🍬",
-      gradient: "from-pink-500 to-rose-600"
+      username: "Mas***ew",
+      icon: "🎯",
+      gradient: "from-orange-500 to-red-600"
     },
     {
       id: "3",
-      name: "Gates of Olympus",
+      name: "Player",
+      value: "+1300$",
+      username: "Mas***ew",
+      icon: "🎪",
+      gradient: "from-pink-500 to-purple-600"
+    },
+    {
+      id: "4",
+      name: "Player",
       value: "+234$",
-      username: "Ale***xa",
+      username: "Mas***ew",
       icon: "⚡",
       gradient: "from-yellow-500 to-orange-600"
     },
     {
-      id: "4",
-      name: "Aviator",
-      value: "+90$",
-      username: "Mic***el",
-      icon: "✈️",
-      gradient: "from-blue-500 to-cyan-600"
-    },
-    {
       id: "5",
-      name: "Crazy Time",
-      value: "+170$",
-      username: "Sar***ah",
-      icon: "🎯",
-      gradient: "from-green-500 to-emerald-600"
+      name: "Player",
+      value: "+90$",
+      username: "Mas***ew",
+      icon: "❤️",
+      gradient: "from-red-500 to-rose-600"
     },
     {
       id: "6",
-      name: "Mega Moolah",
-      value: "+240$",
-      username: "Dav***id",
-      icon: "🦁",
-      gradient: "from-amber-500 to-yellow-600"
+      name: "Player",
+      value: "+40K",
+      username: "Mas***ew",
+      icon: "🎲",
+      gradient: "from-purple-500 to-indigo-600"
     },
     {
       id: "7",
-      name: "Starburst",
-      value: "+130$",
-      username: "Emi***ly",
-      icon: "⭐",
-      gradient: "from-violet-500 to-purple-600"
+      name: "Player",
+      value: "+40K",
+      username: "Mas***ew",
+      icon: "💎",
+      gradient: "from-blue-500 to-cyan-600"
     },
     {
       id: "8",
-      name: "Wolf Gold",
-      value: "+85$",
-      username: "Tom***my",
-      icon: "🐺",
-      gradient: "from-gray-500 to-slate-600"
-    },
-    {
-      id: "9",
-      name: "Bonanza Gold",
-      value: "+195$",
-      username: "Lis***sa",
-      icon: "💰",
+      name: "Player",
+      value: "+34.4K",
+      username: "Mas***ew",
+      icon: "🏆",
       gradient: "from-yellow-400 to-amber-500"
     },
     {
+      id: "9",
+      name: "Player",
+      value: "+400$",
+      username: "Mas***ew",
+      icon: "💰",
+      gradient: "from-emerald-500 to-green-600"
+    },
+    {
       id: "10",
-      name: "Razor Shark",
-      value: "+75$",
-      username: "Bra***nd",
-      icon: "🦈",
+      name: "Player",
+      value: "+2400$",
+      username: "Mas***ew",
+      icon: "🎁",
       gradient: "from-teal-500 to-blue-600"
     },
     {
       id: "11",
-      name: "Big Bass Splash",
-      value: "+150$",
-      username: "Kat***ie",
-      icon: "🎣",
-      gradient: "from-cyan-500 to-teal-600"
+      name: "Player",
+      value: "+160$",
+      username: "Mas***ew",
+      icon: "🍀",
+      gradient: "from-green-500 to-emerald-600"
     },
     {
       id: "12",
-      name: "Fire Joker",
-      value: "+40$",
-      username: "Rob***rt",
-      icon: "🔥",
-      gradient: "from-red-500 to-orange-600"
+      name: "Player",
+      value: "+130$",
+      username: "Mas***ew",
+      icon: "⭐",
+      gradient: "from-indigo-500 to-purple-600"
+    },
+    {
+      id: "13",
+      name: "Player",
+      value: "+170$",
+      username: "Mas***ew",
+      icon: "🎰",
+      gradient: "from-violet-500 to-purple-600"
+    },
+    {
+      id: "14",
+      name: "Player",
+      value: "+2.6K",
+      username: "Mas***ew",
+      icon: "💳",
+      gradient: "from-slate-500 to-gray-600"
     }
   ];
 
@@ -499,36 +515,36 @@ export default function Index() {
                 </div>
                 <div
                   id="game-tiles-container"
-                  className="flex gap-3 overflow-x-auto scrollbar-hide pb-2"
+                  className="flex gap-2 overflow-x-auto scrollbar-hide pb-2"
                   style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                   {gameTiles.map((tile) => (
                     <div
                       key={tile.id}
-                      className={`flex-shrink-0 w-20 rounded-lg bg-gradient-to-br ${tile.gradient} p-2.5 cursor-pointer hover:scale-105 transition-transform shadow-lg`}
+                      className={`flex-shrink-0 w-16 h-20 rounded-lg bg-gradient-to-br ${tile.gradient} p-2 cursor-pointer hover:scale-105 transition-transform shadow-lg relative`}
                       data-testid={`tile-game-${tile.id}`}
                     >
-                      <div className="flex flex-col items-center text-center">
+                      <div className="flex flex-col items-center justify-center text-center h-full">
                         <div
-                          className="text-xl mb-1"
+                          className="text-lg mb-1"
                           data-testid={`img-tile-${tile.id}`}
                         >
                           {tile.icon}
                         </div>
                         <h4
-                          className="text-[10px] font-bold text-white leading-tight mb-1 truncate w-full"
+                          className="text-[8px] font-medium text-white leading-none mb-0.5 truncate w-full"
                           data-testid={`text-tile-name-${tile.id}`}
                         >
                           {tile.name}
                         </h4>
                         <div
-                          className="text-[10px] font-semibold text-green-300 mb-1"
+                          className="text-[8px] font-bold text-white mb-0.5"
                           data-testid={`text-tile-value-${tile.id}`}
                         >
                           {tile.value}
                         </div>
                         <div
-                          className="text-[9px] text-white/80 truncate w-full"
+                          className="text-[7px] text-white/90 truncate w-full"
                           data-testid={`text-tile-username-${tile.id}`}
                         >
                           {tile.username}
