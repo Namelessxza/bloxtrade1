@@ -335,7 +335,7 @@ export default function Index() {
 
         {/* Main Content */}
         <ScrollArea className="flex-1">
-          <div className="p-6 space-y-8">
+          <div className="p-6 space-y-8 bg-[01112d]">
             {/* Promotional Banner */}
             <Card className="relative overflow-hidden bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 border-primary/30">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-pulse" />
