@@ -251,7 +251,7 @@ export default function Index() {
           </div>
 
           {/* Game Categories */}
-          <ScrollArea className="relative overflow-hidden flex-1 px-2 py-4 bg-[#01112d]">
+          <ScrollArea className="relative overflow-hidden flex-1 px-2 py-4 bg-[#09101D]">
             {/* Section Header */}
             <div className="px-2 py-1 mb-3">
               <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
