@@ -274,21 +274,21 @@ export default function Index() {
             />
             <button
               onClick={() => setActiveMode("games")}
-              className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 ${
+              className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
                 activeMode === "games" ? "text-white" : "text-slate-400 hover:text-white"
               }`}
             >
-              <Gamepad2 className="h-4 w-4" />
-              Games
+              <Gamepad2 className="h-4 w-4 flex-shrink-0" />
+              <span className="truncate">Games</span>
             </button>
             <button
               onClick={() => setActiveMode("sport")}
-              className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 ${
+              className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
                 activeMode === "sport" ? "text-white" : "text-slate-400 hover:text-white"
               }`}
             >
-              <Trophy className="h-4 w-4" />
-              Sport
+              <Trophy className="h-4 w-4 flex-shrink-0" />
+              <span className="truncate">Sport</span>
             </button>
           </div>
         </div>
