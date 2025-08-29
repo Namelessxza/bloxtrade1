@@ -711,35 +711,35 @@ export default function Index() {
         </ScrollArea>
 
         {/* Chat Controls */}
-        <div className="p-4 bg-[#0f1729] space-y-4">
-          <div className="flex items-center justify-center gap-2">
+        <div className="p-4 bg-[#1a2332] space-y-3">
+          <div className="flex items-center justify-start gap-3">
             <Button
               variant="ghost"
               size="sm"
-              className="bg-[#1a2332] hover:bg-[#243041] text-blue-400 hover:text-blue-300 rounded-full px-3 py-2 flex items-center gap-2 text-xs"
+              className="bg-[#2d3748] hover:bg-[#3d4755] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium"
             >
-              <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
-                <span className="text-[10px]">📷</span>
+              <div className="w-5 h-5 rounded-full bg-blue-500/80 flex items-center justify-center">
+                <span className="text-white text-xs">📷</span>
               </div>
               GIF
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              className="bg-[#1a2332] hover:bg-[#243041] text-blue-400 hover:text-blue-300 rounded-full px-3 py-2 flex items-center gap-2 text-xs"
+              className="bg-[#2d3748] hover:bg-[#3d4755] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium"
             >
-              <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
-                <span className="text-[10px]">😊</span>
+              <div className="w-5 h-5 rounded-full bg-orange-500/80 flex items-center justify-center">
+                <span className="text-white text-xs">😊</span>
               </div>
               Emoji
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              className="bg-[#1a2332] hover:bg-[#243041] text-blue-400 hover:text-blue-300 rounded-full px-3 py-2 flex items-center gap-2 text-xs"
+              className="bg-[#2d3748] hover:bg-[#3d4755] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium"
             >
-              <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
-                <span className="text-[10px]">📋</span>
+              <div className="w-5 h-5 rounded-full bg-blue-600/80 flex items-center justify-center">
+                <span className="text-white text-xs">📋</span>
               </div>
               Rules
             </Button>
@@ -749,22 +749,24 @@ export default function Index() {
               e.preventDefault();
               sendMessage();
             }}
-            className="flex gap-2"
+            className="flex gap-3"
           >
             <Input
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Send a message"
-              className="flex-1 bg-[#1a2332] border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-10 px-4"
+              className="flex-1 bg-[#2d3748] border-[#3d4755] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 border-0"
               data-testid="input-chat-message"
             />
             <Button
               type="submit"
               size="sm"
-              className="bg-blue-500 hover:bg-blue-600 rounded-full w-10 h-10 p-0"
+              className="bg-blue-500 hover:bg-blue-600 rounded-full w-11 h-11 p-0 flex items-center justify-center"
               data-testid="button-send-message"
             >
-              <Send className="h-4 w-4" />
+              <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+                <span className="text-blue-500 text-sm font-bold">A</span>
+              </div>
             </Button>
           </form>
         </div>
