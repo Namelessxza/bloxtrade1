@@ -711,58 +711,62 @@ export default function Index() {
         </ScrollArea>
 
         {/* Chat Controls */}
-        <div className="border-t border-border/30 bg-card/50">
-          <div className="flex items-center justify-center gap-4 p-3 border-b border-border/20">
+        <div className="p-4 bg-[#0f1729] space-y-4">
+          <div className="flex items-center justify-center gap-2">
             <Button
               variant="ghost"
               size="sm"
-              className="text-blue-400 hover:text-blue-300 flex items-center gap-1"
+              className="bg-[#1a2332] hover:bg-[#243041] text-blue-400 hover:text-blue-300 rounded-full px-3 py-2 flex items-center gap-2 text-xs"
             >
-              <span className="text-xs">📷</span>
-              <span className="text-xs">GIF</span>
+              <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
+                <span className="text-[10px]">📷</span>
+              </div>
+              GIF
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              className="text-yellow-400 hover:text-yellow-300 flex items-center gap-1"
+              className="bg-[#1a2332] hover:bg-[#243041] text-blue-400 hover:text-blue-300 rounded-full px-3 py-2 flex items-center gap-2 text-xs"
             >
-              <span className="text-xs">😊</span>
-              <span className="text-xs">Emoji</span>
+              <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
+                <span className="text-[10px]">😊</span>
+              </div>
+              Emoji
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              className="text-green-400 hover:text-green-300 flex items-center gap-1"
+              className="bg-[#1a2332] hover:bg-[#243041] text-blue-400 hover:text-blue-300 rounded-full px-3 py-2 flex items-center gap-2 text-xs"
             >
-              <span className="text-xs">📋</span>
-              <span className="text-xs">Rules</span>
+              <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
+                <span className="text-[10px]">📋</span>
+              </div>
+              Rules
             </Button>
           </div>
-          <div className="p-3">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                sendMessage();
-              }}
-              className="flex gap-2"
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              sendMessage();
+            }}
+            className="flex gap-2"
+          >
+            <Input
+              value={newMessage}
+              onChange={(e) => setNewMessage(e.target.value)}
+              placeholder="Send a message"
+              className="flex-1 bg-[#1a2332] border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-10 px-4"
+              data-testid="input-chat-message"
+            />
+            <Button
+              type="submit"
+              size="sm"
+              className="bg-blue-500 hover:bg-blue-600 rounded-full w-10 h-10 p-0"
+              data-testid="button-send-message"
             >
-              <Input
-                value={newMessage}
-                onChange={(e) => setNewMessage(e.target.value)}
-                placeholder="Send a message"
-                className="flex-1 bg-muted/30 border-border/50 text-sm h-9"
-                data-testid="input-chat-message"
-              />
-              <Button
-                type="submit"
-                size="sm"
-                className="bg-blue-500 hover:bg-blue-600 w-9 h-9 p-0"
-                data-testid="button-send-message"
-              >
-                <Send className="h-3 w-3" />
-              </Button>
-            </form>
-          </div>
+              <Send className="h-4 w-4" />
+            </Button>
+          </form>
         </div>
       </div>
     </div>
