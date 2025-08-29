@@ -254,159 +254,162 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-row w-full overflow-hidden">
-      {/* Left Sidebar - Navigation */}
-      <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
-        {/* Logo */}
-        <div className="p-4 bg-[#0a1628] border-b border-slate-800/30">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-              <Flame className="h-5 w-5 text-white" />
-            </div>
-            <span className="text-lg font-bold text-white">
-              FIRE<span className="text-red-500">🔥</span>GO
+    <div className="min-h-screen bg-background flex flex-col w-full overflow-hidden">
+      {/* Global Header */}
+      <header className="h-16 backdrop-blur-sm flex items-center justify-between px-6 bg-[#0a1628] border-b border-slate-800/30 w-full z-10">
+        <div className="relative w-full max-w-2xl">
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+          <Input
+            placeholder="Search items, skins, collectibles..."
+            className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-slate-200 placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 h-12"
+            data-testid="input-search"
+          />
+        </div>
+        
+        {/* Right Side Controls */}
+        <div className="flex items-center gap-4 ml-6 mr-6">
+          {/* Notification Bell */}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="relative p-2 rounded-full hover:bg-slate-700/50"
+            data-testid="button-notifications"
+          >
+            <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
+            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+          </Button>
+          
+          {/* Shopping Cart */}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="p-2 rounded-full hover:bg-slate-700/50"
+            data-testid="button-cart"
+          >
+            <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
+          </Button>
+          
+          {/* Wallet Balance */}
+          <div className="flex items-center gap-2 bg-slate-800/50 px-3 py-2 rounded-lg">
+            <Wallet className="h-4 w-4 text-slate-400" />
+            <span className="text-white font-semibold" data-testid="text-wallet-balance">
+              $2,485
             </span>
           </div>
           
-          {/* Games/Sport Toggle */}
-          <div className="flex bg-slate-800/50 rounded-full p-1 relative">
-            <div 
-              className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
-                activeMode === "games" 
-                  ? "from-blue-600 to-cyan-500 w-[calc(50%-4px)] translate-x-0" 
-                  : "from-slate-600 to-slate-500 w-[calc(50%-4px)] translate-x-full"
-              }`}
-            />
-            <button
-              onClick={() => setActiveMode("games")}
-              className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
-                activeMode === "games" ? "text-white" : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <Gamepad2 className="h-4 w-4 flex-shrink-0" />
-              <span className="truncate">Games</span>
-            </button>
-            <button
-              onClick={() => setActiveMode("sport")}
-              className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
-                activeMode === "sport" ? "text-white" : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <Trophy className="h-4 w-4 flex-shrink-0" />
-              <span className="truncate">Sport</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Game Categories */}
-        <ScrollArea className="flex-1 px-2 py-4 bg-transparent">
-          {/* Section Header */}
-          <div className="px-2 py-1 mb-3">
-            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-              {activeMode === "games" ? "ALL GAMES" : "ALL SPORTS"}
-            </h3>
-          </div>
-          <div className="space-y-1">
-            {currentCategories.map((category) => {
-              const Icon = category.icon;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-all ${
-                    selectedCategory === category.id
-                      ? "bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border-l-2 border-blue-500"
-                      : "hover:bg-slate-800/50 text-slate-400 hover:text-blue-400"
-                  }`}
-                  data-testid={`button-category-${category.id}`}
-                >
-                  <div className="flex items-center gap-3">
-                    <Icon className="h-4 w-4" />
-                    <span className="font-medium">{category.label}</span>
-                  </div>
-                  <span className="text-xs opacity-60">{category.count}</span>
-                </button>
-              );
-            })}
-          </div>
-        </ScrollArea>
-
-        {/* Bottom Actions */}
-        <div className="p-3 space-y-2 bg-[#0a1628] border-t border-slate-800/30">
+          {/* Profile Button */}
           <Button
-            className="w-full justify-start gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm"
-            data-testid="button-buy-crypto"
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 text-sm"
+            data-testid="button-profile"
           >
-            <CreditCard className="h-4 w-4" />
-            Buy crypto
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start gap-2 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm"
-            data-testid="button-support"
-          >
-            <HeadphonesIcon className="h-4 w-4" />
-            Support
+            <User className="h-3 w-3" />
+            Profile
           </Button>
         </div>
-      </div>
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 h-screen">
-        {/* Top Navigation Bar */}
-        <header className="h-16 backdrop-blur-sm flex items-center justify-between px-6 bg-[#0a1628] border-b border-slate-800/30">
-          <div className="relative w-full max-w-2xl">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
-            <Input
-              placeholder="Search items, skins, collectibles..."
-              className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-slate-200 placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 h-12"
-              data-testid="input-search"
-            />
-          </div>
-          
-          {/* Right Side Controls */}
-          <div className="flex items-center gap-4 ml-6 mr-6">
-            {/* Notification Bell */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="relative p-2 rounded-full hover:bg-slate-700/50"
-              data-testid="button-notifications"
-            >
-              <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
-              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
-            </Button>
-            
-            {/* Shopping Cart */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="p-2 rounded-full hover:bg-slate-700/50"
-              data-testid="button-cart"
-            >
-              <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
-            </Button>
-            
-            {/* Wallet Balance */}
-            <div className="flex items-center gap-2 bg-slate-800/50 px-3 py-2 rounded-lg">
-              <Wallet className="h-4 w-4 text-slate-400" />
-              <span className="text-white font-semibold" data-testid="text-wallet-balance">
-                $2,485
+      </header>
+      
+      {/* Content Row */}
+      <div className="flex flex-row flex-1">
+        {/* Left Sidebar - Navigation */}
+        <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0 h-full">
+          {/* Logo */}
+          <div className="p-4 bg-[#0a1628] border-b border-slate-800/30">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+                <Flame className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-lg font-bold text-white">
+                FIRE<span className="text-red-500">🔥</span>GO
               </span>
             </div>
             
-            {/* Profile Button */}
+            {/* Games/Sport Toggle */}
+            <div className="flex bg-slate-800/50 rounded-full p-1 relative">
+              <div 
+                className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
+                  activeMode === "games" 
+                    ? "from-blue-600 to-cyan-500 w-[calc(50%-4px)] translate-x-0" 
+                    : "from-slate-600 to-slate-500 w-[calc(50%-4px)] translate-x-full"
+                }`}
+              />
+              <button
+                onClick={() => setActiveMode("games")}
+                className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
+                  activeMode === "games" ? "text-white" : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <Gamepad2 className="h-4 w-4 flex-shrink-0" />
+                <span className="truncate">Games</span>
+              </button>
+              <button
+                onClick={() => setActiveMode("sport")}
+                className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
+                  activeMode === "sport" ? "text-white" : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <Trophy className="h-4 w-4 flex-shrink-0" />
+                <span className="truncate">Sport</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Game Categories */}
+          <ScrollArea className="flex-1 px-2 py-4 bg-transparent">
+            {/* Section Header */}
+            <div className="px-2 py-1 mb-3">
+              <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                {activeMode === "games" ? "ALL GAMES" : "ALL SPORTS"}
+              </h3>
+            </div>
+            <div className="space-y-1">
+              {currentCategories.map((category) => {
+                const Icon = category.icon;
+                return (
+                  <button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id)}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-all ${
+                      selectedCategory === category.id
+                        ? "bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border-l-2 border-blue-500"
+                        : "hover:bg-slate-800/50 text-slate-400 hover:text-blue-400"
+                    }`}
+                    data-testid={`button-category-${category.id}`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <Icon className="h-4 w-4" />
+                      <span className="font-medium">{category.label}</span>
+                    </div>
+                    <span className="text-xs opacity-60">{category.count}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </ScrollArea>
+
+          {/* Bottom Actions */}
+          <div className="p-3 space-y-2 bg-[#0a1628] border-t border-slate-800/30">
             <Button
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 text-sm"
-              data-testid="button-profile"
+              className="w-full justify-start gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm"
+              data-testid="button-buy-crypto"
             >
-              <User className="h-3 w-3" />
-              Profile
+              <CreditCard className="h-4 w-4" />
+              Buy crypto
+            </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-start gap-2 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm"
+              data-testid="button-support"
+            >
+              <HeadphonesIcon className="h-4 w-4" />
+              Support
             </Button>
           </div>
-        </header>
-
-        {/* Main Content */}
-        <ScrollArea className="flex-1">
+        </div>
+        
+        {/* Main Content Area */}
+        <div className="flex-1 flex flex-col min-w-0 h-full">
+          {/* Main Content */}
+          <ScrollArea className="flex-1">
           <div className="p-6 space-y-8 bg-[#0f1629]">
             {/* Promotional Banner */}
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-pink-900/40 border border-blue-500/30">
@@ -642,152 +645,154 @@ export default function Index() {
             </div>
           </div>
         </ScrollArea>
-      </div>
-      {/* Right Panel */}
-      <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen relative">
-        {/* Chat positioned to avoid header overlap */}
-        <div className="absolute top-16 left-0 right-0 bottom-0 flex flex-col bg-[#0a1628]">
-          {/* Chat Header */}
-          <div className="p-3 bg-[#0f1a2e]">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
-                  <MessageCircle className="h-3 w-3 text-green-400" />
+        </div>
+        
+        {/* Right Panel */}
+        <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-full relative">
+          {/* Chat - no longer needs top positioning since header is global */}
+          <div className="flex flex-col bg-[#0a1628] h-full">
+            {/* Chat Header */}
+            <div className="p-3 bg-[#0f1a2e]">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <MessageCircle className="h-3 w-3 text-green-400" />
+                  </div>
+                  <span className="text-sm font-medium text-white">
+                    Online chat
+                  </span>
                 </div>
-                <span className="text-sm font-medium text-white">
-                  Online chat
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-green-400 font-medium">
-                  {onlineUsers}
-                </span>
-                <div className="flex -space-x-1">
-                  <div className="w-4 h-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 border border-slate-900 flex items-center justify-center text-xs">
-                    👨
-                  </div>
-                  <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border border-slate-900 flex items-center justify-center text-xs">
-                    👩
-                  </div>
-                  <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-teal-500 border border-slate-900 flex items-center justify-center text-xs">
-                    👤
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Chat Messages */}
-          <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628]">
-            <div className="space-y-3">
-              {chatMessages.map((msg, index) => {
-                const avatarColors = [
-                  "border-orange-400 bg-orange-900/30",
-                  "border-blue-400 bg-blue-900/30", 
-                  "border-green-400 bg-green-900/30",
-                  "border-purple-400 bg-purple-900/30",
-                  "border-pink-400 bg-pink-900/30",
-                  "border-yellow-400 bg-yellow-900/30",
-                  "border-red-400 bg-red-900/30"
-                ];
-                return (
-                  <div
-                    key={msg.id}
-                    className="p-2 rounded-lg transition-all hover:bg-slate-800/30 bg-slate-800/20"
-                    data-testid={`message-${msg.id}`}
-                  >
-                    <div className="flex gap-2 items-start">
-                      <div className="relative flex-shrink-0">
-                        <div
-                          className={`w-8 h-8 rounded-full flex items-center justify-center text-xs border-2 ${avatarColors[index % avatarColors.length]}`}
-                        >
-                          {msg.avatar}
-                        </div>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-xs font-medium text-cyan-400">
-                            {msg.username}
-                          </span>
-                          {msg.isAdmin && (
-                            <span className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs px-1 py-0.5 rounded font-bold">
-                              ADMIN
-                            </span>
-                          )}
-                          <span className="text-xs text-slate-500 ml-auto">
-                            2 min ago
-                          </span>
-                        </div>
-                        <p className="text-xs text-white leading-relaxed break-words">
-                          {msg.message}
-                        </p>
-                      </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-green-400 font-medium">
+                    {onlineUsers}
+                  </span>
+                  <div className="flex -space-x-1">
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 border border-slate-900 flex items-center justify-center text-xs">
+                      👨
+                    </div>
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border border-slate-900 flex items-center justify-center text-xs">
+                      👩
+                    </div>
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-teal-500 border border-slate-900 flex items-center justify-center text-xs">
+                      👤
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              </div>
             </div>
-          </ScrollArea>
 
-          {/* Chat Controls */}
-          <div className="p-3 bg-[#0f1a2e]">
-            <div className="flex items-center gap-2 mb-3">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
+            {/* Chat Messages */}
+            <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628]">
+              <div className="space-y-3">
+                {chatMessages.map((msg, index) => {
+                  const avatarColors = [
+                    "border-orange-400 bg-orange-900/30",
+                    "border-blue-400 bg-blue-900/30", 
+                    "border-green-400 bg-green-900/30",
+                    "border-purple-400 bg-purple-900/30",
+                    "border-pink-400 bg-pink-900/30",
+                    "border-yellow-400 bg-yellow-900/30",
+                    "border-red-400 bg-red-900/30"
+                  ];
+                  return (
+                    <div
+                      key={msg.id}
+                      className="p-2 rounded-lg transition-all hover:bg-slate-800/30 bg-slate-800/20"
+                      data-testid={`message-${msg.id}`}
+                    >
+                      <div className="flex gap-2 items-start">
+                        <div className="relative flex-shrink-0">
+                          <div
+                            className={`w-8 h-8 rounded-full flex items-center justify-center text-xs border-2 ${avatarColors[index % avatarColors.length]}`}
+                          >
+                            {msg.avatar}
+                          </div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-xs font-medium text-cyan-400">
+                              {msg.username}
+                            </span>
+                            {msg.isAdmin && (
+                              <span className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs px-1 py-0.5 rounded font-bold">
+                                ADMIN
+                              </span>
+                            )}
+                            <span className="text-xs text-slate-500 ml-auto">
+                              2 min ago
+                            </span>
+                          </div>
+                          <p className="text-xs text-white leading-relaxed break-words">
+                            {msg.message}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </ScrollArea>
+
+            {/* Chat Controls */}
+            <div className="p-3 bg-[#0f1a2e]">
+              <div className="flex items-center gap-2 mb-3">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
+                >
+                  <div className="w-4 h-4 rounded-full bg-blue-600 flex items-center justify-center mr-1">
+                    <Image className="h-2 w-2 text-white" />
+                  </div>
+                  GIF
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
+                >
+                  <div className="w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center mr-1">
+                    <Smile className="h-2 w-2 text-white" />
+                  </div>
+                  Emoji
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
+                >
+                  <div className="w-4 h-4 rounded-full bg-green-600 flex items-center justify-center mr-1">
+                    <FileText className="h-2 w-2 text-white" />
+                  </div>
+                  Rules
+                </Button>
+              </div>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  sendMessage();
+                }}
+                className="flex gap-3"
               >
-                <div className="w-4 h-4 rounded-full bg-blue-600 flex items-center justify-center mr-1">
-                  <Image className="h-2 w-2 text-white" />
-                </div>
-                GIF
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
-              >
-                <div className="w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center mr-1">
-                  <Smile className="h-2 w-2 text-white" />
-                </div>
-                Emoji
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
-              >
-                <div className="w-4 h-4 rounded-full bg-green-600 flex items-center justify-center mr-1">
-                  <FileText className="h-2 w-2 text-white" />
-                </div>
-                Rules
-              </Button>
+                <Input
+                  value={newMessage}
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  placeholder="Send a message"
+                  className="flex w-full border py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm flex-1 border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 bg-[#0e234a]"
+                  data-testid="input-chat-message"
+                />
+                <Button
+                  type="submit"
+                  size="sm"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 rounded-full w-11 h-11 p-0 flex items-center justify-center"
+                  data-testid="button-send-message"
+                >
+                  <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+                    <Send className="h-3 w-3 text-blue-500" />
+                  </div>
+                </Button>
+              </form>
             </div>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                sendMessage();
-              }}
-              className="flex gap-3"
-            >
-              <Input
-                value={newMessage}
-                onChange={(e) => setNewMessage(e.target.value)}
-                placeholder="Send a message"
-                className="flex w-full border py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm flex-1 border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 bg-[#0e234a]"
-                data-testid="input-chat-message"
-              />
-              <Button
-                type="submit"
-                size="sm"
-                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 rounded-full w-11 h-11 p-0 flex items-center justify-center"
-                data-testid="button-send-message"
-              >
-                <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
-                  <Send className="h-3 w-3 text-blue-500" />
-                </div>
-              </Button>
-            </form>
           </div>
         </div>
       </div>
