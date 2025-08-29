@@ -146,7 +146,7 @@ export default function Index() {
   return (
     <div className="h-screen bg-gradient-to-br from-[#0a1628] via-[#0f1629] to-[#142447] flex flex-col w-full overflow-hidden">
       {/* Global Header */}
-      <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-gradient-to-r from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg">
+      <header className="h-16 backdrop-blur-sm flex items-center px-6 from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg bg-[#0f142d]">
         {/* Left Section - Logo */}
         <div className="flex items-center gap-2 w-1/4">
           <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
