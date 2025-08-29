@@ -231,7 +231,7 @@ export default function Index() {
                 <div className="w-5 h-5 rounded-full border-2 border-current flex items-center justify-center">
                   <div className="w-2 h-2 bg-current rounded-full"></div>
                 </div>
-                <span>Casino</span>
+                <span>SAB</span>
               </button>
               <button
                 disabled
