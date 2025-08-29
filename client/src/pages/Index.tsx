@@ -219,30 +219,34 @@ export default function Index() {
         <div className="w-[220px] flex flex-col flex-shrink-0 bg-[#01112d]">
           {/* Games/Sport Toggle */}
           <div className="px-4 py-6 bg-[#01112d]">
-            <div className="flex bg-slate-800/40 rounded-xl p-1.5 relative border border-slate-700/30">
-              <div
-                className={`absolute top-1.5 left-1.5 h-9 rounded-lg bg-gradient-to-r transition-all duration-300 ease-in-out shadow-lg ${
-                  activeMode === "games"
-                    ? "from-blue-600 to-cyan-500 w-[calc(50%-6px)] translate-x-0"
-                    : "from-slate-600 to-slate-500 w-[calc(50%-6px)] translate-x-full"
-                }`}
-              />
+            <div className="flex rounded-2xl p-1 relative">
               <button
                 onClick={() => setActiveMode("games")}
-                className={`relative z-10 flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-300 flex-1 min-w-0 ${
+                className={`flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 min-w-0 ${
                   activeMode === "games"
-                    ? "text-white"
+                    ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
-                <span className="truncate">SAB</span>
+                <div className="w-5 h-5 rounded-full border-2 border-current flex items-center justify-center">
+                  <div className="w-2 h-2 bg-current rounded-full"></div>
+                </div>
+                <span className="truncate">Casino</span>
               </button>
               <button
-                disabled
-                className="relative z-10 flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-300 flex-1 min-w-0 text-slate-600 cursor-not-allowed"
+                onClick={() => setActiveMode("sport")}
+                className={`flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 min-w-0 ${
+                  activeMode === "sport"
+                    ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg"
+                    : "text-slate-500 hover:text-white"
+                }`}
               >
-                <Lock className="h-3 w-3 flex-shrink-0" />
-                <span className="truncate">GAG</span>
+                <div className="w-5 h-5 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 rounded-full border-2 border-current flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 bg-current rounded-full"></div>
+                  </div>
+                </div>
+                <span className="truncate">Sport</span>
               </button>
             </div>
           </div>
