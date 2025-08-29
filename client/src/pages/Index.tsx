@@ -257,7 +257,17 @@ export default function Index() {
     <div className="h-screen bg-background flex flex-col w-full overflow-hidden">
       {/* Global Header */}
       <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-[#0a1628] border-b border-slate-800/30 w-full z-10">
-        {/* Left Spacer */}
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+            <Flame className="h-5 w-5 text-white" />
+          </div>
+          <span className="text-lg font-bold text-white">
+            FIRE<span className="text-red-500">🔥</span>GO
+          </span>
+        </div>
+        
+        {/* Center Spacer */}
         <div className="flex-1"></div>
         
         {/* Centered Search */}
@@ -316,18 +326,8 @@ export default function Index() {
       <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
         <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0">
-          {/* Logo */}
+          {/* Games/Sport Toggle */}
           <div className="p-4 bg-[#0a1628] border-b border-slate-800/30">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                <Flame className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-lg font-bold text-white">
-                FIRE<span className="text-red-500">🔥</span>GO
-              </span>
-            </div>
-            
-            {/* Games/Sport Toggle */}
             <div className="flex bg-slate-800/50 rounded-full p-1 relative">
               <div 
                 className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
