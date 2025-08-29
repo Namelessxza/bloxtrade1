@@ -322,14 +322,14 @@ export default function Index() {
                 {/* Content Overlay */}
                 <div className="relative z-10 flex items-center justify-between h-full px-10">
                   {/* Left Content */}
-                  <div className="flex flex-col justify-center h-full">
-                    <h2 className="text-white text-4xl font-bold mb-4 leading-none">
+                  <div className="flex flex-col justify-center h-full py-6">
+                    <h2 className="text-white text-2xl font-bold mb-3 leading-tight">
                       Claim<br />welcome bonus
                     </h2>
-                    <div className="bg-gradient-to-r from-pink-500 to-pink-400 text-white px-6 py-2 rounded-full text-lg font-bold inline-block mb-6 w-fit shadow-lg">
+                    <div className="bg-gradient-to-r from-pink-500 to-pink-400 text-white px-4 py-1.5 rounded-full text-sm font-bold inline-block mb-4 w-fit shadow-lg">
                       $1000 & 60 FS
                     </div>
-                    <button className="bg-gradient-to-r from-green-500 to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-3 rounded-xl font-bold text-base transition-all w-fit shadow-lg transform hover:scale-105">
+                    <button className="bg-gradient-to-r from-green-500 to-green-400 hover:from-green-600 hover:to-green-500 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all w-fit shadow-lg">
                       Claim bonus
                     </button>
                   </div>
