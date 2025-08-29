@@ -414,11 +414,9 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-3 py-2 space-y-3 bg-[#0f1629]">
               {/* Promotional Banner */}
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-teal-900/40 border border-purple-500/30">
+              <div className="relative overflow-hidden rounded-2xl border border-purple-500/30" style={{backgroundImage: 'url(/attached_assets/image_1756447323931.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
                 <div className="absolute inset-0">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-blue-600/20 to-teal-600/20 animate-pulse" />
-                  <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-purple-400/30 to-blue-400/30 rounded-full blur-xl" />
-                  <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-br from-teal-400/30 to-purple-400/30 rounded-full blur-xl" />
+                  <div className="absolute inset-0 bg-black/40" />
                 </div>
                 <div className="relative p-4 flex items-center justify-between">
                   <div className="space-y-3 max-w-md">
@@ -433,7 +431,6 @@ export default function Index() {
                     <div className="flex items-center gap-3">
                       <div className="bg-purple-600/80 rounded-lg px-3 py-2 flex items-center gap-2">
                         <div className="w-4 h-4 bg-purple-400 rounded-sm flex items-center justify-center">
-                          <span className="text-xs text-white font-bold">🔓</span>
                         </div>
                         <div>
                           <div className="text-xs text-purple-200">Unlock in 7 days</div>
@@ -442,7 +439,6 @@ export default function Index() {
                       </div>
                       <div className="bg-green-600/80 rounded-lg px-3 py-2 flex items-center gap-2">
                         <div className="w-4 h-4 bg-green-400 rounded-sm flex items-center justify-center">
-                          <span className="text-xs text-white">💰</span>
                         </div>
                         <div>
                           <div className="text-xs text-green-200">02:34:00</div>
@@ -463,17 +459,8 @@ export default function Index() {
                       className="text-blue-300 hover:text-white text-xs flex items-center gap-1 p-0"
                       data-testid="button-vault-rewards"
                     >
-                      ❓ How do vault rewards work?
+                      How do vault rewards work?
                     </Button>
-                  </div>
-                  <div className="hidden lg:block relative">
-                    <img 
-                      src="/attached_assets/image_1756447281199.png"
-                      alt="Treasure chest with coins and rewards"
-                      className="w-32 h-32 object-contain"
-                      data-testid="img-treasure"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-purple-400/20 rounded-full blur-2xl scale-150" />
                   </div>
                 </div>
               </div>
