@@ -146,7 +146,7 @@ export default function Index() {
   return (
     <div className="h-screen bg-gradient-to-br from-[#0a1628] via-[#0f1629] to-[#142447] flex flex-col w-full overflow-hidden">
       {/* Global Header */}
-      <header className="h-16 backdrop-blur-sm flex items-center px-6 from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg bg-[#0f142d]">
+      <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-gradient-to-r from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg">
         {/* Left Section - Logo */}
         <div className="flex items-center gap-2 w-1/4">
           <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
@@ -395,13 +395,13 @@ export default function Index() {
             </div>
 
             {/* Chat Messages */}
-            <ScrollArea className="relative overflow-hidden flex-1 px-3 py-2 rounded-lg mb-2 max-h-[calc(100vh-120px)] overflow-y-auto chat-bg-custom bg-[#0d0e24]">
-              <div className="space-y-3 bg-[#0d0e24]">
+            <ScrollArea className="relative overflow-hidden flex-1 px-3 py-2 rounded-lg mb-2 max-h-[calc(100vh-120px)] overflow-y-auto chat-bg-custom bg-[#0d0e22]">
+              <div className="space-y-3 bg-[#0b1834]">
                 {chatMessages.map((msg, index) => {
                   return (
                     <div
                       key={msg.id}
-                      className="flex gap-3 items-start bg-[#0d0e24]"
+                      className="flex gap-3 items-start bg-[#081834]"
                       data-testid={`message-${msg.id}`}
                     >
                       <div className="relative flex-shrink-0">
