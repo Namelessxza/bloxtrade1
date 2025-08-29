@@ -286,7 +286,7 @@ export default function Index() {
           {/* Bottom Actions */}
           <div className="p-3 space-y-2 from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl bg-[#01112d]">
             <Button
-              className="w-full justify-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm rounded-lg font-semibold"
+              className="w-full justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white text-sm rounded-lg font-semibold"
               data-testid="button-buy-crypto"
             >
               <CreditCard className="h-4 w-4" />
