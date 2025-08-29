@@ -363,14 +363,45 @@ export default function Index() {
             />
           </div>
           
-          {/* Right Side Balance */}
-          <div className="flex items-center gap-2 ml-6">
+          {/* Right Side Controls */}
+          <div className="flex items-center gap-4 ml-6">
+            {/* Notification Bell */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="relative p-2 rounded-full hover:bg-slate-700/50"
+              data-testid="button-notifications"
+            >
+              <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
+              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+            </Button>
+            
+            {/* Shopping Cart */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-2 rounded-full hover:bg-slate-700/50"
+              data-testid="button-cart"
+            >
+              <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
+            </Button>
+            
+            {/* Wallet Balance */}
             <div className="flex items-center gap-2 bg-slate-800/50 px-3 py-2 rounded-lg">
               <Wallet className="h-4 w-4 text-slate-400" />
               <span className="text-white font-semibold" data-testid="text-wallet-balance">
                 $2,485
               </span>
             </div>
+            
+            {/* Profile Button */}
+            <Button
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 text-sm"
+              data-testid="button-profile"
+            >
+              <User className="h-3 w-3" />
+              Profile
+            </Button>
           </div>
         </header>
 
@@ -614,43 +645,6 @@ export default function Index() {
       </div>
       {/* Right Panel */}
       <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
-        {/* Top Section with Profile and Controls */}
-        <div className="px-6 py-4 bg-[#0a1628]">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              {/* Notification Bell */}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="relative p-2 rounded-full hover:bg-slate-700/50"
-                data-testid="button-notifications-right"
-              >
-                <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
-                <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
-              </Button>
-              
-              {/* Shopping Cart */}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="p-2 rounded-full hover:bg-slate-700/50"
-                data-testid="button-cart-right"
-              >
-                <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
-              </Button>
-            </div>
-            
-            {/* Profile Button */}
-            <Button
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 text-sm"
-              data-testid="button-profile-right"
-            >
-              <User className="h-3 w-3" />
-              Profile
-            </Button>
-          </div>
-        </div>
-
         {/* Chat Header */}
         <div className="p-3 bg-[#0f1a2e]">
           <div className="flex items-center justify-between">
