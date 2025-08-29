@@ -427,7 +427,9 @@ export default function Index() {
                 </div>
                 <div className="relative p-6 flex flex-col gap-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl px-3 py-3 flex items-center gap-2">
+                    <div className="relative bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl px-3 py-3 flex items-center gap-2">
+                      <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-purple-400 rounded-full blur-sm opacity-70"></div>
+                      <div className="absolute -left-1 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-purple-300 rounded-full blur-xs opacity-90"></div>
                       <div className="w-6 h-6 bg-white/30 rounded-md flex items-center justify-center">
                         <Lock className="h-3 w-3 text-white" />
                       </div>
