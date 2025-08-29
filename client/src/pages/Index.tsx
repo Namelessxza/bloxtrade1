@@ -404,42 +404,24 @@ export default function Index() {
                   e.preventDefault();
                   sendMessage();
                 }}
-                className="flex gap-3 items-center"
+                className="relative"
               >
                 <Input
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   placeholder="Your message"
-                  className="flex-1 h-12 px-4 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
+                  className="w-full h-12 px-4 pr-14 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
                   data-testid="input-chat-message"
                 />
                 <Button
                   type="submit"
                   size="sm"
-                  className="bg-blue-600 hover:bg-blue-500 rounded-lg w-12 h-12 p-0 flex items-center justify-center shadow-lg"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-500 rounded-lg w-8 h-8 p-0 flex items-center justify-center shadow-lg"
                   data-testid="button-send-message"
                 >
-                  <Send className="h-5 w-5 text-white" />
+                  <Send className="h-4 w-4 text-white" />
                 </Button>
               </form>
-              <div className="flex items-center gap-4 mt-3 pt-3 rounded-lg -mx-1 px-3 bg-[#081834]">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/40"
-                >
-                  <FileText className="h-3 w-3" />
-                  Rules
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/40"
-                >
-                  <Smile className="h-3 w-3" />
-                  Emojies
-                </Button>
-              </div>
             </div>
           </div>
         </div>
