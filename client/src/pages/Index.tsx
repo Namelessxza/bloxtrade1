@@ -657,32 +657,28 @@ export default function Index() {
               return (
                 <div
                   key={msg.id}
-                  className={`p-3 rounded-2xl transition-all ${
-                    msg.isAdmin
-                      ? "bg-[#2c2734]"
-                      : "bg-slate-800/40 hover:bg-slate-800/60"
-                  }`}
+                  className="p-3 rounded-2xl transition-all bg-slate-800/40 hover:bg-slate-800/60 mt-[0px] mb-[0px]"
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-3">
                     <div className="relative flex-shrink-0">
                       <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center text-sm border-3 relative ${
+                        className={`w-9 h-9 rounded-full flex items-center justify-center text-base border-2 relative ${
                           index === 0
-                            ? "border-orange-400 bg-slate-700"
+                            ? "border-orange-400 bg-gradient-to-br from-orange-500 to-red-600"
                             : index === 1
-                              ? "border-blue-400 bg-slate-700"
+                              ? "border-blue-400 bg-gradient-to-br from-blue-500 to-indigo-600"
                               : index === 2
-                                ? "border-blue-400 bg-slate-700"
+                                ? "border-blue-400 bg-gradient-to-br from-blue-500 to-purple-600"
                                 : index === 3
-                                  ? "border-orange-400 bg-slate-700"
+                                  ? "border-orange-400 bg-gradient-to-br from-orange-500 to-yellow-600"
                                   : index === 4
-                                    ? "border-blue-400 bg-slate-700"
+                                    ? "border-blue-400 bg-gradient-to-br from-blue-500 to-cyan-600"
                                     : index === 5
-                                      ? "border-orange-400 bg-slate-700"
+                                      ? "border-orange-400 bg-gradient-to-br from-orange-500 to-red-600"
                                       : index === 6
-                                        ? "border-yellow-400 bg-slate-700"
-                                        : "border-red-400 bg-slate-700"
+                                        ? "border-yellow-400 bg-gradient-to-br from-yellow-500 to-orange-600"
+                                        : "border-red-400 bg-gradient-to-br from-red-500 to-pink-600"
                         }`}
                       >
                         {msg.avatar}
