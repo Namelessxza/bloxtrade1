@@ -407,10 +407,10 @@ export default function Index() {
         </div>
         
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col min-w-0 h-full">
+        <div className="flex-1 flex flex-col min-w-0">
           {/* Main Content */}
-          <ScrollArea className="flex-1">
-          <div className="px-3 py-2 space-y-3 bg-[#0f1629]">
+          <ScrollArea className="flex-1 min-h-0">
+          <div className="min-h-full px-3 py-2 space-y-3 bg-[#0f1629]">
             {/* Promotional Banner */}
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-pink-900/40 border border-blue-500/30">
               <div className="absolute inset-0">
@@ -648,7 +648,7 @@ export default function Index() {
         </div>
         
         {/* Right Panel */}
-        <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-full relative">
+        <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 min-h-0 relative">
           {/* Chat - no longer needs top positioning since header is global */}
           <div className="flex flex-col bg-[#0a1628] h-full">
             {/* Chat Header */}
