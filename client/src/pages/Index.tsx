@@ -617,7 +617,7 @@ export default function Index() {
         </div>
 
         {/* Chat Header */}
-        <div className="p-3 border-b border-border/30 bg-[01112d]">
+        <div className="p-3 border-b border-border/30 bg-[#01112d]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
