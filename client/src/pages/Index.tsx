@@ -250,7 +250,7 @@ export default function Index() {
         </div>
 
         {/* Game Categories */}
-        <ScrollArea className="flex-1 px-3 py-4">
+        <ScrollArea className="flex-1 px-3 py-4 bg-[#01112d]">
           <div className="space-y-1">
             {gameCategories.map((category) => {
               const Icon = category.icon;
