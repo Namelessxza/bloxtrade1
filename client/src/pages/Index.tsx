@@ -686,7 +686,7 @@ export default function Index() {
                         }`}
                       >
                         {msg.avatar}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-green-500 rounded-md border-2 border-slate-900"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-green-500 rounded-sm border-2 border-slate-900"></div>
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
