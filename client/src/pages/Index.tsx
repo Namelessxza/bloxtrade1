@@ -216,13 +216,13 @@ export default function Index() {
       {/* Content Row */}
       <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
-        <div className="w-[260px] flex flex-col flex-shrink-0 bg-[#01112d]">
+        <div className="w-[220px] flex flex-col flex-shrink-0 bg-[#01112d]">
           {/* Games/Sport Toggle */}
           <div className="px-4 py-6 bg-[#01112d]">
             <div className="flex rounded-2xl p-1 relative bg-slate-800/60">
               <button
                 onClick={() => setActiveMode("games")}
-                className={`flex items-center justify-center gap-2 px-8 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
+                className={`flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
                   activeMode === "games"
                     ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg"
                     : "text-slate-400 hover:text-white"
@@ -235,7 +235,7 @@ export default function Index() {
               </button>
               <button
                 onClick={() => setActiveMode("sport")}
-                className={`flex items-center justify-center gap-2 px-8 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
+                className={`flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
                   activeMode === "sport"
                     ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg"
                     : "text-slate-500 hover:text-white"
