@@ -425,65 +425,62 @@ export default function Index() {
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-black/30" />
                 </div>
-                <div className="relative p-6 flex flex-col gap-4">
-                  {/* Header with title */}
-                  <div className="text-center mb-2">
-                    <h3 className="text-lg font-bold text-white mb-1">🎁 Weekly Giveaway</h3>
-                    <div className="text-xs text-gray-300">Win amazing prizes every week!</div>
-                  </div>
-
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-3 gap-3 mb-4">
-                    {/* Prize Pool */}
+                <div className="relative p-5 flex flex-col gap-4">
+                  <div className="flex items-start gap-4">
+                    {/* Purple box with spotlight */}
                     <div className="relative">
-                      {/* Purple spotlight effect */}
-                      <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-purple-500/40 rounded-full blur-lg"></div>
-                      <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-purple-400/50 rounded-full blur-md"></div>
+                      {/* Purple spotlight effect on left side */}
+                      <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-purple-500/50 rounded-full blur-xl"></div>
+                      <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-purple-400/60 rounded-full blur-lg"></div>
+                      <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-purple-300/70 rounded-full blur-md"></div>
                       
-                      <div className="relative bg-[#1a2847] rounded-lg px-3 py-2.5 text-center">
-                        <div className="w-5 h-5 bg-purple-500/20 rounded-md flex items-center justify-center mx-auto mb-1">
+                      {/* Main purple box */}
+                      <div className="relative bg-[#1a2847] rounded-xl px-3 py-2 flex items-start gap-2 min-w-[140px]">
+                        <div className="w-6 h-6 bg-purple-500/20 rounded-md flex items-center justify-center flex-shrink-0">
                           <Lock className="h-3 w-3 text-purple-300" />
                         </div>
-                        <div className="text-[9px] text-gray-300 mb-1">Prize Pool</div>
-                        <div className="text-xs font-bold text-[#11ff00]">$50,000</div>
-                        <div className="text-[8px] text-gray-400">RBX</div>
+                        <div className="flex flex-col">
+                          <div className="text-[10px] text-gray-300 mb-0.5">Prize Pool</div>
+                          <div className="text-sm font-bold text-white">$50,000 RBX</div>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Entries */}
-                    <div className="bg-[#0e3a2e] rounded-lg px-3 py-2.5 text-center">
-                      <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-1">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                    {/* Green box */}
+                    <div className="bg-[#0e3a2e] rounded-xl px-3 py-2 flex items-start gap-2 min-w-[120px]">
+                      <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
                       </div>
-                      <div className="text-[9px] text-gray-300 mb-1">Entries</div>
-                      <div className="text-xs font-bold text-white">1,247</div>
-                      <div className="text-[8px] text-green-400">Active</div>
+                      <div className="flex flex-col">
+                        <div className="text-[10px] text-gray-300 mb-0.5">Entries</div>
+                        <div className="text-sm font-bold text-white">1,247</div>
+                      </div>
                     </div>
 
-                    {/* Ending In */}
-                    <div className="bg-[#2a1810] rounded-lg px-3 py-2.5 text-center">
-                      <div className="w-5 h-5 bg-orange-500/20 rounded-md flex items-center justify-center mx-auto mb-1">
-                        <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                    {/* Orange timer box */}
+                    <div className="bg-[#2a1810] rounded-xl px-3 py-2 flex items-start gap-2 min-w-[120px]">
+                      <div className="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="w-2.5 h-2.5 bg-orange-400 rounded-full animate-pulse"></div>
                       </div>
-                      <div className="text-[9px] text-gray-300 mb-1">Ending in</div>
-                      <div className="text-xs font-bold text-orange-400">02:34:21</div>
-                      <div className="text-[8px] text-gray-400">Hours</div>
+                      <div className="flex flex-col">
+                        <div className="text-[10px] text-gray-300 mb-0.5">Ending in</div>
+                        <div className="text-sm font-bold text-orange-400">02:34:21</div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Action Button */}
-                  <div className="flex flex-col items-center gap-3">
+                  {/* Enter giveaway button and info */}
+                  <div className="flex flex-col gap-3">
                     <Button
-                      className="bg-gradient-to-r from-[#00d563] to-[#00b84a] hover:from-[#00c055] hover:to-[#009d3f] text-white font-bold py-2.5 px-10 rounded-xl text-sm w-fit shadow-lg transform hover:scale-105 transition-all duration-200"
+                      size="sm"
+                      className="bg-[#00d563] hover:bg-[#00c055] text-white font-bold py-2 px-8 rounded-xl text-sm w-fit"
                       data-testid="button-enter-giveaway"
                     >
-                      🎯 Enter Giveaway
+                      Enter giveaway
                     </Button>
-                    
-                    {/* Info */}
                     <div className="flex items-center gap-2 text-xs text-gray-400">
-                      <div className="w-4 h-4 bg-gray-600/20 rounded-full flex items-center justify-center">
-                        <span className="text-[9px] text-gray-300">?</span>
+                      <div className="w-4 h-4 bg-gray-600/30 rounded-full flex items-center justify-center">
+                        <span className="text-[10px] text-gray-300">i</span>
                       </div>
                       <span>How do giveaways work?</span>
                     </div>
