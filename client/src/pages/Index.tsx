@@ -28,8 +28,8 @@ import {
   Trophy,
   Zap,
   Heart,
+  Home,
 } from "lucide-react";
-
 
 interface ChatMessage {
   id: string;
@@ -107,7 +107,6 @@ export default function Index() {
   const [newMessage, setNewMessage] = useState("");
   const [onlineUsers] = useState(122);
 
-
   const gameCategories = [
     { id: "live", label: "Trading", icon: Users, count: 45 },
     { id: "Private", label: "Private Servers", icon: Gamepad2, count: 20 },
@@ -126,8 +125,6 @@ export default function Index() {
 
   const currentCategories =
     activeMode === "games" ? gameCategories : sportCategories;
-
-
 
   const sendMessage = () => {
     if (newMessage.trim()) {
@@ -295,7 +292,7 @@ export default function Index() {
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-center gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg"
+                className="w-full justify-center gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg font-semibold"
                 data-testid="button-support"
               >
                 <HeadphonesIcon className="h-4 w-4" />
@@ -309,13 +306,7 @@ export default function Index() {
         <div className="flex-1 flex flex-col min-w-0">
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
-            <div className="min-h-full px-3 py-2 bg-transparent relative">
-              
-
-
-              
-
-            </div>
+            <div className="min-h-full px-3 py-2 bg-transparent relative"></div>
           </ScrollArea>
         </div>
 
