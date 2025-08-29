@@ -64,6 +64,7 @@ interface ChatMessage {
 
 export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [activeMode, setActiveMode] = useState<"games" | "sport">("games");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       id: "1",
@@ -138,6 +139,18 @@ export default function Index() {
     { id: "live", label: "Live Games", icon: Users, count: 15 },
     { id: "favorites", label: "Favorites", icon: Heart, count: 0 },
   ];
+
+  const sportCategories = [
+    { id: "all-sports", label: "All Sports", icon: Grid3x3, count: 89 },
+    { id: "football", label: "Football", icon: Trophy, count: 32 },
+    { id: "basketball", label: "Basketball", icon: Zap, count: 18 },
+    { id: "tennis", label: "Tennis", icon: Star, count: 15 },
+    { id: "esports", label: "Esports", icon: Gamepad2, count: 24 },
+    { id: "live-betting", label: "Live Betting", icon: Users, count: 12 },
+    { id: "favorites-sport", label: "Favorites", icon: Heart, count: 3 },
+  ];
+
+  const currentCategories = activeMode === "games" ? gameCategories : sportCategories;
 
   const topGames: GameCard[] = [
     {
@@ -241,7 +254,7 @@ export default function Index() {
       <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
         {/* Logo */}
         <div className="p-4 bg-[#0a1628] border-b border-slate-800/30">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-4">
             <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
               <Flame className="h-5 w-5 text-white" />
             </div>
@@ -249,12 +262,47 @@ export default function Index() {
               FIRE<span className="text-red-500">🔥</span>GO
             </span>
           </div>
+          
+          {/* Games/Sport Toggle */}
+          <div className="flex bg-slate-800/50 rounded-full p-1 relative">
+            <div 
+              className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
+                activeMode === "games" 
+                  ? "from-purple-600 to-pink-500 w-[calc(50%-4px)] translate-x-0" 
+                  : "from-slate-600 to-slate-500 w-[calc(50%-4px)] translate-x-full"
+              }`}
+            />
+            <button
+              onClick={() => setActiveMode("games")}
+              className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 ${
+                activeMode === "games" ? "text-white" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <Gamepad2 className="h-4 w-4" />
+              Games
+            </button>
+            <button
+              onClick={() => setActiveMode("sport")}
+              className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 ${
+                activeMode === "sport" ? "text-white" : "text-slate-400 hover:text-white"
+              }`}
+            >
+              <Trophy className="h-4 w-4" />
+              Sport
+            </button>
+          </div>
         </div>
 
         {/* Game Categories */}
         <ScrollArea className="flex-1 px-2 py-4 bg-transparent">
+          {/* Section Header */}
+          <div className="px-2 py-1 mb-3">
+            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+              {activeMode === "games" ? "ALL GAMES" : "ALL SPORTS"}
+            </h3>
+          </div>
           <div className="space-y-1">
-            {gameCategories.map((category) => {
+            {currentCategories.map((category) => {
               const Icon = category.icon;
               return (
                 <button
