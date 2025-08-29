@@ -219,7 +219,7 @@ export default function Index() {
         <div className="w-[220px] flex flex-col flex-shrink-0 bg-[#01112d]">
           {/* Games/Sport Toggle */}
           <div className="px-2 py-6 bg-[#01112d]">
-            <div className="flex rounded-2xl p-1 relative bg-slate-800/60">
+            <div className="flex rounded-2xl p-1.5 relative bg-slate-800/60">
               <button
                 onClick={() => setActiveMode("games")}
                 className={`flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
