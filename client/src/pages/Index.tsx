@@ -306,7 +306,7 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-3 py-2 bg-transparent relative">
               {/* Promotional Banner */}
-              <div className="relative overflow-hidden rounded-2xl min-h-[200px] mb-16 shadow-2xl shadow-purple-500/20">
+              <div className="relative overflow-hidden rounded-2xl min-h-[200px] mb-16">
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
