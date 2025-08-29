@@ -310,7 +310,7 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-6 py-6 bg-transparent relative">
               {/* Welcome Bonus Section */}
-              <div className="relative w-full h-32 rounded-2xl overflow-hidden bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 mb-6">
+              <div className="relative w-full h-48 rounded-3xl overflow-hidden bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 mb-6">
                 {/* Background Image */}
                 <div 
                   className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-90"
@@ -320,16 +320,16 @@ export default function Index() {
                 />
                 
                 {/* Content Overlay */}
-                <div className="relative z-10 flex items-center justify-between h-full px-8">
+                <div className="relative z-10 flex items-center justify-between h-full px-10">
                   {/* Left Content */}
                   <div className="flex flex-col justify-center h-full">
-                    <h2 className="text-white text-2xl font-bold mb-2 leading-tight">
+                    <h2 className="text-white text-4xl font-bold mb-4 leading-none">
                       Claim<br />welcome bonus
                     </h2>
-                    <div className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold inline-block mb-3 w-fit">
+                    <div className="bg-gradient-to-r from-pink-500 to-pink-400 text-white px-6 py-2 rounded-full text-lg font-bold inline-block mb-6 w-fit shadow-lg">
                       $1000 & 60 FS
                     </div>
-                    <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-semibold text-sm transition-colors w-fit">
+                    <button className="bg-gradient-to-r from-green-500 to-green-400 hover:from-green-600 hover:to-green-500 text-white px-8 py-3 rounded-xl font-bold text-base transition-all w-fit shadow-lg transform hover:scale-105">
                       Claim bonus
                     </button>
                   </div>
