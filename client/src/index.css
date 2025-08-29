@@ -401,9 +401,7 @@ All colors MUST be HSL.
     font-weight: 600;
     cursor: pointer;
     letter-spacing: 0.5px;
-    text-shadow: 
-      0 2px 4px rgba(0, 0, 0, 0.2),
-      0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: none;
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
