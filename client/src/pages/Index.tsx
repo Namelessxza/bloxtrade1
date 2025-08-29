@@ -451,7 +451,7 @@ export default function Index() {
                   <div className="flex flex-col gap-3">
                     <Button
                       size="lg"
-                      className="bg-[#16d34a] hover:bg-[#12b23f] text-white font-semibold px-10 py-3 rounded-md shadow-md w-fit"
+                      className="hover:bg-[#12b23f] text-white font-semibold px-10 py-3 rounded-md shadow-md w-fit bg-[#109edb]"
                       data-testid="button-sign-up"
                     >Enter Giveaway</Button>
                     <div className="flex items-center gap-2 text-sm text-white/70">
