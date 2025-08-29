@@ -650,9 +650,6 @@ export default function Index() {
             </Button>
           </div>
         </div>
-        
-        {/* Spacer to push chat down */}
-        <div className="flex-1 bg-[#0a1628] border-l border-slate-800/30"></div>
 
         {/* Chat Header */}
         <div className="p-3 bg-[#0f1a2e] border-b border-slate-800/30 border-l border-slate-800/30">
