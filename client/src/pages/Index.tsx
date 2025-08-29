@@ -645,11 +645,8 @@ export default function Index() {
       </div>
       {/* Right Panel */}
       <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen relative">
-        {/* Space for header controls */}
-        <div className="h-16 bg-[#0a1628]"></div>
-        
-        {/* Chat Container */}
-        <div className="flex flex-col flex-1">
+        {/* Chat positioned to avoid header overlap */}
+        <div className="absolute top-16 left-0 right-0 bottom-0 flex flex-col bg-[#0a1628]">
           {/* Chat Header */}
           <div className="p-3 bg-[#0f1a2e]">
             <div className="flex items-center justify-between">
