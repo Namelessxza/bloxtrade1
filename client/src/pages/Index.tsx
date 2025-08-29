@@ -719,7 +719,7 @@ export default function Index() {
             <Button
               variant="ghost"
               size="sm"
-              className="hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441] bg-[#171717]"
+              className="justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-9 hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441] bg-[#171717]"
             >
               <div className="w-5 h-5 rounded-full flex items-center justify-center bg-[#1e4078]">
                 <Image className="h-3 w-3 text-white" />
@@ -758,7 +758,7 @@ export default function Index() {
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Send a message"
-              className="flex-1 border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 bg-[#0e234a]"
+              className="flex w-full border py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm flex-1 border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 bg-[#0e234a]"
               data-testid="input-chat-message"
             />
             <Button
