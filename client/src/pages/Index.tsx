@@ -254,7 +254,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-row w-full">
+    <div className="min-h-screen bg-background flex flex-row w-full overflow-hidden">
       {/* Left Sidebar - Navigation */}
       <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
         {/* Logo */}
@@ -644,7 +644,7 @@ export default function Index() {
         </ScrollArea>
       </div>
       {/* Right Panel */}
-      <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
+      <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen relative">
         {/* Chat Header */}
         <div className="p-3 bg-[#0f1a2e]">
           <div className="flex items-center justify-between">
