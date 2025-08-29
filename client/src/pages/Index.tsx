@@ -257,11 +257,11 @@ export default function Index() {
       <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-[#0a1628] border-b border-slate-800/30 w-full z-10">
         {/* Left Section - Logo */}
         <div className="flex items-center gap-2 w-1/4">
-          <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-            <Flame className="h-5 w-5 text-white" />
+          <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+            <TrendingUp className="h-5 w-5 text-white" />
           </div>
-          <span className="text-lg font-bold text-white">
-            FIRE<span className="text-red-500">🔥</span>GO
+          <span className="text-lg font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
+            Bloxtrade
           </span>
         </div>
 
