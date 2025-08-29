@@ -254,7 +254,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col w-full overflow-hidden">
+    <div className="h-screen bg-background flex flex-col w-full overflow-hidden">
       {/* Global Header */}
       <header className="h-16 backdrop-blur-sm flex items-center justify-between px-6 bg-[#0a1628] border-b border-slate-800/30 w-full z-10">
         <div className="relative w-full max-w-2xl">
@@ -309,7 +309,7 @@ export default function Index() {
       </header>
       
       {/* Content Row */}
-      <div className="flex flex-row flex-1">
+      <div className="flex flex-row flex-1 h-full">
         {/* Left Sidebar - Navigation */}
         <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0 h-full">
           {/* Logo */}
@@ -354,7 +354,7 @@ export default function Index() {
           </div>
 
           {/* Game Categories */}
-          <ScrollArea className="flex-1 bg-transparent">
+          <ScrollArea className="flex-1 px-2 py-4 bg-transparent">
             {/* Section Header */}
             <div className="px-2 py-1 mb-3">
               <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
@@ -387,7 +387,7 @@ export default function Index() {
           </ScrollArea>
 
           {/* Bottom Actions */}
-          <div className="space-y-1 bg-[#0a1628]">
+          <div className="p-2 space-y-1 bg-[#0a1628] border-t border-slate-800/30">
             <Button
               className="w-full justify-start gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm"
               data-testid="button-buy-crypto"
@@ -682,7 +682,7 @@ export default function Index() {
             </div>
 
             {/* Chat Messages */}
-            <ScrollArea className="flex-1 bg-[#0a1628] max-h-[calc(100vh-120px)] overflow-y-auto">
+            <ScrollArea className="flex-1 px-2 py-1 bg-[#0a1628] max-h-[calc(100vh-120px)] overflow-y-auto">
               <div className="space-y-1">
                 {chatMessages.map((msg, index) => {
                   const avatarColors = [
@@ -734,7 +734,7 @@ export default function Index() {
             </ScrollArea>
 
             {/* Chat Controls */}
-            <div className="p-1 bg-[#0f1a2e]">
+            <div className="p-2 bg-[#0f1a2e]">
               <div className="flex items-center gap-2 mb-2">
                 <Button
                   variant="ghost"
