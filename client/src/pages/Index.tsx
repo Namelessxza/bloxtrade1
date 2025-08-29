@@ -267,7 +267,7 @@ export default function Index() {
 
         {/* Center Section - Search */}
         <div className="flex justify-center w-1/3">
-          <div className="relative w-full max-w-xl">
+          <div className="relative w-full max-w-2xl">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
             <Input
               placeholder="Search items, skins, collectibles..."
