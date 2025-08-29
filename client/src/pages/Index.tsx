@@ -218,7 +218,7 @@ export default function Index() {
         {/* Left Sidebar - Navigation */}
         <div className="w-[220px] bg-transparent flex flex-col flex-shrink-0">
           {/* Games/Sport Toggle */}
-          <div className="p-4 bg-gradient-to-b from-[#0a1628] to-[#0f1a2e]">
+          <div className="p-4 from-[#0a1628] to-[#0f1a2e] bg-[#01112d]">
             <div className="flex bg-slate-800/50 rounded-full p-1 relative">
               <div
                 className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
