@@ -416,8 +416,12 @@ export default function Index() {
               {/* Promotional Banner */}
               <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 min-h-[200px]">
                 <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{backgroundImage: 'url(/vca.png)'}}
+                  className="absolute inset-0 bg-no-repeat"
+                  style={{
+                    backgroundImage: 'url(/vca.png)',
+                    backgroundSize: '60%',
+                    backgroundPosition: 'right bottom'
+                  }}
                 ></div>
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10" />
