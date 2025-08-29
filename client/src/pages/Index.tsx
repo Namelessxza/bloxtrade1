@@ -426,7 +426,7 @@ export default function Index() {
                             <MessageCircle className="h-3 w-3 text-gray-400" />
                           </div>
                         </div>
-                        <div className="bg-slate-800/40 rounded-lg px-3 py-2 inline-block max-w-full">
+                        <div className="rounded-lg px-3 py-2 inline-block max-w-full bg-[#1e204a]">
                           <p className="text-sm text-white leading-relaxed break-words">
                             {msg.message}
                           </p>
