@@ -309,9 +309,9 @@ export default function Index() {
       </header>
       
       {/* Content Row */}
-      <div className="flex flex-row flex-1 h-full">
+      <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
-        <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0 h-full">
+        <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0">
           {/* Logo */}
           <div className="p-4 bg-[#0a1628] border-b border-slate-800/30">
             <div className="flex items-center gap-2 mb-4">
@@ -648,9 +648,9 @@ export default function Index() {
         </div>
         
         {/* Right Panel */}
-        <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 min-h-0 relative">
+        <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 relative">
           {/* Chat - no longer needs top positioning since header is global */}
-          <div className="flex flex-col bg-[#0a1628] h-full max-h-screen">
+          <div className="flex flex-col bg-[#0a1628] h-full">
             {/* Chat Header */}
             <div className="p-2 bg-[#0f1a2e]">
               <div className="flex items-center justify-between">
