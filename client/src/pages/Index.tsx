@@ -440,7 +440,7 @@ export default function Index() {
                           <Lock className="h-3 w-3 text-purple-300" />
                         </div>
                         <div className="flex flex-col">
-                          <div className="text-[10px] text-gray-300 mb-0.5">Unlock in 7 days</div>
+                          <div className="text-[10px] text-gray-300 mb-0.5">Prize Pool</div>
                           <div className="text-sm font-bold text-white">$200,44</div>
                         </div>
                       </div>
@@ -452,8 +452,8 @@ export default function Index() {
                         <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
                       </div>
                       <div className="flex flex-col">
-                        <div className="text-[10px] text-gray-300 mb-0.5">02:34:00</div>
-                        <div className="text-sm font-bold text-white">$200,44</div>
+                        <div className="text-[10px] text-gray-300 mb-0.5">Entries</div>
+                        <div className="text-sm font-bold text-white">1,247</div>
                       </div>
                     </div>
                   </div>
@@ -463,15 +463,15 @@ export default function Index() {
                     <Button
                       size="sm"
                       className="bg-[#00d563] hover:bg-[#00c055] text-white font-bold py-2 px-8 rounded-xl text-sm w-fit"
-                      data-testid="button-sign-up"
+                      data-testid="button-enter-giveaway"
                     >
-                      Sign up
+                      Enter giveaway
                     </Button>
                     <div className="flex items-center gap-2 text-xs text-gray-400">
                       <div className="w-4 h-4 bg-gray-600/30 rounded-full flex items-center justify-center">
                         <span className="text-[10px] text-gray-300">i</span>
                       </div>
-                      <span>How do vault rewards work?</span>
+                      <span>How do giveaways work?</span>
                     </div>
                   </div>
                 </div>
