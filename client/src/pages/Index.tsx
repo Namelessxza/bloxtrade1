@@ -216,7 +216,7 @@ export default function Index() {
       {/* Content Row */}
       <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
-        <div className="w-[220px] flex flex-col flex-shrink-0 bg-[#01112d]">
+        <div className="w-[260px] flex flex-col flex-shrink-0 bg-[#01112d]">
           {/* Games/Sport Toggle */}
           <div className="px-4 py-6 bg-[#01112d]">
             <div className="flex rounded-2xl p-1 relative bg-slate-800/60">
