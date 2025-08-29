@@ -354,7 +354,7 @@ export default function Index() {
           </div>
 
           {/* Game Categories */}
-          <ScrollArea className="flex-1 px-2 py-4 bg-transparent">
+          <ScrollArea className="flex-1 bg-transparent">
             {/* Section Header */}
             <div className="px-2 py-1 mb-3">
               <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
@@ -387,7 +387,7 @@ export default function Index() {
           </ScrollArea>
 
           {/* Bottom Actions */}
-          <div className="p-2 space-y-1 bg-[#0a1628] border-t border-slate-800/30">
+          <div className="space-y-1 bg-[#0a1628]">
             <Button
               className="w-full justify-start gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm"
               data-testid="button-buy-crypto"
@@ -682,8 +682,8 @@ export default function Index() {
             </div>
 
             {/* Chat Messages */}
-            <ScrollArea className="flex-1 px-2 py-1 bg-[#0a1628] max-h-[calc(100vh-120px)] overflow-y-auto">
-              <div className="space-y-2">
+            <ScrollArea className="flex-1 bg-[#0a1628] max-h-[calc(100vh-120px)] overflow-y-auto">
+              <div className="space-y-1">
                 {chatMessages.map((msg, index) => {
                   const avatarColors = [
                     "border-orange-400 bg-orange-900/30",
@@ -734,7 +734,7 @@ export default function Index() {
             </ScrollArea>
 
             {/* Chat Controls */}
-            <div className="p-2 bg-[#0f1a2e]">
+            <div className="p-1 bg-[#0f1a2e]">
               <div className="flex items-center gap-2 mb-2">
                 <Button
                   variant="ghost"
