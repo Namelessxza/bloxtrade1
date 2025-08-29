@@ -719,7 +719,7 @@ export default function Index() {
             <Button
               variant="ghost"
               size="sm"
-              className="bg-[#1b2838] hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441]"
+              className="hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441] bg-[#171717]"
             >
               <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
                 <Image className="h-3 w-3 text-white" />
@@ -729,7 +729,7 @@ export default function Index() {
             <Button
               variant="ghost"
               size="sm"
-              className="bg-[#1b2838] hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441]"
+              className="hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441] bg-[#171717]"
             >
               <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
                 <Smile className="h-3 w-3 text-white" />
@@ -739,7 +739,7 @@ export default function Index() {
             <Button
               variant="ghost"
               size="sm"
-              className="bg-[#1b2838] hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441]"
+              className="hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441] bg-[#171717]"
             >
               <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
                 <FileText className="h-3 w-3 text-white" />
