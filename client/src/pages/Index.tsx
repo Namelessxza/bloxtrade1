@@ -427,13 +427,13 @@ export default function Index() {
                 </div>
                 <div className="relative p-6 flex flex-col gap-4">
                   <div className="flex items-center gap-4">
-                    <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl p-4 flex items-center gap-3 shadow-lg">
-                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                        <Lock className="h-4 w-4 text-white" />
+                    <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl px-3 py-3 flex items-center gap-2">
+                      <div className="w-6 h-6 bg-white/30 rounded-md flex items-center justify-center">
+                        <Lock className="h-3 w-3 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm text-white/90 font-medium">Unlock in 7 days</div>
-                        <div className="text-lg font-bold text-white">$200.44</div>
+                        <div className="text-xs text-white/80">Unlock in 7 days</div>
+                        <div className="text-sm font-bold text-white">$200.44</div>
                       </div>
                     </div>
                     <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-4 flex items-center gap-3 shadow-lg">
