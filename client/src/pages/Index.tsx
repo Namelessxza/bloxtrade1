@@ -684,50 +684,37 @@ export default function Index() {
             </div>
 
             {/* Chat Messages */}
-            <ScrollArea className="flex-1 px-2 py-1 bg-[#0a1628] max-h-[calc(100vh-120px)] overflow-y-auto">
-              <div className="space-y-1">
+            <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628] max-h-[calc(100vh-120px)] overflow-y-auto">
+              <div className="space-y-3">
                 {chatMessages.map((msg, index) => {
-                  const avatarColors = [
-                    "border-orange-400 bg-orange-900/30",
-                    "border-blue-400 bg-blue-900/30",
-                    "border-green-400 bg-green-900/30",
-                    "border-purple-400 bg-purple-900/30",
-                    "border-pink-400 bg-pink-900/30",
-                    "border-yellow-400 bg-yellow-900/30",
-                    "border-red-400 bg-red-900/30",
-                  ];
                   return (
                     <div
                       key={msg.id}
-                      className="p-2 rounded-lg transition-all hover:bg-slate-800/30 bg-slate-800/20"
+                      className="flex gap-3 items-start"
                       data-testid={`message-${msg.id}`}
                     >
-                      <div className="flex gap-2 items-start">
-                        <div className="relative flex-shrink-0">
-                          <div
-                            className={`w-8 h-8 rounded-full flex items-center justify-center text-xs border-2 ${avatarColors[index % avatarColors.length]}`}
-                          >
-                            {msg.avatar}
-                          </div>
+                      <div className="relative flex-shrink-0">
+                        <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-medium">
+                          {msg.avatar}
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="text-xs font-medium text-cyan-400">
-                              {msg.username}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-sm font-semibold text-white">
+                            {msg.username}
+                          </span>
+                          {msg.isAdmin && (
+                            <span className="bg-red-600 text-white text-xs px-1.5 py-0.5 rounded text-[10px] font-bold">
+                              ADMIN
                             </span>
-                            {msg.isAdmin && (
-                              <span className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs px-1 py-0.5 rounded font-bold">
-                                ADMIN
-                              </span>
-                            )}
-                            <span className="text-xs text-slate-500 ml-auto">
-                              2 min ago
-                            </span>
-                          </div>
-                          <p className="text-xs text-white leading-relaxed break-words">
-                            {msg.message}
-                          </p>
+                          )}
+                          <span className="text-xs text-gray-400 ml-auto">
+                            2s ago
+                          </span>
                         </div>
+                        <p className="text-sm text-gray-300 leading-relaxed break-words">
+                          {msg.message}
+                        </p>
                       </div>
                     </div>
                   );
@@ -736,64 +723,48 @@ export default function Index() {
             </ScrollArea>
 
             {/* Chat Controls */}
-            <div className="p-2 bg-[#0f1a2e]">
-              <div className="flex items-center gap-2 mb-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
-                >
-                  <div className="w-4 h-4 rounded-full bg-blue-600 flex items-center justify-center mr-1">
-                    <Image className="h-2 w-2 text-white" />
-                  </div>
-                  GIF
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
-                >
-                  <div className="w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center mr-1">
-                    <Smile className="h-2 w-2 text-white" />
-                  </div>
-                  Emoji
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-8 px-3 py-1 text-xs bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white rounded-full border border-slate-600/50"
-                >
-                  <div className="w-4 h-4 rounded-full bg-green-600 flex items-center justify-center mr-1">
-                    <FileText className="h-2 w-2 text-white" />
-                  </div>
-                  Rules
-                </Button>
-              </div>
+            <div className="p-3 bg-[#0f1a2e] border-t border-slate-700/30">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   sendMessage();
                 }}
-                className="flex gap-3"
+                className="flex gap-3 items-center"
               >
                 <Input
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
-                  placeholder="Send a message"
-                  className="flex w-full border py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm flex-1 border-[#2a3441] text-slate-300 placeholder:text-slate-500 rounded-full h-11 px-4 bg-[#0e234a]"
+                  placeholder="Your message"
+                  className="flex-1 h-12 px-4 bg-slate-800/50 border border-slate-600/50 rounded-xl text-white placeholder:text-gray-400 focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 text-sm"
                   data-testid="input-chat-message"
                 />
                 <Button
                   type="submit"
                   size="sm"
-                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 rounded-full w-11 h-11 p-0 flex items-center justify-center"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-xl w-12 h-12 p-0 flex items-center justify-center"
                   data-testid="button-send-message"
                 >
-                  <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
-                    <Send className="h-3 w-3 text-blue-500" />
-                  </div>
+                  <Send className="h-5 w-5 text-white" />
                 </Button>
               </form>
+              <div className="flex items-center gap-4 mt-3 pt-2 border-t border-slate-700/30">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2"
+                >
+                  <FileText className="h-3 w-3" />
+                  Rules
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2"
+                >
+                  <Smile className="h-3 w-3" />
+                  Emojies
+                </Button>
+              </div>
             </div>
           </div>
         </div>
