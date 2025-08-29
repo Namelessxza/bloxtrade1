@@ -28,8 +28,19 @@ import {
   Trophy,
   Zap,
   Heart,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
+
+interface GameTile {
+  id: string;
+  name: string;
+  value: string;
+  username: string;
+  icon: string;
+  gradient: string;
+}
 
 interface ChatMessage {
   id: string;
@@ -106,6 +117,105 @@ export default function Index() {
   ]);
   const [newMessage, setNewMessage] = useState("");
   const [onlineUsers] = useState(122);
+
+  const gameTiles: GameTile[] = [
+    {
+      id: "1",
+      name: "Book of Dead",
+      value: "+60.4$",
+      username: "Mas***ew",
+      icon: "📚",
+      gradient: "from-purple-500 to-indigo-600"
+    },
+    {
+      id: "2",
+      name: "Sweet Bonanza",
+      value: "+100$",
+      username: "Joh***ny",
+      icon: "🍬",
+      gradient: "from-pink-500 to-rose-600"
+    },
+    {
+      id: "3",
+      name: "Gates of Olympus",
+      value: "+234$",
+      username: "Ale***xa",
+      icon: "⚡",
+      gradient: "from-yellow-500 to-orange-600"
+    },
+    {
+      id: "4",
+      name: "Aviator",
+      value: "+90$",
+      username: "Mic***el",
+      icon: "✈️",
+      gradient: "from-blue-500 to-cyan-600"
+    },
+    {
+      id: "5",
+      name: "Crazy Time",
+      value: "+170$",
+      username: "Sar***ah",
+      icon: "🎯",
+      gradient: "from-green-500 to-emerald-600"
+    },
+    {
+      id: "6",
+      name: "Mega Moolah",
+      value: "+240$",
+      username: "Dav***id",
+      icon: "🦁",
+      gradient: "from-amber-500 to-yellow-600"
+    },
+    {
+      id: "7",
+      name: "Starburst",
+      value: "+130$",
+      username: "Emi***ly",
+      icon: "⭐",
+      gradient: "from-violet-500 to-purple-600"
+    },
+    {
+      id: "8",
+      name: "Wolf Gold",
+      value: "+85$",
+      username: "Tom***my",
+      icon: "🐺",
+      gradient: "from-gray-500 to-slate-600"
+    },
+    {
+      id: "9",
+      name: "Bonanza Gold",
+      value: "+195$",
+      username: "Lis***sa",
+      icon: "💰",
+      gradient: "from-yellow-400 to-amber-500"
+    },
+    {
+      id: "10",
+      name: "Razor Shark",
+      value: "+75$",
+      username: "Bra***nd",
+      icon: "🦈",
+      gradient: "from-teal-500 to-blue-600"
+    },
+    {
+      id: "11",
+      name: "Big Bass Splash",
+      value: "+150$",
+      username: "Kat***ie",
+      icon: "🎣",
+      gradient: "from-cyan-500 to-teal-600"
+    },
+    {
+      id: "12",
+      name: "Fire Joker",
+      value: "+40$",
+      username: "Rob***rt",
+      icon: "🔥",
+      gradient: "from-red-500 to-orange-600"
+    }
+  ];
 
   const gameCategories = [
     { id: "live", label: "Trading", icon: Users, count: 45 },
@@ -304,6 +414,177 @@ export default function Index() {
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-3 py-2 space-y-3 bg-[#0f1629]">
+              {/* Game Tiles Row */}
+              <div className="relative">
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="text-lg font-bold text-white">Popular Games</h2>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-0 text-slate-400 hover:text-white hover:bg-slate-700/50"
+                      onClick={() => {
+                        const container = document.getElementById('game-tiles-container');
+                        if (container) {
+                          container.scrollBy({ left: -200, behavior: 'smooth' });
+                        }
+                      }}
+                      data-testid="button-scroll-left"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-0 text-slate-400 hover:text-white hover:bg-slate-700/50"
+                      onClick={() => {
+                        const container = document.getElementById('game-tiles-container');
+                        if (container) {
+                          container.scrollBy({ left: 200, behavior: 'smooth' });
+                        }
+                      }}
+                      data-testid="button-scroll-right"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+                <div
+                  id="game-tiles-container"
+                  className="flex gap-3 overflow-x-auto scrollbar-hide pb-2"
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                  {gameTiles.map((tile) => (
+                    <div
+                      key={tile.id}
+                      className={`flex-shrink-0 w-24 rounded-lg bg-gradient-to-br ${tile.gradient} p-3 cursor-pointer hover:scale-105 transition-transform shadow-lg`}
+                      data-testid={`tile-game-${tile.id}`}
+                    >
+                      <div className="flex flex-col items-center text-center">
+                        <div
+                          className="text-2xl mb-1"
+                          data-testid={`img-tile-${tile.id}`}
+                        >
+                          {tile.icon}
+                        </div>
+                        <h4
+                          className="text-xs font-bold text-white leading-tight mb-1 truncate w-full"
+                          data-testid={`text-tile-name-${tile.id}`}
+                        >
+                          {tile.name}
+                        </h4>
+                        <div
+                          className="text-xs font-semibold text-green-300 mb-1"
+                          data-testid={`text-tile-value-${tile.id}`}
+                        >
+                          {tile.value}
+                        </div>
+                        <div
+                          className="text-xs text-white/80 truncate w-full"
+                          data-testid={`text-tile-username-${tile.id}`}
+                        >
+                          {tile.username}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Category Filter Tabs */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-2">
+                <Button
+                  variant={selectedCategory === "all" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setSelectedCategory("all")}
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    selectedCategory === "all"
+                      ? "bg-pink-600 text-white hover:bg-pink-700"
+                      : "text-slate-400 hover:text-white hover:bg-slate-700/50"
+                  }`}
+                  data-testid="tab-all-games"
+                >
+                  🎮 All games
+                </Button>
+                <Button
+                  variant={selectedCategory === "slots" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setSelectedCategory("slots")}
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    selectedCategory === "slots"
+                      ? "bg-pink-600 text-white hover:bg-pink-700"
+                      : "text-slate-400 hover:text-white hover:bg-slate-700/50"
+                  }`}
+                  data-testid="tab-slot-games"
+                >
+                  🎰 Slot games
+                </Button>
+                <Button
+                  variant={selectedCategory === "roulette" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setSelectedCategory("roulette")}
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    selectedCategory === "roulette"
+                      ? "bg-pink-600 text-white hover:bg-pink-700"
+                      : "text-slate-400 hover:text-white hover:bg-slate-700/50"
+                  }`}
+                  data-testid="tab-roulette"
+                >
+                  🎯 Roulette
+                </Button>
+                <Button
+                  variant={selectedCategory === "popular" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setSelectedCategory("popular")}
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    selectedCategory === "popular"
+                      ? "bg-pink-600 text-white hover:bg-pink-700"
+                      : "text-slate-400 hover:text-white hover:bg-slate-700/50"
+                  }`}
+                  data-testid="tab-popular"
+                >
+                  🔥 Popular
+                </Button>
+                <Button
+                  variant={selectedCategory === "card" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setSelectedCategory("card")}
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    selectedCategory === "card"
+                      ? "bg-pink-600 text-white hover:bg-pink-700"
+                      : "text-slate-400 hover:text-white hover:bg-slate-700/50"
+                  }`}
+                  data-testid="tab-card-games"
+                >
+                  🃏 Card games
+                </Button>
+                <Button
+                  variant={selectedCategory === "top" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setSelectedCategory("top")}
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    selectedCategory === "top"
+                      ? "bg-pink-600 text-white hover:bg-pink-700"
+                      : "text-slate-400 hover:text-white hover:bg-slate-700/50"
+                  }`}
+                  data-testid="tab-top-games"
+                >
+                  🏆 Top games
+                </Button>
+                <Button
+                  variant={selectedCategory === "favorites" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setSelectedCategory("favorites")}
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    selectedCategory === "favorites"
+                      ? "bg-pink-600 text-white hover:bg-pink-700"
+                      : "text-slate-400 hover:text-white hover:bg-slate-700/50"
+                  }`}
+                  data-testid="tab-favorites"
+                >
+                  ⭐ Favorites
+                </Button>
+              </div>
+
               {/* Promotional Banner */}
               <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 min-h-[200px]">
                 <div 
