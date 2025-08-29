@@ -42,6 +42,10 @@ import {
   Image,
   Smile,
   FileText,
+  Bell,
+  ShoppingCart,
+  Wallet,
+  User,
 } from "lucide-react";
 
 interface GameCard {
@@ -349,7 +353,7 @@ export default function Index() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 h-screen">
         {/* Top Navigation Bar */}
-        <header className="h-16 backdrop-blur-sm flex items-center justify-center px-6 bg-[#0a1628] border-b border-slate-800/30">
+        <header className="h-16 backdrop-blur-sm flex items-center justify-between px-6 bg-[#0a1628] border-b border-slate-800/30">
           <div className="relative w-full max-w-2xl">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
             <Input
@@ -357,6 +361,49 @@ export default function Index() {
               className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-slate-200 placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 h-12"
               data-testid="input-search"
             />
+          </div>
+          
+          {/* Right Side Icons */}
+          <div className="flex items-center gap-4 ml-6">
+            {/* Notification Bell */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="relative p-2 rounded-full hover:bg-slate-700/50"
+              data-testid="button-notifications"
+            >
+              <Bell className="h-5 w-5 text-slate-400 hover:text-white" />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full flex items-center justify-center">
+                <span className="text-xs text-white font-bold">3</span>
+              </div>
+            </Button>
+            
+            {/* Shopping Cart */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-2 rounded-full hover:bg-slate-700/50"
+              data-testid="button-cart"
+            >
+              <ShoppingCart className="h-5 w-5 text-slate-400 hover:text-white" />
+            </Button>
+            
+            {/* Wallet/Balance */}
+            <div className="flex items-center gap-2 bg-slate-800/50 px-3 py-2 rounded-lg">
+              <Wallet className="h-4 w-4 text-slate-400" />
+              <span className="text-white font-semibold" data-testid="text-wallet-balance">
+                $2,485
+              </span>
+            </div>
+            
+            {/* Profile Button */}
+            <Button
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4 py-2 rounded-lg flex items-center gap-2"
+              data-testid="button-profile"
+            >
+              <User className="h-4 w-4" />
+              Profile
+            </Button>
           </div>
         </header>
 
