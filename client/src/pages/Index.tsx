@@ -682,7 +682,7 @@ export default function Index() {
         </div>
 
         {/* Chat Messages */}
-        <ScrollArea className="h-64 px-3 py-2 bg-[#0a1628] border-l border-slate-800/30">
+        <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628] border-l border-slate-800/30">
           <div className="space-y-3">
             {chatMessages.map((msg, index) => {
               const avatarColors = [
