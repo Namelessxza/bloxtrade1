@@ -410,9 +410,9 @@ export default function Index() {
         <div className="flex-1 flex flex-col min-w-0 h-full">
           {/* Main Content */}
           <ScrollArea className="flex-1">
-          <div className="p-2 space-y-2 bg-[#0f1629]">
+          <div className="space-y-2 bg-[#0f1629]">
             {/* Promotional Banner */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-pink-900/40 border border-blue-500/30">
+            <div className="mx-2 relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-pink-900/40 border border-blue-500/30">
               <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse" />
                 <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-xl" />
@@ -449,7 +449,7 @@ export default function Index() {
             </div>
 
             {/* Top Games Section */}
-            <div className="space-y-1">
+            <div className="px-2 space-y-1">
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold flex items-center gap-2 text-white">
                   <Flame className="h-5 w-5 text-orange-500" />
@@ -525,7 +525,7 @@ export default function Index() {
             </div>
 
             {/* Category Sections */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+            <div className="px-2 grid grid-cols-1 lg:grid-cols-3 gap-2">
               {/* Roulette Section */}
               <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30 p-4">
                 <div className="flex items-center gap-2 mb-3">
@@ -576,7 +576,7 @@ export default function Index() {
             </div>
 
             {/* Slot Games Section */}
-            <div className="space-y-1">
+            <div className="px-2 space-y-1">
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold flex items-center gap-2 text-white">
                   <Diamond className="h-5 w-5 text-purple-500" />
