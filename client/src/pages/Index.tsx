@@ -163,7 +163,7 @@ export default function Index() {
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
             <Input
               placeholder="Search items, skins, collectibles..."
-              className="w-full pl-12 pr-4 py-3 bg-slate-800/30 rounded-xl text-slate-200 placeholder:text-slate-400 focus:bg-slate-700/30 transition-all h-12 backdrop-blur-sm"
+              className="w-full pl-12 pr-4 py-3 bg-slate-800/30 rounded-xl text-slate-200 placeholder:text-slate-400 focus:bg-slate-700/30 transition-all h-12"
               data-testid="input-search"
             />
           </div>
