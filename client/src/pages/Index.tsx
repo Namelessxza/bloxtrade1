@@ -283,7 +283,7 @@ export default function Index() {
           {/* Bottom Actions */}
           <div className="p-3 space-y-2 bg-gradient-to-t from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl">
             <Button
-              className="w-full justify-start gap-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm rounded-lg font-semibold"
+              className="justify-start gap-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm rounded-lg font-semibold px-4 py-2"
               data-testid="button-buy-crypto"
             >
               <CreditCard className="h-4 w-4" />
@@ -291,7 +291,7 @@ export default function Index() {
             </Button>
             <Button
               variant="ghost"
-              className="w-full justify-start gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg"
+              className="justify-start gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg px-4 py-2"
               data-testid="button-support"
             >
               <HeadphonesIcon className="h-4 w-4" />
