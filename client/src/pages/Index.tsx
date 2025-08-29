@@ -614,9 +614,9 @@ export default function Index() {
       </div>
       {/* Right Panel */}
       <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
-        {/* Top Section with Balance and Profile */}
-        <div className="p-4 bg-[#0f1a2e] border-b border-slate-800/30 border-l border-slate-800/30">
-          <div className="flex items-center justify-between mb-3">
+        {/* Top Section with Profile and Controls */}
+        <div className="p-4 border-b border-l border-slate-800/30 bg-[#0a1628]">
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               {/* Notification Bell */}
               <Button
@@ -648,23 +648,6 @@ export default function Index() {
               <User className="h-3 w-3" />
               Profile
             </Button>
-          </div>
-          
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Wallet className="h-4 w-4 text-slate-400" />
-              <span className="text-sm text-slate-400">$500</span>
-              <span className="text-sm text-slate-400">left</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-lg font-semibold text-green-400">$500</span>
-              <Button
-                size="sm"
-                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-3 py-1 text-xs h-6 rounded-full"
-              >
-                Deposit
-              </Button>
-            </div>
           </div>
         </div>
         
