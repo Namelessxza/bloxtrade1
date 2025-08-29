@@ -708,13 +708,18 @@ export default function Index() {
                               ADMIN
                             </span>
                           )}
-                          <span className="text-xs text-gray-400 ml-auto">
-                            2s ago
-                          </span>
+                          <div className="flex items-center gap-1 ml-auto">
+                            <span className="text-xs text-gray-400">
+                              2s ago
+                            </span>
+                            <MessageCircle className="h-3 w-3 text-gray-400" />
+                          </div>
                         </div>
-                        <p className="text-sm text-gray-300 leading-relaxed break-words">
-                          {msg.message}
-                        </p>
+                        <div className="bg-slate-800/40 rounded-lg px-3 py-2 inline-block max-w-full">
+                          <p className="text-sm text-white leading-relaxed break-words">
+                            {msg.message}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   );
