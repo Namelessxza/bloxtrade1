@@ -366,7 +366,7 @@ export default function Index() {
           {/* Chat - no longer needs top positioning since header is global */}
           <div className="flex flex-col bg-transparent h-full">
             {/* Chat Header */}
-            <div className="p-3 bg-gradient-to-r from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm border-b border-slate-700/30">
+            <div className="p-3 bg-gradient-to-r from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -464,7 +464,7 @@ export default function Index() {
                   <Send className="h-5 w-5 text-white" />
                 </Button>
               </form>
-              <div className="flex items-center gap-4 mt-3 pt-3 border-t border-slate-700/30">
+              <div className="flex items-center gap-4 mt-3 pt-3 bg-slate-800/20 rounded-lg -mx-1 px-3">
                 <Button
                   variant="ghost"
                   size="sm"
