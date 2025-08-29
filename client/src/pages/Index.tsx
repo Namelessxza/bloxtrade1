@@ -205,7 +205,7 @@ export default function Index() {
 
           {/* Profile Button */}
           <Button
-            className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold"
+            className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold"
             data-testid="button-profile"
           >
             <User className="h-3 w-3" />
@@ -245,7 +245,7 @@ export default function Index() {
                     <Lock className="h-1.5 w-1.5 text-white" />
                   </div>
                 </div>
-                <span>Sport</span>
+                <span>GAG</span>
               </button>
             </div>
           </div>
