@@ -644,7 +644,7 @@ export default function Index() {
         </ScrollArea>
       </div>
       {/* Right Panel */}
-      <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen relative">
+      <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen relative overflow-hidden">
         {/* Chat Header */}
         <div className="p-3 bg-[#0f1a2e]">
           <div className="flex items-center justify-between">
@@ -676,8 +676,8 @@ export default function Index() {
         </div>
 
         {/* Chat Messages */}
-        <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628]">
-          <div className="space-y-3">
+        <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628] max-w-full">
+          <div className="space-y-3 max-w-full overflow-hidden">
             {chatMessages.map((msg, index) => {
               const avatarColors = [
                 "border-orange-400 bg-orange-900/30",
@@ -691,7 +691,7 @@ export default function Index() {
               return (
                 <div
                   key={msg.id}
-                  className="p-2 rounded-lg transition-all hover:bg-slate-800/30 bg-slate-800/20"
+                  className="p-2 rounded-lg transition-all hover:bg-slate-800/30 bg-slate-800/20 max-w-full"
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-2 items-start">
@@ -716,7 +716,7 @@ export default function Index() {
                           2 min ago
                         </span>
                       </div>
-                      <p className="text-xs text-white leading-relaxed break-words">
+                      <p className="text-xs text-white leading-relaxed break-words max-w-full overflow-hidden">
                         {msg.message}
                       </p>
                     </div>
