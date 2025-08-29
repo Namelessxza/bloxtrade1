@@ -361,7 +361,7 @@ export default function Index() {
                 {activeMode === "games" ? "ALL GAMES" : "ALL SPORTS"}
               </h3>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-2">
               {currentCategories.map((category) => {
                 const Icon = category.icon;
                 return (
@@ -410,7 +410,7 @@ export default function Index() {
         <div className="flex-1 flex flex-col min-w-0 h-full">
           {/* Main Content */}
           <ScrollArea className="flex-1">
-          <div className="space-y-1 bg-[#0f1629]">
+          <div className="px-3 py-2 space-y-3 bg-[#0f1629]">
             {/* Promotional Banner */}
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-pink-900/40 border border-blue-500/30">
               <div className="absolute inset-0">
@@ -449,7 +449,7 @@ export default function Index() {
             </div>
 
             {/* Top Games Section */}
-            <div className="space-y-1">
+            <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold flex items-center gap-2 text-white">
                   <Flame className="h-5 w-5 text-orange-500" />
@@ -471,7 +471,7 @@ export default function Index() {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-5 lg:grid-cols-10 gap-1">
+              <div className="grid grid-cols-5 lg:grid-cols-10 gap-2">
                 {topGames.map((game) => (
                   <div
                     key={game.id}
@@ -525,7 +525,7 @@ export default function Index() {
             </div>
 
             {/* Category Sections */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-1">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
               {/* Roulette Section */}
               <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30 p-4">
                 <div className="flex items-center gap-2 mb-3">
@@ -576,7 +576,7 @@ export default function Index() {
             </div>
 
             {/* Slot Games Section */}
-            <div className="space-y-1">
+            <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold flex items-center gap-2 text-white">
                   <Diamond className="h-5 w-5 text-purple-500" />
@@ -593,7 +593,7 @@ export default function Index() {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-3 lg:grid-cols-6 gap-1">
+              <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
                 {slotGames.map((game) => (
                   <div
                     key={game.id}
@@ -683,7 +683,7 @@ export default function Index() {
 
             {/* Chat Messages */}
             <ScrollArea className="flex-1 px-2 py-1 bg-[#0a1628]">
-              <div className="space-y-1">
+              <div className="space-y-2">
                 {chatMessages.map((msg, index) => {
                   const avatarColors = [
                     "border-orange-400 bg-orange-900/30",
