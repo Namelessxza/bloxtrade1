@@ -395,7 +395,7 @@ All colors MUST be HSL.
     background: linear-gradient(135deg, #2dd4ff 0%, #1fc7ff 30%, #00b4e6 70%, #0095cc 100%);
     border: none;
     border-radius: 12px;
-    padding: 12px 32px;
+    padding: 12px 20px;
     color: white;
     font-size: 16px;
     font-weight: 600;
