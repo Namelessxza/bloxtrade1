@@ -365,7 +365,7 @@ export default function Index() {
           {/* Chat - no longer needs top positioning since header is global */}
           <div className="flex flex-col h-full bg-[#081834]">
             {/* Chat Header */}
-            <div className="p-3 bg-gradient-to-r from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm">
+            <div className="p-3 from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm bg-[#081834]">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
