@@ -700,7 +700,7 @@ export default function Index() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="text-sm font-semibold text-white">
+                          <span className="text-sm font-semibold text-[#94a3b8]">
                             {msg.username}
                           </span>
                           {msg.isAdmin && (
