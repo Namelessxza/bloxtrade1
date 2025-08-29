@@ -135,14 +135,8 @@ export default function Index() {
   const [onlineUsers] = useState(122);
 
   const gameCategories = [
-    { id: "all", label: "All Games", icon: Grid3x3, count: 145 },
-    { id: "casino", label: "Casino", icon: Crown, count: 48 },
-    { id: "roulette", label: "Roulette", icon: Dice6, count: 12 },
-    { id: "slots", label: "Slots", icon: Diamond, count: 67 },
-    { id: "popular", label: "Popular", icon: Flame, count: 24 },
-    { id: "crash", label: "Crush", icon: TrendingUp, count: 8 },
-    { id: "live", label: "Live Games", icon: Users, count: 15 },
-    { id: "favorites", label: "Favorites", icon: Heart, count: 0 },
+    { id: "live", label: "Trading", icon: Users },
+    { id: "petsniper", label: "Pet Sniper", icon: Dice6 },
   ];
 
   const sportCategories = [
@@ -155,7 +149,8 @@ export default function Index() {
     { id: "favorites-sport", label: "Favorites", icon: Heart, count: 3 },
   ];
 
-  const currentCategories = activeMode === "games" ? gameCategories : sportCategories;
+  const currentCategories =
+    activeMode === "games" ? gameCategories : sportCategories;
 
   const topGames: GameCard[] = [
     {
@@ -266,10 +261,10 @@ export default function Index() {
             FIRE<span className="text-red-500">🔥</span>GO
           </span>
         </div>
-        
+
         {/* Center Spacer */}
         <div className="flex-1"></div>
-        
+
         {/* Centered Search */}
         <div className="relative w-full max-w-2xl">
           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
@@ -279,7 +274,7 @@ export default function Index() {
             data-testid="input-search"
           />
         </div>
-        
+
         {/* Right Side Controls */}
         <div className="flex items-center gap-4 ml-6 flex-1 justify-end">
           {/* Notification Bell */}
@@ -292,7 +287,7 @@ export default function Index() {
             <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
             <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
           </Button>
-          
+
           {/* Shopping Cart */}
           <Button
             variant="ghost"
@@ -302,15 +297,18 @@ export default function Index() {
           >
             <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
           </Button>
-          
+
           {/* Wallet Balance */}
           <div className="flex items-center gap-2 bg-slate-800/50 px-3 py-2 rounded-lg">
             <Wallet className="h-4 w-4 text-slate-400" />
-            <span className="text-white font-semibold" data-testid="text-wallet-balance">
+            <span
+              className="text-white font-semibold"
+              data-testid="text-wallet-balance"
+            >
               $2,485
             </span>
           </div>
-          
+
           {/* Profile Button */}
           <Button
             className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 text-sm"
@@ -321,7 +319,6 @@ export default function Index() {
           </Button>
         </div>
       </header>
-      
       {/* Content Row */}
       <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
@@ -329,30 +326,32 @@ export default function Index() {
           {/* Games/Sport Toggle */}
           <div className="p-4 bg-[#0a1628] border-b border-slate-800/30">
             <div className="flex bg-slate-800/50 rounded-full p-1 relative">
-              <div 
+              <div
                 className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
-                  activeMode === "games" 
-                    ? "from-blue-600 to-cyan-500 w-[calc(50%-4px)] translate-x-0" 
+                  activeMode === "games"
+                    ? "from-blue-600 to-cyan-500 w-[calc(50%-4px)] translate-x-0"
                     : "from-slate-600 to-slate-500 w-[calc(50%-4px)] translate-x-full"
                 }`}
               />
               <button
                 onClick={() => setActiveMode("games")}
                 className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
-                  activeMode === "games" ? "text-white" : "text-slate-400 hover:text-white"
+                  activeMode === "games"
+                    ? "text-white"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
-                <Gamepad2 className="h-4 w-4 flex-shrink-0" />
-                <span className="truncate">Games</span>
+                <span className="truncate">SAB</span>
               </button>
               <button
                 onClick={() => setActiveMode("sport")}
                 className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
-                  activeMode === "sport" ? "text-white" : "text-slate-400 hover:text-white"
+                  activeMode === "sport"
+                    ? "text-white"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
-                <Trophy className="h-4 w-4 flex-shrink-0" />
-                <span className="truncate">Sport</span>
+                <span className="truncate">GAG</span>
               </button>
             </div>
           </div>
@@ -362,7 +361,7 @@ export default function Index() {
             {/* Section Header */}
             <div className="px-2 py-1 mb-3">
               <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                {activeMode === "games" ? "ALL GAMES" : "ALL SPORTS"}
+                {activeMode === "games" ? "Steal A Brainrot" : "Grow A Garden"}
               </h3>
             </div>
             <div className="space-y-2">
@@ -409,248 +408,248 @@ export default function Index() {
             </Button>
           </div>
         </div>
-        
+
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col min-w-0">
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
-          <div className="min-h-full px-3 py-2 space-y-3 bg-[#0f1629]">
-            {/* Promotional Banner */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-pink-900/40 border border-blue-500/30">
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse" />
-                <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-xl" />
-                <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full blur-xl" />
+            <div className="min-h-full px-3 py-2 space-y-3 bg-[#0f1629]">
+              {/* Promotional Banner */}
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-pink-900/40 border border-blue-500/30">
+                <div className="absolute inset-0">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse" />
+                  <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-xl" />
+                  <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full blur-xl" />
+                </div>
+                <div className="relative p-3 flex items-center justify-between">
+                  <div className="space-y-2 max-w-md">
+                    <h1 className="text-3xl font-bold text-white leading-tight">
+                      <span className="block text-white text-lg font-medium mb-2">
+                        SIGN UP & GET REWARD UP TO
+                      </span>
+                      <span className="text-4xl bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+                        $20 000 and
+                      </span>
+                      <span className="block text-3xl text-white mt-1">
+                        20 FreeSpins
+                      </span>
+                    </h1>
+                    <Button
+                      size="lg"
+                      className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold px-8 py-3 rounded-full"
+                      data-testid="button-claim-now"
+                    >
+                      Claim now
+                    </Button>
+                  </div>
+                  <div className="hidden lg:block relative">
+                    <div className="text-8xl" data-testid="img-wizard">
+                      🧙‍♂️
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-2xl scale-150" />
+                  </div>
+                </div>
               </div>
-              <div className="relative p-3 flex items-center justify-between">
-                <div className="space-y-2 max-w-md">
-                  <h1 className="text-3xl font-bold text-white leading-tight">
-                    <span className="block text-white text-lg font-medium mb-2">
-                      SIGN UP & GET REWARD UP TO
-                    </span>
-                    <span className="text-4xl bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
-                      $20 000 and
-                    </span>
-                    <span className="block text-3xl text-white mt-1">
-                      20 FreeSpins
-                    </span>
-                  </h1>
+
+              {/* Top Games Section */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl font-bold flex items-center gap-2 text-white">
+                    <Flame className="h-5 w-5 text-orange-500" />
+                    🔥 Fire games
+                  </h2>
                   <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold px-8 py-3 rounded-full"
-                    data-testid="button-claim-now"
+                    variant="ghost"
+                    size="sm"
+                    className="text-cyan-400 hover:text-white text-sm"
+                    data-testid="button-view-all-games"
                   >
-                    Claim now
+                    🎯 Hot games
+                    <div className="flex items-center gap-1 ml-2">
+                      <Dice1 className="h-3 w-3" />
+                      <Dice2 className="h-3 w-3" />
+                    </div>
+                    ⭐ Roulette
+                    <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
                 </div>
-                <div className="hidden lg:block relative">
-                  <div className="text-8xl" data-testid="img-wizard">
-                    🧙‍♂️
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-2xl scale-150" />
-                </div>
-              </div>
-            </div>
 
-            {/* Top Games Section */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <h2 className="text-xl font-bold flex items-center gap-2 text-white">
-                  <Flame className="h-5 w-5 text-orange-500" />
-                  🔥 Fire games
-                </h2>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-cyan-400 hover:text-white text-sm"
-                  data-testid="button-view-all-games"
-                >
-                  🎯 Hot games
-                  <div className="flex items-center gap-1 ml-2">
-                    <Dice1 className="h-3 w-3" />
-                    <Dice2 className="h-3 w-3" />
-                  </div>
-                  ⭐ Roulette
-                  <ChevronRight className="ml-1 h-4 w-4" />
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-5 lg:grid-cols-10 gap-2">
-                {topGames.map((game) => (
-                  <div
-                    key={game.id}
-                    className="group relative overflow-hidden hover:scale-105 transition-transform cursor-pointer bg-slate-800/60 hover:bg-slate-700/60 rounded-lg border border-slate-700/50 hover:border-orange-500/50"
-                    data-testid={`card-game-${game.id}`}
-                  >
-                    <div className="aspect-square flex flex-col items-center justify-center p-3 relative">
-                      {game.isHot && (
-                        <Badge
-                          className="absolute top-2 right-2 bg-red-500 text-white text-xs"
-                          data-testid={`badge-hot-${game.id}`}
+                <div className="grid grid-cols-5 lg:grid-cols-10 gap-2">
+                  {topGames.map((game) => (
+                    <div
+                      key={game.id}
+                      className="group relative overflow-hidden hover:scale-105 transition-transform cursor-pointer bg-slate-800/60 hover:bg-slate-700/60 rounded-lg border border-slate-700/50 hover:border-orange-500/50"
+                      data-testid={`card-game-${game.id}`}
+                    >
+                      <div className="aspect-square flex flex-col items-center justify-center p-3 relative">
+                        {game.isHot && (
+                          <Badge
+                            className="absolute top-2 right-2 bg-red-500 text-white text-xs"
+                            data-testid={`badge-hot-${game.id}`}
+                          >
+                            HOT
+                          </Badge>
+                        )}
+                        {game.isNew && (
+                          <Badge
+                            className="absolute top-2 right-2 bg-green-500 text-white text-xs"
+                            data-testid={`badge-new-${game.id}`}
+                          >
+                            NEW
+                          </Badge>
+                        )}
+                        <div
+                          className="text-2xl mb-1"
+                          data-testid={`img-game-${game.id}`}
                         >
-                          HOT
-                        </Badge>
-                      )}
-                      {game.isNew && (
-                        <Badge
-                          className="absolute top-2 right-2 bg-green-500 text-white text-xs"
-                          data-testid={`badge-new-${game.id}`}
-                        >
-                          NEW
-                        </Badge>
-                      )}
-                      <div
-                        className="text-2xl mb-1"
-                        data-testid={`img-game-${game.id}`}
-                      >
-                        {game.image}
-                      </div>
-                      <p
-                        className="text-xs text-white font-medium text-center leading-tight"
-                        data-testid={`text-game-title-${game.id}`}
-                      >
-                        {game.title}
-                      </p>
-                      {game.value && (
+                          {game.image}
+                        </div>
                         <p
-                          className="text-xs text-green-400 font-semibold mt-1"
-                          data-testid={`text-game-value-${game.id}`}
+                          className="text-xs text-white font-medium text-center leading-tight"
+                          data-testid={`text-game-title-${game.id}`}
                         >
-                          {game.value}
+                          {game.title}
                         </p>
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <Play className="h-6 w-6 text-white" />
+                        {game.value && (
+                          <p
+                            className="text-xs text-green-400 font-semibold mt-1"
+                            data-testid={`text-game-value-${game.id}`}
+                          >
+                            {game.value}
+                          </p>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <Play className="h-6 w-6 text-white" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Category Sections */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-              {/* Roulette Section */}
-              <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30 p-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <Dice6 className="h-5 w-5 text-purple-400" />
-                  <h3 className="text-lg font-bold text-white">Roulette</h3>
-                  <Badge className="bg-purple-600 text-white text-xs ml-auto">
-                    12 🎯
-                  </Badge>
-                </div>
-                <div className="aspect-video rounded-lg bg-gradient-to-br from-purple-800/40 to-pink-800/40 flex items-center justify-center mb-3">
-                  <div className="text-4xl" data-testid="img-roulette">
-                    🎰
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Crash Section */}
-              <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-xl border border-orange-500/30 p-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <TrendingUp className="h-5 w-5 text-orange-400" />
-                  <h3 className="text-lg font-bold text-white">Crash</h3>
-                  <Badge className="bg-orange-600 text-white text-xs ml-auto">
-                    8 🔥
-                  </Badge>
+              {/* Category Sections */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                {/* Roulette Section */}
+                <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30 p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Dice6 className="h-5 w-5 text-purple-400" />
+                    <h3 className="text-lg font-bold text-white">Pet Sniper</h3>
+                    <Badge className="bg-purple-600 text-white text-xs ml-auto">
+                      12 🎯
+                    </Badge>
+                  </div>
+                  <div className="aspect-video rounded-lg bg-gradient-to-br from-purple-800/40 to-pink-800/40 flex items-center justify-center mb-3">
+                    <div className="text-4xl" data-testid="img-roulette">
+                      🎰
+                    </div>
+                  </div>
                 </div>
-                <div className="aspect-video rounded-lg bg-gradient-to-br from-orange-800/40 to-red-800/40 flex items-center justify-center mb-3">
-                  <div className="text-4xl" data-testid="img-crash">
-                    🚀
+
+                {/* Crash Section */}
+                <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-xl border border-orange-500/30 p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <TrendingUp className="h-5 w-5 text-orange-400" />
+                    <h3 className="text-lg font-bold text-white">Crash</h3>
+                    <Badge className="bg-orange-600 text-white text-xs ml-auto">
+                      8 🔥
+                    </Badge>
+                  </div>
+                  <div className="aspect-video rounded-lg bg-gradient-to-br from-orange-800/40 to-red-800/40 flex items-center justify-center mb-3">
+                    <div className="text-4xl" data-testid="img-crash">
+                      🚀
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mines Section */}
+                <div className="bg-gradient-to-br from-green-900/30 to-teal-900/30 rounded-xl border border-green-500/30 p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Diamond className="h-5 w-5 text-green-400" />
+                    <h3 className="text-lg font-bold text-white">Mines</h3>
+                    <Badge className="bg-slate-600 text-white text-xs ml-auto">
+                      Coming soon
+                    </Badge>
+                  </div>
+                  <div className="aspect-video rounded-lg bg-gradient-to-br from-green-800/40 to-teal-800/40 flex items-center justify-center mb-3">
+                    <div className="text-4xl" data-testid="img-mines">
+                      💎
+                    </div>
                   </div>
                 </div>
               </div>
-              
-              {/* Mines Section */}
-              <div className="bg-gradient-to-br from-green-900/30 to-teal-900/30 rounded-xl border border-green-500/30 p-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <Diamond className="h-5 w-5 text-green-400" />
-                  <h3 className="text-lg font-bold text-white">Mines</h3>
-                  <Badge className="bg-slate-600 text-white text-xs ml-auto">
-                    Coming soon
-                  </Badge>
-                </div>
-                <div className="aspect-video rounded-lg bg-gradient-to-br from-green-800/40 to-teal-800/40 flex items-center justify-center mb-3">
-                  <div className="text-4xl" data-testid="img-mines">
-                    💎
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Slot Games Section */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <h2 className="text-xl font-bold flex items-center gap-2 text-white">
-                  <Diamond className="h-5 w-5 text-purple-500" />
-                  🎰 Slot games
-                </h2>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-cyan-400 hover:text-white text-sm"
-                  data-testid="button-view-all-slots"
-                >
-                  View All
-                  <ChevronRight className="ml-1 h-4 w-4" />
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
-                {slotGames.map((game) => (
-                  <div
-                    key={game.id}
-                    className="group overflow-hidden hover:scale-105 transition-transform cursor-pointer bg-slate-800/60 hover:bg-slate-700/60 rounded-lg border border-slate-700/50 hover:border-orange-500/50"
-                    data-testid={`card-slot-${game.id}`}
+              {/* Slot Games Section */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl font-bold flex items-center gap-2 text-white">
+                    <Diamond className="h-5 w-5 text-purple-500" />
+                    🎰 Slot games
+                  </h2>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-cyan-400 hover:text-white text-sm"
+                    data-testid="button-view-all-slots"
                   >
-                    <div className="aspect-[4/5] relative p-3 flex flex-col items-center justify-center">
-                      {game.isHot && (
-                        <Badge
-                          className="absolute top-1 right-1 bg-red-500 text-white text-xs px-1 py-0"
-                          data-testid={`badge-slot-hot-${game.id}`}
+                    View All
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </div>
+
+                <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
+                  {slotGames.map((game) => (
+                    <div
+                      key={game.id}
+                      className="group overflow-hidden hover:scale-105 transition-transform cursor-pointer bg-slate-800/60 hover:bg-slate-700/60 rounded-lg border border-slate-700/50 hover:border-orange-500/50"
+                      data-testid={`card-slot-${game.id}`}
+                    >
+                      <div className="aspect-[4/5] relative p-3 flex flex-col items-center justify-center">
+                        {game.isHot && (
+                          <Badge
+                            className="absolute top-1 right-1 bg-red-500 text-white text-xs px-1 py-0"
+                            data-testid={`badge-slot-hot-${game.id}`}
+                          >
+                            HOT
+                          </Badge>
+                        )}
+                        {game.isNew && (
+                          <Badge
+                            className="absolute top-1 right-1 bg-green-500 text-white text-xs px-1 py-0"
+                            data-testid={`badge-slot-new-${game.id}`}
+                          >
+                            NEW
+                          </Badge>
+                        )}
+                        <div
+                          className="text-3xl mb-2"
+                          data-testid={`img-slot-${game.id}`}
                         >
-                          HOT
-                        </Badge>
-                      )}
-                      {game.isNew && (
-                        <Badge
-                          className="absolute top-1 right-1 bg-green-500 text-white text-xs px-1 py-0"
-                          data-testid={`badge-slot-new-${game.id}`}
+                          {game.image}
+                        </div>
+                        <h4
+                          className="text-xs font-bold text-white text-center leading-tight"
+                          data-testid={`text-slot-title-${game.id}`}
                         >
-                          NEW
-                        </Badge>
-                      )}
-                      <div
-                        className="text-3xl mb-2"
-                        data-testid={`img-slot-${game.id}`}
-                      >
-                        {game.image}
-                      </div>
-                      <h4
-                        className="text-xs font-bold text-white text-center leading-tight"
-                        data-testid={`text-slot-title-${game.id}`}
-                      >
-                        {game.title}
-                      </h4>
-                      <p
-                        className="text-xs text-slate-400 text-center mt-1"
-                        data-testid={`text-slot-category-${game.id}`}
-                      >
-                        {game.category}
-                      </p>
-                      <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
-                        <Play className="h-5 w-5 text-white" />
+                          {game.title}
+                        </h4>
+                        <p
+                          className="text-xs text-slate-400 text-center mt-1"
+                          data-testid={`text-slot-category-${game.id}`}
+                        >
+                          {game.category}
+                        </p>
+                        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
+                          <Play className="h-5 w-5 text-white" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </ScrollArea>
+          </ScrollArea>
         </div>
-        
+
         {/* Right Panel */}
         <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 relative">
           {/* Chat - no longer needs top positioning since header is global */}
@@ -691,12 +690,12 @@ export default function Index() {
                 {chatMessages.map((msg, index) => {
                   const avatarColors = [
                     "border-orange-400 bg-orange-900/30",
-                    "border-blue-400 bg-blue-900/30", 
+                    "border-blue-400 bg-blue-900/30",
                     "border-green-400 bg-green-900/30",
                     "border-purple-400 bg-purple-900/30",
                     "border-pink-400 bg-pink-900/30",
                     "border-yellow-400 bg-yellow-900/30",
-                    "border-red-400 bg-red-900/30"
+                    "border-red-400 bg-red-900/30",
                   ];
                   return (
                     <div
