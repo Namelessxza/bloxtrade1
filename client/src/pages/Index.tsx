@@ -238,7 +238,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background flex flex-row w-full">
       {/* Left Sidebar - Navigation */}
-      <div className="w-[200px] bg-[#01112d] flex flex-col flex-shrink-0 h-screen">
+      <div className="w-[280px] bg-[#01112d] flex flex-col flex-shrink-0 h-screen">
         {/* Logo */}
         <div className="p-6 bg-[#01112d]">
           <div className="flex items-center gap-2">
