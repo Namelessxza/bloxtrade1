@@ -428,9 +428,9 @@ export default function Index() {
                 <div className="relative p-6 flex flex-col gap-4">
                   <div className="flex items-center gap-4">
                     <div className="relative rounded-xl px-3 py-3 flex items-center gap-2" style={{backgroundColor: '#0e204a'}}>
-                      <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-purple-500 rounded-full blur-lg opacity-40"></div>
-                      <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-purple-400 rounded-full blur-md opacity-60"></div>
-                      <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-purple-300 rounded-full blur-sm opacity-80"></div>
+                      <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-purple-500 rounded-full blur-md opacity-50"></div>
+                      <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-purple-400 rounded-full blur-sm opacity-70"></div>
+                      <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-purple-300 rounded-full opacity-90"></div>
                       <div className="w-6 h-6 bg-purple-500/30 rounded-md flex items-center justify-center">
                         <Lock className="h-3 w-3 text-white" />
                       </div>
