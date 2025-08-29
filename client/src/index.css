@@ -69,25 +69,16 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Fire Casino specific colors */
-    --gaming-purple: 271 91% 65%;
-    --gaming-pink: 333 71% 61%;
-    --gaming-purple-dark: 269 79% 58%;
-    --gaming-dark: 222 47% 7%;
-    --gaming-card: 224 44% 10%;
-    --gaming-hover: 224 44% 12%;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
     --gradient-success: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-gaming: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-pink)));
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(224 44% 12%));
 
     /* Shadows */
     --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
     --shadow-card: 0 8px 32px hsl(222 47% 4% / 0.4);
-    --shadow-gaming: 0 0 40px hsl(var(--gaming-purple) / 0.2);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -383,76 +374,124 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-image: 
-      radial-gradient(circle at 20% 20%, hsl(var(--gaming-purple) / 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, hsl(var(--gaming-pink) / 0.1) 0%, transparent 50%);
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
   }
+  
+  /* Hide scrollbars for game tiles */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Buy Crypto Button Styling */
+  .buy-crypto-button {
+    background: linear-gradient(135deg, #2dd4ff 0%, #1fc7ff 30%, #00b4e6 70%, #0095cc 100%);
+    border: none;
+    border-radius: 100px;
+    padding: 12px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    text-shadow: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    box-shadow: 
+      0 2px 6px rgba(0, 0, 0, 0.2),
+      inset 0 2px 3px rgba(255, 255, 255, 0.3),
+      inset 0 -2px 8px rgba(0, 0, 0, 0.15);
+    width: fit-content;
+    display: inline-block;
+  }
+
+  /* Glossy overlay effect */
+  .buy-crypto-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  /* Top highlight */
+  .buy-crypto-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 50%;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
+    border-radius: 100px 100px 0 0;
+    pointer-events: none;
+  }
+
+  .buy-crypto-button:hover {
+    box-shadow: 
+      0 3px 8px rgba(0, 0, 0, 0.3),
+      inset 0 2px 3px rgba(255, 255, 255, 0.4),
+      inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #3de0ff 0%, #2dd4ff 30%, #1fc7ff 70%, #00a8e8 100%);
+  }
+
+  .buy-crypto-button:hover::before {
+    left: 100%;
+  }
+
+  .buy-crypto-button:active {
+    box-shadow: 
+      0 1px 4px rgba(0, 0, 0, 0.2),
+      inset 0 2px 5px rgba(0, 0, 0, 0.2),
+      inset 0 -1px 3px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Pulsing glow animation */
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 
+        0 0 40px rgba(31, 199, 255, 0.5),
+        0 10px 30px rgba(31, 199, 255, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 2px 3px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.15);
+    }
+    50% {
+      box-shadow: 
+        0 0 50px rgba(31, 199, 255, 0.6),
+        0 10px 35px rgba(31, 199, 255, 0.35),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 2px 3px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+
 }
 
-/* Fire Casino Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+/* Custom chat background color */
+.chat-bg-custom {
+  background-color: #081834 !important;
 }
 
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
 
-@keyframes slide-in {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.animate-slide-in {
-  animation: slide-in 0.5s ease-out;
-}
-
-/* Fire Casino specific styles */
-.fire-gradient {
-  background: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-pink)));
-}
-
-.fire-card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px hsl(var(--gaming-purple) / 0.2);
-}
-
-.fire-badge {
-  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
-  color: white;
-  font-weight: 600;
-}
-
-.fire-sidebar-item {
-  position: relative;
-  overflow: hidden;
-}
-
-.fire-sidebar-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 0;
-  background: hsl(var(--primary));
-  transition: width 0.3s ease;
-}
-
-.fire-sidebar-item:hover::before {
-  width: 3px;
-}
