@@ -254,7 +254,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-row w-screen max-w-full overflow-hidden">
+    <div className="min-h-screen bg-background flex flex-row w-full overflow-hidden">
       {/* Left Sidebar - Navigation */}
       <div className="w-[220px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
         {/* Logo */}
@@ -351,7 +351,7 @@ export default function Index() {
         </div>
       </div>
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 h-screen w-[calc(100vw-500px)] max-w-[calc(100vw-500px)]">
+      <div className="flex-1 flex flex-col min-w-0 h-screen">
         {/* Top Navigation Bar */}
         <header className="h-16 backdrop-blur-sm flex items-center justify-between px-6 bg-[#0a1628] border-b border-slate-800/30">
           <div className="relative w-full max-w-2xl">
@@ -644,7 +644,7 @@ export default function Index() {
         </ScrollArea>
       </div>
       {/* Right Panel */}
-      <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen relative overflow-hidden">
+      <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen relative">
         {/* Chat Header */}
         <div className="p-3 bg-[#0f1a2e]">
           <div className="flex items-center justify-between">
@@ -676,8 +676,8 @@ export default function Index() {
         </div>
 
         {/* Chat Messages */}
-        <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628] max-w-full">
-          <div className="space-y-3 max-w-full overflow-hidden">
+        <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628]">
+          <div className="space-y-3">
             {chatMessages.map((msg, index) => {
               const avatarColors = [
                 "border-orange-400 bg-orange-900/30",
@@ -691,13 +691,13 @@ export default function Index() {
               return (
                 <div
                   key={msg.id}
-                  className="p-2 rounded-lg transition-all hover:bg-slate-800/30 bg-slate-800/20 max-w-full"
+                  className="p-2 rounded-lg transition-all hover:bg-slate-800/30 bg-slate-800/20"
                   data-testid={`message-${msg.id}`}
                 >
                   <div className="flex gap-2 items-start">
                     <div className="relative flex-shrink-0">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs border-2 ${avatarColors[index % avatarColors.length]} hover:scale-110 hover:rotate-12 hover:animate-bounce transition-all duration-300 ease-out cursor-pointer hover:shadow-lg hover:shadow-cyan-500/20`}
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs border-2 ${avatarColors[index % avatarColors.length]}`}
                       >
                         {msg.avatar}
                       </div>
@@ -716,7 +716,7 @@ export default function Index() {
                           2 min ago
                         </span>
                       </div>
-                      <p className="text-xs text-white leading-relaxed break-words max-w-full overflow-hidden">
+                      <p className="text-xs text-white leading-relaxed break-words">
                         {msg.message}
                       </p>
                     </div>
