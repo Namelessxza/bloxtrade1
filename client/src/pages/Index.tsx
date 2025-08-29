@@ -441,7 +441,7 @@ export default function Index() {
                         </div>
                         <div className="flex flex-col">
                           <div className="text-[10px] text-gray-300 mb-0.5">Prize Pool</div>
-                          <div className="text-sm font-bold text-white">$50,000 RBX</div>
+                          <div className="text-sm font-bold text-[#11ff00]">$50,000 RBX</div>
                         </div>
                       </div>
                     </div>
