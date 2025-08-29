@@ -697,7 +697,7 @@ export default function Index() {
                   <div className="flex gap-2 items-start">
                     <div className="relative flex-shrink-0">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs border-2 ${avatarColors[index % avatarColors.length]}`}
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs border-2 ${avatarColors[index % avatarColors.length]} hover:scale-110 hover:rotate-12 hover:animate-bounce transition-all duration-300 ease-out cursor-pointer hover:shadow-lg hover:shadow-cyan-500/20`}
                       >
                         {msg.avatar}
                       </div>
