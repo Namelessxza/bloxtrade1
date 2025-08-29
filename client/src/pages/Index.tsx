@@ -240,7 +240,7 @@ export default function Index() {
       {/* Left Sidebar - Navigation */}
       <div className="w-[200px] bg-card border-r border-border flex flex-col flex-shrink-0 h-screen">
         {/* Logo */}
-        <div className="p-6 border-b border-border">
+        <div className="p-6">
           <div className="flex items-center gap-2">
             <Flame className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
