@@ -414,7 +414,7 @@ export default function Index() {
                 <Button
                   type="submit"
                   size="sm"
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-lg w-12 h-12 p-0 flex items-center justify-center shadow-lg"
+                  className="bg-blue-600 hover:bg-blue-500 rounded-lg w-12 h-12 p-0 flex items-center justify-center shadow-lg"
                   data-testid="button-send-message"
                 >
                   <Send className="h-5 w-5 text-white" />
