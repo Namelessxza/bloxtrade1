@@ -46,6 +46,7 @@ import {
   ShoppingCart,
   Wallet,
   User,
+  Lock,
 } from "lucide-react";
 
 interface GameCard {
@@ -135,8 +136,8 @@ export default function Index() {
   const [onlineUsers] = useState(122);
 
   const gameCategories = [
-    { id: "live", label: "Trading", icon: Users },
-    { id: "petsniper", label: "Pet Sniper", icon: Dice6 },
+    { id: "live", label: "Trading", icon: Users, count: 45 },
+    { id: "petsniper", label: "Pet Sniper", icon: Dice6, count: 28 },
   ];
 
   const sportCategories = [
@@ -344,13 +345,10 @@ export default function Index() {
                 <span className="truncate">SAB</span>
               </button>
               <button
-                onClick={() => setActiveMode("sport")}
-                className={`relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
-                  activeMode === "sport"
-                    ? "text-white"
-                    : "text-slate-400 hover:text-white"
-                }`}
+                disabled
+                className="relative z-10 flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 text-slate-600 cursor-not-allowed"
               >
+                <Lock className="h-3 w-3 flex-shrink-0" />
                 <span className="truncate">GAG</span>
               </button>
             </div>
