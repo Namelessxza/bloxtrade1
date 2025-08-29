@@ -256,7 +256,7 @@ export default function Index() {
       {/* Global Header */}
       <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-[#0a1628] border-b border-slate-800/30 w-full z-10">
         {/* Left Section - Logo */}
-        <div className="flex items-center gap-2 w-1/3">
+        <div className="flex items-center gap-2 w-1/4">
           <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
             <Flame className="h-5 w-5 text-white" />
           </div>
@@ -266,7 +266,7 @@ export default function Index() {
         </div>
 
         {/* Center Section - Search */}
-        <div className="flex justify-center w-1/3">
+        <div className="flex justify-center w-1/2">
           <div className="relative w-full">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
             <Input
@@ -278,7 +278,7 @@ export default function Index() {
         </div>
 
         {/* Right Section - Controls */}
-        <div className="flex items-center gap-4 w-1/3 justify-end">
+        <div className="flex items-center gap-4 w-1/4 justify-end">
           {/* Notification Bell */}
           <Button
             variant="ghost"
