@@ -426,11 +426,11 @@ export default function Index() {
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-black/30" />
                 </div>
-                <div className="relative p-6 flex flex-col gap-4">
+                <div className="relative p-12 flex flex-col gap-4">
                   <div className="flex items-center gap-4">
                     {/* Left box */}
                     <div className="relative overflow-hidden rounded-lg px-5 py-4 shadow-md">
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#a12bd4] via-[#4623ff] to-[#142447] animate-spin" style={{animationDuration: '3s'}}></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#a12bd4] via-[#4623ff] to-[#142447]"></div>
                       <div className="relative flex items-center space-x-3 z-10">
                         <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-br from-[#c041f3] to-[#6f2be3]">
                           <Lock className="w-5 h-5 text-white opacity-90" />
