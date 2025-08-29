@@ -426,39 +426,31 @@ export default function Index() {
                   <div className="absolute inset-0 bg-black/30" />
                 </div>
                 <div className="relative p-5 flex flex-col gap-4">
-                  <div className="flex items-start gap-4">
-                    {/* Purple box with spotlight */}
-                    <div className="relative">
-                      {/* Purple spotlight effect on left side */}
-                      <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-purple-500/50 rounded-full blur-xl"></div>
-                      <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-purple-400/60 rounded-full blur-lg"></div>
-                      <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-purple-300/70 rounded-full blur-md"></div>
-                      
-                      {/* Main purple box */}
-                      <div className="relative bg-[#1a2847] rounded-xl px-3 py-2 flex items-start gap-2 min-w-[140px]">
-                        <div className="w-6 h-6 bg-purple-500/20 rounded-md flex items-center justify-center flex-shrink-0">
-                          <Lock className="h-3 w-3 text-purple-300" />
-                        </div>
-                        <div className="flex flex-col">
-                          <div className="text-[10px] text-gray-300 mb-0.5">Prize Pool</div>
-                          <div className="text-sm font-bold text-white">$50,000 RBX</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Orange timer box */}
-                    <div className="bg-[#2a1810] rounded-xl px-3 py-2 flex items-start gap-2 min-w-[120px]">
-                      <div className="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-2.5 h-2.5 bg-orange-400 rounded-full animate-pulse"></div>
+                  {/* Purple spotlight effect on left side */}
+                  <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-purple-500/50 rounded-full blur-xl"></div>
+                  <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-purple-400/60 rounded-full blur-lg"></div>
+                  <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-purple-300/70 rounded-full blur-md"></div>
+                  
+                  {/* Prize Pool at top */}
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-[#11ff00]">$50,000 RBX</div>
+                  </div>
+                  
+                  {/* Ending in and Entries side by side */}
+                  <div className="flex items-center justify-center gap-6">
+                    {/* Ending in box */}
+                    <div className="bg-[#1a2847] rounded-xl px-3 py-2 flex items-center gap-2">
+                      <div className="w-6 h-6 bg-purple-500/20 rounded-md flex items-center justify-center flex-shrink-0">
+                        <Lock className="h-3 w-3 text-purple-300" />
                       </div>
                       <div className="flex flex-col">
                         <div className="text-[10px] text-gray-300 mb-0.5">Ending in</div>
-                        <div className="text-sm font-bold text-orange-400">02:34:21</div>
+                        <div className="text-sm font-bold text-white">02:34:00</div>
                       </div>
                     </div>
 
-                    {/* Green box */}
-                    <div className="bg-[#0e3a2e] rounded-xl px-3 py-2 flex items-start gap-2 min-w-[120px]">
+                    {/* Entries box */}
+                    <div className="bg-[#0e3a2e] rounded-xl px-3 py-2 flex items-center gap-2">
                       <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                         <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
                       </div>
@@ -469,11 +461,11 @@ export default function Index() {
                     </div>
                   </div>
 
-                  {/* Enter giveaway button and info */}
-                  <div className="flex flex-col gap-3">
+                  {/* Enter giveaway button at bottom */}
+                  <div className="flex flex-col gap-3 items-center">
                     <Button
                       size="sm"
-                      className="bg-[#00d563] hover:bg-[#00c055] text-white font-bold py-2 px-8 rounded-xl text-sm w-fit"
+                      className="bg-[#00d563] hover:bg-[#00c055] text-white font-bold py-2 px-8 rounded-xl text-sm"
                       data-testid="button-enter-giveaway"
                     >
                       Enter giveaway
@@ -488,6 +480,201 @@ export default function Index() {
                 </div>
               </div>
 
+              {/* Top Games Section */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl font-bold flex items-center gap-2 text-white">
+                    <Flame className="h-5 w-5 text-orange-500" />
+                    🔥 Fire games
+                  </h2>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-cyan-400 hover:text-white text-sm"
+                    data-testid="button-view-all-games"
+                  >
+                    🎯 Hot games
+                    <div className="flex items-center gap-1 ml-2">
+                      <Dice1 className="h-3 w-3" />
+                      <Dice2 className="h-3 w-3" />
+                    </div>
+                    ⭐ Roulette
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </div>
+
+                <div className="grid grid-cols-5 lg:grid-cols-10 gap-2">
+                  {topGames.map((game) => (
+                    <div
+                      key={game.id}
+                      className="group relative overflow-hidden hover:scale-105 transition-transform cursor-pointer bg-slate-800/60 hover:bg-slate-700/60 rounded-lg border border-slate-700/50 hover:border-orange-500/50"
+                      data-testid={`card-game-${game.id}`}
+                    >
+                      <div className="aspect-square flex flex-col items-center justify-center p-3 relative">
+                        {game.isHot && (
+                          <Badge
+                            className="absolute top-2 right-2 bg-red-500 text-white text-xs"
+                            data-testid={`badge-hot-${game.id}`}
+                          >
+                            HOT
+                          </Badge>
+                        )}
+                        {game.isNew && (
+                          <Badge
+                            className="absolute top-2 right-2 bg-green-500 text-white text-xs"
+                            data-testid={`badge-new-${game.id}`}
+                          >
+                            NEW
+                          </Badge>
+                        )}
+                        <div
+                          className="text-2xl mb-1"
+                          data-testid={`img-game-${game.id}`}
+                        >
+                          {game.image}
+                        </div>
+                        <p
+                          className="text-xs text-white font-medium text-center leading-tight"
+                          data-testid={`text-game-title-${game.id}`}
+                        >
+                          {game.title}
+                        </p>
+                        {game.value && (
+                          <p
+                            className="text-xs text-green-400 font-semibold mt-1"
+                            data-testid={`text-game-value-${game.id}`}
+                          >
+                            {game.value}
+                          </p>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <Play className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Category Sections */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                {/* Roulette Section */}
+                <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30 p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Dice6 className="h-5 w-5 text-purple-400" />
+                    <h3 className="text-lg font-bold text-white">Pet Sniper</h3>
+                    <Badge className="bg-purple-600 text-white text-xs ml-auto">
+                      12 🎯
+                    </Badge>
+                  </div>
+                  <div className="aspect-video rounded-lg bg-gradient-to-br from-purple-800/40 to-pink-800/40 flex items-center justify-center mb-3">
+                    <div className="text-4xl" data-testid="img-roulette">
+                      🎰
+                    </div>
+                  </div>
+                </div>
+
+                {/* Crash Section */}
+                <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-xl border border-orange-500/30 p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <TrendingUp className="h-5 w-5 text-orange-400" />
+                    <h3 className="text-lg font-bold text-white">Crash</h3>
+                    <Badge className="bg-orange-600 text-white text-xs ml-auto">
+                      8 🔥
+                    </Badge>
+                  </div>
+                  <div className="aspect-video rounded-lg bg-gradient-to-br from-orange-800/40 to-red-800/40 flex items-center justify-center mb-3">
+                    <div className="text-4xl" data-testid="img-crash">
+                      🚀
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mines Section */}
+                <div className="bg-gradient-to-br from-green-900/30 to-teal-900/30 rounded-xl border border-green-500/30 p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Diamond className="h-5 w-5 text-green-400" />
+                    <h3 className="text-lg font-bold text-white">Mines</h3>
+                    <Badge className="bg-slate-600 text-white text-xs ml-auto">
+                      Coming soon
+                    </Badge>
+                  </div>
+                  <div className="aspect-video rounded-lg bg-gradient-to-br from-green-800/40 to-teal-800/40 flex items-center justify-center mb-3">
+                    <div className="text-4xl" data-testid="img-mines">
+                      💎
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Slot Games Section */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl font-bold flex items-center gap-2 text-white">
+                    <Diamond className="h-5 w-5 text-purple-500" />
+                    🎰 Slot games
+                  </h2>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-cyan-400 hover:text-white text-sm"
+                    data-testid="button-view-all-slots"
+                  >
+                    View All
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </div>
+
+                <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
+                  {slotGames.map((game) => (
+                    <div
+                      key={game.id}
+                      className="group overflow-hidden hover:scale-105 transition-transform cursor-pointer bg-slate-800/60 hover:bg-slate-700/60 rounded-lg border border-slate-700/50 hover:border-orange-500/50"
+                      data-testid={`card-slot-${game.id}`}
+                    >
+                      <div className="aspect-[4/5] relative p-3 flex flex-col items-center justify-center">
+                        {game.isHot && (
+                          <Badge
+                            className="absolute top-1 right-1 bg-red-500 text-white text-xs px-1 py-0"
+                            data-testid={`badge-slot-hot-${game.id}`}
+                          >
+                            HOT
+                          </Badge>
+                        )}
+                        {game.isNew && (
+                          <Badge
+                            className="absolute top-1 right-1 bg-green-500 text-white text-xs px-1 py-0"
+                            data-testid={`badge-slot-new-${game.id}`}
+                          >
+                            NEW
+                          </Badge>
+                        )}
+                        <div
+                          className="text-3xl mb-2"
+                          data-testid={`img-slot-${game.id}`}
+                        >
+                          {game.image}
+                        </div>
+                        <h4
+                          className="text-xs font-bold text-white text-center leading-tight"
+                          data-testid={`text-slot-title-${game.id}`}
+                        >
+                          {game.title}
+                        </h4>
+                        <p
+                          className="text-xs text-slate-400 text-center mt-1"
+                          data-testid={`text-slot-category-${game.id}`}
+                        >
+                          {game.category}
+                        </p>
+                        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
+                          <Play className="h-5 w-5 text-white" />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </ScrollArea>
         </div>
