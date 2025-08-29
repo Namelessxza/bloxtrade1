@@ -721,7 +721,7 @@ export default function Index() {
               size="sm"
               className="hover:bg-[#253445] text-slate-300 hover:text-white rounded-full px-3 py-2 flex items-center gap-2 text-xs font-medium border border-[#2a3441] bg-[#171717]"
             >
-              <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
+              <div className="w-5 h-5 rounded-full flex items-center justify-center bg-[#1e4078]">
                 <Image className="h-3 w-3 text-white" />
               </div>
               GIF
