@@ -714,7 +714,7 @@ export default function Index() {
         </ScrollArea>
 
         {/* Chat Controls */}
-        <div className="p-4 bg-[#0d1b2a] space-y-3">
+        <div className="p-4 space-y-3 bg-[#091732]">
           <div className="flex items-center justify-start gap-3">
             <Button
               variant="ghost"
