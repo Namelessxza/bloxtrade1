@@ -414,7 +414,7 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-3 py-2 space-y-3 bg-[#0f1629]">
               {/* Promotional Banner */}
-              <div className="relative overflow-hidden rounded-2xl border border-purple-500/30" style={{backgroundImage: 'url(/attached_assets/image_1756447323931.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+              <div className="relative overflow-hidden rounded-2xl border border-purple-500/30" style={{backgroundImage: 'url(/attached_assets/vca.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-black/40" />
                 </div>
