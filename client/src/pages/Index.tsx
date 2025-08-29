@@ -172,21 +172,25 @@ export default function Index() {
         {/* Right Section - Controls */}
         <div className="flex items-center gap-4 w-1/4 justify-end mr-4">
           {/* Notification Bell */}
-          <button
-            className="buy-crypto-button-no-glow relative p-2 rounded-lg"
+          <Button
+            variant="ghost"
+            size="sm"
+            className="relative p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
             data-testid="button-notifications"
           >
-            <Bell className="h-4 w-4 text-white" />
+            <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
             <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
-          </button>
+          </Button>
 
           {/* Shopping Cart */}
-          <button
-            className="buy-crypto-button-no-glow p-2 rounded-lg"
+          <Button
+            variant="ghost"
+            size="sm"
+            className="p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
             data-testid="button-cart"
           >
-            <ShoppingCart className="h-4 w-4 text-white" />
-          </button>
+            <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
+          </Button>
 
           {/* Wallet Balance */}
           <div className="flex items-center gap-2 bg-slate-800/60 px-4 py-2 rounded-lg">
@@ -200,13 +204,13 @@ export default function Index() {
           </div>
 
           {/* Profile Button */}
-          <button
-            className="buy-crypto-button-no-glow px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold"
+          <Button
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold"
             data-testid="button-profile"
           >
             <User className="h-3 w-3" />
             Profile
-          </button>
+          </Button>
         </div>
       </header>
       {/* Content Row */}
@@ -278,20 +282,21 @@ export default function Index() {
 
           {/* Bottom Actions */}
           <div className="p-3 space-y-2 from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl bg-[#01112d]">
-            <button
-              className="buy-crypto-button-no-glow w-full justify-center gap-3 text-white text-sm rounded-lg font-semibold flex items-center"
+            <Button
+              className="w-full justify-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm rounded-lg font-semibold"
               data-testid="button-buy-crypto"
             >
               <CreditCard className="h-4 w-4" />
               Buy crypto
-            </button>
-            <button
-              className="buy-crypto-button-no-glow w-full justify-center gap-3 text-white text-sm rounded-lg flex items-center"
+            </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-center gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg"
               data-testid="button-support"
             >
               <HeadphonesIcon className="h-4 w-4" />
               Support
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -335,7 +340,7 @@ export default function Index() {
                   </div>
                   <div className="flex flex-col gap-3">
                     <button
-                      className="buy-crypto-button-no-glow"
+                      className="buy-crypto-button"
                       data-testid="button-sign-up"
                     >Enter Giveaway</button>
                     <div className="flex items-center gap-2 text-sm text-white/70">
@@ -449,27 +454,32 @@ export default function Index() {
                   className="flex-1 h-12 px-4 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
                   data-testid="input-chat-message"
                 />
-                <button
+                <Button
                   type="submit"
-                  className="buy-crypto-button-no-glow rounded-lg w-12 h-12 p-0 flex items-center justify-center"
+                  size="sm"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-lg w-12 h-12 p-0 flex items-center justify-center shadow-lg"
                   data-testid="button-send-message"
                 >
                   <Send className="h-5 w-5 text-white" />
-                </button>
+                </Button>
               </form>
               <div className="flex items-center gap-4 mt-3 pt-3 rounded-lg -mx-1 px-3 bg-[#081834]">
-                <button
-                  className="buy-crypto-button-no-glow flex items-center gap-2 text-xs text-white p-2 rounded-lg"
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/40"
                 >
                   <FileText className="h-3 w-3" />
                   Rules
-                </button>
-                <button
-                  className="buy-crypto-button-no-glow flex items-center gap-2 text-xs text-white p-2 rounded-lg"
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/40"
                 >
                   <Smile className="h-3 w-3" />
                   Emojies
-                </button>
+                </Button>
               </div>
             </div>
           </div>
