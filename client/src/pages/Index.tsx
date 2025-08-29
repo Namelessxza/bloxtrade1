@@ -124,32 +124,32 @@ export default function Index() {
       name: "Player",
       value: "+60.4$",
       username: "Mas***ew",
-      icon: "🎮",
-      gradient: "from-red-500 to-pink-600"
+      icon: "🍬",
+      gradient: "bg-gradient-to-b from-orange-400 to-red-500"
     },
     {
       id: "2",
       name: "Player",
       value: "+100$",
       username: "Mas***ew",
-      icon: "🎯",
-      gradient: "from-orange-500 to-red-600"
+      icon: "🍎",
+      gradient: "bg-gradient-to-b from-green-400 to-emerald-500"
     },
     {
       id: "3",
       name: "Player",
       value: "+1300$",
       username: "Mas***ew",
-      icon: "🎪",
-      gradient: "from-pink-500 to-purple-600"
+      icon: "🍭",
+      gradient: "bg-gradient-to-b from-pink-400 to-rose-500"
     },
     {
       id: "4",
       name: "Player",
       value: "+234$",
       username: "Mas***ew",
-      icon: "⚡",
-      gradient: "from-yellow-500 to-orange-600"
+      icon: "🎪",
+      gradient: "bg-gradient-to-b from-yellow-400 to-orange-500"
     },
     {
       id: "5",
@@ -157,23 +157,23 @@ export default function Index() {
       value: "+90$",
       username: "Mas***ew",
       icon: "❤️",
-      gradient: "from-red-500 to-rose-600"
+      gradient: "bg-gradient-to-b from-red-400 to-pink-500"
     },
     {
       id: "6",
       name: "Player",
       value: "+40K",
       username: "Mas***ew",
-      icon: "🎲",
-      gradient: "from-purple-500 to-indigo-600"
+      icon: "💎",
+      gradient: "bg-gradient-to-b from-purple-400 to-indigo-500"
     },
     {
       id: "7",
       name: "Player",
       value: "+40K",
       username: "Mas***ew",
-      icon: "💎",
-      gradient: "from-blue-500 to-cyan-600"
+      icon: "🎯",
+      gradient: "bg-gradient-to-b from-blue-400 to-cyan-500"
     },
     {
       id: "8",
@@ -181,7 +181,7 @@ export default function Index() {
       value: "+34.4K",
       username: "Mas***ew",
       icon: "🏆",
-      gradient: "from-yellow-400 to-amber-500"
+      gradient: "bg-gradient-to-b from-amber-400 to-yellow-500"
     },
     {
       id: "9",
@@ -189,7 +189,7 @@ export default function Index() {
       value: "+400$",
       username: "Mas***ew",
       icon: "💰",
-      gradient: "from-emerald-500 to-green-600"
+      gradient: "bg-gradient-to-b from-emerald-400 to-green-500"
     },
     {
       id: "10",
@@ -197,7 +197,7 @@ export default function Index() {
       value: "+2400$",
       username: "Mas***ew",
       icon: "🎁",
-      gradient: "from-teal-500 to-blue-600"
+      gradient: "bg-gradient-to-b from-teal-400 to-blue-500"
     },
     {
       id: "11",
@@ -205,7 +205,7 @@ export default function Index() {
       value: "+160$",
       username: "Mas***ew",
       icon: "🍀",
-      gradient: "from-green-500 to-emerald-600"
+      gradient: "bg-gradient-to-b from-lime-400 to-green-500"
     },
     {
       id: "12",
@@ -213,23 +213,7 @@ export default function Index() {
       value: "+130$",
       username: "Mas***ew",
       icon: "⭐",
-      gradient: "from-indigo-500 to-purple-600"
-    },
-    {
-      id: "13",
-      name: "Player",
-      value: "+170$",
-      username: "Mas***ew",
-      icon: "🎰",
-      gradient: "from-violet-500 to-purple-600"
-    },
-    {
-      id: "14",
-      name: "Player",
-      value: "+2.6K",
-      username: "Mas***ew",
-      icon: "💳",
-      gradient: "from-slate-500 to-gray-600"
+      gradient: "bg-gradient-to-b from-violet-400 to-purple-500"
     }
   ];
 
@@ -515,36 +499,36 @@ export default function Index() {
                 </div>
                 <div
                   id="game-tiles-container"
-                  className="flex gap-2 overflow-x-auto scrollbar-hide pb-2"
+                  className="flex gap-1.5 overflow-x-auto scrollbar-hide pb-2"
                   style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                   {gameTiles.map((tile) => (
                     <div
                       key={tile.id}
-                      className={`flex-shrink-0 w-16 h-20 rounded-lg bg-gradient-to-br ${tile.gradient} p-2 cursor-pointer hover:scale-105 transition-transform shadow-lg relative`}
+                      className={`flex-shrink-0 w-12 h-16 rounded-md ${tile.gradient} p-1.5 cursor-pointer hover:scale-105 transition-transform shadow-md relative`}
                       data-testid={`tile-game-${tile.id}`}
                     >
                       <div className="flex flex-col items-center justify-center text-center h-full">
                         <div
-                          className="text-lg mb-1"
+                          className="text-sm mb-0.5"
                           data-testid={`img-tile-${tile.id}`}
                         >
                           {tile.icon}
                         </div>
                         <h4
-                          className="text-[8px] font-medium text-white leading-none mb-0.5 truncate w-full"
+                          className="text-[6px] font-medium text-white leading-none mb-0.5 truncate w-full"
                           data-testid={`text-tile-name-${tile.id}`}
                         >
                           {tile.name}
                         </h4>
                         <div
-                          className="text-[8px] font-bold text-white mb-0.5"
+                          className="text-[6px] font-bold text-white mb-0.5"
                           data-testid={`text-tile-value-${tile.id}`}
                         >
                           {tile.value}
                         </div>
                         <div
-                          className="text-[7px] text-white/90 truncate w-full"
+                          className="text-[5px] text-white/90 truncate w-full"
                           data-testid={`text-tile-username-${tile.id}`}
                         >
                           {tile.username}
