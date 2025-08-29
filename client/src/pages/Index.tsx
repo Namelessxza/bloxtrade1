@@ -44,6 +44,7 @@ import {
   FileText,
   Bell,
   Lock,
+  Clock,
   Check,
   ShoppingCart,
   Wallet,
@@ -425,55 +426,34 @@ export default function Index() {
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-black/30" />
                 </div>
-                <div className="relative p-5 flex flex-col gap-5">
-                  <div className="flex items-start gap-8">
-                    {/* Purple box with spotlight */}
-                    <div className="relative">
-                      {/* Purple spotlight effect on left side */}
-                      <div className="absolute -left-10 top-1/2 transform -translate-y-1/2 w-20 h-20 bg-purple-500/50 rounded-full blur-2xl"></div>
-                      <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-purple-400/60 rounded-full blur-xl"></div>
-                      <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-purple-300/70 rounded-full blur-lg"></div>
-                      
-                      {/* Main purple box */}
-                      <div className="relative bg-[#1a2847] rounded-2xl px-4 py-3 flex items-start gap-3 min-w-[180px]">
-                        <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Lock className="h-4 w-4 text-purple-300" />
-                        </div>
-                        <div className="flex flex-col">
-                          <div className="text-xs text-gray-300 mb-1">Unlock in 7 days</div>
-                          <div className="text-lg font-bold text-white">$200,44</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Green box */}
-                    <div className="bg-[#0e3a2e] rounded-2xl px-4 py-3 flex items-start gap-3 min-w-[150px]">
-                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                <div className="relative p-6 flex flex-col items-center">
+                  {/* Top section */}
+                  <div className="flex space-x-3 mb-6">
+                    {/* Left box */}
+                    <div className="flex items-center space-x-3 rounded-lg px-5 py-4 bg-gradient-to-r from-[#a12bd4] via-[#4623ff] to-[#142447] shadow-md">
+                      <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-br from-[#c041f3] to-[#6f2be3]">
+                        <Lock className="w-5 h-5 text-white opacity-90" />
                       </div>
                       <div className="flex flex-col">
-                        <div className="text-xs text-gray-300 mb-1">02:34:00</div>
-                        <div className="text-lg font-bold text-white">$200,44</div>
+                        <span className="text-[15px] text-white/90 font-medium">Unlock in 7 days</span>
+                        <span className="text-[17px] font-extrabold text-white">$200,44</span>
+                      </div>
+                    </div>
+
+                    {/* Right box */}
+                    <div className="flex items-center space-x-3 rounded-lg px-5 py-4 bg-[#142447] shadow-md">
+                      <Clock className="w-5 h-5 text-green-400" />
+                      <div className="flex flex-col">
+                        <span className="text-[15px] text-white/90 font-medium">02:34:00</span>
+                        <span className="text-[17px] font-extrabold text-white">$200,44</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Sign up button and info */}
-                  <div className="flex flex-col gap-3">
-                    <Button
-                      size="lg"
-                      className="bg-[#00d563] hover:bg-[#00c055] text-white font-bold py-3 px-12 rounded-2xl text-lg w-fit"
-                      data-testid="button-sign-up"
-                    >
-                      Sign up
-                    </Button>
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <div className="w-5 h-5 bg-gray-600/30 rounded-full flex items-center justify-center">
-                        <span className="text-xs text-gray-300">i</span>
-                      </div>
-                      <span>How do vault rewards work?</span>
-                    </div>
-                  </div>
+                  {/* Sign up button */}
+                  <button className="bg-[#16d34a] hover:bg-[#12b23f] text-white font-semibold px-10 py-3 rounded-md shadow-md transition" data-testid="button-sign-up">
+                    Sign up
+                  </button>
                 </div>
               </div>
 
