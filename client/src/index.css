@@ -141,159 +141,34 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Enhanced Typography System with Carossoft */
+  /* Typography improvements with responsive clamp() */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Carossoft', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 600;
-    line-height: 1.3;
+    font-weight: 700;
+    line-height: 1.2;
     letter-spacing: -0.02em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    margin-bottom: 0.75rem;
   }
   
   h1 {
-    font-size: clamp(2.25rem, 5vw, 3.5rem);
-    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
     letter-spacing: -0.03em;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
   }
   
   h2 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    line-height: 1.25;
-    margin-bottom: 1.25rem;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 800;
   }
   
   h3 {
-    font-size: clamp(1.375rem, 3vw, 1.875rem);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    margin-bottom: 1rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
   }
   
-  h4 {
-    font-size: 1.125rem;
-    font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
-  }
-  
-  h5 {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
-  }
-  
-  h6 {
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  /* Body Text */
   p, span, div {
-    font-family: 'Carossoft', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    margin-bottom: 1rem;
-    font-weight: 400;
-  }
-  
-  /* Button Text */
-  button, .btn {
-    font-family: 'Carossoft', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-  
-  /* Small Text */
-  small, .text-sm {
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-  
-  /* Extra Small Text */
-  .text-xs {
-    font-size: 0.75rem;
-    line-height: 1.4;
-  }
-  
-  /* Large Text */
-  .text-lg {
-    font-size: 1.125rem;
-    line-height: 1.6;
-  }
-  
-  /* Extra Large Text */
-  .text-xl {
-    font-size: 1.25rem;
-    line-height: 1.5;
-  }
-  
-  /* Typography Utility Classes */
-  .font-carossoft {
-    font-family: 'Carossoft', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  .text-spacing-comfortable {
-    line-height: 1.7;
-    letter-spacing: 0.015em;
-  }
-  
-  .text-spacing-tight {
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-  }
-  
-  /* Component-specific typography fixes */
-  .nav-text {
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.4;
-    letter-spacing: 0.01em;
-  }
-  
-  .button-text {
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: 0.02em;
-  }
-  
-  .input-text {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.4;
-  }
-  
-  .chat-text {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.5;
-  }
-  
-  .heading-primary {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-  }
-  
-  .heading-secondary {
-    font-size: 1.125rem;
-    font-weight: 500;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.75rem;
   }
   
   /* Improved text contrast */
