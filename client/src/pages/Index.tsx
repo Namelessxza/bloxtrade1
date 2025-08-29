@@ -285,13 +285,15 @@ export default function Index() {
 
           {/* Bottom Actions */}
           <div className="p-3 space-y-2 from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl bg-[#01112d]">
-            <Button
-              className="w-full justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white text-sm rounded-lg font-semibold"
-              data-testid="button-buy-crypto"
-            >
-              <CreditCard className="h-4 w-4" />
-              Buy crypto
-            </Button>
+            <div className="bg-slate-800/40 rounded-lg p-3">
+              <Button
+                className="w-full justify-center gap-3 bg-slate-700/60 hover:bg-slate-600/60 text-slate-300 hover:text-white text-sm rounded-lg font-semibold"
+                data-testid="button-buy-crypto"
+              >
+                <CreditCard className="h-4 w-4" />
+                Buy crypto
+              </Button>
+            </div>
             <Button
               variant="ghost"
               className="w-full justify-center gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg"
