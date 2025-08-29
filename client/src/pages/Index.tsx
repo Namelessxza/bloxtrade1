@@ -238,7 +238,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background flex">
       {/* Left Sidebar - Navigation */}
-      <div className="w-[240px] bg-card border-r border-border flex flex-col">
+      <div className="w-[240px] bg-card border-r border-border flex flex-col flex-shrink-0">
         {/* Logo */}
         <div className="p-6 border-b border-border">
           <div className="flex items-center gap-2">
@@ -296,7 +296,7 @@ export default function Index() {
         </div>
       </div>
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col min-w-0">
         {/* Top Navigation Bar */}
         <header className="h-16 border-b border-border backdrop-blur-sm flex items-center justify-between px-6 bg-[#01112d]">
           <div className="flex items-center gap-4">
@@ -601,7 +601,7 @@ export default function Index() {
         </ScrollArea>
       </div>
       {/* Right Chat Panel */}
-      <div className="w-[280px] bg-slate-900 border-l border-slate-700/50 flex flex-col">
+      <div className="w-[280px] bg-slate-900 border-l border-slate-700/50 flex flex-col flex-shrink-0">
         {/* Balance Display */}
         <div className="p-3 border-b border-slate-700/50 bg-slate-800">
           <div className="flex items-center justify-between text-sm">
