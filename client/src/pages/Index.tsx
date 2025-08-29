@@ -305,53 +305,7 @@ export default function Index() {
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-3 py-2 bg-transparent relative">
-              {/* Promotional Banner */}
-              <div className="relative overflow-hidden rounded-2xl min-h-[200px] mb-16">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{
-                    backgroundImage: 'url(/vca.jpg)'
-                  }}
-                ></div>
-                <div className="absolute inset-0">
-                  <div className="absolute inset-0 bg-black/30" />
-                </div>
-                <div className="relative p-6 flex flex-col gap-4">
-                  <div className="flex items-center gap-4">
-                    {/* Left box */}
-                    <div className="flex items-center space-x-3 rounded-lg px-5 py-4 bg-gradient-to-r from-[#a12bd4] via-[#142447] to-[#142447] shadow-md">
-                      <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-br from-[#c041f3] to-[#6f2be3]">
-                        <Lock className="w-5 h-5 text-white opacity-90" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-[15px] text-white/90 font-medium">Unlock in 7 days</span>
-                        <span className="text-[17px] font-extrabold text-white">$200,44</span>
-                      </div>
-                    </div>
-
-                    {/* Right box */}
-                    <div className="flex items-center space-x-3 rounded-lg px-5 py-4 bg-[#142447] shadow-md">
-                      <Clock className="w-5 h-5 text-green-400" />
-                      <div className="flex flex-col">
-                        <span className="text-[15px] text-white/90 font-medium">02:34:00</span>
-                        <span className="text-[17px] font-extrabold text-white">$200,44</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <button
-                      className="buy-crypto-button"
-                      data-testid="button-sign-up"
-                    >Enter Giveaway</button>
-                    <div className="flex items-center gap-2 text-sm text-white/70">
-                      <div className="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center">
-                        <span className="text-xs text-white">i</span>
-                      </div>
-                      <span>How do vault rewards work?</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
 
 
               
