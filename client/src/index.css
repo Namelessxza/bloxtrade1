@@ -4,7 +4,7 @@
 /* Custom font definition */
 @font-face {
   font-family: 'Carossoft';
-  src: url('../../attached_assets/Fontspring-DEMO-carossoft-medium.otf') format('opentype');
+  src: url('/Fontspring-DEMO-carossoft-medium.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
