@@ -268,7 +268,7 @@ export default function Index() {
             <div 
               className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
                 activeMode === "games" 
-                  ? "from-purple-600 to-pink-500 w-[calc(50%-4px)] translate-x-0" 
+                  ? "from-blue-600 to-cyan-500 w-[calc(50%-4px)] translate-x-0" 
                   : "from-slate-600 to-slate-500 w-[calc(50%-4px)] translate-x-full"
               }`}
             />
@@ -372,7 +372,7 @@ export default function Index() {
             </div>
             <Button
               size="sm"
-              className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-500 hover:to-pink-400 text-white px-4"
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4"
               data-testid="button-deposit"
             >
               Deposit
@@ -405,7 +405,7 @@ export default function Index() {
                   </h1>
                   <Button
                     size="lg"
-                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-semibold px-8 py-3 rounded-full"
+                    className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold px-8 py-3 rounded-full"
                     data-testid="button-claim-now"
                   >
                     Claim now
@@ -630,7 +630,7 @@ export default function Index() {
             <span className="text-lg font-semibold text-green-400">$500</span>
             <Button
               size="sm"
-              className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-500 hover:to-pink-400 text-white px-4 py-1 text-xs h-7 rounded-full"
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4 py-1 text-xs h-7 rounded-full"
             >
               Deposit
             </Button>
@@ -770,7 +770,7 @@ export default function Index() {
             <Button
               type="submit"
               size="sm"
-              className="bg-blue-500 hover:bg-blue-600 rounded-full w-11 h-11 p-0 flex items-center justify-center"
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 rounded-full w-11 h-11 p-0 flex items-center justify-center"
               data-testid="button-send-message"
             >
               <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
