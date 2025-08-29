@@ -148,7 +148,7 @@ export default function Index() {
       {/* Global Header */}
       <header className="h-16 backdrop-blur-sm flex items-center px-6 from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg bg-[#081834]">
         {/* Left Section - Logo */}
-        <div className="flex items-center gap-2 w-1/4">
+        <div className="flex items-center gap-2 w-1/4 justify-start ml-8">
           <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
             <TrendingUp className="h-5 w-5 text-white" />
           </div>
@@ -158,8 +158,8 @@ export default function Index() {
         </div>
 
         {/* Center Section - Search */}
-        <div className="flex justify-center w-1/2">
-          <div className="relative w-full">
+        <div className="flex justify-center w-1/2 -ml-16">
+          <div className="relative w-3/4">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
             <Input
               placeholder="Search items, skins, collectibles..."
@@ -170,7 +170,7 @@ export default function Index() {
         </div>
 
         {/* Right Section - Controls */}
-        <div className="flex items-center gap-4 w-1/4 justify-end">
+        <div className="flex items-center gap-4 w-1/4 justify-end mr-4">
           {/* Notification Bell */}
           <Button
             variant="ghost"
