@@ -224,7 +224,7 @@ export default function Index() {
                 className={`flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 ${
                   activeMode === "games"
                     ? "bg-blue-600 text-white shadow-lg"
-                    : "text-slate-400 hover:text-white"
+                    : "text-slate-100 hover:text-white"
                 }`}
               >
                 <div className="w-5 h-5 rounded-full border-2 border-current flex items-center justify-center">
@@ -234,7 +234,7 @@ export default function Index() {
               </button>
               <button
                 disabled
-                className="flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 text-slate-600 cursor-not-allowed relative"
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 text-slate-300 cursor-not-allowed relative"
               >
                 <div className="w-5 h-5 rounded-full flex items-center justify-center relative">
                   <div className="w-4 h-4 rounded-full border-2 border-current flex items-center justify-center">
