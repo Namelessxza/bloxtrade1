@@ -42,7 +42,7 @@ interface ChatMessage {
 
 export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [activeMode, setActiveMode] = useState<"games" | "sport">("games");
+  const [activeMode, setActiveMode] = useState<"games" | "sports">("games");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       id: "1",
@@ -219,9 +219,9 @@ export default function Index() {
         <div className="w-[220px] bg-transparent flex flex-col flex-shrink-0">
           {/* Games/Sport Toggle */}
           <div className="px-4 py-6 bg-[#01112d]">
-            <div className="flex bg-slate-800/30 rounded-full p-1 relative">
+            <div className="flex bg-slate-800/60 rounded-full p-1 relative border border-slate-700/50">
               <div
-                className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out ${
+                className={`absolute top-1 left-1 h-8 rounded-full bg-gradient-to-r transition-all duration-300 ease-in-out shadow-lg ${
                   activeMode === "games"
                     ? "from-blue-500 to-blue-600 w-[calc(50%-4px)] translate-x-0"
                     : "from-blue-500 to-blue-600 w-[calc(50%-4px)] translate-x-full"
@@ -229,26 +229,30 @@ export default function Index() {
               />
               <button
                 onClick={() => setActiveMode("games")}
-                className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
+                className={`relative z-10 flex items-center justify-center gap-2 px-3 py-2 rounded-full text-sm font-semibold transition-colors duration-300 flex-1 min-w-0 ${
                   activeMode === "games"
                     ? "text-white"
-                    : "text-slate-400 hover:text-white"
+                    : "text-slate-300 hover:text-white"
                 }`}
               >
-                <div className="w-4 h-4 rounded bg-blue-500 flex items-center justify-center">
+                <div className={`w-4 h-4 rounded flex items-center justify-center ${
+                  activeMode === "games" ? "bg-white/20" : "bg-slate-600"
+                }`}>
                   <span className="text-xs text-white">♦</span>
                 </div>
                 <span className="truncate">Casino</span>
               </button>
               <button
                 onClick={() => setActiveMode("sports")}
-                className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 flex-1 min-w-0 ${
+                className={`relative z-10 flex items-center justify-center gap-2 px-3 py-2 rounded-full text-sm font-semibold transition-colors duration-300 flex-1 min-w-0 ${
                   activeMode === "sports"
                     ? "text-white"
-                    : "text-slate-400 hover:text-white"
+                    : "text-slate-300 hover:text-white"
                 }`}
               >
-                <div className="w-4 h-4 rounded bg-slate-600 flex items-center justify-center">
+                <div className={`w-4 h-4 rounded flex items-center justify-center ${
+                  activeMode === "sports" ? "bg-white/20" : "bg-slate-600"
+                }`}>
                   <span className="text-xs text-white">⚽</span>
                 </div>
                 <span className="truncate">Sports</span>
