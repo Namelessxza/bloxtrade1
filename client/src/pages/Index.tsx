@@ -238,9 +238,9 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background flex flex-row w-full">
       {/* Left Sidebar - Navigation */}
-      <div className="w-[200px] bg-card border-r border-border flex flex-col flex-shrink-0 h-screen">
+      <div className="w-[200px] bg-[#01112d] flex flex-col flex-shrink-0 h-screen">
         {/* Logo */}
-        <div className="p-6">
+        <div className="p-6 bg-[#01112d]">
           <div className="flex items-center gap-2">
             <Flame className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -261,7 +261,7 @@ export default function Index() {
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all ${
                     selectedCategory === category.id
                       ? "bg-primary/10 text-primary border-l-4 border-primary"
-                      : "hover:bg-muted text-muted-foreground hover:text-foreground"
+                      : "hover:bg-white/10 text-muted-foreground hover:text-foreground"
                   }`}
                   data-testid={`button-category-${category.id}`}
                 >
@@ -277,7 +277,7 @@ export default function Index() {
         </ScrollArea>
 
         {/* Bottom Actions */}
-        <div className="p-4 space-y-2">
+        <div className="p-4 space-y-2 bg-[#01112d]">
           <Button
             className="w-full justify-start gap-2 bg-primary/10 hover:bg-primary/20 text-primary"
             data-testid="button-buy-crypto"
