@@ -175,7 +175,7 @@ export default function Index() {
           <Button
             variant="ghost"
             size="sm"
-            className="relative p-3 rounded-xl bg-slate-800/30 hover:bg-slate-700/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            className="relative p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
             data-testid="button-notifications"
           >
             <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
@@ -186,14 +186,14 @@ export default function Index() {
           <Button
             variant="ghost"
             size="sm"
-            className="p-3 rounded-xl bg-slate-800/30 hover:bg-slate-700/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            className="p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
             data-testid="button-cart"
           >
             <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
           </Button>
 
           {/* Wallet Balance */}
-          <div className="flex items-center gap-2 bg-gradient-to-r from-slate-800/60 to-slate-700/60 px-4 py-3 rounded-xl backdrop-blur-sm shadow-lg border border-slate-600/30">
+          <div className="flex items-center gap-2 bg-slate-800/60 px-4 py-2 rounded-lg">
             <Wallet className="h-4 w-4 text-slate-400" />
             <span
               className="text-white font-semibold"
@@ -205,7 +205,7 @@ export default function Index() {
 
           {/* Profile Button */}
           <Button
-            className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4 py-2.5 rounded-xl flex items-center gap-2 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-blue-400/30"
+            className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold"
             data-testid="button-profile"
           >
             <User className="h-3 w-3" />
@@ -265,7 +265,7 @@ export default function Index() {
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-all ${
                       selectedCategory === category.id
                         ? "bg-gradient-to-r from-blue-500/40 to-cyan-500/30 text-blue-300 shadow-lg shadow-blue-500/20 border-l-4 border-l-blue-400"
-                        : "hover:bg-slate-800/60 text-slate-400 hover:text-blue-400 hover:shadow-md hover:scale-[1.02] transition-all duration-200"
+                        : "hover:bg-slate-800/60 text-slate-400 hover:text-blue-400"
                     }`}
                     data-testid={`button-category-${category.id}`}
                   >
@@ -283,7 +283,7 @@ export default function Index() {
           {/* Bottom Actions */}
           <div className="p-3 space-y-2 bg-gradient-to-t from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl">
             <Button
-              className="w-full justify-start gap-3 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:via-cyan-500 hover:to-blue-400 text-white text-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-blue-400/20 font-medium"
+              className="w-full justify-start gap-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-sm rounded-lg font-semibold"
               data-testid="button-buy-crypto"
             >
               <CreditCard className="h-4 w-4" />
@@ -291,7 +291,7 @@ export default function Index() {
             </Button>
             <Button
               variant="ghost"
-              className="w-full justify-start gap-3 text-slate-400 hover:text-white hover:bg-gradient-to-r hover:from-slate-800/50 hover:to-slate-700/50 text-sm rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-transparent hover:border-slate-600/30 font-medium"
+              className="w-full justify-start gap-3 text-slate-400 hover:text-white hover:bg-slate-800/50 text-sm rounded-lg"
               data-testid="button-support"
             >
               <HeadphonesIcon className="h-4 w-4" />
@@ -341,7 +341,7 @@ export default function Index() {
                   <div className="flex flex-col gap-3">
                     <Button
                       size="lg"
-                      className="bg-gradient-to-r from-[#109edb] via-[#1ea7e8] to-[#12b23f] hover:from-[#0d8bc4] hover:via-[#12b23f] hover:to-[#0f9d35] text-white font-bold px-12 py-4 rounded-xl shadow-2xl w-fit hover:shadow-3xl transition-all duration-300 hover:scale-110 border-2 border-white/20 hover:border-white/40 backdrop-blur-sm"
+                      className="bg-gradient-to-r from-[#109edb] to-[#12b23f] hover:from-[#0d8bc4] hover:to-[#0f9d35] text-white font-bold px-8 py-3 rounded-lg shadow-lg w-fit"
                       data-testid="button-sign-up"
                     >Enter Giveaway</Button>
                     <div className="flex items-center gap-2 text-sm text-white/70">
@@ -458,7 +458,7 @@ export default function Index() {
                 <Button
                   type="submit"
                   size="sm"
-                  className="bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-500 hover:via-blue-500 hover:to-cyan-500 rounded-xl w-14 h-14 p-0 flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-purple-400/30 hover:border-cyan-400/50 backdrop-blur-sm"
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-lg w-12 h-12 p-0 flex items-center justify-center shadow-lg"
                   data-testid="button-send-message"
                 >
                   <Send className="h-5 w-5 text-white" />
@@ -468,7 +468,7 @@ export default function Index() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-3 rounded-xl hover:bg-gradient-to-r hover:from-slate-700/40 hover:to-slate-600/40 transition-all duration-300 hover:scale-105 hover:shadow-md border border-transparent hover:border-slate-500/30 font-medium backdrop-blur-sm"
+                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/40"
                 >
                   <FileText className="h-3 w-3" />
                   Rules
@@ -476,7 +476,7 @@ export default function Index() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-3 rounded-xl hover:bg-gradient-to-r hover:from-slate-700/40 hover:to-slate-600/40 transition-all duration-300 hover:scale-105 hover:shadow-md border border-transparent hover:border-slate-500/30 font-medium backdrop-blur-sm"
+                  className="flex items-center gap-2 text-xs text-gray-400 hover:text-white p-2 rounded-lg hover:bg-slate-700/40"
                 >
                   <Smile className="h-3 w-3" />
                   Emojies
