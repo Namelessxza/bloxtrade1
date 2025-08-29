@@ -267,7 +267,7 @@ export default function Index() {
         </div>
         
         {/* Right Side Controls */}
-        <div className="flex items-center gap-4 ml-6 mr-6">
+        <div className="flex items-center gap-4 ml-6">
           {/* Notification Bell */}
           <Button
             variant="ghost"
