@@ -159,10 +159,10 @@ export default function Index() {
         {/* Center Section - Search */}
         <div className="flex justify-center w-1/2 -ml-16">
           <div className="relative w-3/4">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-100" />
             <Input
               placeholder="Search items, skins, collectibles..."
-              className="w-full pl-12 pr-4 py-3 bg-slate-800/30 rounded-xl text-slate-200 placeholder:text-slate-400 focus:bg-slate-700/30 transition-all h-12"
+              className="w-full pl-12 pr-4 py-3 bg-slate-800/30 rounded-xl text-white placeholder:text-slate-100 focus:bg-slate-700/30 transition-all h-12"
               data-testid="input-search"
             />
           </div>
@@ -177,7 +177,7 @@ export default function Index() {
             className="relative p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
             data-testid="button-notifications"
           >
-            <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
+            <Bell className="h-4 w-4 text-slate-100 hover:text-white" />
             <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
           </Button>
 
@@ -188,12 +188,12 @@ export default function Index() {
             className="p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
             data-testid="button-cart"
           >
-            <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
+            <ShoppingCart className="h-4 w-4 text-slate-100 hover:text-white" />
           </Button>
 
           {/* Wallet Balance */}
           <div className="flex items-center gap-2 bg-slate-800/60 px-4 py-2 rounded-lg">
-            <Wallet className="h-4 w-4 text-slate-400" />
+            <Wallet className="h-4 w-4 text-slate-100" />
             <span
               className="text-white font-semibold"
               data-testid="text-wallet-balance"
