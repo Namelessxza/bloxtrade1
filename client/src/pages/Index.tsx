@@ -256,7 +256,11 @@ export default function Index() {
   return (
     <div className="h-screen bg-background flex flex-col w-full overflow-hidden">
       {/* Global Header */}
-      <header className="h-16 backdrop-blur-sm flex items-center justify-between px-6 bg-[#0a1628] border-b border-slate-800/30 w-full z-10">
+      <header className="h-16 backdrop-blur-sm flex items-center px-6 bg-[#0a1628] border-b border-slate-800/30 w-full z-10">
+        {/* Left Spacer */}
+        <div className="flex-1"></div>
+        
+        {/* Centered Search */}
         <div className="relative w-full max-w-2xl">
           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
           <Input
@@ -267,7 +271,7 @@ export default function Index() {
         </div>
         
         {/* Right Side Controls */}
-        <div className="flex items-center gap-4 ml-6">
+        <div className="flex items-center gap-4 ml-6 flex-1 justify-end">
           {/* Notification Bell */}
           <Button
             variant="ghost"
