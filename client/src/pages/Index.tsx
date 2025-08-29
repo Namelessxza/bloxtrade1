@@ -22,6 +22,7 @@ import {
   Users,
   MessageCircle,
   Send,
+  Search,
   ChevronRight,
   Play,
   Dice1,
@@ -348,35 +349,14 @@ export default function Index() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 h-screen">
         {/* Top Navigation Bar */}
-        <header className="h-16 backdrop-blur-sm flex items-center justify-between px-6 bg-[#0a1628] border-b border-slate-800/30">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-sm">
-              <Coins className="h-4 w-4 text-primary" />
-              <span className="font-semibold" data-testid="text-balance">
-                19,390
-              </span>
-              <Badge
-                variant="secondary"
-                className="ml-2"
-                data-testid="badge-balance-change"
-              >
-                +5.1%
-              </Badge>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 text-green-400 bg-slate-800/50 px-3 py-1 rounded-full">
-              <span className="text-sm">19 390 </span>
-              <span className="text-xs text-slate-400">.23</span>
-            </div>
-            <Button
-              size="sm"
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-4"
-              data-testid="button-deposit"
-            >
-              Deposit
-            </Button>
+        <header className="h-16 backdrop-blur-sm flex items-center justify-center px-6 bg-[#0a1628] border-b border-slate-800/30">
+          <div className="relative w-full max-w-2xl">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+            <Input
+              placeholder="Search items, skins, collectibles..."
+              className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-lg text-slate-200 placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 h-12"
+              data-testid="input-search"
+            />
           </div>
         </header>
 
