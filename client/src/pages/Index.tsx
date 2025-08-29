@@ -395,7 +395,7 @@ export default function Index() {
             </div>
 
             {/* Chat Messages */}
-            <ScrollArea className="relative overflow-hidden flex-1 px-3 py-2 rounded-lg mb-2 max-h-[calc(100vh-120px)] overflow-y-auto bg-[#081834]">
+            <ScrollArea className="relative overflow-hidden flex-1 px-3 py-2 rounded-lg mb-2 max-h-[calc(100vh-120px)] overflow-y-auto chat-bg-custom">
               <div className="space-y-3">
                 {chatMessages.map((msg, index) => {
                   return (

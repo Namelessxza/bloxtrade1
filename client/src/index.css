@@ -489,4 +489,9 @@ All colors MUST be HSL.
 
 }
 
+/* Custom chat background color */
+.chat-bg-custom {
+  background-color: #081834 !important;
+}
+
 
