@@ -648,7 +648,7 @@ export default function Index() {
 
         {/* Chat Messages */}
         <ScrollArea
-          className="flex-1 p-2 bg-slate-900"
+          className="flex-1 p-2 bg-[#01112d]"
           style={{ maxHeight: "calc(100vh - 240px)" }}
         >
           <div className="space-y-2">
