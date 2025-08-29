@@ -394,11 +394,11 @@ All colors MUST be HSL.
   .buy-crypto-button {
     background: linear-gradient(135deg, #2dd4ff 0%, #1fc7ff 30%, #00b4e6 70%, #0095cc 100%);
     border: none;
-    border-radius: 100px;
-    padding: 24px 65px;
+    border-radius: 12px;
+    padding: 12px 32px;
     color: white;
-    font-size: 36px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
     letter-spacing: 0.5px;
     text-shadow: 
@@ -495,9 +495,6 @@ All colors MUST be HSL.
     }
   }
 
-  .buy-crypto-button {
-    animation: pulse 3s ease-in-out infinite;
-  }
 }
 
 
