@@ -229,20 +229,20 @@ export default function Index() {
               />
               <button
                 onClick={() => setActiveMode("games")}
-                className={`relative z-10 flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-300 flex-1 min-w-0 ${
+                className={`relative z-10 flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-300 flex-1 min-w-0 ${
                   activeMode === "games"
                     ? "text-white"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
-                <span className="truncate">SAB</span>
+                <span className="text-center w-full">SAB</span>
               </button>
               <button
                 disabled
                 className="relative z-10 flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-300 flex-1 min-w-0 text-slate-600 cursor-not-allowed"
               >
                 <Lock className="h-3 w-3 flex-shrink-0" />
-                <span className="truncate">GAG</span>
+                <span className="text-center">GAG</span>
               </button>
             </div>
           </div>
