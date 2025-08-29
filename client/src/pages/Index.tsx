@@ -414,38 +414,63 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-3 py-2 space-y-3 bg-[#0f1629]">
               {/* Promotional Banner */}
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-pink-900/40 border border-blue-500/30">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-teal-900/40 border border-purple-500/30">
                 <div className="absolute inset-0">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse" />
-                  <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-xl" />
-                  <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full blur-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-blue-600/20 to-teal-600/20 animate-pulse" />
+                  <div className="absolute top-4 right-4 w-32 h-32 bg-gradient-to-br from-purple-400/30 to-blue-400/30 rounded-full blur-xl" />
+                  <div className="absolute bottom-4 left-4 w-24 h-24 bg-gradient-to-br from-teal-400/30 to-purple-400/30 rounded-full blur-xl" />
                 </div>
-                <div className="relative p-3 flex items-center justify-between">
-                  <div className="space-y-2 max-w-md">
-                    <h1 className="text-3xl font-bold text-white leading-tight">
-                      <span className="block text-white text-lg font-medium mb-2">
-                        SIGN UP & GET REWARD UP TO
+                <div className="relative p-4 flex items-center justify-between">
+                  <div className="space-y-3 max-w-md">
+                    <h1 className="text-white leading-tight">
+                      <span className="block text-2xl font-bold mb-1">
+                        7 day Bonus
                       </span>
-                      <span className="text-4xl bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
-                        $20 000 and
-                      </span>
-                      <span className="block text-3xl text-white mt-1">
-                        20 FreeSpins
+                      <span className="block text-lg font-medium">
+                        unlock schedule
                       </span>
                     </h1>
+                    <div className="flex items-center gap-3">
+                      <div className="bg-purple-600/80 rounded-lg px-3 py-2 flex items-center gap-2">
+                        <div className="w-4 h-4 bg-purple-400 rounded-sm flex items-center justify-center">
+                          <span className="text-xs text-white font-bold">🔓</span>
+                        </div>
+                        <div>
+                          <div className="text-xs text-purple-200">Unlock in 7 days</div>
+                          <div className="text-sm font-bold text-white">$200.44</div>
+                        </div>
+                      </div>
+                      <div className="bg-green-600/80 rounded-lg px-3 py-2 flex items-center gap-2">
+                        <div className="w-4 h-4 bg-green-400 rounded-sm flex items-center justify-center">
+                          <span className="text-xs text-white">💰</span>
+                        </div>
+                        <div>
+                          <div className="text-xs text-green-200">02:34:00</div>
+                          <div className="text-sm font-bold text-white">$200.44</div>
+                        </div>
+                      </div>
+                    </div>
                     <Button
                       size="lg"
-                      className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold px-8 py-3 rounded-full"
-                      data-testid="button-claim-now"
+                      className="bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-2 rounded-lg w-fit"
+                      data-testid="button-sign-up"
                     >
-                      Claim now
+                      Sign up
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-blue-300 hover:text-white text-xs flex items-center gap-1 p-0"
+                      data-testid="button-vault-rewards"
+                    >
+                      ❓ How do vault rewards work?
                     </Button>
                   </div>
                   <div className="hidden lg:block relative">
-                    <div className="text-8xl" data-testid="img-wizard">
-                      🧙‍♂️
+                    <div className="text-6xl" data-testid="img-treasure">
+                      💰🎁💎
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-2xl scale-150" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-purple-400/20 rounded-full blur-2xl scale-150" />
                   </div>
                 </div>
               </div>
