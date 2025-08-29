@@ -418,7 +418,7 @@ export default function Index() {
                 <div 
                   className="absolute inset-0 bg-no-repeat"
                   style={{
-                    backgroundImage: 'url(/vca.png)',
+                    backgroundImage: 'url(/vault-bg.png)',
                     backgroundSize: '60%',
                     backgroundPosition: 'right bottom'
                   }}
