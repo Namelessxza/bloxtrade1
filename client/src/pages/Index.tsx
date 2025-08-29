@@ -667,22 +667,22 @@ export default function Index() {
                   <div className="flex gap-3">
                     <div className="relative flex-shrink-0">
                       <div
-                        className={`w-9 h-9 rounded-full flex items-center justify-center text-base border-2 relative ${
+                        className={`w-10 h-10 rounded-full flex items-center justify-center text-sm border-4 relative ${
                           index === 0
-                            ? "border-orange-400 bg-gradient-to-br from-orange-500 to-red-600"
+                            ? "border-orange-400 bg-slate-700"
                             : index === 1
-                              ? "border-blue-400 bg-gradient-to-br from-blue-500 to-indigo-600"
+                              ? "border-blue-400 bg-slate-700"
                               : index === 2
-                                ? "border-blue-400 bg-gradient-to-br from-blue-500 to-purple-600"
+                                ? "border-blue-400 bg-slate-700"
                                 : index === 3
-                                  ? "border-orange-400 bg-gradient-to-br from-orange-500 to-yellow-600"
+                                  ? "border-orange-400 bg-slate-700"
                                   : index === 4
-                                    ? "border-blue-400 bg-gradient-to-br from-blue-500 to-cyan-600"
+                                    ? "border-blue-400 bg-slate-700"
                                     : index === 5
-                                      ? "border-orange-400 bg-gradient-to-br from-orange-500 to-red-600"
+                                      ? "border-orange-400 bg-slate-700"
                                       : index === 6
-                                        ? "border-yellow-400 bg-gradient-to-br from-yellow-500 to-orange-600"
-                                        : "border-red-400 bg-gradient-to-br from-red-500 to-pink-600"
+                                        ? "border-yellow-400 bg-slate-700"
+                                        : "border-red-400 bg-slate-700"
                         }`}
                       >
                         {msg.avatar}
