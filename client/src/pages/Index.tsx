@@ -250,7 +250,7 @@ export default function Index() {
         </div>
 
         {/* Game Categories */}
-        <ScrollArea className="px-3 py-4 bg-[#01112d]">
+        <ScrollArea className="flex-1 px-3 py-4 bg-[#01112d]">
           <div className="space-y-1">
             {gameCategories.map((category) => {
               const Icon = category.icon;
@@ -296,7 +296,7 @@ export default function Index() {
         </div>
       </div>
       {/* Main Content Area */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 flex flex-col min-w-0">
         {/* Top Navigation Bar */}
         <header className="h-16 border-b border-border backdrop-blur-sm flex items-center justify-between px-6 bg-[#01112d]">
           <div className="flex items-center gap-4">
@@ -337,7 +337,7 @@ export default function Index() {
         </header>
 
         {/* Main Content */}
-        <ScrollArea>
+        <ScrollArea className="flex-1">
           <div className="p-6 space-y-8 bg-[#01112d]">
             {/* Promotional Banner */}
             <Card className="relative overflow-hidden bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 border-primary/30">
@@ -651,7 +651,7 @@ export default function Index() {
 
         {/* Chat Messages */}
         <ScrollArea
-          className="p-2 bg-[#091732]"
+          className="flex-1 p-2 bg-[#091732]"
           style={{ maxHeight: "calc(100vh - 240px)" }}
         >
           <div className="space-y-2">
