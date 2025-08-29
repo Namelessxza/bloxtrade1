@@ -144,59 +144,59 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen max-h-screen bg-gradient-to-br from-[#0a1628] via-[#0f1629] to-[#142447] flex flex-col w-full overflow-hidden">
+    <div className="h-screen bg-gradient-to-br from-[#0a1628] via-[#0f1629] to-[#142447] flex flex-col w-full overflow-hidden">
       {/* Global Header */}
-      <header className="h-14 md:h-16 backdrop-blur-sm flex items-center px-3 md:px-6 from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg bg-[#0c1321] shrink-0">
+      <header className="h-16 backdrop-blur-sm flex items-center px-6 from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg bg-[#0c1321]">
         {/* Left Section - Logo */}
-        <div className="flex items-center gap-2 flex-shrink-0 md:w-1/4 justify-start md:ml-8">
-          <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-            <TrendingUp className="h-3 w-3 md:h-5 md:w-5 text-white" />
+        <div className="flex items-center gap-2 w-1/4 justify-start ml-8">
+          <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+            <TrendingUp className="h-5 w-5 text-white" />
           </div>
-          <span className="text-sm md:text-lg font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent drop-shadow-lg hidden sm:block">
+          <span className="text-lg font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
             Bloxtrade
           </span>
         </div>
 
         {/* Center Section - Search */}
-        <div className="flex justify-center flex-1 md:w-1/2 md:-ml-16 mx-2 md:mx-0">
-          <div className="relative w-full md:w-3/4 max-w-md">
-            <Search className="absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 h-4 w-4 md:h-5 md:w-5 text-slate-400" />
+        <div className="flex justify-center w-1/2 -ml-16">
+          <div className="relative w-3/4">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
             <Input
               placeholder="Search items, skins, collectibles..."
-              className="w-full pl-10 md:pl-12 pr-3 md:pr-4 py-2 md:py-3 bg-slate-800/30 rounded-xl text-slate-200 placeholder:text-slate-400 focus:bg-slate-700/30 transition-all h-10 md:h-12 backdrop-blur-sm text-sm md:text-base"
+              className="w-full pl-12 pr-4 py-3 bg-slate-800/30 rounded-xl text-slate-200 placeholder:text-slate-400 focus:bg-slate-700/30 transition-all h-12 backdrop-blur-sm"
               data-testid="input-search"
             />
           </div>
         </div>
 
         {/* Right Section - Controls */}
-        <div className="flex items-center gap-1 md:gap-4 flex-shrink-0 md:w-1/4 justify-end md:mr-4">
+        <div className="flex items-center gap-4 w-1/4 justify-end mr-4">
           {/* Notification Bell */}
           <Button
             variant="ghost"
             size="sm"
-            className="relative p-1.5 md:p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
+            className="relative p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
             data-testid="button-notifications"
           >
-            <Bell className="h-3 w-3 md:h-4 md:w-4 text-slate-400 hover:text-white" />
-            <div className="absolute -top-0.5 -right-0.5 md:-top-1 md:-right-1 w-2 h-2 md:w-2.5 md:h-2.5 bg-green-500 rounded-full"></div>
+            <Bell className="h-4 w-4 text-slate-400 hover:text-white" />
+            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
           </Button>
 
           {/* Shopping Cart */}
           <Button
             variant="ghost"
             size="sm"
-            className="p-1.5 md:p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
+            className="p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
             data-testid="button-cart"
           >
-            <ShoppingCart className="h-3 w-3 md:h-4 md:w-4 text-slate-400 hover:text-white" />
+            <ShoppingCart className="h-4 w-4 text-slate-400 hover:text-white" />
           </Button>
 
           {/* Wallet Balance */}
-          <div className="hidden sm:flex items-center gap-1 md:gap-2 bg-slate-800/60 px-2 md:px-4 py-1.5 md:py-2 rounded-lg">
-            <Wallet className="h-3 w-3 md:h-4 md:w-4 text-slate-400" />
+          <div className="flex items-center gap-2 bg-slate-800/60 px-4 py-2 rounded-lg">
+            <Wallet className="h-4 w-4 text-slate-400" />
             <span
-              className="text-white font-semibold text-xs md:text-sm"
+              className="text-white font-semibold"
               data-testid="text-wallet-balance"
             >
               $2,485
@@ -205,18 +205,18 @@ export default function Index() {
 
           {/* Profile Button */}
           <Button
-            className="bg-blue-600 hover:bg-blue-500 text-white px-2 md:px-4 py-1.5 md:py-2 rounded-lg flex items-center gap-1 md:gap-2 text-xs md:text-sm font-semibold"
+            className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold"
             data-testid="button-profile"
           >
             <User className="h-3 w-3" />
-            <span className="hidden sm:block">Profile</span>
+            Profile
           </Button>
         </div>
       </header>
       {/* Content Row */}
-      <div className="flex flex-col lg:flex-row flex-1 min-h-0 overflow-hidden">
+      <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
-        <div className="w-full lg:w-[220px] flex flex-col flex-shrink-0 bg-[#01112d] lg:min-h-0 h-auto order-2 lg:order-1">
+        <div className="w-[220px] flex flex-col flex-shrink-0 bg-[#09101d]">
           {/* Games/Sport Toggle */}
           <div className="px-2 py-6 bg-[#09101d]">
             <div className="flex rounded-2xl p-1.5 relative bg-slate-800/60">
@@ -306,10 +306,10 @@ export default function Index() {
         </div>
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col min-w-0 order-1 lg:order-2">
+        <div className="flex-1 flex flex-col min-w-0">
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
-            <div className="min-h-full px-2 md:px-3 py-2 bg-transparent relative">
+            <div className="min-h-full px-3 py-2 bg-transparent relative">
               
 
 
@@ -320,11 +320,11 @@ export default function Index() {
         </div>
 
         {/* Right Panel */}
-        <div className="w-full lg:w-[280px] bg-transparent flex flex-col flex-shrink-0 relative order-3 lg:order-3 h-[300px] lg:h-auto">
+        <div className="w-[280px] bg-transparent flex flex-col flex-shrink-0 relative">
           {/* Chat - no longer needs top positioning since header is global */}
-          <div className="flex flex-col h-full bg-[#081834]">
+          <div className="flex flex-col h-full bg-[#0c1321]">
             {/* Chat Header */}
-            <div className="p-2 md:p-3 from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm bg-[#081834]">
+            <div className="p-3 from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm bg-[#081834]">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -354,7 +354,7 @@ export default function Index() {
             </div>
 
             {/* Chat Messages */}
-            <ScrollArea className="relative overflow-hidden flex-1 px-2 md:px-3 py-2 rounded-lg mb-2 max-h-[200px] lg:max-h-[calc(100vh-120px)] overflow-y-auto chat-bg-custom bg-[#0C1321]">
+            <ScrollArea className="relative overflow-hidden flex-1 px-3 py-2 rounded-lg mb-2 max-h-[calc(100vh-120px)] overflow-y-auto chat-bg-custom bg-[#0C1321]">
               <div className="space-y-3 bg-[#0C1321]">
                 {chatMessages.map((msg, index) => {
                   return (
@@ -398,7 +398,7 @@ export default function Index() {
             </ScrollArea>
 
             {/* Chat Controls */}
-            <div className="p-2 md:p-4 rounded-lg bg-[#081834]">
+            <div className="p-4 rounded-lg bg-[#0C1321]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -410,16 +410,16 @@ export default function Index() {
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   placeholder="Your message"
-                  className="w-full h-10 md:h-12 px-3 md:px-4 pr-12 md:pr-14 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
+                  className="w-full h-12 px-4 pr-14 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
                   data-testid="input-chat-message"
                 />
                 <Button
                   type="submit"
                   size="sm"
-                  className="absolute right-1.5 md:right-2 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-500 rounded-lg w-7 h-7 md:w-8 md:h-8 p-0 flex items-center justify-center shadow-lg"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-500 rounded-lg w-8 h-8 p-0 flex items-center justify-center shadow-lg"
                   data-testid="button-send-message"
                 >
-                  <Send className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                  <Send className="h-4 w-4 text-white" />
                 </Button>
               </form>
             </div>
