@@ -339,11 +339,10 @@ export default function Index() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-3">
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-[#109edb] to-[#12b23f] hover:from-[#0d8bc4] hover:to-[#0f9d35] text-white font-bold px-8 py-3 rounded-lg shadow-lg w-fit"
+                    <button
+                      className="buy-crypto-button"
                       data-testid="button-sign-up"
-                    >Enter Giveaway</Button>
+                    >Enter Giveaway</button>
                     <div className="flex items-center gap-2 text-sm text-white/70">
                       <div className="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center">
                         <span className="text-xs text-white">i</span>
