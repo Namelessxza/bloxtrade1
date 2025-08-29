@@ -418,7 +418,7 @@ export default function Index() {
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: 'url(/vca.png)'
+                    backgroundImage: 'url(/vca.jpg)'
                   }}
                 ></div>
                 <div className="absolute inset-0">
