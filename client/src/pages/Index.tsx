@@ -615,7 +615,7 @@ export default function Index() {
       {/* Right Panel */}
       <div className="w-[280px] bg-[#0a1628] flex flex-col flex-shrink-0 h-screen">
         {/* Top Section with Profile and Controls */}
-        <div className="p-4 border-b border-l border-slate-800/30 bg-[#0a1628]">
+        <div className="p-4 bg-[#0a1628]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               {/* Notification Bell */}
@@ -652,7 +652,7 @@ export default function Index() {
         </div>
 
         {/* Chat Header */}
-        <div className="p-3 bg-[#0f1a2e] border-b border-slate-800/30 border-l border-slate-800/30">
+        <div className="p-3 bg-[#0f1a2e]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -682,7 +682,7 @@ export default function Index() {
         </div>
 
         {/* Chat Messages */}
-        <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628] border-l border-slate-800/30">
+        <ScrollArea className="flex-1 px-3 py-2 bg-[#0a1628]">
           <div className="space-y-3">
             {chatMessages.map((msg, index) => {
               const avatarColors = [
@@ -734,7 +734,7 @@ export default function Index() {
         </ScrollArea>
 
         {/* Chat Controls */}
-        <div className="p-3 bg-[#0f1a2e] border-t border-slate-800/30 border-l border-slate-800/30">
+        <div className="p-3 bg-[#0f1a2e]">
           <div className="flex items-center gap-2 mb-3">
             <Button
               variant="ghost"
