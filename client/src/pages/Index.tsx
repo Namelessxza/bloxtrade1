@@ -308,7 +308,64 @@ export default function Index() {
         <div className="flex-1 flex flex-col min-w-0">
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
-            <div className="min-h-full px-3 py-2 bg-transparent relative"></div>
+            <div className="min-h-full px-6 py-6 bg-transparent relative">
+              {/* Welcome Bonus Section */}
+              <div className="relative w-full h-32 rounded-2xl overflow-hidden bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 mb-6">
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-90"
+                  style={{
+                    backgroundImage: "url('/attached_assets/vca.jpg')"
+                  }}
+                />
+                
+                {/* Content Overlay */}
+                <div className="relative z-10 flex items-center justify-between h-full px-8">
+                  {/* Left Content */}
+                  <div className="flex flex-col justify-center h-full">
+                    <h2 className="text-white text-2xl font-bold mb-2 leading-tight">
+                      Claim<br />welcome bonus
+                    </h2>
+                    <div className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold inline-block mb-3 w-fit">
+                      $1000 & 60 FS
+                    </div>
+                    <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-semibold text-sm transition-colors w-fit">
+                      Claim bonus
+                    </button>
+                  </div>
+                  
+                  {/* Right Decorative Elements */}
+                  <div className="flex items-center justify-end h-full relative">
+                    {/* Slot Machine Visual */}
+                    <div className="relative">
+                      <div className="w-20 h-16 bg-orange-400 rounded-lg border-4 border-white relative">
+                        <div className="absolute top-1 left-1 right-1 bottom-6 bg-white rounded flex items-center justify-center">
+                          <div className="flex space-x-1">
+                            <span className="text-red-500 font-bold text-lg">7</span>
+                            <span className="text-black text-lg">♣</span>
+                            <span className="text-red-500 font-bold text-lg">7</span>
+                          </div>
+                        </div>
+                        <div className="absolute bottom-1 left-2 right-2 h-2 bg-red-500 rounded-full"></div>
+                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-white rounded px-2 py-1">
+                          <span className="text-red-500 font-bold text-xs">BIG WIN</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Floating Elements */}
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-cyan-400 rounded-lg transform rotate-12"></div>
+                    <div className="absolute top-2 -right-6 w-4 h-4 bg-purple-300 rounded-full"></div>
+                    <div className="absolute -bottom-2 right-4 w-5 h-5 bg-pink-300 rounded-lg transform -rotate-12"></div>
+                  </div>
+                </div>
+                
+                {/* Additional Floating Decorations */}
+                <div className="absolute top-4 left-1/3 w-3 h-3 bg-purple-300 rounded-full opacity-60"></div>
+                <div className="absolute bottom-6 left-1/4 w-2 h-2 bg-pink-300 rounded-full opacity-60"></div>
+                <div className="absolute top-8 right-1/3 w-4 h-4 bg-cyan-300 rounded-lg transform rotate-45 opacity-60"></div>
+              </div>
+            </div>
           </ScrollArea>
         </div>
 
