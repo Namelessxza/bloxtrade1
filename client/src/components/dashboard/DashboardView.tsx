@@ -80,7 +80,7 @@ export const DashboardView: React.FC = () => {
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-2px)";
                       e.currentTarget.style.boxShadow =
-                        "inset 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(184, 80, 231, 0.3)";
+                        "inset 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(6, 182, 212, 0.3)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)";
