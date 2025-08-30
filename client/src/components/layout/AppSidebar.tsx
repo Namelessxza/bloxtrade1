@@ -159,7 +159,7 @@ const NavItem: React.FC<{
     <button
       onClick={onClick}
       disabled={item.locked}
-      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-200 group relative overflow-hidden"
+      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-200 group relative"
       style={{
         backgroundColor: selected ? "rgba(255, 255, 255, 0.08)" : "transparent",
         color: selected
@@ -167,27 +167,21 @@ const NavItem: React.FC<{
           : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
+        borderLeft: selected ? "3px solid #67e8f9" : "3px solid transparent",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
           e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.04)";
+          e.currentTarget.style.borderLeft = "3px solid #67e8f9";
         }
       }}
       onMouseLeave={(e) => {
         if (!selected) {
           e.currentTarget.style.backgroundColor = "transparent";
+          e.currentTarget.style.borderLeft = "3px solid transparent";
         }
       }}
     >
-      {/* Gradient Left Border */}
-      <div 
-        className={`absolute left-0 top-0 w-1 h-full transition-opacity duration-200 ${
-          selected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-        }`}
-        style={{
-          background: 'linear-gradient(180deg, transparent 0%, #67e8f9 15%, #67e8f9 85%, transparent 100%)',
-        }}
-      />
       <div className="flex items-center gap-3">
         <Icon className="h-5 w-5" />
         <span className="font-medium text-sm">{item.label}</span>
