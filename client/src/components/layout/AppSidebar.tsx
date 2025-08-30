@@ -118,13 +118,14 @@ const ModeButton: React.FC<{
       disabled={locked}
       className="flex-1 px-4 py-2 rounded-full transition-all duration-200 flex items-center justify-center gap-2 font-medium"
       style={{
-        backgroundColor: active 
-          ? '#00d4ff'
+        background: active 
+          ? 'linear-gradient(135deg, #67e8f9, #06b6d4, #0891b2)'
           : 'transparent',
         color: active ? '#FFFFFF' : '#64748B',
         opacity: locked ? 0.4 : 1,
         cursor: locked ? 'not-allowed' : 'pointer',
-        border: 'none',
+        border: active ? '1px solid #67e8f9' : 'none',
+        boxShadow: active ? 'inset 0 4px 8px rgba(0,0,0,0.3)' : 'none',
       }}
       onMouseEnter={(e) => {
         if (!active && !locked) {
