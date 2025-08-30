@@ -12,6 +12,7 @@ import CreateTrade from "./pages/CreateTrade";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import Components from "./pages/Components";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/create-trade" component={CreateTrade} />
           <Route path="/profile" component={Profile} />
           <Route path="/settings" component={Settings} />
+          <Route path="/components" component={Components} />
           <Route path="/trade/:id" component={TradeListing} />
           <Route component={NotFound} />
         </Switch>
