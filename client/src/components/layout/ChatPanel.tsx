@@ -340,7 +340,7 @@ const MessageItem: React.FC<{
   
   return (
     <div 
-      className="flex gap-2.5 items-start px-3 py-1 transition-colors"
+      className="flex gap-2.5 items-start px-3 py-1 transition-colors bg-[#0D0D0D]"
       style={{
         backgroundColor: hovered ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
       }}
@@ -377,7 +377,6 @@ const MessageItem: React.FC<{
           </div>
         )}
       </div>
-      
       {/* Message Content */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
