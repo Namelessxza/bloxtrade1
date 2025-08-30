@@ -219,7 +219,7 @@ export const ChatPanel: React.FC = () => {
       
       {/* Messages Area */}
       <ScrollArea className="flex-1 px-3 py-3">
-        <div className="space-y-0.5">
+        <div className="space-y-3">
           {messages.map((msg) => (
             <MessageItem 
               key={msg.id} 
@@ -318,21 +318,17 @@ const MessageItem: React.FC<{
 
   return (
     <div 
-      className="flex gap-3 items-start px-3 py-2 transition-colors"
-      style={{
-        backgroundColor: hovered ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
-        borderRadius: '6px',
-      }}
+      className="flex gap-3 items-start px-3"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {/* Avatar */}
-      <div className="flex-shrink-0">
+      <div className="flex-shrink-0 mt-0.5">
         <div 
-          className="w-10 h-10 rounded-full flex items-center justify-center"
+          className="w-9 h-9 rounded-full flex items-center justify-center"
           style={{
             background: getAvatarColor(message.username),
-            fontSize: '18px',
+            fontSize: '16px',
           }}
         >
           {message.avatar}
@@ -341,18 +337,19 @@ const MessageItem: React.FC<{
       
       {/* Message Content */}
       <div className="flex-1 min-w-0">
-        <div className="flex items-baseline gap-2 mb-0.5">
+        {/* Username and timestamp row */}
+        <div className="flex items-center gap-2 mb-1">
           <span style={{ 
-            color: '#e5e7eb',
+            color: '#9ca3af',
             fontWeight: '500',
-            fontSize: '14px',
+            fontSize: '13px',
             letterSpacing: '-0.01em',
           }}>
             {message.username}
           </span>
           {message.isAdmin && (
             <span 
-              className="px-1.5 py-0.5 rounded"
+              className="px-2 py-0.5 rounded"
               style={{
                 background: '#FBBF24',
                 color: '#000000',
@@ -366,20 +363,38 @@ const MessageItem: React.FC<{
             </span>
           )}
           <span style={{ 
-            color: '#6b7280',
-            fontSize: '12px',
-            marginLeft: 'auto',
+            color: '#4b5563',
+            fontSize: '11px',
+            marginLeft: '4px',
           }}>
             {message.timestamp}
           </span>
         </div>
-        <div style={{ 
-          color: '#b4b7bd',
-          fontSize: '14px',
-          fontWeight: '400',
-          lineHeight: '1.5',
-        }}>
-          {message.message}
+        
+        {/* Message bubble */}
+        <div 
+          className="inline-block"
+          style={{
+            maxWidth: '100%',
+          }}
+        >
+          <div 
+            className="px-3 py-2 rounded-lg"
+            style={{ 
+              backgroundColor: hovered ? '#1a2337' : '#131a2e',
+              transition: 'background-color 0.2s ease',
+            }}
+          >
+            <span style={{ 
+              color: '#e5e7eb',
+              fontSize: '14px',
+              fontWeight: '400',
+              lineHeight: '1.4',
+              wordBreak: 'break-word',
+            }}>
+              {message.message}
+            </span>
+          </div>
         </div>
       </div>
     </div>
