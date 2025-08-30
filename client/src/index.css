@@ -1,28 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 @import "./styles/buttons.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: 'Greycliff CF';
-  src: url('/fonts/GreycliffCF-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Greycliff CF';
-  src: url('/fonts/GreycliffCF-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Greycliff CF';
-  src: url('/fonts/GreycliffCF-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
 
 /* Global Reset and Base Styles */
 * {
@@ -37,7 +19,8 @@ html {
 }
 
 body {
-  font-family: 'Greycliff CF', 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
   background: #0a0f1c;
   color: #ffffff;
   overflow: hidden;

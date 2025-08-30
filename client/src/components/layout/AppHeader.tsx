@@ -20,7 +20,7 @@ export const AppHeader: React.FC = () => {
           >
             <span className="text-white font-bold text-xl">G</span>
           </div>
-          <span className="text-white font-bold text-xl">GameXchange</span>
+          <span className="text-white font-bold text-xl" style={{ fontFamily: 'Outfit, sans-serif' }}>GameXchange</span>
         </div>
       </Link>
       
@@ -76,11 +76,13 @@ export const AppHeader: React.FC = () => {
         
         <Link href="/components">
           <button
-            className="px-5 py-2 rounded-full font-bold text-sm transition-colors"
+            className="px-5 py-2 rounded-full text-sm transition-colors"
             style={{
               backgroundColor: theme.colors.secondary.full,
               color: theme.colors.text.primary,
               border: 'none',
+              fontFamily: 'Outfit, sans-serif',
+              fontWeight: 600,
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.opacity = '0.9';
@@ -96,11 +98,13 @@ export const AppHeader: React.FC = () => {
         
         <Link href="/profile">
           <button
-            className="px-5 py-2 rounded-full font-bold text-sm transition-colors"
+            className="px-5 py-2 rounded-full text-sm transition-colors"
             style={{
               backgroundColor: theme.colors.primary.full,
               color: theme.colors.text.primary,
               border: 'none',
+              fontFamily: 'Outfit, sans-serif',
+              fontWeight: 600,
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.opacity = '0.9';

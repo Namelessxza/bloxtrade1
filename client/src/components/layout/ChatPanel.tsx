@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Send, Hash, ChevronDown } from 'lucide-react';
+import { Send, Hash, ChevronDown, Smile } from 'lucide-react';
 import { theme } from '@/config/theme';
 
 interface Message {
@@ -10,6 +10,7 @@ interface Message {
   message: string;
   timestamp: string;
   avatar: string;
+  avatarNumber?: string;
   isAdmin?: boolean;
 }
 
@@ -21,106 +22,121 @@ export const ChatPanel: React.FC = () => {
       message: 'Congratulations 🔥🔥🔥🔥',
       timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '11',
     },
     {
       id: 2,
       username: 'amador',
       message: 'play safe bro',
-      timestamp: '3m ago',
+      timestamp: '1m ago',
       avatar: 'A',
+      avatarNumber: '42',
       isAdmin: true,
     },
     {
       id: 3,
       username: 'jognwatson',
       message: 'nice Hit ❤️',
-      timestamp: '5m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '11',
     },
     {
       id: 4,
       username: 'jognwatson',
       message: 'Best of luck',
-      timestamp: '7m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '11',
     },
     {
       id: 5,
       username: 'jognwatson',
       message: 'Congratulations 🔥🔥🔥🔥',
-      timestamp: '10m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '11',
     },
     {
       id: 6,
       username: '@cookiechip',
       message: 'congratulations big win today good luck',
-      timestamp: '12m ago',
+      timestamp: '1m ago',
       avatar: 'C',
+      avatarNumber: '3',
     },
     {
       id: 7,
       username: 'jognwatson',
       message: 'Hi, everyone',
-      timestamp: '15m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '38',
     },
     {
       id: 8,
       username: 'jognwatson',
       message: 'Play safe and sound good luck',
-      timestamp: '18m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '38',
     },
     {
       id: 9,
       username: 'amador',
       message: 'play safe bro',
-      timestamp: '20m ago',
+      timestamp: '1m ago',
       avatar: 'A',
+      avatarNumber: '42',
       isAdmin: true,
     },
     {
       id: 10,
       username: 'jognwatson',
       message: 'enjoy dear good yat',
-      timestamp: '22m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '44',
     },
     {
       id: 11,
       username: 'jognwatson',
       message: 'No luck today',
-      timestamp: '25m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '11',
     },
     {
       id: 12,
       username: 'jognwatson',
       message: "I'm doing good 🔥",
-      timestamp: '28m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '11',
     },
     {
       id: 13,
       username: '@cookiechip',
       message: 'Good 🔥',
-      timestamp: '30m ago',
+      timestamp: '1m ago',
       avatar: 'C',
+      avatarNumber: '3',
     },
     {
       id: 14,
       username: 'jognwatson',
       message: 'Congratulations 🔥🔥🔥🔥',
-      timestamp: '32m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '44',
     },
     {
       id: 15,
       username: 'jognwatson',
       message: 'Dropping what ?',
-      timestamp: '35m ago',
+      timestamp: '1m ago',
       avatar: 'J',
+      avatarNumber: '11',
     },
   ]);
   
@@ -143,6 +159,7 @@ export const ChatPanel: React.FC = () => {
         message: newMessage,
         timestamp: 'now',
         avatar: 'Y',
+        avatarNumber: '1',
       };
       setMessages([...messages, newMsg]);
       setNewMessage('');
@@ -151,54 +168,50 @@ export const ChatPanel: React.FC = () => {
   
   return (
     <div className="flex flex-col h-full" style={{ 
-      backgroundColor: '#1a1f2e',
-      borderRadius: '12px',
-      margin: '8px',
+      backgroundColor: '#0a0e1a',
     }}>
-      {/* Header with rounded corners */}
-      <div className="px-4 py-3 flex items-center gap-3" style={{
-        backgroundColor: '#0f1318',
-        borderTopLeftRadius: '12px',
-        borderTopRightRadius: '12px',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+      {/* Header */}
+      <div className="px-4 py-3 flex items-center justify-between" style={{
+        backgroundColor: '#0a0e1a',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.04)',
       }}>
-        <div className="flex items-center justify-center w-8 h-8 rounded-full" style={{
-          background: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
-        }}>
-          <Hash className="h-4 w-4 text-white" />
+        <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center w-7 h-7 rounded-full" style={{
+            background: 'linear-gradient(135deg, #00d4ff, #0099ff)',
+          }}>
+            <Hash className="h-4 w-4 text-white" />
+          </div>
+          <span className="text-white font-semibold text-base" style={{ 
+            fontFamily: 'Outfit, sans-serif',
+          }}>
+            Chat
+          </span>
         </div>
-        <span className="font-bold text-base" style={{ 
-          color: '#ffffff',
-          fontFamily: 'Greycliff CF',
-        }}>
-          Chat
-        </span>
-        <div className="ml-auto flex items-center gap-2">
-          <button 
-            className="px-3 py-1.5 rounded-full text-xs font-semibold transition-colors flex items-center gap-1"
-            style={{
-              backgroundColor: '#2b3544',
-              color: '#a0aec0',
-              fontFamily: 'Greycliff CF',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#323c4d';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#2b3544';
-            }}
-          >
-            Rules
-            <ChevronDown className="h-3 w-3" />
-          </button>
-        </div>
+        
+        <button 
+          className="px-4 py-1.5 rounded-md text-xs font-medium transition-colors flex items-center gap-1"
+          style={{
+            backgroundColor: '#1a1f2e',
+            color: '#9ca3af',
+            fontFamily: 'Outfit, sans-serif',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#252b3b';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#1a1f2e';
+          }}
+        >
+          Rules
+          <ChevronDown className="h-3 w-3" />
+        </button>
       </div>
       
-      {/* Messages Area with padding */}
-      <ScrollArea className="flex-1 px-3 py-3">
-        <div className="space-y-3">
+      {/* Messages Area */}
+      <ScrollArea className="flex-1 px-3 py-2">
+        <div className="space-y-2">
           {messages.map((msg) => (
-            <MessageBubble 
+            <MessageItem 
               key={msg.id} 
               message={msg}
             />
@@ -207,13 +220,8 @@ export const ChatPanel: React.FC = () => {
         </div>
       </ScrollArea>
       
-      {/* Input Area with rounded corners */}
-      <div className="px-4 py-3" style={{
-        backgroundColor: '#0f1318',
-        borderBottomLeftRadius: '12px',
-        borderBottomRightRadius: '12px',
-        borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-      }}>
+      {/* Input Area */}
+      <div className="px-3 pb-3">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -226,46 +234,62 @@ export const ChatPanel: React.FC = () => {
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Enter your message..."
-              className="pr-12 h-11 rounded-full text-sm pl-4"
+              className="w-full h-10 rounded-lg text-sm pl-4 pr-20"
               style={{
-                backgroundColor: '#2b3544',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                color: '#ffffff',
-                fontFamily: 'Greycliff CF',
+                backgroundColor: '#1a1f2e',
+                border: '1px solid rgba(255, 255, 255, 0.06)',
+                color: '#9ca3af',
+                fontFamily: 'Outfit, sans-serif',
+                fontSize: '13px',
               }}
               onFocus={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-                e.currentTarget.style.backgroundColor = '#323c4d';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.placeholder = 'Type a message...';
               }}
               onBlur={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-                e.currentTarget.style.backgroundColor = '#2b3544';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+                e.currentTarget.placeholder = 'Enter your message...';
               }}
             />
             
-            <button
-              type="submit"
-              className="absolute right-1 p-2 rounded-full transition-all flex items-center justify-center"
-              style={{
-                backgroundColor: newMessage.trim() ? '#fbbf24' : '#2b3544',
-                width: '36px',
-                height: '36px',
-              }}
-              onMouseEnter={(e) => {
-                if (newMessage.trim()) {
-                  e.currentTarget.style.backgroundColor = '#f59e0b';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (newMessage.trim()) {
-                  e.currentTarget.style.backgroundColor = '#fbbf24';
-                }
-              }}
-            >
-              <Send className="h-4 w-4" style={{
-                color: newMessage.trim() ? '#0f1318' : '#6b7280',
-              }} />
-            </button>
+            <div className="absolute right-1 flex items-center gap-1">
+              <button
+                type="button"
+                className="p-1.5 rounded-md transition-colors"
+                style={{
+                  color: '#6b7280',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#9ca3af';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '#6b7280';
+                }}
+              >
+                <Smile className="h-5 w-5" />
+              </button>
+              
+              <button
+                type="submit"
+                className="p-1.5 rounded-md transition-all"
+                style={{
+                  backgroundColor: newMessage.trim() ? '#fbbf24' : 'transparent',
+                  color: newMessage.trim() ? '#000' : '#6b7280',
+                }}
+                onMouseEnter={(e) => {
+                  if (newMessage.trim()) {
+                    e.currentTarget.style.backgroundColor = '#f59e0b';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (newMessage.trim()) {
+                    e.currentTarget.style.backgroundColor = '#fbbf24';
+                  }
+                }}
+              >
+                <Send className="h-5 w-5" />
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -273,71 +297,90 @@ export const ChatPanel: React.FC = () => {
   );
 };
 
-const MessageBubble: React.FC<{ 
+const MessageItem: React.FC<{ 
   message: Message;
 }> = ({ message }) => {
   const [hovered, setHovered] = useState(false);
   
   return (
     <div 
-      className="flex gap-3 items-start transition-all"
+      className="flex gap-2.5 items-start px-2 py-1.5 rounded-lg transition-colors"
       style={{
-        transform: hovered ? 'translateX(2px)' : 'translateX(0)',
+        backgroundColor: hovered ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Avatar */}
-      <div 
-        className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
-        style={{
-          background: getAvatarGradient(message.username),
-          color: '#ffffff',
-          fontFamily: 'Greycliff CF',
-          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
-        }}
-      >
-        {message.avatar}
+      {/* Avatar with number */}
+      <div className="relative flex-shrink-0">
+        <div 
+          className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
+          style={{
+            background: getAvatarColor(message.username, message.avatarNumber),
+            color: '#ffffff',
+            fontFamily: 'Outfit, sans-serif',
+            fontSize: '14px',
+          }}
+        >
+          {message.avatar}
+        </div>
+        {message.avatarNumber && (
+          <div 
+            className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full flex items-center justify-center"
+            style={{
+              backgroundColor: '#1a1f2e',
+              border: '1.5px solid #0a0e1a',
+            }}
+          >
+            <span style={{
+              color: '#6b7280',
+              fontSize: '8px',
+              fontFamily: 'Outfit, sans-serif',
+              fontWeight: '600',
+            }}>
+              {message.avatarNumber}
+            </span>
+          </div>
+        )}
       </div>
       
-      {/* Message Bubble */}
-      <div 
-        className="flex-1 rounded-2xl px-4 py-2.5 max-w-[85%]"
-        style={{
-          backgroundColor: '#2b3544',
-          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-        }}
-      >
-        <div className="flex items-baseline gap-2 mb-1">
-          <span className="font-semibold text-sm" style={{ 
-            color: getUsernameColor(message.username),
-            fontFamily: 'Greycliff CF',
+      {/* Message Content */}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 mb-0.5">
+          <span className="text-sm" style={{ 
+            color: '#9ca3af',
+            fontFamily: 'Outfit, sans-serif',
+            fontWeight: '500',
+            fontSize: '13px',
           }}>
             {message.username}
           </span>
           {message.isAdmin && (
             <span 
-              className="text-[10px] px-2 py-0.5 rounded-full font-bold"
+              className="px-2 py-0.5 rounded text-[10px] font-semibold"
               style={{
                 backgroundColor: '#8b5cf6',
                 color: '#ffffff',
-                fontFamily: 'Greycliff CF',
+                fontFamily: 'Outfit, sans-serif',
               }}
             >
               Admin
             </span>
           )}
           <span className="text-xs ml-auto" style={{ 
-            color: '#6b7280',
-            fontFamily: 'Greycliff CF',
+            color: '#4b5563',
+            fontFamily: 'Outfit, sans-serif',
+            fontSize: '11px',
           }}>
             {message.timestamp}
           </span>
         </div>
         <div className="text-sm break-words" style={{ 
-          color: '#e5e7eb',
-          fontFamily: 'Greycliff CF',
-          lineHeight: '1.5',
+          color: message.username.startsWith('@') ? '#ec4899' : '#e5e7eb',
+          fontFamily: 'Outfit, sans-serif',
+          fontSize: '13px',
+          fontWeight: '400',
+          lineHeight: '1.4',
         }}>
           {message.message}
         </div>
@@ -346,48 +389,33 @@ const MessageBubble: React.FC<{
   );
 };
 
-// Helper functions for avatar gradients
-const getAvatarGradient = (username: string) => {
-  const gradients = [
-    'linear-gradient(135deg, #667eea, #764ba2)', // Purple
-    'linear-gradient(135deg, #f093fb, #f5576c)', // Pink
-    'linear-gradient(135deg, #4facfe, #00f2fe)', // Blue
-    'linear-gradient(135deg, #43e97b, #38f9d7)', // Green
-    'linear-gradient(135deg, #fa709a, #fee140)', // Yellow-pink
-    'linear-gradient(135deg, #30cfd0, #330867)', // Dark blue
-    'linear-gradient(135deg, #a8edea, #fed6e3)', // Light blue-pink
-    'linear-gradient(135deg, #ff9a9e, #fecfef)', // Light pink
-  ];
-  
-  let hash = 0;
-  for (let i = 0; i < username.length; i++) {
-    hash = username.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  
-  return gradients[Math.abs(hash) % gradients.length];
-};
-
-const getUsernameColor = (username: string) => {
-  if (username.startsWith('@')) {
-    return '#f472b6'; // Pink for special users
-  }
-  
+// Helper function for avatar colors
+const getAvatarColor = (username: string, number?: string) => {
+  // Use specific colors based on patterns seen in the reference
   if (username === 'amador') {
-    return '#fbbf24'; // Yellow for specific user
+    return 'linear-gradient(135deg, #a855f7, #7c3aed)'; // Purple gradient
   }
   
+  if (username.startsWith('@')) {
+    return 'linear-gradient(135deg, #ec4899, #db2777)'; // Pink gradient
+  }
+  
+  // Different colors based on the number
   const colors = [
-    '#ffffff', // White
-    '#93c5fd', // Light blue
-    '#a78bfa', // Light purple
-    '#86efac', // Light green
-    '#fde68a', // Light yellow
-    '#fca5a5', // Light red
+    'linear-gradient(135deg, #f97316, #ea580c)', // Orange
+    'linear-gradient(135deg, #ef4444, #dc2626)', // Red
+    'linear-gradient(135deg, #06b6d4, #0891b2)', // Cyan
+    'linear-gradient(135deg, #10b981, #059669)', // Green
+    'linear-gradient(135deg, #8b5cf6, #7c3aed)', // Purple
+    'linear-gradient(135deg, #3b82f6, #2563eb)', // Blue
+    'linear-gradient(135deg, #f59e0b, #d97706)', // Amber
+    'linear-gradient(135deg, #ec4899, #db2777)', // Pink
   ];
   
   let hash = 0;
-  for (let i = 0; i < username.length; i++) {
-    hash = username.charCodeAt(i) + ((hash << 5) - hash);
+  const str = username + (number || '');
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
   
   return colors[Math.abs(hash) % colors.length];

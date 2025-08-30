@@ -65,7 +65,7 @@ const GameCard: React.FC = () => {
         className="h-40 bg-gradient-to-br from-blue-500 to-purple-600"
       />
       <div className="p-4">
-        <h3 className="font-bold text-lg mb-2" style={{ color: theme.colors.text.primary }}>
+        <h3 className="font-bold text-lg mb-2" style={{ color: theme.colors.text.primary, fontFamily: 'Outfit, sans-serif' }}>
           Game Title
         </h3>
         <p className="text-sm mb-3" style={{ color: theme.colors.text.secondary }}>
@@ -125,7 +125,7 @@ const TradeCard: React.FC = () => {
           2 hours ago
         </span>
       </div>
-      <h3 className="font-bold mb-2" style={{ color: theme.colors.text.primary }}>
+      <h3 className="font-bold mb-2" style={{ color: theme.colors.text.primary, fontFamily: 'Outfit, sans-serif' }}>
         Trading CS:GO Knife
       </h3>
       <p className="text-sm mb-3" style={{ color: theme.colors.text.secondary }}>
@@ -139,7 +139,7 @@ const TradeCard: React.FC = () => {
               background: `linear-gradient(135deg, ${theme.colors.primary.full}, ${theme.colors.secondary.full})`,
             }}
           />
-          <span className="text-sm" style={{ color: theme.colors.text.secondary }}>
+          <span className="text-sm" style={{ color: theme.colors.text.secondary, fontFamily: 'Outfit, sans-serif' }}>
             User123
           </span>
         </div>
