@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ChatScrollArea } from "@/components/ui/scroll-area";
 import {
   Gamepad2,
   Star,
@@ -362,7 +362,7 @@ export default function Index() {
             </div>
 
             {/* Content Area */}
-            <ScrollArea className="flex-1 px-3 py-2 bg-[#0C1321]">
+            <ChatScrollArea className="flex-1 px-3 py-2">
               {activeChatTab === "friends" && (
                 <div className="space-y-4">
                   {/* Friend Requests */}
@@ -531,7 +531,7 @@ export default function Index() {
                   <div className="text-slate-400">No messages yet</div>
                 </div>
               )}
-            </ScrollArea>
+            </ChatScrollArea>
 
             {/* Chat Input */}
             {activeChatTab === "chat" && (
