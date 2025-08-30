@@ -50,7 +50,7 @@ const SidebarScrollArea = React.forwardRef<
     className={cn("relative overflow-hidden", className)}
     {...props}
   >
-    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-xl" style={{ backgroundColor: '#0A0E18' }}>
+    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-xl bg-[#0e1015]" style={{ backgroundColor: '#0A0E18' }}>
       {children}
     </ScrollAreaPrimitive.Viewport>
     <ScrollBar />
