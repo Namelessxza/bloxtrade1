@@ -359,14 +359,7 @@ export default function Index() {
                     </button>
                   </div>
                   
-                  {/* Right Content - Icon */}
-                  <div className="flex-shrink-0 ml-4">
-                    <div className="w-32 h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-2xl flex items-center justify-center shadow-2xl">
-                      <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center">
-                        <div className="w-10 h-10 lg:w-12 lg:h-12 bg-black rounded-lg"></div>
-                      </div>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>
