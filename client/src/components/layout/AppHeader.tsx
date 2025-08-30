@@ -28,26 +28,32 @@ export const AppHeader: React.FC = () => {
       </Link>
       
       {/* Center Search Bar */}
-      <div className="flex-1 max-w-md mx-8">
+      <div className="flex-1 max-w-lg mx-8">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-4 w-4" 
+            style={{ color: '#6b7280' }} />
           <Input
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search items, skins, users..."
-            className="w-full pl-10 pr-4 py-2 h-9 rounded-lg text-sm border-0"
+            className="w-full pl-11 pr-5 py-3 h-11 rounded-full text-sm border-0 transition-all"
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.08)',
+              backgroundColor: 'rgba(255, 255, 255, 0.10)',
               color: theme.colors.text.primary,
               fontSize: '14px',
+              boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.1)',
             }}
             onFocus={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
-              e.currentTarget.style.outline = `2px solid ${theme.colors.primary.full}40`;
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+              e.currentTarget.style.outline = `2px solid ${theme.colors.primary.full}60`;
+              e.currentTarget.style.outlineOffset = '1px';
+              e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(0, 212, 255, 0.1)';
             }}
             onBlur={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.10)';
               e.currentTarget.style.outline = 'none';
+              e.currentTarget.style.outlineOffset = '0px';
+              e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(0, 0, 0, 0.1)';
             }}
           />
         </div>
