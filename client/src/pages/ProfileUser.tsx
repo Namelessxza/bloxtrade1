@@ -29,57 +29,57 @@ export default function ProfileUser() {
     username: username || "test",
     displayName: "Devon Lane",
     avatar: "/api/placeholder/80/80",
-    balance: {
-      btc: "0.00392",
-      currency: "BTC"
+    reputation: {
+      score: "4,572",
+      level: "Expert"
     },
     stats: {
-      totalWins: "70k",
-      totalBets: "1.07m", 
-      totalWagered: "209 USD",
-      jackpot: "100k",
-      biggestWin: "1,232 USD",
-      longestSession: "9h 25m 30s"
+      totalTrades: "70k",
+      totalItems: "1.07m", 
+      totalValue: "209,450",
+      topRating: "100k",
+      bestDeal: "1,232",
+      memberSince: "2y 5m 12d"
     },
     isVerified: false
   };
 
-  const favoriteGames = [
+  const favoriteItems = [
     {
       id: 1,
-      name: "Yucatan's Mystery",
+      name: "Legendary Sword Pack",
       image: "/api/placeholder/120/80",
-      profit: 169.43,
-      isProfit: true
+      value: 169.43,
+      isPositive: true
     },
     {
       id: 2,
-      name: "Poke the Guy",
+      name: "Dragon Armor Set",
       image: "/api/placeholder/120/80", 
-      profit: 779.58,
-      isProfit: true
+      value: 779.58,
+      isPositive: true
     },
     {
       id: 3,
-      name: "Sonic Swift Outta Time",
+      name: "Speed Boost Collection",
       image: "/api/placeholder/120/80",
-      profit: 630.44,
-      isProfit: true
+      value: 630.44,
+      isPositive: true
     },
     {
       id: 4,
-      name: "GAM Royal Seven XXL",
+      name: "Royal Cosmetic Bundle",
       image: "/api/placeholder/120/80",
-      profit: 913.65,
-      isProfit: true
+      value: 913.65,
+      isPositive: true
     }
   ];
 
   const tabs = [
     { id: "overview", label: "Overview", icon: User },
     { id: "settings", label: "Settings", icon: Settings },
-    { id: "responsible", label: "Responsible gaming", icon: Shield },
-    { id: "bets", label: "Bets History", icon: History },
+    { id: "security", label: "Security", icon: Shield },
+    { id: "trades", label: "Trade History", icon: History },
     { id: "transactions", label: "Transactions History", icon: CreditCard }
   ];
 
@@ -108,12 +108,12 @@ export default function ProfileUser() {
                   <h2 className="text-2xl font-bold text-white">{userData.displayName}</h2>
                 </div>
                 <div className="text-slate-400 text-sm">
-                  <span>Balance</span>
+                  <span>Reputation</span>
                   <div className="flex items-center gap-2 mt-1">
                     <div className="w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-xs">₿</span>
+                      <span className="text-xs">★</span>
                     </div>
-                    <span className="text-white font-medium">{userData.balance.btc} {userData.balance.currency}</span>
+                    <span className="text-white font-medium">{userData.reputation.score} ({userData.reputation.level})</span>
                   </div>
                 </div>
               </div>
@@ -122,28 +122,28 @@ export default function ProfileUser() {
             {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-8 text-center">
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.totalWins}</div>
-                <div className="text-sm text-slate-400">Total wins</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.totalTrades}</div>
+                <div className="text-sm text-slate-400">Total trades</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.totalBets}</div>
-                <div className="text-sm text-slate-400">Total bets</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.totalItems}</div>
+                <div className="text-sm text-slate-400">Total items</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.totalWagered}</div>
-                <div className="text-sm text-slate-400">Total wagered</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.totalValue}</div>
+                <div className="text-sm text-slate-400">Total value</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.jackpot}</div>
-                <div className="text-sm text-slate-400">Jackpot</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.topRating}</div>
+                <div className="text-sm text-slate-400">Top rating</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.biggestWin}</div>
-                <div className="text-sm text-slate-400">Biggest Win</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.bestDeal}</div>
+                <div className="text-sm text-slate-400">Best deal</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.longestSession}</div>
-                <div className="text-sm text-slate-400">Longest session</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.memberSince}</div>
+                <div className="text-sm text-slate-400">Member since</div>
               </div>
             </div>
           </div>
@@ -191,7 +191,7 @@ export default function ProfileUser() {
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-1">Verify account</h3>
                       <p className="text-slate-400 text-sm">
-                        Go through the KYC procedure to confirm the data and be able to make major conclusions.
+                        Complete the verification process to confirm your identity and access premium trading features.
                       </p>
                     </div>
                   </div>
@@ -205,33 +205,33 @@ export default function ProfileUser() {
               </CardContent>
             </Card>
 
-            {/* Favorite Games */}
+            {/* Favorite Items */}
             <div>
-              <h3 className="text-xl font-bold text-white mb-6">Favorite games</h3>
+              <h3 className="text-xl font-bold text-white mb-6">Favorite items</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {favoriteGames.map((game) => (
-                  <Card key={game.id} className="bg-[#1e293b] border-slate-700/50 overflow-hidden">
+                {favoriteItems.map((item) => (
+                  <Card key={item.id} className="bg-[#1e293b] border-slate-700/50 overflow-hidden">
                     <div className="aspect-video bg-slate-800 relative">
                       <img 
-                        src={game.image} 
-                        alt={game.name}
+                        src={item.image} 
+                        alt={item.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <CardContent className="p-4">
                       <h4 className="text-white font-medium text-sm mb-2 line-clamp-2">
-                        {game.name}
+                        {item.name}
                       </h4>
-                      <div className="text-xs text-slate-400 mb-1">Profit</div>
+                      <div className="text-xs text-slate-400 mb-1">Value</div>
                       <div className={`flex items-center gap-1 text-sm font-bold ${
-                        game.isProfit ? "text-green-400" : "text-red-400"
+                        item.isPositive ? "text-green-400" : "text-red-400"
                       }`}>
-                        {game.isProfit ? (
+                        {item.isPositive ? (
                           <ArrowUp className="w-3 h-3" />
                         ) : (
                           <ArrowDown className="w-3 h-3" />
                         )}
-                        $ {game.profit.toFixed(2)}
+                        {item.value.toFixed(0)}
                       </div>
                     </CardContent>
                   </Card>
