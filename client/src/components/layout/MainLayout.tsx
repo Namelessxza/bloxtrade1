@@ -25,7 +25,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       {/* Header */}
       <div className="flex-shrink-0" style={{ 
         backgroundColor: '#0D0F14',
-        borderBottom: `1px solid ${theme.colors.border.subtle}`,
         backdropFilter: 'blur(10px)'
       }}>
         {header}
@@ -36,7 +35,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         {/* Sidebar */}
         <div className="flex-shrink-0" style={{
           backgroundColor: '#0A0E18',
-          borderRight: `1px solid ${theme.colors.border.subtle}`,
           width: '275px'
         }}>
           {sidebar}
@@ -53,7 +51,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         {rightPanel && (
           <div className="flex-shrink-0" style={{
             backgroundColor: '#0D0D0D',
-            borderLeft: `1px solid ${theme.colors.border.subtle}`,
             width: '396px'
           }}>
             {rightPanel}
