@@ -59,49 +59,49 @@ export default function Components() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <button 
               className="px-6 py-4 bg-gradient-to-br from-pink-400 via-pink-500 to-pink-600 text-white font-bold rounded-full border-2 border-pink-300"
-              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3), 0 10px 25px rgba(236,72,153,0.3)'}}
+              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
             >
               Bubblegum
             </button>
             <button 
               className="px-6 py-4 bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-full border-2 border-purple-300"
-              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3), 0 10px 25px rgba(168,85,247,0.3)'}}
+              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
             >
               Grape Candy
             </button>
             <button 
               className="px-6 py-4 bg-gradient-to-br from-green-400 via-green-500 to-green-600 text-white font-bold rounded-full border-2 border-green-300"
-              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3), 0 10px 25px rgba(34,197,94,0.3)'}}
+              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
             >
               Mint Fresh
             </button>
             <button 
               className="px-6 py-4 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 text-white font-bold rounded-full border-2 border-orange-300"
-              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3), 0 10px 25px rgba(249,115,22,0.3)'}}
+              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
             >
               Orange Pop
             </button>
             <button 
               className="px-6 py-4 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 text-gray-800 font-bold rounded-full border-2 border-yellow-300"
-              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.2), 0 10px 25px rgba(250,204,21,0.3)'}}
+              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.2)'}}
             >
               Lemon Drop
             </button>
             <button 
               className="px-6 py-4 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 text-white font-bold rounded-full border-2 border-blue-300"
-              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3), 0 10px 25px rgba(59,130,246,0.3)'}}
+              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
             >
               Blue Razz
             </button>
             <button 
               className="px-6 py-4 bg-gradient-to-br from-red-400 via-red-500 to-red-600 text-white font-bold rounded-full border-2 border-red-300"
-              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3), 0 10px 25px rgba(239,68,68,0.3)'}}
+              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
             >
               Cherry Pop
             </button>
             <button 
               className="px-6 py-4 bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-full border-2 border-cyan-300"
-              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3), 0 10px 25px rgba(34,211,238,0.3)'}}
+              style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
             >
               Ice Blue
             </button>
