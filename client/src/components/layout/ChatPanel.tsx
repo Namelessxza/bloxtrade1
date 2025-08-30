@@ -246,7 +246,7 @@ export const ChatPanel: React.FC = () => {
       </div>
       {/* Messages Area */}
       <ScrollArea className="flex-1 px-3 py-2">
-        <div className="space-y-2 bg-[#0d0d0d]">
+        <div className="space-y-2 bg-[#121010]">
           {messages.map((msg) => (
             <MessageItem 
               key={msg.id} 
