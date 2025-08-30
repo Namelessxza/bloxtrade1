@@ -30,7 +30,7 @@ export default function ProfileUser() {
     displayName: "Devon Lane",
     avatar: "/api/placeholder/80/80",
     reputation: {
-      score: "500"
+      score: "ABC"
     },
     stats: {
       totalTrades: "70k",
