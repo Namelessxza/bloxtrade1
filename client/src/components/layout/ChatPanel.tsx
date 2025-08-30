@@ -167,13 +167,16 @@ export const ChatPanel: React.FC = () => {
   };
   
   return (
-    <div className="flex flex-col h-full" style={{ 
-      backgroundColor: '#0D0D0D',
+    <div className="flex flex-col h-full ml-4 rounded-2xl" style={{ 
+      background: 'linear-gradient(145deg, #1a1d29, #151820)',
+      border: '1px solid rgba(139, 92, 246, 0.15)',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)',
     }}>
       {/* Header */}
       <div className="px-4 py-3 flex items-center justify-between" style={{
-        backgroundColor: '#0D0D0D',
+        background: 'linear-gradient(145deg, #1e2332, #1a1d29)',
         borderBottom: '1px solid rgba(139, 92, 246, 0.15)',
+        borderRadius: '1.5rem 1.5rem 0 0',
       }}>
         <div className="flex items-center gap-2.5">
           <div className="flex items-center justify-center w-7 h-7 rounded-full" style={{
