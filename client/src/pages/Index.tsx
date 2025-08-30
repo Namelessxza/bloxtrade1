@@ -313,7 +313,7 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-6 py-6 bg-transparent relative">
               {/* Trading Bonus Container */}
-              <div className="relative overflow-hidden rounded-3xl p-6 mb-6 min-h-[240px]" style={{backgroundImage: 'url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+              <div className="relative overflow-hidden rounded-3xl p-4 mb-6 min-h-[180px]" style={{backgroundImage: 'url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
                 {/* Background Overlay */}
                 <div className="absolute inset-0 bg-black/40"></div>
                 
