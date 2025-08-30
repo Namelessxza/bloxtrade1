@@ -409,7 +409,7 @@ const MessageItem: React.FC<{
         <div 
           className="inline-block px-3 py-2 rounded-xl bg-[#1D1D1F]"
           style={{ 
-            backgroundColor: '#1D1D1F',
+            backgroundColor: message.isAdmin ? '#2d1b47' : message.username.startsWith('@') ? '#1f2937' : '#1a2332',
             maxWidth: '85%',
           }}
         >
