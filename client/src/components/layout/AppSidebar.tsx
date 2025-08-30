@@ -114,7 +114,7 @@ const ModeButton: React.FC<{
     <button
       onClick={onClick}
       disabled={locked}
-      className="flex-1 px-4 py-2 rounded-full transition-colors flex items-center justify-center gap-2 font-bold"
+      className="flex-1 px-4 py-2 rounded-xl transition-colors flex items-center justify-center gap-2 font-bold"
       style={{
         backgroundColor: active 
           ? theme.colors.primary.full

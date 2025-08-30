@@ -103,7 +103,7 @@ export const AppHeader: React.FC = () => {
         
         <Link href="/components">
           <button
-            className="px-5 py-2 rounded-full text-sm transition-colors"
+            className="px-5 py-2 rounded-xl text-sm transition-colors"
             style={{
               backgroundColor: theme.colors.secondary.full,
               color: theme.colors.text.primary,
