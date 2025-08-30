@@ -139,18 +139,18 @@ export const ChatPanel: React.FC = () => {
       avatarNumber: '11',
     },
   ]);
-
+  
   const [newMessage, setNewMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
+  
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
+  
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
-
+  
   const sendMessage = () => {
     if (newMessage.trim()) {
       const newMsg: Message = {
@@ -165,7 +165,7 @@ export const ChatPanel: React.FC = () => {
       setNewMessage('');
     }
   };
-
+  
   return (
     <div className="flex flex-col h-full" style={{ 
       backgroundColor: '#0D0D0D',
@@ -188,7 +188,7 @@ export const ChatPanel: React.FC = () => {
             Chat
           </span>
         </div>
-
+        
         <div className="flex items-center gap-2">
           <button 
             className="relative px-5 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 overflow-hidden"
@@ -223,7 +223,7 @@ export const ChatPanel: React.FC = () => {
             />
             <span style={{ position: 'relative', zIndex: 1 }}>Rules</span>
           </button>
-
+          
           <button
             className="w-10 h-10 rounded-xl flex items-center justify-center transition-all"
             style={{
@@ -285,7 +285,7 @@ export const ChatPanel: React.FC = () => {
                 e.currentTarget.style.backgroundColor = '#1D1D1F';
               }}
             />
-
+            
             <div className="absolute right-2 flex items-center gap-1">
               <button
                 type="button"
@@ -305,7 +305,7 @@ export const ChatPanel: React.FC = () => {
               >
                 <Smile className="h-4 w-4" />
               </button>
-
+              
               <button
                 type="submit"
                 className="w-10 h-10 rounded-xl flex items-center justify-center transition-all ml-1 bg-[#a855f7]"
@@ -337,7 +337,7 @@ const MessageItem: React.FC<{
   message: Message;
 }> = ({ message }) => {
   const [hovered, setHovered] = useState(false);
-
+  
   return (
     <div 
       className="flex gap-2.5 items-start px-3 py-1 transition-colors bg-[#0D0D0D]"
@@ -433,11 +433,11 @@ const getAvatarColor = (username: string, number?: string) => {
   if (username === 'amador') {
     return 'linear-gradient(135deg, #a855f7, #7c3aed)'; // Purple gradient
   }
-
+  
   if (username.startsWith('@')) {
     return 'linear-gradient(135deg, #ec4899, #db2777)'; // Pink gradient
   }
-
+  
   // Different colors based on the number
   const colors = [
     'linear-gradient(135deg, #f97316, #ea580c)', // Orange
@@ -449,12 +449,12 @@ const getAvatarColor = (username: string, number?: string) => {
     'linear-gradient(135deg, #f59e0b, #d97706)', // Amber
     'linear-gradient(135deg, #ec4899, #db2777)', // Pink
   ];
-
+  
   let hash = 0;
   const str = username + (number || '');
   for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
-
+  
   return colors[Math.abs(hash) % colors.length];
 };
