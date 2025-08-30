@@ -108,8 +108,13 @@ export default function ProfileUser() {
                 </div>
                 <div className="text-slate-400 text-sm">
                   <span>Reputation</span>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="text-white font-medium">{userData.reputation.score}</span>
+                  <div className="mt-1">
+                    <span 
+                      className="text-white font-medium"
+                      style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                    >
+                      {userData.reputation.score}
+                    </span>
                   </div>
                 </div>
               </div>
