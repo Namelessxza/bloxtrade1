@@ -1,645 +1,132 @@
-/* Font optimization and text rendering */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
-/* Custom font definition */
-@font-face {
-  font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
-       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
-       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
-       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
-       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
-       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
-       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Modern animations */
-@keyframes gradient-shift {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes glow-pulse {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3),
-                0 0 40px rgba(34, 211, 238, 0.2);
-  }
-  50% { 
-    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4),
-                0 0 60px rgba(34, 211, 238, 0.3);
-  }
-}
-
-.animate-gradient-shift {
-  animation: gradient-shift 8s ease infinite;
-}
-
-.animate-shimmer {
-  animation: shimmer 2s linear infinite;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-glow-pulse {
-  animation: glow-pulse 2s ease-in-out infinite;
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
-@layer base {
-  * {
-    border-color: hsl(var(--border));
-  }
-  
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-feature-settings: 'rlig' 1, 'calt' 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-    min-width: 320px;
-    font-weight: 400;
-    line-height: 1.6;
-    font-size: 16px;
-  }
-  
-  /* Ensure all elements inherit the font stack */
-  * {
-    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  /* Force font stack on input elements */
-  input, textarea, select {
-    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
-  }
-
-  /* Force font on all interactive elements */
-  button, a, span, div, p, h1, h2, h3, h4, h5, h6, label, legend {
-    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
-  }
-
-  :root {
-    /* Modern 2025 Design System */
-    --background: 240 20% 4%;  /* Ultra dark blue-black */
-    --foreground: 210 40% 98%;
-
-    --card: 240 16% 8%;  /* Deep card with blue tint */
-    --card-foreground: 210 40% 98%;
-
-    --popover: 240 14% 10%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 200 100% 50%;  /* Electric cyan */
-    --primary-foreground: 240 20% 4%;
-    --primary-glow: 200 100% 65%;  /* Bright cyan glow */
-
-    --secondary: 280 85% 60%;  /* Vibrant purple */
-    --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 280 100% 75%;  /* Bright purple glow */
-
-    --muted: 240 12% 16%;
-    --muted-foreground: 210 20% 70%;
-
-    --accent: 150 85% 50%;  /* Neon green accent */
-    --accent-foreground: 240 20% 4%;
-    --accent-glow: 150 100% 65%;
-
-    --success: 150 85% 50%;
-    --warning: 35 100% 55%;
-    --destructive: 0 85% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 10% 20%;
-    --input: 240 12% 14%;
-    --ring: 200 100% 50%;
-
-    --radius: 0.75rem;
-
-
-    /* Modern Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)), hsl(var(--secondary)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)), hsl(var(--primary)));
-    --gradient-success: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)), hsl(var(--primary)));
-    --gradient-card: linear-gradient(145deg, hsl(240 16% 10%), hsl(240 14% 6%));
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-
-    /* Modern Shadows & Effects */
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.4), 0 0 80px hsl(var(--primary) / 0.2);
-    --shadow-card: 0 20px 40px -12px rgba(0,0,0,0.5), 0 8px 16px -8px rgba(0,0,0,0.3);
-    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    --blur-glass: blur(12px) saturate(180%);
-    --border-glass: 1px solid rgba(255, 255, 255, 0.08);
-
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #0a0f1c;
+  color: #ffffff;
+  overflow: hidden;
 }
 
-@layer components {
-  /* Typography improvements with responsive clamp() */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 900;
-    letter-spacing: -0.03em;
-  }
-  
-  h2 {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: 800;
-  }
-  
-  h3 {
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-    font-weight: 700;
-  }
-  
-  p, span, div {
-    line-height: 1.6;
-  }
-  
-  /* Improved text contrast */
-  .text-foreground {
-    color: hsl(var(--foreground));
-    font-weight: 500;
-  }
-  
-  .text-muted-foreground {
-    color: hsl(var(--muted-foreground));
-    font-weight: 500;
-  }
-
-  /* Modern Glass Card Components */
-  .gaming-card {
-    @apply border border-white/5 rounded-2xl;
-    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    box-shadow: var(--shadow-card), inset 0 1px 0 0 rgba(255,255,255,0.05);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .gaming-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  }
-  
-  .gaming-card:hover {
-    @apply border-white/10;
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: var(--shadow-glow), var(--shadow-card);
-    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-  }
-  
-  .gaming-button-primary {
-    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold px-6 py-2 rounded-lg;
-    transition: var(--transition-bounce);
-  }
-  
-  .gaming-button-primary:hover {
-    transform: translateY(-1px) scale(1.02);
-  }
-  
-  .gaming-button-secondary {
-    @apply bg-gradient-to-r from-secondary to-secondary-glow text-secondary-foreground font-semibold px-6 py-2 rounded-lg;
-    transition: var(--transition-smooth);
-  }
-  
-  .gaming-button-secondary:hover {
-    transform: translateY(-1px);
-  }
-  
-  .gaming-text-glow {
-    font-weight: 900;
-    letter-spacing: -0.02em;
-  }
-  
-  .gaming-border-glow {
-  }
-  
-  /* Table improvements */
-  .table-header-improved {
-    background: hsl(var(--gaming-card));
-    border-bottom: 2px solid hsl(var(--border));
-  }
-  
-  .table-header-improved th {
-    font-weight: 700;
-    font-size: 0.875rem;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: hsl(var(--foreground));
-    padding: 1rem 1.5rem;
-  }
-  
-  .table-row-improved {
-    border-bottom: 1px solid hsl(var(--border) / 0.3);
-    transition: all 0.2s ease;
-  }
-  
-  .table-row-improved:hover {
-    background: hsl(var(--gaming-hover) / 0.3);
-    transform: translateY(-1px);
-  }
-  
-  .table-cell-improved {
-    padding: 1.25rem 1.5rem;
-    vertical-align: middle;
-  }
-  
-  /* Improved gradient text */
-  .gradient-text-improved {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--gaming-cyan)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-  }
-  
-  /* Better button text */
-  .gaming-button-primary {
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
-  
-  .gaming-button-secondary {
-    font-weight: 600;
-    letter-spacing: 0.01em;
-  }
-  
-  /* Responsive container and layout improvements */
-  .responsive-container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 clamp(1rem, 4vw, 2rem);
-  }
-  
-  .responsive-grid {
-    display: grid;
-    gap: clamp(1rem, 3vw, 2rem);
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  }
-  
-  .responsive-grid-2 {
-    display: grid;
-    gap: clamp(1rem, 3vw, 2rem);
-    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  }
-  
-  .responsive-grid-4 {
-    display: grid;
-    gap: clamp(0.75rem, 2vw, 1.5rem);
-    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-  }
-  
-  /* Table responsive wrapper */
-  .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: hsl(var(--primary) / 0.3) hsl(var(--muted));
-  }
-  
-  .table-responsive::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .table-responsive::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-    border-radius: 4px;
-  }
-  
-  .table-responsive::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.5);
-    border-radius: 4px;
-  }
-  
-  .table-responsive::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.7);
-  }
-  
-  /* Comprehensive breakpoint system */
-  @media (max-width: 1200px) {
-    .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    
-    .table-header-improved th {
-      font-size: 0.75rem;
-      padding: 0.75rem 0.5rem;
-      white-space: nowrap;
-    }
-    
-    .table-cell-improved {
-      padding: 1rem 0.5rem;
-    }
-    
-    .responsive-grid-4 {
-      grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .container {
-      padding-left: 0.75rem;
-      padding-right: 0.75rem;
-    }
-    
-    .table-header-improved th {
-      font-size: 0.7rem;
-      padding: 0.5rem 0.25rem;
-    }
-    
-    .table-cell-improved {
-      padding: 0.75rem 0.25rem;
-    }
-    
-    .responsive-grid-4 {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .responsive-grid-4 {
-      grid-template-columns: 1fr;
-    }
-    
-    .table-responsive table {
-      min-width: 600px;
-    }
-  }
-  
-  @media (max-width: 360px) {
-    .container {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
-  }
-  
-  /* Text selection styling */
-  ::selection {
-    background: hsl(var(--primary) / 0.3);
-    color: hsl(var(--foreground));
-  }
-  
-  ::-moz-selection {
-    background: hsl(var(--primary) / 0.3);
-    color: hsl(var(--foreground));
-  }
+/* Remove all default borders from inputs and buttons */
+input,
+button,
+textarea,
+select {
+  border: none;
+  outline: none;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
 
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
-  }
-  
-  /* Hide scrollbars for game tiles */
-  .scrollbar-hide {
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
   
-  .scrollbar-hide::-webkit-scrollbar {
+  .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-
-  /* Buy Crypto Button Styling */
-  .buy-crypto-button {
-    background: linear-gradient(135deg, #2dd4ff 0%, #1fc7ff 30%, #00b4e6 70%, #0095cc 100%);
-    border: none;
-    border-radius: 100px;
-    padding: 12px 20px;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    text-shadow: none;
-    position: relative;
-    overflow: hidden;
+  
+  /* Smooth transitions */
+  .transition-smooth {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d;
-    box-shadow: 
-      0 2px 6px rgba(0, 0, 0, 0.2),
-      inset 0 2px 3px rgba(255, 255, 255, 0.3),
-      inset 0 -2px 8px rgba(0, 0, 0, 0.15);
-    width: fit-content;
-    display: inline-block;
   }
-
-  /* Glossy overlay effect */
-  .buy-crypto-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.3) 50%,
-      transparent
-    );
-    transition: left 0.5s ease;
+  
+  .transition-fast {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
-  /* Top highlight */
-  .buy-crypto-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 50%;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.25),
-      transparent
-    );
-    border-radius: 100px 100px 0 0;
-    pointer-events: none;
+  
+  /* Glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
   }
-
-  .buy-crypto-button:hover {
-    box-shadow: 
-      0 3px 8px rgba(0, 0, 0, 0.3),
-      inset 0 2px 3px rgba(255, 255, 255, 0.4),
-      inset 0 -2px 8px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #3de0ff 0%, #2dd4ff 30%, #1fc7ff 70%, #00a8e8 100%);
+  
+  .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.05);
   }
-
-  .buy-crypto-button:hover::before {
-    left: 100%;
+  
+  /* Text gradients */
+  .text-gradient {
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-
-  .buy-crypto-button:active {
-    box-shadow: 
-      0 1px 4px rgba(0, 0, 0, 0.2),
-      inset 0 2px 5px rgba(0, 0, 0, 0.2),
-      inset 0 -1px 3px rgba(255, 255, 255, 0.2);
+  
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-
-  /* Pulsing glow animation */
-  @keyframes pulse {
-    0%, 100% {
-      box-shadow: 
-        0 0 40px rgba(31, 199, 255, 0.5),
-        0 10px 30px rgba(31, 199, 255, 0.3),
-        0 4px 12px rgba(0, 0, 0, 0.2),
-        inset 0 2px 3px rgba(255, 255, 255, 0.3),
-        inset 0 -2px 8px rgba(0, 0, 0, 0.15);
-    }
-    50% {
-      box-shadow: 
-        0 0 50px rgba(31, 199, 255, 0.6),
-        0 10px 35px rgba(31, 199, 255, 0.35),
-        0 4px 12px rgba(0, 0, 0, 0.2),
-        inset 0 2px 3px rgba(255, 255, 255, 0.3),
-        inset 0 -2px 8px rgba(0, 0, 0, 0.15);
-    }
+  
+  .text-gradient-secondary {
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-
+  
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+  
+  .glow-secondary {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
 }
 
-/* Custom chat background color */
-.chat-bg-custom {
-  background-color: #0C1321 !important;
+/* Remove focus outlines globally */
+*:focus {
+  outline: none;
 }
 
-/* Blue focus/hover borders for search inputs */
-input[type="text"], input[data-testid*="input"] {
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+/* Ensure buttons don't have default browser styles */
+button {
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-input[type="text"]:focus, input[data-testid*="input"]:focus,
-input[type="text"]:hover, input[data-testid*="input"]:hover {
-  border-color: #3b82f6 !important;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1) !important;
-  outline: none !important;
+/* Remove link underlines */
+a {
+  text-decoration: none;
+  color: inherit;
 }
-
-
