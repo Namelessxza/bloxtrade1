@@ -194,17 +194,7 @@ export default function Index() {
             <ShoppingCart className="h-4 w-4 text-slate-100 hover:text-white" />
           </Button>
 
-          {/* Wallet Balance */}
-          <div className="flex items-center gap-2 bg-slate-800/60 px-4 py-2 rounded-lg">
-            <Wallet className="h-4 w-4 text-slate-100" />
-            <span
-              className="text-white font-semibold"
-              style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
-              data-testid="text-wallet-balance"
-            >
-              $2,485
-            </span>
-          </div>
+          
 
           {/* Components Button */}
           <Link href="/components">
