@@ -32,7 +32,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       {/* Main Content Area */}
       <div className="flex flex-1 overflow-hidden bg-[#101012]">
         {/* Sidebar */}
-        <div className="flex-shrink-0 ml-2 my-4 rounded-lg overflow-hidden" style={{
+        <div className="flex-shrink-0 ml-2 my-4 overflow-hidden" style={{
+          borderRadius: '0.875rem',
           backgroundColor: '#0A0E18',
           width: '275px'
         }}>
