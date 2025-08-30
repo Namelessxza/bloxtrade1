@@ -259,7 +259,7 @@ export const ChatPanel: React.FC = () => {
       </ScrollArea>
       
       {/* Input Area */}
-      <div className="px-3 pb-3">
+      <div className="px-4 pb-4">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -271,60 +271,61 @@ export const ChatPanel: React.FC = () => {
             <Input
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
-              placeholder="Enter your message..."
-              className="w-full h-10 rounded-lg text-sm pl-4 pr-20"
+              placeholder="Enter your message"
+              className="w-full h-12 rounded-full text-sm pl-5 pr-24 border-0"
               style={{
-                backgroundColor: '#1a1f2e',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
+                backgroundColor: '#2c3347',
                 color: '#9ca3af',
-                fontSize: '13px',
+                fontSize: '14px',
+                boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.2)',
               }}
               onFocus={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.currentTarget.placeholder = 'Type a message...';
+                e.currentTarget.style.backgroundColor = '#343a50';
+                e.currentTarget.style.outline = 'none';
               }}
               onBlur={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
-                e.currentTarget.placeholder = 'Enter your message...';
+                e.currentTarget.style.backgroundColor = '#2c3347';
               }}
             />
             
-            <div className="absolute right-1 flex items-center gap-1">
+            <div className="absolute right-2 flex items-center gap-1">
               <button
                 type="button"
-                className="p-1.5 rounded-md transition-colors"
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-all"
                 style={{
-                  color: '#6b7280',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  color: '#9ca3af',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#9ca3af';
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+                  e.currentTarget.style.color = '#ffffff';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#6b7280';
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                  e.currentTarget.style.color = '#9ca3af';
                 }}
               >
-                <Smile className="h-5 w-5" />
+                <Smile className="h-4 w-4" />
               </button>
               
               <button
                 type="submit"
-                className="p-1.5 rounded-md transition-all"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all ml-1"
                 style={{
-                  backgroundColor: newMessage.trim() ? '#fbbf24' : 'transparent',
-                  color: newMessage.trim() ? '#000' : '#6b7280',
+                  backgroundColor: '#fbbf24',
+                  color: '#000000',
+                  boxShadow: '0 2px 8px rgba(251, 191, 36, 0.3)',
                 }}
                 onMouseEnter={(e) => {
-                  if (newMessage.trim()) {
-                    e.currentTarget.style.backgroundColor = '#f59e0b';
-                  }
+                  e.currentTarget.style.backgroundColor = '#f59e0b';
+                  e.currentTarget.style.transform = 'scale(1.05)';
                 }}
                 onMouseLeave={(e) => {
-                  if (newMessage.trim()) {
-                    e.currentTarget.style.backgroundColor = '#fbbf24';
-                  }
+                  e.currentTarget.style.backgroundColor = '#fbbf24';
+                  e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
-                <Send className="h-5 w-5" />
+                <Send className="h-5 w-5" style={{ marginLeft: '1px' }} />
               </button>
             </div>
           </div>
