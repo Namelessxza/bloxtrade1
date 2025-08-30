@@ -23,10 +23,62 @@ export const DashboardView: React.FC = () => {
           <h2 className="text-2xl font-bold mb-4" style={{ color: theme.colors.text.primary }}>
             Active Trades
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <TradeCard key={i} isLocked={i === 3} />
-            ))}
+          <div className="relative">
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[1, 2, 3].map((i) => (
+                <TradeCard key={i} />
+              ))}
+            </div>
+            
+            {/* Premium Lock Overlay */}
+            <div 
+              className="absolute inset-0 rounded-2xl pointer-events-none"
+              style={{
+                background: 'linear-gradient(180deg, transparent 0%, rgba(0, 20, 30, 0.4) 30%, rgba(0, 20, 30, 0.7) 100%)',
+                backdropFilter: 'blur(2px)',
+              }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center pointer-events-auto">
+                  <div 
+                    className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3"
+                    style={{
+                      background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
+                      boxShadow: '0 0 30px rgba(6, 182, 212, 0.4)',
+                    }}
+                  >
+                    <svg 
+                      className="w-7 h-7 text-white" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-1">Premium Trades</h3>
+                  <p className="text-sm text-gray-300 mb-4 max-w-xs mx-auto">
+                    Unlock premium to view all active trades
+                  </p>
+                  <button 
+                    className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
+                    style={{
+                      boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = 'inset 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(6, 182, 212, 0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'inset 0 4px 8px rgba(0,0,0,0.3)';
+                    }}
+                  >
+                    Upgrade to Premium
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -101,68 +153,7 @@ const GameCard: React.FC = () => {
   );
 };
 
-const TradeCard: React.FC<{ isLocked?: boolean }> = ({ isLocked = false }) => {
-  if (isLocked) {
-    return (
-      <div 
-        className="rounded-2xl p-4 relative overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(8, 145, 178, 0.05))',
-          border: `1px solid rgba(6, 182, 212, 0.2)`,
-          boxShadow: '0 4px 20px rgba(6, 182, 212, 0.1)',
-          minHeight: '180px',
-        }}
-      >
-        {/* Blurred content preview */}
-        <div className="opacity-30 blur-sm pointer-events-none">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs px-2.5 py-1 rounded-full font-bold bg-gray-700 text-gray-400">
-              Locked
-            </span>
-            <span className="text-xs text-gray-500">Premium</span>
-          </div>
-          <div className="h-4 bg-gray-700 rounded w-3/4 mb-2"></div>
-          <div className="h-3 bg-gray-700 rounded w-full mb-1"></div>
-          <div className="h-3 bg-gray-700 rounded w-5/6"></div>
-        </div>
-        
-        {/* Lock overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <div 
-            className="w-12 h-12 rounded-full flex items-center justify-center mb-2"
-            style={{
-              background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.9), rgba(8, 145, 178, 0.9))',
-              boxShadow: '0 0 20px rgba(6, 182, 212, 0.3)',
-            }}
-          >
-            <svg 
-              className="w-6 h-6 text-white" 
-              fill="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-            </svg>
-          </div>
-          <p className="text-xs font-semibold text-cyan-400 mb-2">Premium Trade</p>
-          <button 
-            className="px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
-            style={{
-              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.2)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'scale(1.05)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1)';
-            }}
-          >
-            Unlock
-          </button>
-        </div>
-      </div>
-    );
-  }
-  
+const TradeCard: React.FC = () => {
   return (
     <div 
       className="rounded-2xl p-4 transition-all cursor-pointer"
