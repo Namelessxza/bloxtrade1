@@ -42,7 +42,7 @@ export const DashboardView: React.FC = () => {
               className="absolute inset-0 rounded-2xl pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(180deg, transparent 0%, rgba(233, 142, 241, 0.4) 30%, rgba(233, 142, 241, 0.7) 100%)",
+                  "linear-gradient(180deg, transparent 0%, rgba(233, 142, 241, 0.2) 30%, rgba(233, 142, 241, 0.4) 100%)",
                 backdropFilter: "blur(2px)",
               }}
             >
