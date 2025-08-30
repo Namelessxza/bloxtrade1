@@ -14,7 +14,7 @@ const ScrollArea = React.forwardRef<
     className={cn("relative overflow-hidden", className)}
     {...props}
   >
-    <ScrollAreaPrimitive.Viewport className={cn("h-full w-full rounded-xl", viewportClassName || "bg-[#09101D]")}>
+    <ScrollAreaPrimitive.Viewport className={cn("h-full w-full rounded-xl", viewportClassName)}>
       {children}
     </ScrollAreaPrimitive.Viewport>
     <ScrollBar />
@@ -32,7 +32,7 @@ const ChatScrollArea = React.forwardRef<
     className={cn("relative overflow-hidden", className)}
     {...props}
   >
-    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-xl bg-[#0C1321]">
+    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-xl" style={{ backgroundColor: '#0C1321' }}>
       {children}
     </ScrollAreaPrimitive.Viewport>
     <ScrollBar />
@@ -50,7 +50,7 @@ const SidebarScrollArea = React.forwardRef<
     className={cn("relative overflow-hidden", className)}
     {...props}
   >
-    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-xl bg-[#09101D]">
+    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-xl" style={{ backgroundColor: '#0A0E18' }}>
       {children}
     </ScrollAreaPrimitive.Viewport>
     <ScrollBar />

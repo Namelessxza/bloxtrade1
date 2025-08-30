@@ -13,7 +13,7 @@ import {
   ShoppingBag,
   Activity
 } from 'lucide-react';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { SidebarScrollArea } from '@/components/ui/scroll-area';
 import { theme } from '@/config/theme';
 
 interface NavItem {
@@ -76,7 +76,7 @@ export const AppSidebar: React.FC = () => {
       </div>
       
       {/* Navigation Items */}
-      <ScrollArea className="flex-1 px-3">
+      <SidebarScrollArea className="flex-1 px-3">
         <div className="space-y-1 py-2">
           {currentCategories.map((item) => (
             <NavItem
@@ -87,7 +87,7 @@ export const AppSidebar: React.FC = () => {
             />
           ))}
         </div>
-      </ScrollArea>
+      </SidebarScrollArea>
       
       {/* Bottom Actions */}
       <div className="p-4 space-y-2">
