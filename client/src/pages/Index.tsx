@@ -311,6 +311,63 @@ export default function Index() {
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-6 py-6 bg-transparent relative">
+              {/* Trading Bonus Container */}
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 p-8 mb-6">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-white rounded-full"></div>
+                  <div className="absolute bottom-8 left-8 w-2 h-2 bg-cyan-400 rounded-full"></div>
+                  <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full"></div>
+                  <div className="absolute bottom-4 right-8 w-6 h-6 bg-gradient-to-r from-green-400 to-cyan-400 transform rotate-45"></div>
+                </div>
+                
+                <div className="relative z-10 flex items-center justify-between">
+                  {/* Left Content */}
+                  <div className="flex-1">
+                    <h2 className="text-4xl font-black text-white mb-2">
+                      TRADE WITH
+                    </h2>
+                    <h3 className="text-4xl font-black text-white mb-2">
+                      $5000 BONUS
+                    </h3>
+                    <p className="text-2xl font-black text-yellow-300 mb-8">
+                      + FREE ITEMS!
+                    </p>
+                    
+                    {/* Timer Section */}
+                    <div className="mb-6">
+                      <p className="text-sm font-semibold text-purple-200 mb-3 uppercase tracking-wider">
+                        TIME LEFT
+                      </p>
+                      <div className="flex gap-3">
+                        <div className="bg-black/30 backdrop-blur-sm rounded-2xl px-4 py-3 min-w-[70px] text-center">
+                          <div className="text-2xl font-black text-white">09</div>
+                        </div>
+                        <div className="bg-black/30 backdrop-blur-sm rounded-2xl px-4 py-3 min-w-[70px] text-center">
+                          <div className="text-2xl font-black text-white">11</div>
+                        </div>
+                        <div className="bg-black/30 backdrop-blur-sm rounded-2xl px-4 py-3 min-w-[70px] text-center">
+                          <div className="text-2xl font-black text-white">44</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Claim Button */}
+                    <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black font-black px-8 py-4 rounded-2xl text-lg shadow-lg transform transition-all duration-200 hover:scale-105">
+                      CLAIM BONUS
+                    </button>
+                  </div>
+                  
+                  {/* Right Content - Icon */}
+                  <div className="flex-shrink-0 ml-8">
+                    <div className="w-48 h-48 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-3xl flex items-center justify-center shadow-2xl">
+                      <div className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center">
+                        <div className="w-16 h-16 bg-black rounded-lg"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </ScrollArea>
         </div>
