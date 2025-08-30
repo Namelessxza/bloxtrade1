@@ -41,7 +41,7 @@ interface ChatMessage {
 }
 
 export default function Index() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("home");
   const [activeMode, setActiveMode] = useState<"games" | "sport">("games");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
