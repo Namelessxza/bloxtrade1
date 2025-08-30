@@ -10,7 +10,7 @@ export const AppHeader: React.FC = () => {
   
   return (
     <header 
-      className="h-16 px-6 flex items-center justify-between"
+      className="h-16 px-6 flex items-center justify-between bg-[#111113]"
       style={{ backgroundColor: theme.colors.background.secondary }}
     >
       {/* Logo */}
@@ -26,7 +26,6 @@ export const AppHeader: React.FC = () => {
           <span className="text-white font-bold text-xl">GameXchange</span>
         </div>
       </Link>
-      
       {/* Center Search Bar */}
       <div className="flex-1 max-w-lg mx-8">
         <div className="relative">
@@ -58,7 +57,6 @@ export const AppHeader: React.FC = () => {
           />
         </div>
       </div>
-      
       {/* Right Actions */}
       <div className="flex items-center gap-4">
         <button
