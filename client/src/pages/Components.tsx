@@ -26,6 +26,28 @@ export default function Components() {
             </div>
 
             <div className="space-y-4">
+              <h3 className="text-lg font-medium text-slate-300">Purple Gradient</h3>
+              <button 
+                className="w-full px-8 py-4 text-white font-bold text-lg rounded-3xl transition-all duration-200 shadow-lg"
+                style={{
+                  background: 'linear-gradient(135deg, #e879f9 0%, #a855f7 35%, #7c3aed 70%, #6366f1 100%)',
+                  boxShadow: '0 8px 25px rgba(168, 85, 247, 0.4), 0 4px 15px rgba(139, 92, 246, 0.3)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 12px 35px rgba(168, 85, 247, 0.5), 0 6px 20px rgba(139, 92, 246, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(168, 85, 247, 0.4), 0 4px 15px rgba(139, 92, 246, 0.3)';
+                }}
+              >
+                Place bet
+              </button>
+            </div>
+
+            <div className="space-y-4">
               <h3 className="text-lg font-medium text-slate-300">Sunset Gradients</h3>
               <button className="w-full px-6 py-3 bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white font-semibold rounded-xl shadow-lg">
                 Sunset Orange
