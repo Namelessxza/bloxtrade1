@@ -56,7 +56,7 @@ export const AppSidebar: React.FC = () => {
       {/* Mode Toggle */}
       <div className="p-4">
         <div 
-          className="flex p-1 rounded-xl"
+          className="flex p-1 rounded-xl bg-[#0e1015]"
           style={{ backgroundColor: theme.colors.background.primary }}
         >
           <ModeButton
@@ -74,7 +74,6 @@ export const AppSidebar: React.FC = () => {
           />
         </div>
       </div>
-      
       {/* Navigation Items */}
       <SidebarScrollArea className="flex-1 px-3">
         <div className="space-y-1 py-2">
@@ -88,7 +87,6 @@ export const AppSidebar: React.FC = () => {
           ))}
         </div>
       </SidebarScrollArea>
-      
       {/* Bottom Actions */}
       <div className="p-4 space-y-2">
         <NavItem
