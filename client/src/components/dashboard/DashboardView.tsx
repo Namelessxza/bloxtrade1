@@ -160,8 +160,10 @@ const GameCard: React.FC = () => {
             24 items available
           </span>
           <button
-            className="px-4 py-2 rounded-xl text-sm font-bold transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
+            className="px-4 py-2 rounded-xl text-sm font-bold transition-colors text-white"
             style={{
+              background: "linear-gradient(to bottom right, #B850E7, #F59BF3)",
+              border: "1px solid #F59BF3",
               boxShadow: "inset 0 4px 8px rgba(0,0,0,0.3)",
             }}
             onMouseEnter={(e) => {
@@ -237,8 +239,10 @@ const TradeCard: React.FC = () => {
           </span>
         </div>
         <button
-          className="text-sm font-bold px-3 py-1.5 rounded-xl transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
+          className="text-sm font-bold px-3 py-1.5 rounded-xl transition-colors text-white"
           style={{
+            background: "linear-gradient(to bottom right, #B850E7, #F59BF3)",
+            border: "1px solid #F59BF3",
             boxShadow: "inset 0 4px 8px rgba(0,0,0,0.3)",
           }}
           onMouseEnter={(e) => {
@@ -287,8 +291,10 @@ const ActivityItem: React.FC = () => {
         </p>
       </div>
       <button
-        className="text-sm font-bold px-3 py-1 rounded-xl transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
+        className="text-sm font-bold px-3 py-1 rounded-xl transition-colors text-white"
         style={{
+          background: "linear-gradient(to bottom right, #B850E7, #F59BF3)",
+          border: "1px solid #F59BF3",
           boxShadow: "inset 0 4px 8px rgba(0,0,0,0.3)",
         }}
         onMouseEnter={(e) => {
