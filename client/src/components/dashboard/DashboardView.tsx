@@ -23,10 +23,79 @@ export const DashboardView: React.FC = () => {
           <h2 className="text-2xl font-bold mb-4" style={{ color: theme.colors.text.primary }}>
             Active Trades
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <TradeCard key={i} />
-            ))}
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[1, 2, 3].map((i) => (
+                <TradeCard key={i} />
+              ))}
+            </div>
+            
+            {/* Lock Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {/* Blur backdrop */}
+              <div 
+                className="absolute inset-0 rounded-xl"
+                style={{
+                  backdropFilter: 'blur(6px)',
+                  background: 'rgba(0, 20, 30, 0.6)',
+                }}
+              />
+              
+              {/* Lock Icon Container */}
+              <div className="relative z-10 flex flex-col items-center gap-3">
+                <div 
+                  className="w-16 h-16 rounded-full flex items-center justify-center"
+                  style={{
+                    background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
+                    boxShadow: '0 0 30px rgba(6, 182, 212, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.2)',
+                  }}
+                >
+                  <svg 
+                    className="w-8 h-8 text-white" 
+                    fill="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+                  </svg>
+                </div>
+                
+                <div className="text-center">
+                  <h3 
+                    className="text-lg font-bold mb-1"
+                    style={{
+                      background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Premium Feature
+                  </h3>
+                  <p className="text-xs text-gray-300 mb-3 max-w-xs">
+                    Unlock to view active trades
+                  </p>
+                  <button 
+                    className="px-4 py-2 rounded-xl text-xs font-bold transition-all pointer-events-auto"
+                    style={{
+                      background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
+                      color: '#ffffff',
+                      border: '1px solid rgba(6, 182, 212, 0.3)',
+                      boxShadow: '0 4px 15px rgba(6, 182, 212, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-1px)';
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(6, 182, 212, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 4px 15px rgba(6, 182, 212, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)';
+                    }}
+                  >
+                    Upgrade Now
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         
