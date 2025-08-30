@@ -270,7 +270,7 @@ export const ChatPanel: React.FC = () => {
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Enter your message"
-              className="flex border-input px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm w-full h-12 rounded-full text-sm pl-5 pr-24 border-0 bg-[#0d1520]"
+              className="flex border-input px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm w-full h-12 rounded-full text-sm pl-5 pr-24 border-0 bg-[#1D1D1F]"
               style={{
                 backgroundColor: '#0d1520',
                 color: '#9ca3af',
