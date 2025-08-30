@@ -200,17 +200,6 @@ const NavItem: React.FC<{
         </span>
       )}
       {item.locked && <Lock className="h-4 w-4" />}
-      {/* Gradient Left Border Spotlight */}
-      <div
-        className={`absolute left-0 top-0 w-0.5 h-full transition-opacity duration-300 ${
-          selected ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-        }`}
-        style={{
-          background:
-            "linear-gradient(180deg, transparent 0%, transparent 20%, #67e8f9 50%, transparent 80%, transparent 100%)",
-          boxShadow: selected || undefined ? "0 0 8px rgba(103, 232, 249, 0.6)" : "none",
-        }}
-      />
     </button>
   );
 };
