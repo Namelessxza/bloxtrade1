@@ -321,9 +321,6 @@ export default function Index() {
                   {/* Left Content */}
                   <div className="flex-1 max-w-md">
                     <h2 className="text-3xl lg:text-4xl font-black text-white mb-1">GIVEAWAY</h2>
-                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-1">
-                      $5000 BONUS
-                    </h3>
                     <p className="text-xl lg:text-2xl font-black text-yellow-300 mb-4">$50,000 ROBUX</p>
                     
                     {/* Timer Section */}
