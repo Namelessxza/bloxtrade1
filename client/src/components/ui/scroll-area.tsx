@@ -62,23 +62,37 @@ SidebarScrollArea.displayName = "SidebarScrollArea"
 const ScrollBar = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>
->(({ className, orientation = "vertical", ...props }, ref) => (
-  <ScrollAreaPrimitive.ScrollAreaScrollbar
-    ref={ref}
-    orientation={orientation}
-    className={cn(
-      "flex touch-none select-none transition-colors",
-      orientation === "vertical" &&
-        "w-2.5 border-l border-l-transparent p-[1px]",
-      orientation === "horizontal" &&
-        "h-2.5 flex-col border-t border-t-transparent p-[1px]",
-      className
-    )}
-    {...props}
-  >
-    <ScrollAreaPrimitive.ScrollAreaThumb className="relative flex-1 rounded-full bg-border" />
-  </ScrollAreaPrimitive.ScrollAreaScrollbar>
-))
+>(({ className, orientation = "vertical", ...props }, ref) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <ScrollAreaPrimitive.ScrollAreaScrollbar
+      ref={ref}
+      orientation={orientation}
+      className={cn(
+        "flex touch-none select-none transition-colors",
+        orientation === "vertical" &&
+          "w-2.5 border-l border-l-transparent p-[1px]",
+        orientation === "horizontal" &&
+          "h-2.5 flex-col border-t border-t-transparent p-[1px]",
+        className
+      )}
+      {...props}
+    >
+      <ScrollAreaPrimitive.ScrollAreaThumb 
+        className="relative flex-1 rounded-full transition-all duration-200"
+        style={{
+          backgroundColor: isHovered ? '#00C9FF' : '#00A8E8',
+          boxShadow: isHovered 
+            ? '0 0 12px rgba(0, 201, 255, 0.6)' 
+            : '0 0 8px rgba(0, 168, 232, 0.4)',
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      />
+    </ScrollAreaPrimitive.ScrollAreaScrollbar>
+  );
+})
 ScrollBar.displayName = ScrollAreaPrimitive.ScrollAreaScrollbar.displayName
 
 export { ScrollArea, ScrollBar, ChatScrollArea, SidebarScrollArea }
