@@ -317,9 +317,9 @@ export default function Index() {
                 {/* Background Overlay */}
                 <div className="absolute inset-0 bg-black/40"></div>
                 
-                <div className="relative z-10 h-full flex items-center justify-between">
-                  {/* Left Content */}
-                  <div className="flex-1 max-w-md">
+                <div className="relative z-10 h-full flex items-center justify-center">
+                  {/* Content */}
+                  <div className="text-center max-w-lg">
                     <h2 className="text-3xl lg:text-4xl font-black text-white mb-2">GIVEAWAY</h2>
                     <p className="text-xl lg:text-2xl font-black text-yellow-300 mb-3">$50,000 ROBUX</p>
                     
@@ -328,7 +328,7 @@ export default function Index() {
                       <p className="text-xs font-semibold text-white mb-1 uppercase tracking-wider">
                         TIME LEFT
                       </p>
-                      <div className="flex gap-2 mb-3">
+                      <div className="flex gap-2 mb-3 justify-center">
                         <div className="relative bg-black/20 backdrop-blur-md rounded-xl px-3 py-2 min-w-[60px] text-center border border-white/10 shadow-lg">
                           <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl"></div>
                           <div className="relative text-xl font-black text-white">09</div>
@@ -346,7 +346,7 @@ export default function Index() {
                     
                     {/* Claim Button */}
                     <button
-                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center gap-2 px-6 py-3 text-base"
+                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center justify-center gap-2 px-6 py-3 text-base mx-auto"
                       style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
                     >ENTER GIVEAWAY</button>
                   </div>
