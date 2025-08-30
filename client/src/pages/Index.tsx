@@ -341,7 +341,7 @@ export default function Index() {
                   }`}
                 >
                   <MessageCircle className="h-4 w-4" />
-                  Chat
+                  Global Chat
                 </button>
                 <button
                   onClick={() => setActiveChatTab("messages")}
@@ -366,7 +366,7 @@ export default function Index() {
                   }`}
                 >
                   <User className="h-4 w-4" />
-                  Friends
+                  Trades
                 </button>
               </div>
             </div>
