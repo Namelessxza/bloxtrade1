@@ -70,7 +70,7 @@ export const DashboardView: React.FC = () => {
                     Unlock premium to view all active trades
                   </p>
                   <button
-                    className="px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200"
+                    className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200"
                     style={{
                       background: 'linear-gradient(to bottom right, #B850E7, #F59BF3)',
                       border: '1px solid #F59BF3',
