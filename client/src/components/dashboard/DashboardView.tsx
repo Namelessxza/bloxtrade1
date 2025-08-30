@@ -49,10 +49,10 @@ export const DashboardView: React.FC = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center pointer-events-auto">
                   <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 bg-[#e98ef1]"
+                    className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3"
                     style={{
-                      background: "linear-gradient(135deg, #06b6d4, #0891b2)",
-                      boxShadow: "0 0 30px rgba(6, 182, 212, 0.4)",
+                      background: "#E98EF1",
+                      boxShadow: "0 0 30px rgba(233, 142, 241, 0.4)",
                     }}
                   >
                     <svg
