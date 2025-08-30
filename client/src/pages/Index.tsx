@@ -233,11 +233,7 @@ export default function Index() {
             <div className="flex rounded-2xl p-1.5 relative bg-slate-800/60">
               <button
                 onClick={() => setActiveMode("games")}
-                className={`flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-bold transition-all duration-300 flex-1 ${
-                  activeMode === "games"
-                    ? "bg-blue-600 text-white shadow-lg"
-                    : "text-slate-100 hover:text-white"
-                }`}
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-bold transition-all duration-300 flex-1 text-white shadow-lg bg-[#06b1d0]"
               >
                 <div className="w-5 h-5 rounded-full border-2 border-current flex items-center justify-center">
                   <div className="w-2 h-2 bg-current rounded-full"></div>
