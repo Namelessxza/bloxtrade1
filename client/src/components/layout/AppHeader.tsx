@@ -35,7 +35,7 @@ export const AppHeader: React.FC = () => {
       {/* Right Actions */}
       <div className="flex items-center gap-4">
         <button
-          className="relative w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
+          className="relative w-10 h-10 rounded-full flex items-center justify-center transition-colors"
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.05)',
             border: `1px solid rgba(255, 255, 255, 0.08)`,
@@ -58,7 +58,7 @@ export const AppHeader: React.FC = () => {
         </button>
         
         <button
-          className="relative w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
+          className="relative w-10 h-10 rounded-full flex items-center justify-center transition-colors"
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.05)',
             border: `1px solid rgba(255, 255, 255, 0.08)`,
@@ -76,7 +76,7 @@ export const AppHeader: React.FC = () => {
         
         <Link href="/components">
           <button
-            className="px-4 py-2 rounded-lg font-semibold text-sm transition-colors"
+            className="px-5 py-2 rounded-full font-bold text-sm transition-colors"
             style={{
               backgroundColor: theme.colors.secondary.full,
               color: theme.colors.text.primary,
@@ -96,7 +96,7 @@ export const AppHeader: React.FC = () => {
         
         <Link href="/profile">
           <button
-            className="px-4 py-2 rounded-lg font-semibold text-sm transition-colors"
+            className="px-5 py-2 rounded-full font-bold text-sm transition-colors"
             style={{
               backgroundColor: theme.colors.primary.full,
               color: theme.colors.text.primary,

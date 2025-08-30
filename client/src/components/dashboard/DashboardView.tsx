@@ -49,7 +49,7 @@ export const DashboardView: React.FC = () => {
 const GameCard: React.FC = () => {
   return (
     <div 
-      className="rounded-lg overflow-hidden transition-colors cursor-pointer group"
+      className="rounded-2xl overflow-hidden transition-colors cursor-pointer group"
       style={{
         backgroundColor: theme.colors.background.card,
         boxShadow: theme.shadows.sm,
@@ -76,7 +76,7 @@ const GameCard: React.FC = () => {
             24 items available
           </span>
           <button 
-            className="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
+            className="px-4 py-2 rounded-full text-sm font-bold transition-colors"
             style={{
               backgroundColor: theme.colors.primary.full,
               color: theme.colors.text.primary,
@@ -99,7 +99,7 @@ const GameCard: React.FC = () => {
 const TradeCard: React.FC = () => {
   return (
     <div 
-      className="rounded-lg p-4 transition-colors cursor-pointer"
+      className="rounded-2xl p-4 transition-colors cursor-pointer"
       style={{
         backgroundColor: theme.colors.background.card,
         boxShadow: theme.shadows.sm,
@@ -113,7 +113,7 @@ const TradeCard: React.FC = () => {
     >
       <div className="flex items-center justify-between mb-3">
         <span 
-          className="text-xs px-2 py-1 rounded-full font-semibold"
+          className="text-xs px-2.5 py-1 rounded-full font-bold"
           style={{
             backgroundColor: theme.colors.accent.green + '20',
             color: theme.colors.accent.green,
@@ -144,7 +144,7 @@ const TradeCard: React.FC = () => {
           </span>
         </div>
         <button 
-          className="text-sm font-medium px-3 py-1.5 rounded-lg transition-colors"
+          className="text-sm font-bold px-3 py-1.5 rounded-full transition-colors"
           style={{ 
             color: theme.colors.primary.full,
             backgroundColor: 'rgba(255, 255, 255, 0.05)',
@@ -167,7 +167,7 @@ const TradeCard: React.FC = () => {
 const ActivityItem: React.FC = () => {
   return (
     <div 
-      className="flex items-center gap-4 p-3 rounded-lg transition-colors"
+      className="flex items-center gap-4 p-3 rounded-xl transition-colors"
       style={{
         backgroundColor: theme.colors.background.card,
       }}
@@ -179,7 +179,7 @@ const ActivityItem: React.FC = () => {
       }}
     >
       <div 
-        className="w-10 h-10 rounded-lg flex items-center justify-center"
+        className="w-10 h-10 rounded-xl flex items-center justify-center font-bold"
         style={{
           backgroundColor: theme.colors.primary.full,
         }}
@@ -195,7 +195,7 @@ const ActivityItem: React.FC = () => {
         </p>
       </div>
       <button 
-        className="text-sm font-medium px-3 py-1 rounded-lg transition-all"
+        className="text-sm font-bold px-3 py-1 rounded-full transition-colors"
         style={{ 
           color: theme.colors.primary.full,
           background: 'rgba(255, 255, 255, 0.03)',

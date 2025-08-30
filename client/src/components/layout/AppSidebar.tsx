@@ -117,7 +117,7 @@ const ModeButton: React.FC<{
     <button
       onClick={onClick}
       disabled={locked}
-      className="flex-1 px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2"
+      className="flex-1 px-4 py-2 rounded-full transition-colors flex items-center justify-center gap-2 font-bold"
       style={{
         backgroundColor: active 
           ? theme.colors.primary.full
@@ -156,7 +156,7 @@ const NavItem: React.FC<{
     <button
       onClick={onClick}
       disabled={item.locked}
-      className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-colors group"
+      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-colors group"
       style={{
         backgroundColor: selected 
           ? 'rgba(255, 255, 255, 0.08)'
