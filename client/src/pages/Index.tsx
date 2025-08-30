@@ -498,7 +498,7 @@ export default function Index() {
                     return (
                       <div
                         key={msg.id}
-                        className="flex gap-3 items-start"
+                        className="flex gap-3 items-start bg-[#0c1321]"
                         data-testid={`message-${msg.id}`}
                       >
                         <div className="relative flex-shrink-0">
