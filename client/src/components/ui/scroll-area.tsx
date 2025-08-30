@@ -32,7 +32,7 @@ const ChatScrollArea = React.forwardRef<
     className={cn("relative overflow-hidden", className)}
     {...props}
   >
-    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-xl" style={{ backgroundColor: '#0C1321' }}>
+    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-xl" style={{ backgroundColor: '#0D0D0D' }}>
       {children}
     </ScrollAreaPrimitive.Viewport>
     <ScrollBar />
