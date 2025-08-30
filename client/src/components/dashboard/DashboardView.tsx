@@ -5,7 +5,7 @@ import { theme } from "@/config/theme";
 export const DashboardView: React.FC = () => {
   return (
     <ScrollArea className="h-full" viewportClassName="bg-[#0F1218]">
-      <div className="min-h-full px-6 py-6 bg-[#09101D]">
+      <div className="min-h-full px-6 py-6 bg-[#111113]">
         {/* Featured Games Section */}
         <div className="mb-8">
           <h2

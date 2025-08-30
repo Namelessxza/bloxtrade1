@@ -49,10 +49,9 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         
         {/* Right Panel (optional) */}
         {rightPanel && (
-          <div className="flex-shrink-0 mr-2 my-4" style={{
+          <div className="flex-shrink-0" style={{
             backgroundColor: '#0D0D0D',
-            width: '396px',
-            borderRadius: '0.875rem'
+            width: '396px'
           }}>
             {rightPanel}
           </div>
