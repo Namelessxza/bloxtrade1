@@ -399,7 +399,7 @@ const MessageItem: React.FC<{
               Admin
             </span>
           )}
-          <span className="text-xs ml-auto" style={{ 
+          <span className="text-xs" style={{ 
             color: '#4b5563',
             fontSize: '11px',
           }}>
