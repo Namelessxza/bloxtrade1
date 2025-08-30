@@ -167,7 +167,7 @@ export const ChatPanel: React.FC = () => {
   };
   
   return (
-    <div className="flex flex-col h-full ml-4 rounded-2xl" style={{ 
+    <div className="flex flex-col h-full" style={{ 
       backgroundColor: '#0D0D0D',
     }}>
       {/* Header */}
