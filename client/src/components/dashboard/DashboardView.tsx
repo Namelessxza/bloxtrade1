@@ -152,17 +152,15 @@ const TradeCard: React.FC = () => {
           </span>
         </div>
         <button 
-          className="text-sm font-bold px-3 py-1.5 rounded-xl transition-colors"
+          className="text-sm font-bold px-3 py-1.5 rounded-xl transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
           style={{ 
-            color: theme.colors.primary.full,
-            backgroundColor: 'rgba(255, 255, 255, 0.05)',
-            border: `1px solid rgba(255, 255, 255, 0.1)`,
+            boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
+            e.currentTarget.style.opacity = '0.9';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+            e.currentTarget.style.opacity = '1';
           }}
         >
           View Trade →
@@ -203,16 +201,15 @@ const ActivityItem: React.FC = () => {
         </p>
       </div>
       <button 
-        className="text-sm font-bold px-3 py-1 rounded-xl transition-colors"
+        className="text-sm font-bold px-3 py-1 rounded-xl transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
         style={{ 
-          color: theme.colors.primary.full,
-          background: 'rgba(255, 255, 255, 0.03)',
+          boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
+          e.currentTarget.style.opacity = '0.9';
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+          e.currentTarget.style.opacity = '1';
         }}
       >
         View
