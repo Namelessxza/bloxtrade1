@@ -320,9 +320,7 @@ export default function Index() {
                 <div className="relative z-10 h-full flex items-center justify-between">
                   {/* Left Content */}
                   <div className="flex-1 max-w-md">
-                    <h2 className="text-3xl lg:text-4xl font-black text-white mb-1">
-                      TRADE WITH
-                    </h2>
+                    <h2 className="text-3xl lg:text-4xl font-black text-white mb-1">GIVEAWAY</h2>
                     <h3 className="text-3xl lg:text-4xl font-black text-white mb-1">
                       $5000 BONUS
                     </h3>
