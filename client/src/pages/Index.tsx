@@ -284,7 +284,7 @@ export default function Index() {
                   >
                     <div className="flex items-center gap-3">
                       <Icon className="h-4 w-4" />
-                      <span className="font-medium">{category.label}</span>
+                      <span className="font-bold">{category.label}</span>
                     </div>
                     <span className="text-xs opacity-60">{category.count}</span>
                   </button>
