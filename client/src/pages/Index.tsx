@@ -148,7 +148,7 @@ export default function Index() {
   return (
     <div className="h-screen bg-gradient-to-br from-[#0a1628] via-[#0f1629] to-[#142447] flex flex-col w-full overflow-hidden">
       {/* Global Header */}
-      <header className="h-16 backdrop-blur-sm flex items-center px-6 from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg bg-[#0c1321]">
+      <header className="h-[70px] backdrop-blur-sm flex items-center px-6 from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg bg-[#0c1321]">
         {/* Left Section - Logo */}
         <div className="flex items-center gap-2 w-1/4 justify-start ml-8">
           <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
@@ -221,7 +221,7 @@ export default function Index() {
       {/* Content Row */}
       <div className="flex flex-row flex-1 min-h-0">
         {/* Left Sidebar - Navigation */}
-        <div className="w-[250px] flex flex-col flex-shrink-0 bg-[#09101d]">
+        <div className="w-[275px] flex flex-col flex-shrink-0 bg-[#09101d]">
           {/* Games/Sport Toggle */}
           <div className="px-2 py-6 bg-[#09101d]">
             <div className="flex rounded-2xl p-1.5 relative bg-slate-800/60">
@@ -367,7 +367,7 @@ export default function Index() {
         </div>
 
         {/* Right Panel */}
-        <div className="w-[360px] bg-transparent flex flex-col flex-shrink-0 relative">
+        <div className="w-[396px] bg-transparent flex flex-col flex-shrink-0 relative">
           {/* Chat Panel */}
           <div className="flex flex-col h-full bg-[#0c1321]">
             {/* Chat Tabs */}
