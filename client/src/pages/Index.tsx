@@ -45,7 +45,7 @@ interface ChatMessage {
 export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState("home");
   const [activeMode, setActiveMode] = useState<"games" | "sport">("games");
-  const [activeChatTab, setActiveChatTab] = useState("chat");
+  const [activeChatTab, setActiveChatTab] = useState("friends");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       id: "1",
@@ -336,7 +336,7 @@ export default function Index() {
                   onClick={() => setActiveChatTab("chat")}
                   className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
                     activeChatTab === "chat"
-                      ? "text-white border-orange-500"
+                      ? "text-white border-blue-500"
                       : "text-slate-400 border-transparent hover:text-white"
                   }`}
                 >
