@@ -70,7 +70,7 @@ const GameCard: React.FC = () => {
           background: theme.gradients.accent,
         }}
       />
-      <div className="p-4">
+      <div className="p-4" style={{ backgroundColor: '#161618' }}>
         <h3 className="font-bold text-lg mb-2" style={{ color: theme.colors.text.primary }}>
           Game Title
         </h3>
