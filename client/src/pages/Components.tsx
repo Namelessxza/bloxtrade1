@@ -118,6 +118,16 @@ export default function Components() {
             >
               Ice Blue
             </button>
+            <button 
+              className="px-6 py-4 text-white font-bold rounded-xl"
+              style={{
+                background: 'linear-gradient(to bottom right, #B850E7, #F59BF3)',
+                border: '1px solid #F59BF3',
+                boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'
+              }}
+            >
+              Candy Pink
+            </button>
           </div>
         </div>
 
