@@ -4,8 +4,10 @@ import { theme } from "@/config/theme";
 
 export const DashboardView: React.FC = () => {
   return (
-    <ScrollArea className="h-full" viewportClassName="bg-[#0F1218]">
-      <div className="min-h-full px-6 py-6 bg-[#111113]">
+    <ScrollArea className="h-full" viewportClassName="bg-[#0a0b0f]">
+      <div className="min-h-full px-6 py-6" style={{ 
+        background: 'linear-gradient(135deg, #0f1116 0%, #151820 100%)'
+      }}>
         {/* Featured Games Section */}
         <div className="mb-8">
           <h2
@@ -72,20 +74,18 @@ export const DashboardView: React.FC = () => {
                   <button
                     className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200"
                     style={{
-                      background: 'linear-gradient(135deg, #67e8f9, #06b6d4, #0891b2)',
+                      background: 'linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b)',
                       color: '#FFFFFF',
-                      border: '1px solid #67e8f9',
-                      boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)',
+                      border: '1px solid rgba(139, 92, 246, 0.5)',
+                      boxShadow: '0 6px 20px rgba(139, 92, 246, 0.4)',
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-2px)";
-                      e.currentTarget.style.boxShadow =
-                        "inset 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(6, 182, 212, 0.3)";
+                      e.currentTarget.style.boxShadow = "0 8px 25px rgba(139, 92, 246, 0.5)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow =
-                        "inset 0 4px 8px rgba(0,0,0,0.3)";
+                      e.currentTarget.style.boxShadow = "0 6px 20px rgba(139, 92, 246, 0.4)";
                     }}
                   >
                     Upgrade to Premium
@@ -139,7 +139,10 @@ const GameCard: React.FC = () => {
           background: theme.gradients.accent,
         }}
       />
-      <div className="p-4" style={{ backgroundColor: "#161618" }}>
+      <div className="p-4" style={{ 
+        background: 'linear-gradient(145deg, #1a1d29, #151820)',
+        borderTop: '1px solid rgba(139, 92, 246, 0.1)'
+      }}>
         <h3
           className="font-bold text-lg mb-2"
           style={{ color: theme.colors.text.primary }}
@@ -154,21 +157,30 @@ const GameCard: React.FC = () => {
         </p>
         <div className="flex items-center justify-between">
           <span
-            className="text-sm font-semibold"
-            style={{ color: theme.colors.accent.green }}
+            className="text-sm font-semibold px-2 py-1 rounded-lg"
+            style={{ 
+              color: theme.colors.accent.green,
+              background: 'rgba(16, 185, 129, 0.1)',
+              border: '1px solid rgba(16, 185, 129, 0.2)'
+            }}
           >
             24 items available
           </span>
           <button
-            className="px-4 py-2 rounded-xl text-sm font-bold transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
+            className="px-4 py-2 rounded-xl text-sm font-bold transition-all"
             style={{
-              boxShadow: "inset 0 4px 8px rgba(0,0,0,0.3)",
+              background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
+              color: '#ffffff',
+              border: '1px solid rgba(139, 92, 246, 0.3)',
+              boxShadow: "0 4px 12px rgba(139, 92, 246, 0.3)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.opacity = "0.9";
+              e.currentTarget.style.transform = "translateY(-1px)";
+              e.currentTarget.style.boxShadow = "0 6px 16px rgba(139, 92, 246, 0.4)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = "1";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(139, 92, 246, 0.3)";
             }}
           >
             View
@@ -237,15 +249,20 @@ const TradeCard: React.FC = () => {
           </span>
         </div>
         <button
-          className="text-sm font-bold px-3 py-1.5 rounded-xl transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
+          className="text-sm font-bold px-3 py-1.5 rounded-xl transition-all"
           style={{
-            boxShadow: "inset 0 4px 8px rgba(0,0,0,0.3)",
+            background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+            color: '#ffffff',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
+            boxShadow: "0 2px 8px rgba(245, 158, 11, 0.3)",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.opacity = "0.9";
+            e.currentTarget.style.transform = "translateY(-1px)";
+            e.currentTarget.style.boxShadow = "0 4px 12px rgba(245, 158, 11, 0.4)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.opacity = "1";
+            e.currentTarget.style.transform = "translateY(0)";
+            e.currentTarget.style.boxShadow = "0 2px 8px rgba(245, 158, 11, 0.3)";
           }}
         >
           Join Server
@@ -287,15 +304,20 @@ const ActivityItem: React.FC = () => {
         </p>
       </div>
       <button
-        className="text-sm font-bold px-3 py-1 rounded-xl transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
+        className="text-sm font-bold px-3 py-1 rounded-xl transition-all"
         style={{
-          boxShadow: "inset 0 4px 8px rgba(0,0,0,0.3)",
+          background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
+          color: '#ffffff',
+          border: '1px solid rgba(139, 92, 246, 0.3)',
+          boxShadow: "0 2px 8px rgba(139, 92, 246, 0.2)",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.opacity = "0.9";
+          e.currentTarget.style.transform = "translateY(-1px)";
+          e.currentTarget.style.boxShadow = "0 4px 12px rgba(139, 92, 246, 0.3)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.opacity = "1";
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = "0 2px 8px rgba(139, 92, 246, 0.2)";
         }}
       >
         View
