@@ -364,7 +364,7 @@ export default function Index() {
             {/* Content Area */}
             <ScrollArea className="flex-1 px-3 py-2">
               {activeChatTab === "friends" && (
-                <div className="space-y-4 bg-[#0a1218] p-2 rounded-lg">
+                <div className="space-y-4 bg-[#1a0d1a] p-3 rounded-lg">
                   {/* Friend Requests */}
                   <div>
                     <h3 className="text-sm font-semibold text-white mb-3">Friend Request (2)</h3>
@@ -483,7 +483,7 @@ export default function Index() {
               )}
 
               {activeChatTab === "chat" && (
-                <div className="space-y-3 bg-[#0c1321] p-2 rounded-lg">
+                <div className="space-y-3 bg-[#0d1a0d] p-3 rounded-lg">
                   {chatMessages.map((msg, index) => {
                     return (
                       <div
@@ -526,7 +526,7 @@ export default function Index() {
               )}
 
               {activeChatTab === "messages" && (
-                <div className="text-center py-8 bg-[#0f1419] p-2 rounded-lg">
+                <div className="text-center py-8 bg-[#1a1a0d] p-3 rounded-lg">
                   <MessageCircle className="h-12 w-12 text-slate-600 mx-auto mb-3" />
                   <div className="text-slate-400">No messages yet</div>
                 </div>
