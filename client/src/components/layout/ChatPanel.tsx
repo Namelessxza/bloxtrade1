@@ -168,7 +168,7 @@ export const ChatPanel: React.FC = () => {
 
   return (
     <div className="flex flex-col h-full" style={{ 
-      backgroundColor: '#0D0D0D',
+      backgroundColor: '#0C1321',
     }}>
       {/* Header */}
       <div className="px-4 py-3 flex items-center justify-between bg-[#161618]" style={{
@@ -245,8 +245,8 @@ export const ChatPanel: React.FC = () => {
         </div>
       </div>
       {/* Messages Area */}
-      <ScrollArea className="flex-1 px-3 py-2 bg-[#121010]">
-        <div className="space-y-2 bg-[#161618]">
+      <ScrollArea className="flex-1 px-3 py-2 bg-[#0C1321]">
+        <div className="space-y-2 bg-[#0C1321]">
           {messages.map((msg) => (
             <MessageItem 
               key={msg.id} 
@@ -340,7 +340,7 @@ const MessageItem: React.FC<{
 
   return (
     <div 
-      className="flex gap-2.5 items-start px-3 py-1 transition-colors bg-[#0D0D0D]"
+      className="flex gap-2.5 items-start px-3 py-1 transition-colors bg-[#0C1321]"
       style={{
         backgroundColor: hovered ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
       }}
