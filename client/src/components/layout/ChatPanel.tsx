@@ -407,9 +407,9 @@ const MessageItem: React.FC<{
           </span>
         </div>
         <div 
-          className="inline-block px-3 py-2 rounded-xl bg-[#1D1D1F]"
+          className="inline-block px-3 py-2 rounded-xl bg-[#13192D]"
           style={{ 
-            backgroundColor: '#1D1D1F',
+            backgroundColor: '#13192D',
             maxWidth: '85%',
           }}
         >
