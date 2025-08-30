@@ -122,8 +122,17 @@ export const AppHeader: React.FC = () => {
         
         <Link href="/profile">
           <button
-            className="px-6 py-4 bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-xl border border-cyan-300"
-            style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
+            className="px-5 py-2 rounded-xl text-sm transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
+            style={{
+              fontWeight: 600,
+              boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.opacity = '0.9';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.opacity = '1';
+            }}
           >
             <User className="h-4 w-4 mr-2 inline" />
             Profile
