@@ -13,6 +13,7 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Components from "./pages/Components";
+import ProfileUser from "./pages/ProfileUser";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/my-trades" component={MyTrades} />
           <Route path="/create-trade" component={CreateTrade} />
           <Route path="/profile" component={Profile} />
+          <Route path="/profile/:username" component={ProfileUser} />
           <Route path="/settings" component={Settings} />
           <Route path="/components" component={Components} />
           <Route path="/trade/:id" component={TradeListing} />
