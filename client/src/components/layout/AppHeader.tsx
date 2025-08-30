@@ -20,7 +20,7 @@ export const AppHeader: React.FC = () => {
           >
             <span className="text-white font-bold text-xl">G</span>
           </div>
-          <span className="text-white font-bold text-xl" style={{ fontFamily: 'Outfit, sans-serif' }}>GameXchange</span>
+          <span className="text-white font-bold text-xl">GameXchange</span>
         </div>
       </Link>
       
@@ -81,7 +81,6 @@ export const AppHeader: React.FC = () => {
               backgroundColor: theme.colors.secondary.full,
               color: theme.colors.text.primary,
               border: 'none',
-              fontFamily: 'Outfit, sans-serif',
               fontWeight: 600,
             }}
             onMouseEnter={(e) => {
@@ -103,7 +102,6 @@ export const AppHeader: React.FC = () => {
               backgroundColor: theme.colors.primary.full,
               color: theme.colors.text.primary,
               border: 'none',
-              fontFamily: 'Outfit, sans-serif',
               fontWeight: 600,
             }}
             onMouseEnter={(e) => {

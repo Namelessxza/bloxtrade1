@@ -139,7 +139,7 @@ const ModeButton: React.FC<{
       }}
     >
       <span className="text-lg">{icon}</span>
-      <span className="font-semibold text-sm" style={{ fontFamily: 'Outfit, sans-serif' }}>{label}</span>
+      <span className="font-semibold text-sm">{label}</span>
       {locked && <Lock className="h-3 w-3" />}
     </button>
   );
@@ -178,7 +178,7 @@ const NavItem: React.FC<{
     >
       <div className="flex items-center gap-3">
         <Icon className="h-5 w-5" />
-        <span className="font-medium text-sm" style={{ fontFamily: 'Outfit, sans-serif' }}>{item.label}</span>
+        <span className="font-medium text-sm">{item.label}</span>
       </div>
       {item.count && (
         <span 

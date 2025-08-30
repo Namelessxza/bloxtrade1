@@ -181,9 +181,7 @@ export const ChatPanel: React.FC = () => {
           }}>
             <Hash className="h-4 w-4 text-white" />
           </div>
-          <span className="text-white font-semibold text-base" style={{ 
-            fontFamily: 'Outfit, sans-serif',
-          }}>
+          <span className="text-white font-semibold text-base">
             Chat
           </span>
         </div>
@@ -193,7 +191,6 @@ export const ChatPanel: React.FC = () => {
           style={{
             backgroundColor: '#1a1f2e',
             color: '#9ca3af',
-            fontFamily: 'Outfit, sans-serif',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = '#252b3b';
@@ -239,7 +236,6 @@ export const ChatPanel: React.FC = () => {
                 backgroundColor: '#1a1f2e',
                 border: '1px solid rgba(255, 255, 255, 0.06)',
                 color: '#9ca3af',
-                fontFamily: 'Outfit, sans-serif',
                 fontSize: '13px',
               }}
               onFocus={(e) => {
@@ -318,7 +314,6 @@ const MessageItem: React.FC<{
           style={{
             background: getAvatarColor(message.username, message.avatarNumber),
             color: '#ffffff',
-            fontFamily: 'Outfit, sans-serif',
             fontSize: '14px',
           }}
         >
@@ -335,7 +330,6 @@ const MessageItem: React.FC<{
             <span style={{
               color: '#6b7280',
               fontSize: '8px',
-              fontFamily: 'Outfit, sans-serif',
               fontWeight: '600',
             }}>
               {message.avatarNumber}
@@ -349,7 +343,6 @@ const MessageItem: React.FC<{
         <div className="flex items-center gap-2 mb-0.5">
           <span className="text-sm" style={{ 
             color: '#9ca3af',
-            fontFamily: 'Outfit, sans-serif',
             fontWeight: '500',
             fontSize: '13px',
           }}>
@@ -361,7 +354,6 @@ const MessageItem: React.FC<{
               style={{
                 backgroundColor: '#8b5cf6',
                 color: '#ffffff',
-                fontFamily: 'Outfit, sans-serif',
               }}
             >
               Admin
@@ -369,7 +361,6 @@ const MessageItem: React.FC<{
           )}
           <span className="text-xs ml-auto" style={{ 
             color: '#4b5563',
-            fontFamily: 'Outfit, sans-serif',
             fontSize: '11px',
           }}>
             {message.timestamp}
@@ -377,7 +368,6 @@ const MessageItem: React.FC<{
         </div>
         <div className="text-sm break-words" style={{ 
           color: message.username.startsWith('@') ? '#ec4899' : '#e5e7eb',
-          fontFamily: 'Outfit, sans-serif',
           fontSize: '13px',
           fontWeight: '400',
           lineHeight: '1.4',
