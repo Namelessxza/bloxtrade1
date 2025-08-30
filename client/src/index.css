@@ -92,11 +92,16 @@ All colors MUST be HSL.
   
   /* Ensure all elements inherit the font stack */
   * {
-    font-family: inherit;
+    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
   }
   
   /* Force font stack on input elements */
   input, textarea, select {
+    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  }
+
+  /* Force font on all interactive elements */
+  button, a, span, div, p, h1, h2, h3, h4, h5, h6, label, legend {
     font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
   }
 
@@ -173,7 +178,7 @@ All colors MUST be HSL.
 @layer components {
   /* Typography improvements with responsive clamp() */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
