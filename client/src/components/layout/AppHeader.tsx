@@ -124,7 +124,7 @@ export const AppHeader: React.FC = () => {
         
         <Link href="/profile">
           <button
-            className="px-5 py-2 rounded-2xl text-sm transition-colors"
+            className="px-5 py-2 rounded-xl text-sm transition-colors"
             style={{
               backgroundColor: theme.colors.primary.full,
               color: theme.colors.text.primary,
