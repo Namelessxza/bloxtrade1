@@ -312,14 +312,9 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-6 py-6 bg-transparent relative">
               {/* Trading Bonus Container */}
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-400 via-sky-500 to-sky-600 p-8 mb-6">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute top-4 right-4 w-3 h-3 bg-white rounded-full"></div>
-                  <div className="absolute bottom-8 left-8 w-2 h-2 bg-cyan-400 rounded-full"></div>
-                  <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full"></div>
-                  <div className="absolute bottom-4 right-8 w-6 h-6 bg-gradient-to-r from-green-400 to-cyan-400 transform rotate-45"></div>
-                </div>
+              <div className="relative overflow-hidden rounded-3xl p-6 mb-6 h-64" style={{backgroundImage: 'url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                {/* Background Overlay */}
+                <div className="absolute inset-0 bg-black/40"></div>
                 
                 <div className="relative z-10 flex items-center justify-between">
                   {/* Left Content */}
