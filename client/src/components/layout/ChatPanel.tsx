@@ -244,7 +244,6 @@ export const ChatPanel: React.FC = () => {
           </button>
         </div>
       </div>
-      
       {/* Messages Area */}
       <ScrollArea className="flex-1 px-3 py-2">
         <div className="space-y-2">
@@ -257,7 +256,6 @@ export const ChatPanel: React.FC = () => {
           <div ref={messagesEndRef} />
         </div>
       </ScrollArea>
-      
       {/* Input Area */}
       <div className="px-4 pb-4">
         <form
@@ -310,7 +308,7 @@ export const ChatPanel: React.FC = () => {
               
               <button
                 type="submit"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all ml-1"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all ml-1 bg-[#a855f7]"
                 style={{
                   backgroundColor: '#fbbf24',
                   color: '#000000',
