@@ -92,34 +92,31 @@ export default function ProfileUser() {
             <h1 className="text-lg text-slate-300 mb-2">Hello, {userData.displayName}</h1>
           </div>
           
-          <div className="flex items-start justify-between">
-            {/* Profile Info */}
-            <div className="flex items-center gap-4">
-              <Avatar className="w-20 h-20">
-                <AvatarImage src={userData.avatar} alt={userData.username} />
-                <AvatarFallback className="bg-gradient-to-br from-orange-400 to-red-500 text-white text-2xl font-bold">
-                  {userData.displayName.split(' ').map(n => n[0]).join('')}
-                </AvatarFallback>
-              </Avatar>
+          <div className="flex items-center gap-6">
+            <Avatar className="w-24 h-24">
+              <AvatarImage src={userData.avatar} alt={userData.username} />
+              <AvatarFallback className="bg-gradient-to-br from-orange-400 to-red-500 text-white text-2xl font-bold">
+                {userData.displayName.split(' ').map(n => n[0]).join('')}
+              </AvatarFallback>
+            </Avatar>
+            
+            <div className="flex items-center gap-8">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                <h2 className="text-3xl font-bold text-white">{userData.displayName}</h2>
+              </div>
               
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                  <h2 className="text-2xl font-bold text-white">{userData.displayName}</h2>
+              <div className="flex items-center gap-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-400">Reputation</span>
+                  <span className="text-white font-semibold">{userData.reputation.score}</span>
                 </div>
-                <div className="text-slate-400 text-sm space-y-1">
-                  <div>
-                    <span>Reputation</span>
-                    <div className="text-white font-medium">{userData.reputation.score}</div>
-                  </div>
-                  <div>
-                    <span>Last seen</span>
-                    <div className="text-green-400 font-medium">{userData.stats.lastSeen}</div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-400">Last seen</span>
+                  <span className="text-green-400 font-medium">{userData.stats.lastSeen}</span>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
