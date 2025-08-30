@@ -312,7 +312,7 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-6 py-6 bg-transparent relative">
               {/* Trading Bonus Container */}
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 p-8 mb-6">
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-400 via-sky-500 to-sky-600 p-8 mb-6">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-20">
                   <div className="absolute top-4 right-4 w-3 h-3 bg-white rounded-full"></div>
@@ -336,7 +336,7 @@ export default function Index() {
                     
                     {/* Timer Section */}
                     <div className="mb-6">
-                      <p className="text-sm font-semibold text-purple-200 mb-3 uppercase tracking-wider">
+                      <p className="text-sm font-semibold text-sky-100 mb-3 uppercase tracking-wider">
                         TIME LEFT
                       </p>
                       <div className="flex gap-3">
