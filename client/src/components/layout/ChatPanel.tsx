@@ -191,7 +191,7 @@ export const ChatPanel: React.FC = () => {
         
         <div className="flex items-center gap-2">
           <button 
-            className="relative px-5 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 overflow-hidden"
+            className="relative px-5 py-2 rounded-2xl text-sm font-semibold transition-all flex items-center gap-2 overflow-hidden"
             style={{
               background: 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)',
               color: '#ffffff',
@@ -225,7 +225,7 @@ export const ChatPanel: React.FC = () => {
           </button>
           
           <button
-            className="w-10 h-10 rounded-xl flex items-center justify-center transition-all"
+            className="w-10 h-10 rounded-2xl flex items-center justify-center transition-all"
             style={{
               background: 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)',
               border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -289,7 +289,7 @@ export const ChatPanel: React.FC = () => {
             <div className="absolute right-2 flex items-center gap-1">
               <button
                 type="button"
-                className="w-8 h-8 rounded-full flex items-center justify-center transition-all"
+                className="w-8 h-8 rounded-2xl flex items-center justify-center transition-all"
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   color: '#9ca3af',
@@ -308,7 +308,7 @@ export const ChatPanel: React.FC = () => {
               
               <button
                 type="submit"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all ml-1 bg-[#a855f7]"
+                className="w-10 h-10 rounded-2xl flex items-center justify-center transition-all ml-1 bg-[#a855f7]"
                 style={{
                   backgroundColor: '#fbbf24',
                   color: '#000000',
