@@ -168,15 +168,12 @@ export const ChatPanel: React.FC = () => {
   
   return (
     <div className="flex flex-col h-full ml-4 rounded-2xl" style={{ 
-      background: 'linear-gradient(145deg, #1a1d29, #151820)',
-      border: '1px solid rgba(139, 92, 246, 0.15)',
-      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)',
+      backgroundColor: '#0D0D0D',
     }}>
       {/* Header */}
       <div className="px-4 py-3 flex items-center justify-between" style={{
-        background: 'linear-gradient(145deg, #1e2332, #1a1d29)',
-        borderBottom: '1px solid rgba(139, 92, 246, 0.15)',
-        borderRadius: '1.5rem 1.5rem 0 0',
+        backgroundColor: '#0D0D0D',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.04)',
       }}>
         <div className="flex items-center gap-2.5">
           <div className="flex items-center justify-center w-7 h-7 rounded-full" style={{
@@ -275,20 +272,17 @@ export const ChatPanel: React.FC = () => {
               placeholder="Enter your message"
               className="flex border-input px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm w-full h-12 rounded-xl text-sm pl-5 pr-24 border-0 bg-[#1D1D1F]"
               style={{
-                background: 'linear-gradient(145deg, #242938, #1e2332)',
-                color: '#d1d5db',
+                backgroundColor: '#1D1D1F',
+                color: '#9ca3af',
                 fontSize: '14px',
-                border: '1px solid rgba(139, 92, 246, 0.2)',
-                boxShadow: 'inset 0 2px 8px rgba(0, 0, 0, 0.3)',
+                boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.2)',
               }}
               onFocus={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(145deg, #2a2f47, #242938)';
-                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
+                e.currentTarget.style.backgroundColor = '#111827';
                 e.currentTarget.style.outline = 'none';
               }}
               onBlur={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(145deg, #242938, #1e2332)';
-                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
+                e.currentTarget.style.backgroundColor = '#1D1D1F';
               }}
             />
             
@@ -314,22 +308,19 @@ export const ChatPanel: React.FC = () => {
               
               <button
                 type="submit"
-                className="w-10 h-10 rounded-xl flex items-center justify-center transition-all ml-1"
+                className="w-10 h-10 rounded-xl flex items-center justify-center transition-all ml-1 bg-[#a855f7]"
                 style={{
-                  background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
-                  color: '#ffffff',
-                  boxShadow: '0 4px 12px rgba(139, 92, 246, 0.4)',
-                  border: '1px solid rgba(139, 92, 246, 0.3)',
+                  backgroundColor: '#fbbf24',
+                  color: '#000000',
+                  boxShadow: '0 2px 8px rgba(251, 191, 36, 0.3)',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #a78bfa, #8b5cf6)';
+                  e.currentTarget.style.backgroundColor = '#f59e0b';
                   e.currentTarget.style.transform = 'scale(1.05)';
-                  e.currentTarget.style.boxShadow = '0 6px 16px rgba(139, 92, 246, 0.5)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(135deg, #8b5cf6, #7c3aed)';
+                  e.currentTarget.style.backgroundColor = '#fbbf24';
                   e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(139, 92, 246, 0.4)';
                 }}
               >
                 <Send className="h-5 w-5" style={{ marginLeft: '1px' }} />
@@ -349,9 +340,9 @@ const MessageItem: React.FC<{
   
   return (
     <div 
-      className="flex gap-2.5 items-start px-3 py-1 transition-colors"
+      className="flex gap-2.5 items-start px-3 py-1 transition-colors bg-[#0D0D0D]"
       style={{
-        backgroundColor: hovered ? 'rgba(139, 92, 246, 0.05)' : 'transparent',
+        backgroundColor: hovered ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -416,10 +407,9 @@ const MessageItem: React.FC<{
           </span>
         </div>
         <div 
-          className="inline-block px-3 py-2 rounded-xl"
+          className="inline-block px-3 py-2 rounded-xl bg-[#1D1D1F]"
           style={{ 
-            background: 'linear-gradient(145deg, #242938, #1e2332)',
-            border: '1px solid rgba(139, 92, 246, 0.1)',
+            backgroundColor: '#1D1D1F',
             maxWidth: '85%',
           }}
         >
