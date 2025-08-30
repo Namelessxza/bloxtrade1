@@ -484,7 +484,7 @@ export default function Index() {
             )}
 
             {activeChatTab === "chat" && (
-              <div className="flex-1 overflow-y-auto px-3 py-2 bg-[#0d1a0d]">
+              <div className="flex-1 overflow-y-auto px-3 py-2 bg-[#111c36]">
                 <div className="space-y-3">
                   {chatMessages.map((msg, index) => {
                     return (
