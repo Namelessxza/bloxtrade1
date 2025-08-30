@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
-import { ScrollArea, ChatScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ChatScrollArea, SidebarScrollArea } from "@/components/ui/scroll-area";
 import {
   Gamepad2,
   Star,
@@ -252,7 +252,7 @@ export default function Index() {
           </div>
 
           {/* Game Categories */}
-          <ScrollArea className="relative overflow-hidden flex-1 px-2 py-4 bg-[#09101D]">
+          <SidebarScrollArea className="flex-1 px-2 py-4">
             {/* Section Header */}
             <div className="px-2 py-1 mb-3">
               <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
@@ -282,7 +282,7 @@ export default function Index() {
                 );
               })}
             </div>
-          </ScrollArea>
+          </SidebarScrollArea>
 
           {/* Bottom Actions */}
           <div className="p-3 space-y-2 from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl bg-[#09101d]">
