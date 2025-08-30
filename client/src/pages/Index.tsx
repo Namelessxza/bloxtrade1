@@ -356,7 +356,10 @@ export default function Index() {
                     </div>
                     
                     {/* Claim Button */}
-                    <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black font-black px-8 py-4 rounded-2xl text-lg shadow-lg transform transition-all duration-200 hover:scale-105">
+                    <button
+                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center gap-2 px-8 py-4 text-lg"
+                      style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
+                    >
                       CLAIM BONUS
                     </button>
                   </div>
