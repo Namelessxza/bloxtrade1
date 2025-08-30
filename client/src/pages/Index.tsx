@@ -326,7 +326,7 @@ export default function Index() {
         </div>
 
         {/* Right Panel */}
-        <div className="w-[280px] bg-transparent flex flex-col flex-shrink-0 relative">
+        <div className="w-[320px] bg-transparent flex flex-col flex-shrink-0 relative">
           {/* Chat Panel */}
           <div className="flex flex-col h-full bg-[#0c1321]">
             {/* Chat Tabs */}
