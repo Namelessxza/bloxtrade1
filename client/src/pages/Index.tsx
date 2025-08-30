@@ -196,6 +196,7 @@ export default function Index() {
             <Wallet className="h-4 w-4 text-slate-100" />
             <span
               className="text-white font-semibold"
+              style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
               data-testid="text-wallet-balance"
             >
               $2,485
