@@ -30,8 +30,7 @@ export default function ProfileUser() {
     displayName: "Devon Lane",
     avatar: "/api/placeholder/80/80",
     reputation: {
-      score: "4,572",
-      level: "Expert"
+      score: "4572"
     },
     stats: {
       totalTrades: "70k",
@@ -110,10 +109,7 @@ export default function ProfileUser() {
                 <div className="text-slate-400 text-sm">
                   <span>Reputation</span>
                   <div className="flex items-center gap-2 mt-1">
-                    <div className="w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-xs">★</span>
-                    </div>
-                    <span className="text-white font-medium">{userData.reputation.score} ({userData.reputation.level})</span>
+                    <span className="text-white font-medium">{userData.reputation.score}</span>
                   </div>
                 </div>
               </div>
