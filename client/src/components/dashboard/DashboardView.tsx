@@ -49,18 +49,16 @@ export const DashboardView: React.FC = () => {
 const GameCard: React.FC = () => {
   return (
     <div 
-      className="rounded-xl overflow-hidden transition-all cursor-pointer group"
+      className="rounded-lg overflow-hidden transition-colors cursor-pointer group"
       style={{
         backgroundColor: theme.colors.background.card,
-        boxShadow: theme.shadows.md,
+        boxShadow: theme.shadows.sm,
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-2px)';
-        e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.3)';
+        e.currentTarget.style.backgroundColor = theme.colors.background.hover;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = theme.shadows.md;
+        e.currentTarget.style.backgroundColor = theme.colors.background.card;
       }}
     >
       <div 
@@ -78,19 +76,16 @@ const GameCard: React.FC = () => {
             24 items available
           </span>
           <button 
-            className="px-4 py-2 rounded-lg text-sm font-semibold transition-all relative overflow-hidden"
+            className="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
             style={{
-              background: `linear-gradient(135deg, ${theme.colors.primary.full}, ${theme.colors.accent.blue})`,
+              backgroundColor: theme.colors.primary.full,
               color: theme.colors.text.primary,
-              boxShadow: `0 3px 10px ${theme.colors.primary.full}30, inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1)`,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-1px)';
-              e.currentTarget.style.boxShadow = `0 5px 15px ${theme.colors.primary.full}40, inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -2px 0 rgba(0, 0, 0, 0.15)`;
+              e.currentTarget.style.opacity = '0.9';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = `0 3px 10px ${theme.colors.primary.full}30, inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1)`;
+              e.currentTarget.style.opacity = '1';
             }}
           >
             View
@@ -104,19 +99,15 @@ const GameCard: React.FC = () => {
 const TradeCard: React.FC = () => {
   return (
     <div 
-      className="rounded-xl p-4 transition-all cursor-pointer"
+      className="rounded-lg p-4 transition-colors cursor-pointer"
       style={{
         backgroundColor: theme.colors.background.card,
-        boxShadow: theme.shadows.md,
+        boxShadow: theme.shadows.sm,
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-1px)';
-        e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.25)';
         e.currentTarget.style.backgroundColor = theme.colors.background.hover;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = theme.shadows.md;
         e.currentTarget.style.backgroundColor = theme.colors.background.card;
       }}
     >
@@ -153,21 +144,17 @@ const TradeCard: React.FC = () => {
           </span>
         </div>
         <button 
-          className="text-sm font-semibold px-3 py-1.5 rounded-lg transition-all"
+          className="text-sm font-medium px-3 py-1.5 rounded-lg transition-colors"
           style={{ 
             color: theme.colors.primary.full,
-            background: `linear-gradient(135deg, ${theme.colors.primary.full}15, ${theme.colors.primary.full}08)`,
-            border: `1px solid ${theme.colors.primary.full}25`,
+            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+            border: `1px solid rgba(255, 255, 255, 0.1)`,
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = `linear-gradient(135deg, ${theme.colors.primary.full}25, ${theme.colors.primary.full}15)`;
-            e.currentTarget.style.borderColor = `${theme.colors.primary.full}35`;
-            e.currentTarget.style.transform = 'translateX(2px)';
+            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = `linear-gradient(135deg, ${theme.colors.primary.full}15, ${theme.colors.primary.full}08)`;
-            e.currentTarget.style.borderColor = `${theme.colors.primary.full}25`;
-            e.currentTarget.style.transform = 'translateX(0)';
+            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
           }}
         >
           View Trade →
@@ -180,7 +167,7 @@ const TradeCard: React.FC = () => {
 const ActivityItem: React.FC = () => {
   return (
     <div 
-      className="flex items-center gap-4 p-3 rounded-lg transition-all"
+      className="flex items-center gap-4 p-3 rounded-lg transition-colors"
       style={{
         backgroundColor: theme.colors.background.card,
       }}
@@ -194,8 +181,7 @@ const ActivityItem: React.FC = () => {
       <div 
         className="w-10 h-10 rounded-lg flex items-center justify-center"
         style={{
-          background: `linear-gradient(135deg, ${theme.colors.primary.full}, ${theme.colors.secondary.full})`,
-          boxShadow: `0 2px 8px ${theme.colors.primary.full}30`,
+          backgroundColor: theme.colors.primary.full,
         }}
       >
         <span className="text-white font-bold">A</span>
