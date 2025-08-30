@@ -340,14 +340,17 @@ export default function Index() {
                         TIME LEFT
                       </p>
                       <div className="flex gap-3">
-                        <div className="bg-black/30 backdrop-blur-sm rounded-2xl px-4 py-3 min-w-[70px] text-center">
-                          <div className="text-2xl font-black text-white">09</div>
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-4 py-3 min-w-[70px] text-center border border-white/10 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
+                          <div className="relative text-2xl font-black text-white">09</div>
                         </div>
-                        <div className="bg-black/30 backdrop-blur-sm rounded-2xl px-4 py-3 min-w-[70px] text-center">
-                          <div className="text-2xl font-black text-white">11</div>
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-4 py-3 min-w-[70px] text-center border border-white/10 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
+                          <div className="relative text-2xl font-black text-white">11</div>
                         </div>
-                        <div className="bg-black/30 backdrop-blur-sm rounded-2xl px-4 py-3 min-w-[70px] text-center">
-                          <div className="text-2xl font-black text-white">44</div>
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-4 py-3 min-w-[70px] text-center border border-white/10 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
+                          <div className="relative text-2xl font-black text-white">44</div>
                         </div>
                       </div>
                     </div>
