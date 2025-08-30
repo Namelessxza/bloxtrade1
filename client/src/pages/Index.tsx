@@ -199,10 +199,7 @@ export default function Index() {
             <Wallet className="h-4 w-4 text-slate-100" />
             <span
               className="text-white font-semibold"
-              style={{
-                fontFamily:
-                  'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-              }}
+              style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
               data-testid="text-wallet-balance"
             >
               $2,485
@@ -223,7 +220,7 @@ export default function Index() {
           {/* Profile Button */}
           <button
             className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-xl border border-cyan-300 flex items-center gap-2 px-4 py-2 text-sm"
-            style={{ boxShadow: "inset 0 4px 8px rgba(0,0,0,0.3)" }}
+            style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
             data-testid="button-profile"
           >
             <User className="h-3 w-3" />
@@ -323,7 +320,8 @@ export default function Index() {
         <div className="flex-1 flex flex-col min-w-0">
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
-            <div className="min-h-full px-6 py-6 bg-transparent relative"></div>
+            <div className="min-h-full px-6 py-6 bg-transparent relative">
+            </div>
           </ScrollArea>
         </div>
 
@@ -343,7 +341,7 @@ export default function Index() {
                   }`}
                 >
                   <MessageCircle className="h-4 w-4" />
-                  Global Chat
+                  Chat
                 </button>
                 <button
                   onClick={() => setActiveChatTab("messages")}
@@ -368,32 +366,26 @@ export default function Index() {
                   }`}
                 >
                   <User className="h-4 w-4" />
-                  Trades
+                  Friends
                 </button>
               </div>
             </div>
 
             {/* Content Area */}
-            <ScrollArea className="flex-1 px-3 py-2 bg-[#09101d]">
+            <ScrollArea className="flex-1 px-3 py-2">
               {activeChatTab === "friends" && (
                 <div className="space-y-4">
                   {/* Friend Requests */}
                   <div>
-                    <h3 className="text-sm font-semibold text-white mb-3">
-                      Friend Request (2)
-                    </h3>
+                    <h3 className="text-sm font-semibold text-white mb-3">Friend Request (2)</h3>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between p-2 bg-slate-800/30 rounded-lg">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">
-                              W
-                            </span>
+                            <span className="text-white text-sm font-bold">W</span>
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-white">
-                              Wingwon
-                            </div>
+                            <div className="text-sm font-medium text-white">Wingwon</div>
                             <div className="text-xs text-green-400">Online</div>
                           </div>
                         </div>
@@ -409,14 +401,10 @@ export default function Index() {
                       <div className="flex items-center justify-between p-2 bg-slate-800/30 rounded-lg">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">
-                              J
-                            </span>
+                            <span className="text-white text-sm font-bold">J</span>
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-white">
-                              Jacob Clark 89
-                            </div>
+                            <div className="text-sm font-medium text-white">Jacob Clark 89</div>
                             <div className="text-xs text-green-400">Online</div>
                           </div>
                         </div>
@@ -434,24 +422,16 @@ export default function Index() {
 
                   {/* Online Friends */}
                   <div>
-                    <h3 className="text-sm font-semibold text-white mb-3">
-                      Online (4)
-                    </h3>
+                    <h3 className="text-sm font-semibold text-white mb-3">Online (4)</h3>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between p-2 hover:bg-slate-800/30 rounded-lg">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">
-                              C
-                            </span>
+                            <span className="text-white text-sm font-bold">C</span>
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-white">
-                              Cyber pilot
-                            </div>
-                            <div className="text-xs text-blue-400">
-                              Playing Tiki Runner 2
-                            </div>
+                            <div className="text-sm font-medium text-white">Cyber pilot</div>
+                            <div className="text-xs text-blue-400">Playing Tiki Runner 2</div>
                           </div>
                         </div>
                         <button className="w-8 h-8 bg-slate-700/50 hover:bg-slate-600 rounded-lg flex items-center justify-center">
@@ -461,14 +441,10 @@ export default function Index() {
                       <div className="flex items-center justify-between p-2 hover:bg-slate-800/30 rounded-lg">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">
-                              F
-                            </span>
+                            <span className="text-white text-sm font-bold">F</span>
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-white">
-                              Future Saruman_
-                            </div>
+                            <div className="text-sm font-medium text-white">Future Saruman_</div>
                             <div className="text-xs text-green-400">Online</div>
                           </div>
                         </div>
@@ -481,24 +457,16 @@ export default function Index() {
 
                   {/* Offline Friends */}
                   <div>
-                    <h3 className="text-sm font-semibold text-white mb-3">
-                      Offline (12)
-                    </h3>
+                    <h3 className="text-sm font-semibold text-white mb-3">Offline (12)</h3>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between p-2 hover:bg-slate-800/30 rounded-lg">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center opacity-60">
-                            <span className="text-white text-sm font-bold">
-                              A
-                            </span>
+                            <span className="text-white text-sm font-bold">A</span>
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-slate-400">
-                              Anchovy King
-                            </div>
-                            <div className="text-xs text-slate-500">
-                              Offline
-                            </div>
+                            <div className="text-sm font-medium text-slate-400">Anchovy King</div>
+                            <div className="text-xs text-slate-500">Offline</div>
                           </div>
                         </div>
                         <button className="w-8 h-8 bg-slate-700/50 hover:bg-slate-600 rounded-lg flex items-center justify-center">
@@ -508,17 +476,11 @@ export default function Index() {
                       <div className="flex items-center justify-between p-2 hover:bg-slate-800/30 rounded-lg">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center opacity-60">
-                            <span className="text-white text-sm font-bold">
-                              A
-                            </span>
+                            <span className="text-white text-sm font-bold">A</span>
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-slate-400">
-                              Alan Frost
-                            </div>
-                            <div className="text-xs text-slate-500">
-                              Offline
-                            </div>
+                            <div className="text-sm font-medium text-slate-400">Alan Frost</div>
+                            <div className="text-xs text-slate-500">Offline</div>
                           </div>
                         </div>
                         <button className="w-8 h-8 bg-slate-700/50 hover:bg-slate-600 rounded-lg flex items-center justify-center">
