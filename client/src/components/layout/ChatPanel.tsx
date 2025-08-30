@@ -176,11 +176,11 @@ export const ChatPanel: React.FC = () => {
         borderBottom: '1px solid rgba(255, 255, 255, 0.04)',
       }}>
         <div className="flex items-center gap-2.5">
-          <div className="flex items-center justify-center w-10 h-10 rounded-full" style={{
+          <div className="flex items-center justify-center w-7 h-7 rounded-full" style={{
             background: 'linear-gradient(135deg, #00d4ff 0%, #0099ff 100%)',
-            boxShadow: '0 0 20px rgba(0, 212, 255, 0.3)',
+            boxShadow: '0 0 15px rgba(0, 212, 255, 0.25)',
           }}>
-            <Hash className="h-5 w-5 text-white" style={{ strokeWidth: 2.5 }} />
+            <Hash className="h-4 w-4 text-white" style={{ strokeWidth: 2.5 }} />
           </div>
           <span className="text-white font-bold text-lg" style={{
             letterSpacing: '-0.01em',
