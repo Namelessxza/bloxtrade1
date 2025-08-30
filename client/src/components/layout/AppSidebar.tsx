@@ -11,7 +11,8 @@ import {
   Trophy,
   Coins,
   ShoppingBag,
-  Activity
+  Activity,
+  Dribbble
 } from 'lucide-react';
 import { SidebarScrollArea } from '@/components/ui/scroll-area';
 import { theme } from '@/config/theme';
@@ -62,13 +63,13 @@ export const AppSidebar: React.FC = () => {
             active={activeMode === 'games'}
             onClick={() => setActiveMode('games')}
             label="Games"
-            icon="🎮"
+            icon={Gamepad2}
           />
           <ModeButton
             active={activeMode === 'sports'}
             onClick={() => setActiveMode('sports')}
             label="Sport"
-            icon="⚽"
+            icon={Dribbble}
             locked
           />
         </div>
@@ -107,43 +108,40 @@ const ModeButton: React.FC<{
   active: boolean;
   onClick: () => void;
   label: string;
-  icon: string;
+  icon: string | React.ElementType;
   locked?: boolean;
 }> = ({ active, onClick, label, icon, locked }) => {
+  const Icon = typeof icon === 'string' ? null : icon;
   return (
     <button
       onClick={onClick}
       disabled={locked}
-      className="flex-1 px-5 py-2.5 rounded-full transition-all duration-300 flex items-center justify-center gap-2.5 font-medium"
+      className="flex-1 px-4 py-2 rounded-full transition-all duration-200 flex items-center justify-center gap-2 font-medium"
       style={{
         backgroundColor: active 
-          ? '#2563EB'
+          ? '#00d4ff'
           : 'transparent',
         color: active ? '#FFFFFF' : '#64748B',
         opacity: locked ? 0.4 : 1,
         cursor: locked ? 'not-allowed' : 'pointer',
         border: 'none',
-        boxShadow: active ? '0 0 24px rgba(37, 99, 235, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1)' : 'none',
-        transform: active ? 'scale(1)' : 'scale(0.98)',
       }}
       onMouseEnter={(e) => {
         if (!active && !locked) {
-          e.currentTarget.style.backgroundColor = 'rgba(37, 99, 235, 0.08)';
+          e.currentTarget.style.backgroundColor = 'rgba(0, 212, 255, 0.08)';
           e.currentTarget.style.color = '#94A3B8';
-          e.currentTarget.style.transform = 'scale(1)';
         }
       }}
       onMouseLeave={(e) => {
         if (!active && !locked) {
           e.currentTarget.style.backgroundColor = 'transparent';
           e.currentTarget.style.color = '#64748B';
-          e.currentTarget.style.transform = 'scale(0.98)';
         }
       }}
     >
-      <span className="text-xl">{icon}</span>
-      <span className="font-semibold text-[15px] tracking-wide">{label}</span>
-      {locked && <Lock className="h-3.5 w-3.5 ml-1" />}
+      {Icon && <Icon className="h-4 w-4" />}
+      <span className="font-semibold text-sm">{label}</span>
+      {locked && <Lock className="h-3 w-3 ml-1" />}
     </button>
   );
 };
