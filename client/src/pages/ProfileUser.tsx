@@ -111,7 +111,7 @@ export default function ProfileUser() {
                   <div className="mt-1">
                     <span 
                       className="text-white font-medium"
-                      style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                      style={{fontFamily: 'Arial, sans-serif'}}
                     >
                       {userData.reputation.score}
                     </span>
@@ -125,7 +125,7 @@ export default function ProfileUser() {
               <div>
                 <div 
                   className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                  style={{fontFamily: 'Arial, sans-serif'}}
                 >
                   {userData.stats.totalTrades}
                 </div>
@@ -134,7 +134,7 @@ export default function ProfileUser() {
               <div>
                 <div 
                   className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                  style={{fontFamily: 'Arial, sans-serif'}}
                 >
                   {userData.stats.totalItems}
                 </div>
@@ -143,7 +143,7 @@ export default function ProfileUser() {
               <div>
                 <div 
                   className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                  style={{fontFamily: 'Arial, sans-serif'}}
                 >
                   {userData.stats.totalValue}
                 </div>
@@ -152,7 +152,7 @@ export default function ProfileUser() {
               <div>
                 <div 
                   className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                  style={{fontFamily: 'Arial, sans-serif'}}
                 >
                   {userData.stats.topRating}
                 </div>
@@ -161,7 +161,7 @@ export default function ProfileUser() {
               <div>
                 <div 
                   className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                  style={{fontFamily: 'Arial, sans-serif'}}
                 >
                   {userData.stats.bestDeal}
                 </div>
@@ -170,7 +170,7 @@ export default function ProfileUser() {
               <div>
                 <div 
                   className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                  style={{fontFamily: 'Arial, sans-serif'}}
                 >
                   {userData.stats.memberSince}
                 </div>
@@ -262,7 +262,7 @@ export default function ProfileUser() {
                         ) : (
                           <ArrowDown className="w-3 h-3" />
                         )}
-                        <span style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}>
+                        <span style={{fontFamily: 'Arial, sans-serif'}}>
                           {item.value.toFixed(0)}
                         </span>
                       </div>
