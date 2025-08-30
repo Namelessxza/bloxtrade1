@@ -317,38 +317,47 @@ export default function Index() {
                 {/* Background Overlay */}
                 <div className="absolute inset-0 bg-black/40"></div>
                 
-                <div className="relative z-10 h-full flex items-center justify-center">
-                  {/* Content */}
-                  <div className="text-center max-w-lg">
-                    <h2 className="text-3xl lg:text-4xl font-black text-white mb-2">GIVEAWAY</h2>
-                    <p className="text-xl lg:text-2xl font-black text-yellow-300 mb-3">$50,000 ROBUX</p>
+                <div className="relative z-10 h-full flex items-center justify-between">
+                  {/* Left Content */}
+                  <div className="flex-1 max-w-md">
+                    <h2 className="text-4xl font-black text-white mb-2">
+                      TRADE WITH
+                    </h2>
+                    <h3 className="text-4xl font-black text-white mb-2">
+                      $5000 BONUS
+                    </h3>
+                    <p className="text-2xl font-black text-yellow-300 mb-6">
+                      + FREE ITEMS!
+                    </p>
                     
                     {/* Timer Section */}
-                    <div className="mb-3">
-                      <p className="text-xs font-semibold text-white mb-1 uppercase tracking-wider">
+                    <div className="mb-6">
+                      <p className="text-sm font-semibold text-sky-100 mb-3 uppercase tracking-wider">
                         TIME LEFT
                       </p>
-                      <div className="flex gap-2 mb-3 justify-center">
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-xl px-3 py-2 min-w-[60px] text-center border border-white/10 shadow-lg">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl"></div>
-                          <div className="relative text-xl font-black text-white">09</div>
+                      <div className="flex gap-3">
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-4 py-3 min-w-[70px] text-center border border-white/10 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
+                          <div className="relative text-2xl font-black text-white">09</div>
                         </div>
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-xl px-3 py-2 min-w-[60px] text-center border border-white/10 shadow-lg">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl"></div>
-                          <div className="relative text-xl font-black text-white">11</div>
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-4 py-3 min-w-[70px] text-center border border-white/10 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
+                          <div className="relative text-2xl font-black text-white">11</div>
                         </div>
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-xl px-3 py-2 min-w-[60px] text-center border border-white/10 shadow-lg">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl"></div>
-                          <div className="relative text-xl font-black text-white">44</div>
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-4 py-3 min-w-[70px] text-center border border-white/10 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
+                          <div className="relative text-2xl font-black text-white">44</div>
                         </div>
                       </div>
                     </div>
                     
                     {/* Claim Button */}
                     <button
-                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center justify-center gap-2 px-6 py-3 text-base mx-auto"
+                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center gap-2 px-8 py-4 text-lg"
                       style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
-                    >ENTER GIVEAWAY</button>
+                    >
+                      CLAIM BONUS
+                    </button>
                   </div>
                   
                   
