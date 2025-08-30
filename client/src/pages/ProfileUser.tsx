@@ -120,31 +120,18 @@ export default function ProfileUser() {
               </div>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.totalTrades}</div>
-                <div className="text-sm text-slate-400">Total trades</div>
+            {/* Stats Display */}
+            <div className="flex flex-col gap-6">
+              <div className="grid grid-cols-3 gap-12 text-center">
+                <div className="text-3xl font-bold text-cyan-400">{userData.stats.totalTrades}</div>
+                <div className="text-3xl font-bold text-blue-400">{userData.stats.totalItems}</div>
+                <div className="text-3xl font-bold text-green-400">{userData.stats.totalValue}</div>
               </div>
-              <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.totalItems}</div>
-                <div className="text-sm text-slate-400">Total items</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.totalValue}</div>
-                <div className="text-sm text-slate-400">Total value</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.topRating}</div>
-                <div className="text-sm text-slate-400">Top rating</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.bestDeal}</div>
-                <div className="text-sm text-slate-400">Best deal</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.memberSince}</div>
-                <div className="text-sm text-slate-400">Member since</div>
+              
+              <div className="grid grid-cols-3 gap-12 text-center">
+                <div className="text-2xl font-bold text-purple-400">{userData.stats.topRating}</div>
+                <div className="text-2xl font-bold text-yellow-400">{userData.stats.bestDeal}</div>
+                <div className="text-xl font-medium text-slate-300">{userData.stats.memberSince}</div>
               </div>
             </div>
           </div>
