@@ -4,15 +4,17 @@
 /* Custom font definition */
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
-  font-weight: 400;
+  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
+       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
+  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
+       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -20,7 +22,8 @@
 
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
+  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
+       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -28,7 +31,8 @@
 
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
+  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
+       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -36,7 +40,8 @@
 
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
+  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
+       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -44,7 +49,8 @@
 
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
+  src: url('/Fontspring-DEMO-greycliffcf-bold.otf') format('opentype'),
+       url('./Fontspring-DEMO-greycliffcf-bold.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -72,7 +78,7 @@ All colors MUST be HSL.
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'GreycliffCF', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-feature-settings: 'rlig' 1, 'calt' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -91,7 +97,7 @@ All colors MUST be HSL.
   
   /* Force font stack on input elements */
   input, textarea, select {
-    font-family: 'GreycliffCF', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
   }
 
   :root {
@@ -167,7 +173,7 @@ All colors MUST be HSL.
 @layer components {
   /* Typography improvements with responsive clamp() */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'GreycliffCF', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'GreycliffCF', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
