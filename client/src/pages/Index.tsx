@@ -336,7 +336,7 @@ export default function Index() {
                   onClick={() => setActiveChatTab("chat")}
                   className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
                     activeChatTab === "chat"
-                      ? "text-white border-blue-500"
+                      ? "text-white border-orange-500"
                       : "text-slate-400 border-transparent hover:text-white"
                   }`}
                 >
