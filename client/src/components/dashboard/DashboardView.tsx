@@ -19,14 +19,80 @@ export const DashboardView: React.FC = () => {
         </div>
         
         {/* Active Trades Section */}
-        <div className="mb-8">
+        <div className="mb-8 relative">
           <h2 className="text-2xl font-bold mb-4" style={{ color: theme.colors.text.primary }}>
             Active Trades
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <TradeCard key={i} />
-            ))}
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[1, 2, 3].map((i) => (
+                <TradeCard key={i} />
+              ))}
+            </div>
+            
+            {/* Lock Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              {/* Blur backdrop */}
+              <div 
+                className="absolute inset-0 rounded-2xl"
+                style={{
+                  backdropFilter: 'blur(8px)',
+                  background: 'rgba(0, 0, 0, 0.4)',
+                }}
+              />
+              
+              {/* Lock Icon Container */}
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <div 
+                  className="w-20 h-20 rounded-full flex items-center justify-center"
+                  style={{
+                    background: 'linear-gradient(135deg, #a855f7, #ec4899)',
+                    boxShadow: '0 0 30px rgba(168, 85, 247, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.2)',
+                  }}
+                >
+                  <svg 
+                    className="w-10 h-10 text-white" 
+                    fill="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+                  </svg>
+                </div>
+                
+                <div className="text-center">
+                  <h3 
+                    className="text-xl font-bold mb-2"
+                    style={{
+                      background: 'linear-gradient(135deg, #a855f7, #ec4899)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Premium Feature
+                  </h3>
+                  <p className="text-sm text-gray-300 mb-4 max-w-xs">
+                    Unlock active trades to view and manage your ongoing deals
+                  </p>
+                  <button 
+                    className="px-6 py-3 rounded-xl text-sm font-bold transition-all bg-gradient-to-br from-purple-500 via-pink-500 to-pink-600 text-white border border-pink-300"
+                    style={{
+                      boxShadow: '0 4px 15px rgba(168, 85, 247, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.2)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(168, 85, 247, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 4px 15px rgba(168, 85, 247, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.2)';
+                    }}
+                  >
+                    Upgrade Now
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         
