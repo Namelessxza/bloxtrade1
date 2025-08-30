@@ -93,8 +93,8 @@ export default function ProfileUser() {
           </div>
           
           <div className="flex items-start justify-between">
-            {/* Left: Profile Info */}
-            <div className="flex items-start gap-6">
+            {/* Profile Info */}
+            <div className="flex items-center gap-4">
               <Avatar className="w-20 h-20">
                 <AvatarImage src={userData.avatar} alt={userData.username} />
                 <AvatarFallback className="bg-gradient-to-br from-orange-400 to-red-500 text-white text-2xl font-bold">
@@ -103,60 +103,48 @@ export default function ProfileUser() {
               </Avatar>
               
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
                   <h2 className="text-2xl font-bold text-white">{userData.displayName}</h2>
-                  <Badge className="bg-blue-600 text-white px-2 py-1 text-xs">@{userData.username}</Badge>
                 </div>
-                
-                <div className="space-y-3 text-sm">
+                <div className="text-slate-400 text-sm space-y-1">
                   <div>
-                    <div className="text-slate-400 mb-1">Reputation</div>
-                    <div className="text-white font-semibold">{userData.reputation.score}</div>
+                    <span>Reputation</span>
+                    <div className="text-white font-medium">{userData.reputation.score}</div>
                   </div>
                   <div>
-                    <div className="text-slate-400 mb-1">Last seen</div>
+                    <span>Last seen</span>
                     <div className="text-green-400 font-medium">{userData.stats.lastSeen}</div>
-                  </div>
-                  <div>
-                    <div className="text-slate-400 mb-1">Member since</div>
-                    <div className="text-white font-medium">{userData.stats.memberSince}</div>
-                  </div>
-                  <div>
-                    <div className="text-slate-400 mb-1">Status</div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-green-400 font-medium">Online</span>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right: Stats Grid */}
-            <div className="grid grid-cols-2 gap-8 text-center">
+            {/* Stats Grid */}
+            <div className="grid grid-cols-3 gap-8 text-center">
               <div>
-                <div className="text-2xl font-bold text-cyan-400">{userData.stats.totalTrades}</div>
-                <div className="text-sm text-slate-400 mt-1">Total Trades</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.totalTrades}</div>
+                <div className="text-sm text-slate-400">Total trades</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-blue-400">{userData.stats.totalItems}</div>
-                <div className="text-sm text-slate-400 mt-1">Total Items</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.totalItems}</div>
+                <div className="text-sm text-slate-400">Total items</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-green-400">{userData.stats.totalValue}</div>
-                <div className="text-sm text-slate-400 mt-1">Total Value</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.totalValue}</div>
+                <div className="text-sm text-slate-400">Total value</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-purple-400">{userData.stats.topRating}</div>
-                <div className="text-sm text-slate-400 mt-1">Top Rating</div>
+                <div className="text-2xl font-bold text-white">{userData.stats.topRating}</div>
+                <div className="text-sm text-slate-400">Top rating</div>
               </div>
-              <div className="col-span-2 pt-4 border-t border-slate-700/50">
-                <div className="flex items-center justify-center gap-2">
-                  <Trophy className="w-4 h-4 text-yellow-500" />
-                  <span className="text-slate-400 text-sm">Best Deal:</span>
-                  <span className="text-yellow-400 font-bold">{userData.stats.bestDeal}</span>
-                </div>
+              <div>
+                <div className="text-2xl font-bold text-white">{userData.stats.bestDeal}</div>
+                <div className="text-sm text-slate-400">Best deal</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-white">{userData.stats.memberSince}</div>
+                <div className="text-sm text-slate-400">Member since</div>
               </div>
             </div>
           </div>
