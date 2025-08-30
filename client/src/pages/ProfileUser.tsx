@@ -109,10 +109,7 @@ export default function ProfileUser() {
                 <div className="text-slate-400 text-sm">
                   <span>Reputation</span>
                   <div className="mt-1">
-                    <span 
-                      className="text-white font-medium"
-                      style={{fontFamily: 'Arial, sans-serif !important'}}
-                    >
+                    <span className="text-white font-medium">
                       {userData.reputation.score}
                     </span>
                   </div>
@@ -123,57 +120,27 @@ export default function ProfileUser() {
             {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-8 text-center">
               <div>
-                <div 
-                  className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Arial, sans-serif !important'}}
-                >
-                  {userData.stats.totalTrades}
-                </div>
+                <div className="text-2xl font-bold text-white">{userData.stats.totalTrades}</div>
                 <div className="text-sm text-slate-400">Total trades</div>
               </div>
               <div>
-                <div 
-                  className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Arial, sans-serif !important'}}
-                >
-                  {userData.stats.totalItems}
-                </div>
+                <div className="text-2xl font-bold text-white">{userData.stats.totalItems}</div>
                 <div className="text-sm text-slate-400">Total items</div>
               </div>
               <div>
-                <div 
-                  className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Arial, sans-serif !important'}}
-                >
-                  {userData.stats.totalValue}
-                </div>
+                <div className="text-2xl font-bold text-white">{userData.stats.totalValue}</div>
                 <div className="text-sm text-slate-400">Total value</div>
               </div>
               <div>
-                <div 
-                  className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Arial, sans-serif !important'}}
-                >
-                  {userData.stats.topRating}
-                </div>
+                <div className="text-2xl font-bold text-white">{userData.stats.topRating}</div>
                 <div className="text-sm text-slate-400">Top rating</div>
               </div>
               <div>
-                <div 
-                  className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Arial, sans-serif !important'}}
-                >
-                  {userData.stats.bestDeal}
-                </div>
+                <div className="text-2xl font-bold text-white">{userData.stats.bestDeal}</div>
                 <div className="text-sm text-slate-400">Best deal</div>
               </div>
               <div>
-                <div 
-                  className="text-2xl font-bold text-white"
-                  style={{fontFamily: 'Arial, sans-serif !important'}}
-                >
-                  {userData.stats.memberSince}
-                </div>
+                <div className="text-2xl font-bold text-white">{userData.stats.memberSince}</div>
                 <div className="text-sm text-slate-400">Member since</div>
               </div>
             </div>
@@ -262,9 +229,7 @@ export default function ProfileUser() {
                         ) : (
                           <ArrowDown className="w-3 h-3" />
                         )}
-                        <span style={{fontFamily: 'Arial, sans-serif !important'}}>
-                          {item.value.toFixed(0)}
-                        </span>
+                        {item.value.toFixed(0)}
                       </div>
                     </CardContent>
                   </Card>
