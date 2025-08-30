@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { 
-  Home, 
-  TrendingUp, 
-  Package, 
-  Users, 
+import React, { useState } from "react";
+import {
+  Home,
+  TrendingUp,
+  Package,
+  Users,
   Settings,
   HelpCircle,
   Lock,
@@ -12,10 +12,11 @@ import {
   Coins,
   ShoppingBag,
   Activity,
-  Dribbble
-} from 'lucide-react';
-import { SidebarScrollArea } from '@/components/ui/scroll-area';
-import { theme } from '@/config/theme';
+  Dribbble,
+  MoonIcon,
+} from "lucide-react";
+import { SidebarScrollArea } from "@/components/ui/scroll-area";
+import { theme } from "@/config/theme";
 
 interface NavItem {
   id: string;
@@ -27,47 +28,47 @@ interface NavItem {
 }
 
 export const AppSidebar: React.FC = () => {
-  const [activeMode, setActiveMode] = useState<'games' | 'sports'>('games');
-  const [selectedCategory, setSelectedCategory] = useState('home');
-  
+  const [activeMode, setActiveMode] = useState<"games" | "sports">("games");
+  const [selectedCategory, setSelectedCategory] = useState("home");
+
   const gameCategories: NavItem[] = [
-    { id: 'home', label: 'Home', icon: Home },
-    { id: 'trending', label: 'Trending', icon: TrendingUp, count: 24 },
-    { id: 'inventory', label: 'My Inventory', icon: Package },
-    { id: 'trades', label: 'Active Trades', icon: Activity, count: 3 },
-    { id: 'marketplace', label: 'Marketplace', icon: ShoppingBag },
-    { id: 'rewards', label: 'Rewards', icon: Trophy },
-    { id: 'coins', label: 'Coins Shop', icon: Coins },
-    { id: 'teams', label: 'Teams', icon: Users },
+    { id: "home", label: "Home", icon: Home },
+    { id: "teams", label: "Trading", icon: Users },
+    { id: "trades", label: "My Trades", icon: Activity, count: 3 },
+    { id: "rewards", label: "Events", icon: Trophy },
+    { id: "trending", label: "Pet Sniper", icon: MoonIcon, count: 24 },
+    { id: "coins", label: "Team Up", icon: Users },
   ];
-  
+
   const sportCategories: NavItem[] = [
-    { id: 'football', label: 'Football', icon: Trophy },
-    { id: 'basketball', label: 'Basketball', icon: Activity },
-    { id: 'esports', label: 'Esports', icon: Gamepad2 },
-    { id: 'tennis', label: 'Tennis', icon: Trophy },
+    { id: "football", label: "Football", icon: Trophy },
+    { id: "basketball", label: "Basketball", icon: Activity },
+    { id: "esports", label: "Esports", icon: Gamepad2 },
+    { id: "tennis", label: "Tennis", icon: Trophy },
   ];
-  
-  const currentCategories = activeMode === 'games' ? gameCategories : sportCategories;
-  
+
+  const currentCategories =
+    activeMode === "games" ? gameCategories : sportCategories;
+
   return (
-    <div className="flex flex-col h-full" style={{ 
-      backgroundColor: theme.colors.background.secondary 
-    }}>
+    <div
+      className="flex flex-col h-full"
+      style={{
+        backgroundColor: theme.colors.background.secondary,
+      }}
+    >
       {/* Mode Toggle */}
       <div className="p-4 bg-[#161618]">
-        <div 
-          className="flex p-1.5 rounded-full bg-[#111113]"
-        >
+        <div className="flex p-1.5 rounded-full bg-[#111113]">
           <ModeButton
-            active={activeMode === 'games'}
-            onClick={() => setActiveMode('games')}
+            active={activeMode === "games"}
+            onClick={() => setActiveMode("games")}
             label="Games"
             icon={Gamepad2}
           />
           <ModeButton
-            active={activeMode === 'sports'}
-            onClick={() => setActiveMode('sports')}
+            active={activeMode === "sports"}
+            onClick={() => setActiveMode("sports")}
             label="Sport"
             icon={Dribbble}
             locked
@@ -90,12 +91,12 @@ export const AppSidebar: React.FC = () => {
       {/* Bottom Actions */}
       <div className="p-4 space-y-2 bg-[#161618]">
         <NavItem
-          item={{ id: 'help', label: 'Help Center', icon: HelpCircle }}
+          item={{ id: "help", label: "Help Center", icon: HelpCircle }}
           selected={false}
           onClick={() => {}}
         />
         <NavItem
-          item={{ id: 'settings', label: 'Settings', icon: Settings }}
+          item={{ id: "settings", label: "Settings", icon: Settings }}
           selected={false}
           onClick={() => {}}
         />
@@ -111,32 +112,32 @@ const ModeButton: React.FC<{
   icon: string | React.ElementType;
   locked?: boolean;
 }> = ({ active, onClick, label, icon, locked }) => {
-  const Icon = typeof icon === 'string' ? null : icon;
+  const Icon = typeof icon === "string" ? null : icon;
   return (
     <button
       onClick={onClick}
       disabled={locked}
       className="flex-1 px-4 py-2 rounded-full transition-all duration-200 flex items-center justify-center gap-2 font-medium"
       style={{
-        background: active 
-          ? 'linear-gradient(135deg, #67e8f9, #06b6d4, #0891b2)'
-          : 'transparent',
-        color: active ? '#FFFFFF' : '#64748B',
+        background: active
+          ? "linear-gradient(135deg, #67e8f9, #06b6d4, #0891b2)"
+          : "transparent",
+        color: active ? "#FFFFFF" : "#64748B",
         opacity: locked ? 0.4 : 1,
-        cursor: locked ? 'not-allowed' : 'pointer',
-        border: active ? '1px solid #67e8f9' : 'none',
-        boxShadow: active ? 'inset 0 4px 8px rgba(0,0,0,0.3)' : 'none',
+        cursor: locked ? "not-allowed" : "pointer",
+        border: active ? "1px solid #67e8f9" : "none",
+        boxShadow: active ? "inset 0 4px 8px rgba(0,0,0,0.3)" : "none",
       }}
       onMouseEnter={(e) => {
         if (!active && !locked) {
-          e.currentTarget.style.backgroundColor = 'rgba(0, 212, 255, 0.08)';
-          e.currentTarget.style.color = '#94A3B8';
+          e.currentTarget.style.backgroundColor = "rgba(0, 212, 255, 0.08)";
+          e.currentTarget.style.color = "#94A3B8";
         }
       }}
       onMouseLeave={(e) => {
         if (!active && !locked) {
-          e.currentTarget.style.backgroundColor = 'transparent';
-          e.currentTarget.style.color = '#64748B';
+          e.currentTarget.style.backgroundColor = "transparent";
+          e.currentTarget.style.color = "#64748B";
         }
       }}
     >
@@ -153,28 +154,31 @@ const NavItem: React.FC<{
   onClick: () => void;
 }> = ({ item, selected, onClick }) => {
   const Icon = item.icon;
-  
+
   return (
     <button
       onClick={onClick}
       disabled={item.locked}
-      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-colors group"
+      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-200 group relative"
       style={{
-        backgroundColor: selected 
-          ? 'rgba(255, 255, 255, 0.08)'
-          : 'transparent',
-        color: selected ? theme.colors.text.primary : theme.colors.text.secondary,
+        backgroundColor: selected ? "rgba(255, 255, 255, 0.08)" : "transparent",
+        color: selected
+          ? theme.colors.text.primary
+          : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
-        cursor: item.locked ? 'not-allowed' : 'pointer',
+        cursor: item.locked ? "not-allowed" : "pointer",
+        borderLeft: selected ? "3px solid #67e8f9" : "3px solid transparent",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
-          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.04)';
+          e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.04)";
+          e.currentTarget.style.borderLeft = "3px solid #67e8f9";
         }
       }}
       onMouseLeave={(e) => {
         if (!selected) {
-          e.currentTarget.style.backgroundColor = 'transparent';
+          e.currentTarget.style.backgroundColor = "transparent";
+          e.currentTarget.style.borderLeft = "3px solid transparent";
         }
       }}
     >
@@ -183,12 +187,12 @@ const NavItem: React.FC<{
         <span className="font-medium text-sm">{item.label}</span>
       </div>
       {item.count && (
-        <span 
+        <span
           className="text-xs px-2 py-0.5 rounded-full font-semibold"
           style={{
-            backgroundColor: selected 
+            backgroundColor: selected
               ? theme.colors.primary.full
-              : theme.colors.primary['200'],
+              : theme.colors.primary["200"],
             color: theme.colors.text.primary,
           }}
         >
