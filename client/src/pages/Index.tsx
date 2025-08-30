@@ -331,41 +331,41 @@ export default function Index() {
           <div className="flex flex-col h-full bg-[#0c1321]">
             {/* Chat Tabs */}
             <div className="p-3 bg-[#0c1321] border-b border-slate-700/50">
-              <div className="flex gap-3">
+              <div className="flex gap-6">
                 <button
                   onClick={() => setActiveChatTab("chat")}
-                  className={`flex items-center gap-1.5 text-xs font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
+                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
                     activeChatTab === "chat"
                       ? "text-white border-blue-500"
                       : "text-slate-400 border-transparent hover:text-white"
                   }`}
                 >
-                  <MessageCircle className="h-3.5 w-3.5" />
+                  <MessageCircle className="h-4 w-4" />
                   Global Chat
                 </button>
                 <button
                   onClick={() => setActiveChatTab("messages")}
-                  className={`flex items-center gap-1.5 text-xs font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
+                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
                     activeChatTab === "messages"
                       ? "text-white border-blue-500"
                       : "text-slate-400 border-transparent hover:text-white"
                   }`}
                 >
-                  <MessageCircle className="h-3.5 w-3.5" />
+                  <MessageCircle className="h-4 w-4" />
                   Messages
-                  <span className="bg-orange-500 text-white text-[10px] rounded-full px-1 py-0.5 min-w-[16px] h-[16px] flex items-center justify-center">
+                  <span className="bg-orange-500 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[18px] h-[18px] flex items-center justify-center">
                     4
                   </span>
                 </button>
                 <button
                   onClick={() => setActiveChatTab("friends")}
-                  className={`flex items-center gap-1.5 text-xs font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
+                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
                     activeChatTab === "friends"
                       ? "text-white border-orange-500"
                       : "text-slate-400 border-transparent hover:text-white"
                   }`}
                 >
-                  <User className="h-3.5 w-3.5" />
+                  <User className="h-4 w-4" />
                   Trades
                 </button>
               </div>
