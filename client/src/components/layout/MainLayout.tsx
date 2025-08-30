@@ -17,12 +17,16 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   return (
     <div 
       className="flex flex-col h-screen w-full overflow-hidden"
-      style={{ backgroundColor: theme.colors.background.primary }}
+      style={{ 
+        background: theme.gradients.dark,
+        minHeight: '100vh'
+      }}
     >
       {/* Header */}
       <div className="flex-shrink-0" style={{ 
         backgroundColor: theme.colors.background.secondary,
-        borderBottom: 'none'
+        borderBottom: `1px solid ${theme.colors.border.subtle}`,
+        backdropFilter: 'blur(10px)'
       }}>
         {header}
       </div>
@@ -31,7 +35,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <div className="flex-shrink-0" style={{
-          backgroundColor: theme.colors.background.secondary,
+          backgroundColor: theme.colors.background.tertiary,
+          borderRight: `1px solid ${theme.colors.border.subtle}`,
           width: '275px'
         }}>
           {sidebar}
@@ -45,7 +50,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         {/* Right Panel (optional) */}
         {rightPanel && (
           <div className="flex-shrink-0" style={{
-            backgroundColor: theme.colors.background.secondary,
+            backgroundColor: theme.colors.background.tertiary,
+            borderLeft: `1px solid ${theme.colors.border.subtle}`,
             width: '396px'
           }}>
             {rightPanel}

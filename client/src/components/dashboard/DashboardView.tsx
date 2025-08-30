@@ -49,20 +49,26 @@ export const DashboardView: React.FC = () => {
 const GameCard: React.FC = () => {
   return (
     <div 
-      className="rounded-2xl overflow-hidden transition-colors cursor-pointer group"
+      className="rounded-2xl overflow-hidden transition-all cursor-pointer group"
       style={{
-        backgroundColor: theme.colors.background.card,
-        boxShadow: theme.shadows.sm,
+        background: theme.gradients.card,
+        border: `1px solid ${theme.colors.border.subtle}`,
+        boxShadow: theme.shadows.md,
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = theme.colors.background.hover;
+        e.currentTarget.style.transform = 'translateY(-4px)';
+        e.currentTarget.style.boxShadow = theme.shadows.lg;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = theme.colors.background.card;
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.boxShadow = theme.shadows.md;
       }}
     >
       <div 
-        className="h-40 bg-gradient-to-br from-blue-500 to-purple-600"
+        className="h-40"
+        style={{
+          background: theme.gradients.accent,
+        }}
       />
       <div className="p-4">
         <h3 className="font-bold text-lg mb-2" style={{ color: theme.colors.text.primary }}>
@@ -78,8 +84,9 @@ const GameCard: React.FC = () => {
           <button 
             className="px-4 py-2 rounded-full text-sm font-bold transition-colors"
             style={{
-              backgroundColor: theme.colors.primary.full,
+              background: theme.gradients.button,
               color: theme.colors.text.primary,
+              boxShadow: theme.shadows.sm,
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.opacity = '0.9';
@@ -99,10 +106,11 @@ const GameCard: React.FC = () => {
 const TradeCard: React.FC = () => {
   return (
     <div 
-      className="rounded-2xl p-4 transition-colors cursor-pointer"
+      className="rounded-2xl p-4 transition-all cursor-pointer"
       style={{
-        backgroundColor: theme.colors.background.card,
-        boxShadow: theme.shadows.sm,
+        background: theme.gradients.card,
+        border: `1px solid ${theme.colors.border.subtle}`,
+        boxShadow: theme.shadows.md,
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.backgroundColor = theme.colors.background.hover;

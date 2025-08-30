@@ -1,30 +1,34 @@
 // Theme configuration for consistent design system
 export const theme = {
   colors: {
-    // Primary brand colors
+    // Primary brand colors - Cyan/Teal
     primary: {
-      50: 'rgba(6, 182, 212, 0.05)',
-      100: 'rgba(6, 182, 212, 0.1)',
-      200: 'rgba(6, 182, 212, 0.2)',
-      300: 'rgba(6, 182, 212, 0.3)',
-      400: 'rgba(6, 182, 212, 0.4)',
-      500: 'rgba(6, 182, 212, 0.5)',
-      600: 'rgba(6, 182, 212, 0.6)',
-      700: 'rgba(6, 182, 212, 0.7)',
-      800: 'rgba(6, 182, 212, 0.8)',
-      900: 'rgba(6, 182, 212, 0.9)',
-      full: '#06b6d4',
+      50: 'rgba(0, 212, 255, 0.05)',
+      100: 'rgba(0, 212, 255, 0.1)',
+      200: 'rgba(0, 212, 255, 0.2)',
+      300: 'rgba(0, 212, 255, 0.3)',
+      400: 'rgba(0, 212, 255, 0.4)',
+      500: 'rgba(0, 212, 255, 0.5)',
+      600: 'rgba(0, 212, 255, 0.6)',
+      700: 'rgba(0, 212, 255, 0.7)',
+      800: 'rgba(0, 212, 255, 0.8)',
+      900: 'rgba(0, 212, 255, 0.9)',
+      full: '#00d4ff',
+      dark: '#0099cc',
+      light: '#33ddff',
     },
     
-    // Secondary colors
+    // Secondary colors - Purple/Violet
     secondary: {
-      50: 'rgba(139, 92, 246, 0.05)',
-      100: 'rgba(139, 92, 246, 0.1)',
-      200: 'rgba(139, 92, 246, 0.2)',
-      300: 'rgba(139, 92, 246, 0.3)',
-      400: 'rgba(139, 92, 246, 0.4)',
-      500: 'rgba(139, 92, 246, 0.5)',
-      full: '#8b5cf6',
+      50: 'rgba(168, 85, 247, 0.05)',
+      100: 'rgba(168, 85, 247, 0.1)',
+      200: 'rgba(168, 85, 247, 0.2)',
+      300: 'rgba(168, 85, 247, 0.3)',
+      400: 'rgba(168, 85, 247, 0.4)',
+      500: 'rgba(168, 85, 247, 0.5)',
+      full: '#a855f7',
+      dark: '#8b5cf6',
+      light: '#c084fc',
     },
     
     // Accent colors
@@ -33,36 +37,55 @@ export const theme = {
       orange: '#fb923c',
       red: '#ef4444',
       green: '#10b981',
+      emerald: '#34d399',
       blue: '#3b82f6',
       purple: '#a855f7',
       pink: '#ec4899',
+      indigo: '#6366f1',
     },
     
-    // Background colors
+    // Background colors - Rich dark tones
     background: {
-      primary: '#0a0f1c',
-      secondary: '#0d1520',
-      tertiary: '#111827',
-      card: 'rgba(17, 24, 39, 0.5)',
-      hover: 'rgba(255, 255, 255, 0.03)',
-      active: 'rgba(255, 255, 255, 0.05)',
+      primary: '#090a0d',     // Very dark base
+      secondary: '#0e1015',   // Slightly lighter
+      tertiary: '#13151c',    // Card backgrounds
+      card: '#181a23',        // Elevated cards
+      hover: 'rgba(255, 255, 255, 0.04)',
+      active: 'rgba(255, 255, 255, 0.08)',
+      elevated: '#1e2029',    // Modals/overlays
+      accent: 'rgba(0, 212, 255, 0.02)', // Subtle accent bg
     },
     
     // Text colors
     text: {
       primary: '#ffffff',
-      secondary: '#94a3b8',
-      tertiary: '#64748b',
-      muted: '#475569',
-      disabled: '#334155',
+      secondary: '#b8bcc8',
+      tertiary: '#7c8291',
+      muted: '#565b6e',
+      disabled: '#3a3f52',
+      bright: '#f9fafb',
     },
     
-    // Border colors (minimal usage)
+    // Border colors (subtle and refined)
     border: {
-      subtle: 'rgba(255, 255, 255, 0.05)',
+      subtle: 'rgba(255, 255, 255, 0.04)',
       light: 'rgba(255, 255, 255, 0.08)',
       medium: 'rgba(255, 255, 255, 0.12)',
+      accent: 'rgba(0, 212, 255, 0.2)',
     },
+  },
+  
+  // Gradients for rich visual effects
+  gradients: {
+    primary: 'linear-gradient(135deg, #00d4ff, #0099cc)',
+    secondary: 'linear-gradient(135deg, #a855f7, #8b5cf6)',
+    accent: 'linear-gradient(135deg, #00d4ff, #a855f7)',
+    dark: 'linear-gradient(180deg, #13151c, #090a0d)',
+    card: 'linear-gradient(145deg, #1e2029, #13151c)',
+    surface: 'linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02))',
+    button: 'linear-gradient(135deg, #00d4ff, #0099cc)',
+    hover: 'linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(168, 85, 247, 0.15))',
+    glow: 'radial-gradient(ellipse at center, rgba(0, 212, 255, 0.3), transparent 70%)',
   },
   
   // Spacing system
@@ -86,15 +109,17 @@ export const theme = {
     full: '9999px',
   },
   
-  // Shadow system
+  // Shadow system - Enhanced for depth
   shadows: {
-    sm: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    md: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    lg: '0 10px 15px rgba(0, 0, 0, 0.1)',
-    xl: '0 20px 25px rgba(0, 0, 0, 0.1)',
+    sm: '0 2px 8px rgba(0, 0, 0, 0.4)',
+    md: '0 4px 12px rgba(0, 0, 0, 0.5)',
+    lg: '0 10px 24px rgba(0, 0, 0, 0.6)',
+    xl: '0 20px 40px rgba(0, 0, 0, 0.7)',
+    inner: 'inset 0 2px 4px rgba(0, 0, 0, 0.4)',
     glow: {
-      primary: '0 0 20px rgba(6, 182, 212, 0.3)',
-      secondary: '0 0 20px rgba(139, 92, 246, 0.3)',
+      primary: '0 0 30px rgba(0, 212, 255, 0.4)',
+      secondary: '0 0 30px rgba(168, 85, 247, 0.4)',
+      soft: '0 0 20px rgba(0, 212, 255, 0.2)',
     },
   },
   
