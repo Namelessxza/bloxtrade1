@@ -82,7 +82,7 @@ const GameCard: React.FC = () => {
             24 items available
           </span>
           <button 
-            className="px-4 py-2 rounded-full text-sm font-bold transition-colors"
+            className="px-4 py-2 rounded-xl text-sm font-bold transition-colors"
             style={{
               background: theme.gradients.button,
               color: theme.colors.text.primary,
@@ -152,7 +152,7 @@ const TradeCard: React.FC = () => {
           </span>
         </div>
         <button 
-          className="text-sm font-bold px-3 py-1.5 rounded-full transition-colors"
+          className="text-sm font-bold px-3 py-1.5 rounded-xl transition-colors"
           style={{ 
             color: theme.colors.primary.full,
             backgroundColor: 'rgba(255, 255, 255, 0.05)',
@@ -203,7 +203,7 @@ const ActivityItem: React.FC = () => {
         </p>
       </div>
       <button 
-        className="text-sm font-bold px-3 py-1 rounded-full transition-colors"
+        className="text-sm font-bold px-3 py-1 rounded-xl transition-colors"
         style={{ 
           color: theme.colors.primary.full,
           background: 'rgba(255, 255, 255, 0.03)',
