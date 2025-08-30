@@ -313,22 +313,22 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-6 py-6 bg-transparent relative">
               {/* Trading Bonus Container */}
-              <div className="relative overflow-hidden rounded-3xl p-6 mb-6 min-h-[280px]" style={{backgroundImage: 'url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+              <div className="relative overflow-hidden rounded-3xl p-6 mb-6 min-h-[240px]" style={{backgroundImage: 'url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
                 {/* Background Overlay */}
                 <div className="absolute inset-0 bg-black/40"></div>
                 
                 <div className="relative z-10 h-full flex items-center justify-between">
                   {/* Left Content */}
                   <div className="flex-1 max-w-md">
-                    <h2 className="text-3xl lg:text-4xl font-black text-white mb-1">GIVEAWAY</h2>
-                    <p className="text-xl lg:text-2xl font-black text-yellow-300 mb-4">$50,000 ROBUX</p>
+                    <h2 className="text-3xl lg:text-4xl font-black text-white mb-2">GIVEAWAY</h2>
+                    <p className="text-xl lg:text-2xl font-black text-yellow-300 mb-3">$50,000 ROBUX</p>
                     
                     {/* Timer Section */}
-                    <div className="mb-4">
-                      <p className="text-xs font-semibold text-white mb-2 uppercase tracking-wider">
+                    <div className="mb-3">
+                      <p className="text-xs font-semibold text-white mb-1 uppercase tracking-wider">
                         TIME LEFT
                       </p>
-                      <div className="flex gap-2 mb-4">
+                      <div className="flex gap-2 mb-3">
                         <div className="relative bg-black/20 backdrop-blur-md rounded-xl px-3 py-2 min-w-[60px] text-center border border-white/10 shadow-lg">
                           <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl"></div>
                           <div className="relative text-xl font-black text-white">09</div>
