@@ -362,9 +362,9 @@ export default function Index() {
             </div>
 
             {/* Content Area */}
-            <ScrollArea className="flex-1 px-3 py-2">
-              {activeChatTab === "friends" && (
-                <div className="space-y-4 bg-[#1a0d1a] p-3 rounded-lg">
+            {activeChatTab === "friends" && (
+              <div className="flex-1 overflow-y-auto px-3 py-2 bg-[#1a0d1a]">
+                <div className="space-y-4">
                   {/* Friend Requests */}
                   <div>
                     <h3 className="text-sm font-semibold text-white mb-3">Friend Request (2)</h3>
@@ -480,15 +480,17 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
 
-              {activeChatTab === "chat" && (
-                <div className="space-y-3 bg-[#0d1a0d] p-3 rounded-lg">
+            {activeChatTab === "chat" && (
+              <div className="flex-1 overflow-y-auto px-3 py-2 bg-[#0d1a0d]">
+                <div className="space-y-3">
                   {chatMessages.map((msg, index) => {
                     return (
                       <div
                         key={msg.id}
-                        className="flex gap-3 items-start bg-[#0c1321]"
+                        className="flex gap-3 items-start"
                         data-testid={`message-${msg.id}`}
                       >
                         <div className="relative flex-shrink-0">
@@ -523,15 +525,17 @@ export default function Index() {
                     );
                   })}
                 </div>
-              )}
+              </div>
+            )}
 
-              {activeChatTab === "messages" && (
-                <div className="text-center py-8 bg-[#1a1a0d] p-3 rounded-lg">
+            {activeChatTab === "messages" && (
+              <div className="flex-1 overflow-y-auto px-3 py-2 bg-[#1a1a0d]">
+                <div className="text-center py-8">
                   <MessageCircle className="h-12 w-12 text-slate-600 mx-auto mb-3" />
                   <div className="text-slate-400">No messages yet</div>
                 </div>
-              )}
-            </ScrollArea>
+              </div>
+            )}
 
             {/* Chat Input */}
             {activeChatTab === "chat" && (
