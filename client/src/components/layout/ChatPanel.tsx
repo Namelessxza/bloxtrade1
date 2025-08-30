@@ -171,9 +171,10 @@ export const ChatPanel: React.FC = () => {
       backgroundColor: '#0D0D0D',
     }}>
       {/* Header */}
-      <div className="px-4 py-3 flex items-center justify-between bg-[#161618] rounded-lg" style={{
+      <div className="px-4 py-3 flex items-center justify-between bg-[#161618]" style={{
         backgroundColor: '#161618',
         borderBottom: '1px solid rgba(255, 255, 255, 0.04)',
+        borderRadius: '8px',
       }}>
         <div className="flex items-center gap-2.5">
           <div className="flex items-center justify-center w-7 h-7 rounded-full" style={{
