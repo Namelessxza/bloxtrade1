@@ -29,6 +29,8 @@ import {
   Zap,
   Heart,
   Home,
+  X,
+  Check,
 } from "lucide-react";
 
 interface ChatMessage {
@@ -43,6 +45,7 @@ interface ChatMessage {
 export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState("home");
   const [activeMode, setActiveMode] = useState<"games" | "sport">("games");
+  const [activeChatTab, setActiveChatTab] = useState("friends");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       id: "1",
@@ -324,108 +327,250 @@ export default function Index() {
 
         {/* Right Panel */}
         <div className="w-[280px] bg-transparent flex flex-col flex-shrink-0 relative">
-          {/* Chat - no longer needs top positioning since header is global */}
+          {/* Chat Panel */}
           <div className="flex flex-col h-full bg-[#0c1321]">
-            {/* Chat Header */}
-            <div className="p-3 from-[#0f1a2e]/80 to-[#142447]/80 rounded-xl mb-2 backdrop-blur-sm bg-[#0c1321]">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <MessageCircle className="h-3 w-3 text-green-400" />
-                  </div>
-                  <span className="text-sm font-medium text-white">
-                    Online chat
+            {/* Chat Tabs */}
+            <div className="p-3 bg-[#0c1321] border-b border-slate-700/50">
+              <div className="flex gap-6">
+                <button
+                  onClick={() => setActiveChatTab("chat")}
+                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors ${
+                    activeChatTab === "chat"
+                      ? "text-white border-blue-500"
+                      : "text-slate-400 border-transparent hover:text-white"
+                  }`}
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Chat
+                </button>
+                <button
+                  onClick={() => setActiveChatTab("messages")}
+                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors ${
+                    activeChatTab === "messages"
+                      ? "text-white border-blue-500"
+                      : "text-slate-400 border-transparent hover:text-white"
+                  }`}
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Messages
+                  <span className="bg-orange-500 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[18px] h-[18px] flex items-center justify-center">
+                    4
                   </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-green-400 font-medium">
-                    {onlineUsers}
-                  </span>
-                  <div className="flex -space-x-1">
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-xs shadow-md">
-                      👨
-                    </div>
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-xs shadow-md">
-                      👩
-                    </div>
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center text-xs shadow-md">
-                      👤
-                    </div>
-                  </div>
-                </div>
+                </button>
+                <button
+                  onClick={() => setActiveChatTab("friends")}
+                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors ${
+                    activeChatTab === "friends"
+                      ? "text-white border-orange-500"
+                      : "text-slate-400 border-transparent hover:text-white"
+                  }`}
+                >
+                  <User className="h-4 w-4" />
+                  Friends
+                </button>
               </div>
             </div>
 
-            {/* Chat Messages */}
-            <ScrollArea className="relative overflow-hidden flex-1 px-3 py-2 rounded-lg mb-2 max-h-[calc(100vh-120px)] overflow-y-auto chat-bg-custom bg-[#0C1321]">
-              <div className="space-y-3 bg-[#0C1321]">
-                {chatMessages.map((msg, index) => {
-                  return (
-                    <div
-                      key={msg.id}
-                      className="flex gap-3 items-start bg-[#0C1321]"
-                      data-testid={`message-${msg.id}`}
-                    >
-                      <div className="relative flex-shrink-0">
-                        <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-medium">
-                          {msg.avatar}
-                        </div>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-sm font-semibold text-[#94a3b8]">
-                            {msg.username}
-                          </span>
-                          {msg.isAdmin && (
-                            <span className="bg-red-600 text-white text-xs px-1.5 py-0.5 rounded text-[10px] font-bold">
-                              ADMIN
-                            </span>
-                          )}
-                          <div className="flex items-center gap-1 ml-auto">
-                            <span className="text-xs text-gray-400">
-                              2s ago
-                            </span>
-                            <MessageCircle className="h-3 w-3 text-gray-400" />
+            {/* Content Area */}
+            <ScrollArea className="flex-1 px-3 py-2">
+              {activeChatTab === "friends" && (
+                <div className="space-y-4">
+                  {/* Friend Requests */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-white mb-3">Friend Request (2)</h3>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between p-2 bg-slate-800/30 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                            <span className="text-white text-sm font-bold">W</span>
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium text-white">Wingwon</div>
+                            <div className="text-xs text-green-400">Online</div>
                           </div>
                         </div>
-                        <div className="rounded-lg px-3 py-2 inline-block max-w-full bg-[#12182B]">
-                          <p className="text-sm text-white leading-relaxed break-words">
-                            {msg.message}
-                          </p>
+                        <div className="flex gap-2">
+                          <button className="w-7 h-7 bg-red-600 hover:bg-red-500 rounded-full flex items-center justify-center">
+                            <X className="h-4 w-4 text-white" />
+                          </button>
+                          <button className="w-7 h-7 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center">
+                            <Check className="h-4 w-4 text-white" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-slate-800/30 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                            <span className="text-white text-sm font-bold">J</span>
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium text-white">Jacob Clark 89</div>
+                            <div className="text-xs text-green-400">Online</div>
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <button className="w-7 h-7 bg-red-600 hover:bg-red-500 rounded-full flex items-center justify-center">
+                            <X className="h-4 w-4 text-white" />
+                          </button>
+                          <button className="w-7 h-7 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center">
+                            <Check className="h-4 w-4 text-white" />
+                          </button>
                         </div>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+
+                  {/* Online Friends */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-white mb-3">Online (4)</h3>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between p-2 hover:bg-slate-800/30 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                            <span className="text-white text-sm font-bold">C</span>
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium text-white">Cyber pilot</div>
+                            <div className="text-xs text-blue-400">Playing Tiki Runner 2</div>
+                          </div>
+                        </div>
+                        <button className="w-8 h-8 bg-slate-700/50 hover:bg-slate-600 rounded-lg flex items-center justify-center">
+                          <MessageCircle className="h-4 w-4 text-slate-400" />
+                        </button>
+                      </div>
+                      <div className="flex items-center justify-between p-2 hover:bg-slate-800/30 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center">
+                            <span className="text-white text-sm font-bold">F</span>
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium text-white">Future Saruman_</div>
+                            <div className="text-xs text-green-400">Online</div>
+                          </div>
+                        </div>
+                        <button className="w-8 h-8 bg-slate-700/50 hover:bg-slate-600 rounded-lg flex items-center justify-center">
+                          <MessageCircle className="h-4 w-4 text-slate-400" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Offline Friends */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-white mb-3">Offline (12)</h3>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between p-2 hover:bg-slate-800/30 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center opacity-60">
+                            <span className="text-white text-sm font-bold">A</span>
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium text-slate-400">Anchovy King</div>
+                            <div className="text-xs text-slate-500">Offline</div>
+                          </div>
+                        </div>
+                        <button className="w-8 h-8 bg-slate-700/50 hover:bg-slate-600 rounded-lg flex items-center justify-center">
+                          <MessageCircle className="h-4 w-4 text-slate-400" />
+                        </button>
+                      </div>
+                      <div className="flex items-center justify-between p-2 hover:bg-slate-800/30 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center opacity-60">
+                            <span className="text-white text-sm font-bold">A</span>
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium text-slate-400">Alan Frost</div>
+                            <div className="text-xs text-slate-500">Offline</div>
+                          </div>
+                        </div>
+                        <button className="w-8 h-8 bg-slate-700/50 hover:bg-slate-600 rounded-lg flex items-center justify-center">
+                          <MessageCircle className="h-4 w-4 text-slate-400" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeChatTab === "chat" && (
+                <div className="space-y-3">
+                  {chatMessages.map((msg, index) => {
+                    return (
+                      <div
+                        key={msg.id}
+                        className="flex gap-3 items-start"
+                        data-testid={`message-${msg.id}`}
+                      >
+                        <div className="relative flex-shrink-0">
+                          <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-medium">
+                            {msg.avatar}
+                          </div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-sm font-semibold text-[#94a3b8]">
+                              {msg.username}
+                            </span>
+                            {msg.isAdmin && (
+                              <span className="bg-red-600 text-white text-xs px-1.5 py-0.5 rounded text-[10px] font-bold">
+                                ADMIN
+                              </span>
+                            )}
+                            <div className="flex items-center gap-1 ml-auto">
+                              <span className="text-xs text-gray-400">
+                                2s ago
+                              </span>
+                              <MessageCircle className="h-3 w-3 text-gray-400" />
+                            </div>
+                          </div>
+                          <div className="rounded-lg px-3 py-2 inline-block max-w-full bg-[#12182B]">
+                            <p className="text-sm text-white leading-relaxed break-words">
+                              {msg.message}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {activeChatTab === "messages" && (
+                <div className="text-center py-8">
+                  <MessageCircle className="h-12 w-12 text-slate-600 mx-auto mb-3" />
+                  <div className="text-slate-400">No messages yet</div>
+                </div>
+              )}
             </ScrollArea>
 
-            {/* Chat Controls */}
-            <div className="p-4 rounded-lg bg-[#0C1321]">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  sendMessage();
-                }}
-                className="relative"
-              >
-                <Input
-                  value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
-                  placeholder="Your message"
-                  className="w-full h-12 px-4 pr-14 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
-                  data-testid="input-chat-message"
-                />
-                <Button
-                  type="submit"
-                  size="sm"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-500 rounded-lg w-8 h-8 p-0 flex items-center justify-center shadow-lg"
-                  data-testid="button-send-message"
+            {/* Chat Input */}
+            {activeChatTab === "chat" && (
+              <div className="p-3 bg-[#0c1321] border-t border-slate-700/50">
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    sendMessage();
+                  }}
+                  className="relative"
                 >
-                  <Send className="h-4 w-4 text-white" />
-                </Button>
-              </form>
-            </div>
+                  <Input
+                    value={newMessage}
+                    onChange={(e) => setNewMessage(e.target.value)}
+                    placeholder="Your message"
+                    className="w-full h-10 px-4 pr-12 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
+                    data-testid="input-chat-message"
+                  />
+                  <Button
+                    type="submit"
+                    size="sm"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-500 rounded-lg w-6 h-6 p-0 flex items-center justify-center"
+                    data-testid="button-send-message"
+                  >
+                    <Send className="h-3 w-3 text-white" />
+                  </Button>
+                </form>
+              </div>
+            )}
           </div>
         </div>
       </div>
