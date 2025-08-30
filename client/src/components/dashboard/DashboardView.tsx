@@ -42,7 +42,7 @@ export const DashboardView: React.FC = () => {
               className="absolute inset-0 rounded-2xl pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(180deg, transparent 0%, rgba(0, 20, 30, 0.4) 30%, rgba(0, 20, 30, 0.7) 100%)",
+                  "linear-gradient(180deg, transparent 0%, rgba(184, 80, 231, 0.4) 30%, rgba(184, 80, 231, 0.7) 100%)",
                 backdropFilter: "blur(2px)",
               }}
             >
@@ -51,8 +51,8 @@ export const DashboardView: React.FC = () => {
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3"
                     style={{
-                      background: "linear-gradient(135deg, #06b6d4, #0891b2)",
-                      boxShadow: "0 0 30px rgba(6, 182, 212, 0.4)",
+                      background: "linear-gradient(135deg, #B850E7, #F59BF3)",
+                      boxShadow: "0 0 30px rgba(184, 80, 231, 0.4)",
                     }}
                   >
                     <svg
@@ -80,7 +80,7 @@ export const DashboardView: React.FC = () => {
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-2px)";
                       e.currentTarget.style.boxShadow =
-                        "inset 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(6, 182, 212, 0.3)";
+                        "inset 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(184, 80, 231, 0.3)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)";
