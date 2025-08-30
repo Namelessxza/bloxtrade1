@@ -297,7 +297,7 @@ export default function Index() {
           <div className="p-3 space-y-2 from-[#0a1628] to-[#0f1a2e] mt-[15px] mb-[15px] rounded-t-xl bg-[#09101d]">
             <div className="rounded-lg p-3 space-y-2 bg-[#0c1321]">
               <Button
-                className="w-full justify-center gap-3 bg-slate-700/60 hover:bg-slate-600/60 text-slate-300 hover:text-white text-sm rounded-lg font-semibold"
+                className="w-full justify-center gap-3 bg-slate-700/60 hover:bg-slate-600/60 text-slate-300 hover:text-white text-sm rounded-lg font-bold"
                 data-testid="button-buy-crypto"
               >
                 <CreditCard className="h-4 w-4" />
