@@ -319,7 +319,7 @@ export default function Index() {
                 
                 <div className="relative z-10 h-full flex items-center justify-between">
                   {/* Left Content */}
-                  <div className="flex-1 max-w-2xl">
+                  <div className="flex-1 max-w-4xl">
                     <h2 className="text-4xl lg:text-5xl font-black text-white mb-2">
                       TRADE WITH
                     </h2>
@@ -335,16 +335,16 @@ export default function Index() {
                       <p className="text-base font-semibold text-sky-100 mb-3 uppercase tracking-wider">
                         TIME LEFT
                       </p>
-                      <div className="flex gap-3">
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-8 py-4 min-w-[100px] text-center border border-white/10 shadow-lg">
+                      <div className="flex gap-4">
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/10 shadow-lg">
                           <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
                           <div className="relative text-2xl font-black text-white">09</div>
                         </div>
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-8 py-4 min-w-[100px] text-center border border-white/10 shadow-lg">
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/10 shadow-lg">
                           <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
                           <div className="relative text-2xl font-black text-white">11</div>
                         </div>
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-8 py-4 min-w-[100px] text-center border border-white/10 shadow-lg">
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/10 shadow-lg">
                           <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
                           <div className="relative text-2xl font-black text-white">44</div>
                         </div>
@@ -353,7 +353,7 @@ export default function Index() {
                     
                     {/* Claim Button */}
                     <button
-                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center gap-2 px-16 py-4 text-lg"
+                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center gap-2 px-20 py-4 text-lg"
                       style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
                     >
                       CLAIM BONUS
