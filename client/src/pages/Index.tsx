@@ -227,7 +227,8 @@ export default function Index() {
             <div className="flex rounded-2xl p-1.5 relative bg-slate-800/60">
               <button
                 onClick={() => setActiveMode("games")}
-                className="flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-bold transition-all duration-300 flex-1 text-white shadow-lg bg-[#06b1d0]"
+                className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-xl border border-cyan-300 flex items-center justify-center gap-2 px-4 py-2 text-sm flex-1"
+                style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
               >
                 <div className="w-5 h-5 rounded-full border-2 border-current flex items-center justify-center">
                   <div className="w-2 h-2 bg-current rounded-full"></div>
@@ -354,9 +355,7 @@ export default function Index() {
                     <button
                       className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center gap-2 px-6 py-3 text-base"
                       style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
-                    >
-                      CLAIM BONUS
-                    </button>
+                    >ENTER GIVEAWAY</button>
                   </div>
                   
                   
