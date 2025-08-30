@@ -45,7 +45,7 @@ interface ChatMessage {
 export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState("home");
   const [activeMode, setActiveMode] = useState<"games" | "sport">("games");
-  const [activeChatTab, setActiveChatTab] = useState("friends");
+  const [activeChatTab, setActiveChatTab] = useState("chat");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       id: "1",
