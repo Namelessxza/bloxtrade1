@@ -362,7 +362,7 @@ export default function Index() {
             </div>
 
             {/* Content Area */}
-            <ScrollArea className="flex-1 px-3 py-2">
+            <ScrollArea className="flex-1 px-3 py-2 bg-[#0C1321]">
               {activeChatTab === "friends" && (
                 <div className="space-y-4">
                   {/* Friend Requests */}
