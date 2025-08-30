@@ -82,11 +82,9 @@ const GameCard: React.FC = () => {
             24 items available
           </span>
           <button 
-            className="px-4 py-2 rounded-xl text-sm font-bold transition-colors"
+            className="px-4 py-2 rounded-xl text-sm font-bold transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
             style={{
-              background: theme.gradients.button,
-              color: theme.colors.text.primary,
-              boxShadow: theme.shadows.sm,
+              boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.opacity = '0.9';
