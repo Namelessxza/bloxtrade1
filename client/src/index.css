@@ -60,6 +60,49 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Modern animations */
+@keyframes gradient-shift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3),
+                0 0 40px rgba(34, 211, 238, 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4),
+                0 0 60px rgba(34, 211, 238, 0.3);
+  }
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -106,52 +149,56 @@ All colors MUST be HSL.
   }
 
   :root {
-    /* Fire Casino Purple Theme */
-    --background: 222 47% 7%;  /* Dark navy #0F172A */
-    --foreground: 220 20% 98%;
+    /* Modern 2025 Design System */
+    --background: 240 20% 4%;  /* Ultra dark blue-black */
+    --foreground: 210 40% 98%;
 
-    --card: 224 44% 10%;  /* Dark card #1E293B */
-    --card-foreground: 220 20% 98%;
+    --card: 240 16% 8%;  /* Deep card with blue tint */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 224 44% 12%;
-    --popover-foreground: 220 20% 98%;
+    --popover: 240 14% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 271 91% 65%;  /* Purple #A855F7 */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 269 79% 69%;  /* Light purple #C084FC */
+    --primary: 200 100% 50%;  /* Electric cyan */
+    --primary-foreground: 240 20% 4%;
+    --primary-glow: 200 100% 65%;  /* Bright cyan glow */
 
-    --secondary: 333 71% 61%;  /* Pink #EC4899 */
+    --secondary: 280 85% 60%;  /* Vibrant purple */
     --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 330 81% 70%;  /* Light pink #F472B6 */
+    --secondary-glow: 280 100% 75%;  /* Bright purple glow */
 
-    --muted: 224 44% 14%;
-    --muted-foreground: 220 10% 75%;
+    --muted: 240 12% 16%;
+    --muted-foreground: 210 20% 70%;
 
-    --accent: 269 79% 58%;  /* Purple accent #8B5CF6 */
-    --accent-foreground: 0 0% 100%;
-    --accent-glow: 269 79% 69%;
+    --accent: 150 85% 50%;  /* Neon green accent */
+    --accent-foreground: 240 20% 4%;
+    --accent-glow: 150 100% 65%;
 
-    --success: 120 60% 50%;
-    --warning: 45 90% 55%;
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 220 20% 95%;
+    --success: 150 85% 50%;
+    --warning: 35 100% 55%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 224 44% 18%;
-    --input: 224 44% 16%;
-    --ring: 271 91% 65%;
+    --border: 240 10% 20%;
+    --input: 240 12% 14%;
+    --ring: 200 100% 50%;
 
     --radius: 0.75rem;
 
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    --gradient-success: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(224 44% 12%));
+    /* Modern Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)), hsl(var(--secondary)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)), hsl(var(--primary)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)), hsl(var(--primary)));
+    --gradient-card: linear-gradient(145deg, hsl(240 16% 10%), hsl(240 14% 6%));
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
 
-    /* Shadows */
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 8px 32px hsl(222 47% 4% / 0.4);
+    /* Modern Shadows & Effects */
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.4), 0 0 80px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 20px 40px -12px rgba(0,0,0,0.5), 0 8px 16px -8px rgba(0,0,0,0.3);
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --blur-glass: blur(12px) saturate(180%);
+    --border-glass: 1px solid rgba(255, 255, 255, 0.08);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -217,18 +264,33 @@ All colors MUST be HSL.
     font-weight: 500;
   }
 
-  /* Fire Casino Gaming Components */
+  /* Modern Glass Card Components */
   .gaming-card {
-    @apply bg-gradient-to-br from-card to-gaming-hover border border-border/50 rounded-xl backdrop-blur-sm;
-    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--gaming-hover) / 0.5));
-    box-shadow: 0 4px 20px hsl(var(--gaming-dark) / 0.3);
-    transition: var(--transition-smooth);
+    @apply border border-white/5 rounded-2xl;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: var(--shadow-card), inset 0 1px 0 0 rgba(255,255,255,0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gaming-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
   }
   
   .gaming-card:hover {
-    @apply border-primary/30;
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 30px hsl(var(--gaming-purple) / 0.2);
+    @apply border-white/10;
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
   }
   
   .gaming-button-primary {

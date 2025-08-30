@@ -146,26 +146,34 @@ export default function Index() {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-br from-[#0a1628] via-[#0f1629] to-[#142447] flex flex-col w-full overflow-hidden">
-      {/* Global Header */}
-      <header className="h-[70px] backdrop-blur-sm flex items-center px-6 from-[#0a1628] to-[#0f1a2e] w-full z-10 shadow-lg bg-[#0c1321]">
-        {/* Left Section - Logo */}
+    <div className="h-screen bg-[#050810] flex flex-col w-full overflow-hidden relative">
+      {/* Modern animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-emerald-500/5 animate-pulse" />
+      <div className="absolute inset-0" style={{
+        backgroundImage: `radial-gradient(circle at 20% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 40%),
+                         radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 40%),
+                         radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 40%)`
+      }} />
+      {/* Modern Glass Header */}
+      <header className="h-[70px] backdrop-blur-xl bg-white/[0.02] border-b border-white/[0.05] flex items-center px-6 w-full z-20 relative">
+        {/* Modern Logo */}
         <div className="flex items-center gap-2 w-1/4 justify-start ml-8">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-            <TrendingUp className="h-5 w-5 text-white" />
+          <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/30 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-t from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <TrendingUp className="h-6 w-6 text-white relative z-10" />
           </div>
-          <span className="text-lg font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
-            Bloxtrade
+          <span className="text-xl font-black bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            GameXchange
           </span>
         </div>
 
-        {/* Center Section - Search */}
+        {/* Modern Glass Search */}
         <div className="flex justify-center w-1/2 -ml-16">
-          <div className="relative w-3/4">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-100" />
+          <div className="relative w-3/4 group">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400 group-focus-within:text-cyan-400 transition-colors duration-300" />
             <Input
               placeholder="Search items, skins, collectibles..."
-              className="w-full pl-12 pr-4 py-3 bg-slate-800/30 rounded-xl text-white placeholder:text-slate-100 focus:bg-slate-700/30 transition-all h-12"
+              className="w-full pl-12 pr-4 py-3 bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-xl text-white placeholder:text-slate-400 focus:bg-white/[0.05] focus:border-cyan-400/50 transition-all duration-300 h-12 hover:bg-white/[0.04]"
               data-testid="input-search"
             />
           </div>
@@ -173,33 +181,33 @@ export default function Index() {
 
         {/* Right Section - Controls */}
         <div className="flex items-center gap-4 w-1/4 justify-end mr-4">
-          {/* Notification Bell */}
+          {/* Modern Glass Notification */}
           <Button
             variant="ghost"
             size="sm"
-            className="relative p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
+            className="relative p-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-sm border border-white/[0.05] transition-all duration-300"
             data-testid="button-notifications"
           >
-            <Bell className="h-4 w-4 text-slate-100 hover:text-white" />
-            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+            <Bell className="h-4 w-4 text-slate-300 hover:text-white" />
+            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50"></div>
           </Button>
 
-          {/* Shopping Cart */}
+          {/* Modern Glass Cart */}
           <Button
             variant="ghost"
             size="sm"
-            className="p-2 rounded-lg bg-slate-800/40 hover:bg-slate-700/60"
+            className="p-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-sm border border-white/[0.05] transition-all duration-300"
             data-testid="button-cart"
           >
-            <ShoppingCart className="h-4 w-4 text-slate-100 hover:text-white" />
+            <ShoppingCart className="h-4 w-4 text-slate-300 hover:text-white" />
           </Button>
 
           
 
-          {/* Components Button */}
+          {/* Modern Glass Components Button */}
           <Link href="/components">
             <Button
-              className="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold"
+              className="bg-gradient-to-r from-purple-500/90 to-pink-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-xl flex items-center gap-2 text-sm font-semibold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300 border border-white/10"
               data-testid="button-components"
             >
               <Grid3x3 className="h-3 w-3" />
@@ -207,28 +215,27 @@ export default function Index() {
             </Button>
           </Link>
 
-          {/* Profile Button */}
+          {/* Modern Glowing Profile Button */}
           <button
-            className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-xl border border-cyan-300 flex items-center gap-2 px-4 py-2 text-sm"
-            style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
+            className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 text-white font-bold rounded-xl flex items-center gap-2 px-5 py-2.5 text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105 transition-all duration-300 relative overflow-hidden group border border-white/10"
             data-testid="button-profile"
           >
-            <User className="h-3 w-3" />
-            Profile
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            <User className="h-4 w-4 relative z-10" />
+            <span className="relative z-10">Profile</span>
           </button>
         </div>
       </header>
       {/* Content Row */}
       <div className="flex flex-row flex-1 min-h-0">
-        {/* Left Sidebar - Navigation */}
-        <div className="w-[275px] flex flex-col flex-shrink-0 bg-[#09101d]">
-          {/* Games/Sport Toggle */}
-          <div className="px-2 py-6 bg-[#09101d]">
-            <div className="flex rounded-2xl p-1.5 relative bg-slate-800/60">
+        {/* Modern Glass Sidebar */}
+        <div className="w-[275px] flex flex-col flex-shrink-0 bg-white/[0.02] backdrop-blur-xl border-r border-white/[0.05] relative">
+          {/* Modern Toggle Switch */}
+          <div className="px-2 py-6">
+            <div className="flex rounded-2xl p-1.5 relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.08]">
               <button
                 onClick={() => setActiveMode("games")}
-                className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-xl border border-cyan-300 flex items-center justify-center gap-2 px-4 py-2 text-sm flex-1"
-                style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
+                className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 px-4 py-2 text-sm flex-1 shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:shadow-cyan-500/40 hover:scale-105"
               >
                 <div className="w-5 h-5 rounded-full border-2 border-current flex items-center justify-center">
                   <div className="w-2 h-2 bg-current rounded-full"></div>
@@ -237,7 +244,7 @@ export default function Index() {
               </button>
               <button
                 disabled
-                className="flex items-center justify-center gap-2 px-4 py-2 rounded-2xl text-sm font-semibold transition-all duration-300 flex-1 text-slate-600 cursor-not-allowed relative opacity-50 bg-slate-800/30"
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 flex-1 text-slate-500 cursor-not-allowed relative opacity-40 bg-white/[0.02]"
               >
                 <div className="w-5 h-5 rounded-full flex items-center justify-center relative">
                   <div className="w-4 h-4 rounded-full border-2 border-current flex items-center justify-center">
@@ -267,10 +274,10 @@ export default function Index() {
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-all ${
+                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-300 group ${
                       selectedCategory === category.id
-                        ? "bg-gradient-to-r from-blue-500/40 to-cyan-500/30 text-white border-l-4 border-l-blue-400"
-                        : "hover:bg-slate-800/60 text-slate-100 hover:text-cyan-300"
+                        ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white border border-cyan-500/30 shadow-lg shadow-cyan-500/10"
+                        : "hover:bg-white/[0.03] text-slate-400 hover:text-white border border-transparent hover:border-white/[0.05]"
                     }`}
                     data-testid={`button-category-${category.id}`}
                   >
@@ -313,21 +320,22 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-6 py-6 bg-transparent relative">
               {/* Trading Bonus Container */}
-              <div className="relative overflow-hidden rounded-3xl p-4 mb-6 min-h-[180px]" style={{backgroundImage: 'url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-                {/* Background Overlay */}
-                <div className="absolute inset-0 bg-black/40"></div>
+              <div className="relative overflow-hidden rounded-3xl p-6 mb-6 min-h-[200px] backdrop-blur-sm border border-white/[0.08] shadow-2xl" style={{background: 'linear-gradient(135deg, rgba(6,182,212,0.1), rgba(139,92,246,0.1)), url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                {/* Modern Glass Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-purple-900/20"></div>
+                <div className="absolute inset-0 backdrop-blur-[2px]"></div>
                 
                 <div className="relative z-10 h-full flex items-center justify-between">
                   {/* Left Content */}
                   <div className="flex-1 max-w-4xl ml-[60px]">
-                    <h2 className="text-4xl lg:text-5xl font-black text-white mb-2">
-                      TRADE WITH
+                    <h2 className="text-4xl lg:text-5xl font-black text-white mb-2 drop-shadow-2xl">
+                      <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">TRADE WITH</span>
                     </h2>
-                    <h3 className="text-4xl lg:text-5xl font-black text-white mb-2">
-                      $5000 BONUS
+                    <h3 className="text-4xl lg:text-5xl font-black text-white mb-2 drop-shadow-2xl">
+                      <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">$5000 BONUS</span>
                     </h3>
-                    <p className="text-2xl lg:text-3xl font-black text-yellow-300 mb-6">
-                      + FREE ITEMS!
+                    <p className="text-2xl lg:text-3xl font-black mb-6 drop-shadow-xl">
+                      <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">+ FREE ITEMS!</span>
                     </p>
                     
                     {/* Timer Section */}
@@ -336,27 +344,27 @@ export default function Index() {
                         TIME LEFT
                       </p>
                       <div className="flex gap-4">
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/10 shadow-lg">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
-                          <div className="relative text-2xl font-black text-white">09</div>
+                        <div className="relative bg-white/[0.08] backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/20 shadow-xl hover:scale-105 transition-transform duration-300 group">
+                          <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          <div className="relative text-2xl font-black text-white drop-shadow-lg">09</div>
                         </div>
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/10 shadow-lg">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
-                          <div className="relative text-2xl font-black text-white">11</div>
+                        <div className="relative bg-white/[0.08] backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/20 shadow-xl hover:scale-105 transition-transform duration-300 group">
+                          <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          <div className="relative text-2xl font-black text-white drop-shadow-lg">11</div>
                         </div>
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/10 shadow-lg">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
-                          <div className="relative text-2xl font-black text-white">44</div>
+                        <div className="relative bg-white/[0.08] backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/20 shadow-xl hover:scale-105 transition-transform duration-300 group">
+                          <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          <div className="relative text-2xl font-black text-white drop-shadow-lg">44</div>
                         </div>
                       </div>
                     </div>
                     
                     {/* Claim Button */}
                     <button
-                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center gap-2 px-20 py-4 text-lg"
-                      style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
+                      className="bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 text-white font-bold rounded-xl border border-white/20 flex items-center gap-2 px-20 py-4 text-lg shadow-2xl shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                     >
-                      CLAIM BONUS
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                      <span className="relative z-10">CLAIM BONUS</span>
                     </button>
                   </div>
                   
@@ -367,19 +375,19 @@ export default function Index() {
           </ScrollArea>
         </div>
 
-        {/* Right Panel */}
+        {/* Modern Glass Chat Panel */}
         <div className="w-[396px] bg-transparent flex flex-col flex-shrink-0 relative">
-          {/* Chat Panel */}
-          <div className="flex flex-col h-full bg-[#0c1321]">
-            {/* Chat Tabs */}
-            <div className="p-3 bg-[#0c1321] border-b border-slate-700/50">
+          {/* Glass Chat Container */}
+          <div className="flex flex-col h-full bg-white/[0.02] backdrop-blur-xl border-l border-white/[0.05]">
+            {/* Modern Chat Tabs */}
+            <div className="p-3 border-b border-white/[0.05]">
               <div className="flex gap-6">
                 <button
                   onClick={() => setActiveChatTab("chat")}
-                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
+                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-all duration-300 whitespace-nowrap ${
                     activeChatTab === "chat"
-                      ? "text-white border-blue-500"
-                      : "text-slate-400 border-transparent hover:text-white"
+                      ? "text-white border-cyan-400 drop-shadow-lg"
+                      : "text-slate-500 border-transparent hover:text-slate-300"
                   }`}
                 >
                   <MessageCircle className="h-4 w-4" />
@@ -387,24 +395,24 @@ export default function Index() {
                 </button>
                 <button
                   onClick={() => setActiveChatTab("messages")}
-                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
+                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-all duration-300 whitespace-nowrap ${
                     activeChatTab === "messages"
-                      ? "text-white border-blue-500"
-                      : "text-slate-400 border-transparent hover:text-white"
+                      ? "text-white border-cyan-400 drop-shadow-lg"
+                      : "text-slate-500 border-transparent hover:text-slate-300"
                   }`}
                 >
                   <MessageCircle className="h-4 w-4" />
                   Messages
-                  <span className="bg-orange-500 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[18px] h-[18px] flex items-center justify-center">
+                  <span className="bg-gradient-to-r from-orange-400 to-red-500 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[18px] h-[18px] flex items-center justify-center shadow-lg shadow-orange-500/30 animate-pulse">
                     4
                   </span>
                 </button>
                 <button
                   onClick={() => setActiveChatTab("friends")}
-                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-colors whitespace-nowrap ${
+                  className={`flex items-center gap-2 text-sm font-medium pb-2 border-b-2 transition-all duration-300 whitespace-nowrap ${
                     activeChatTab === "friends"
-                      ? "text-white border-orange-500"
-                      : "text-slate-400 border-transparent hover:text-white"
+                      ? "text-white border-purple-400 drop-shadow-lg"
+                      : "text-slate-500 border-transparent hover:text-slate-300"
                   }`}
                 >
                   <User className="h-4 w-4" />
@@ -535,16 +543,16 @@ export default function Index() {
               )}
 
               {activeChatTab === "chat" && (
-                <div className="space-y-3 bg-[#0c1321]">
+                <div className="space-y-3">
                   {chatMessages.map((msg, index) => {
                     return (
                       <div
                         key={msg.id}
-                        className="flex gap-3 items-start bg-[#0c1321]"
+                        className="flex gap-3 items-start hover:bg-white/[0.02] rounded-lg p-2 transition-all duration-200"
                         data-testid={`message-${msg.id}`}
                       >
                         <div className="relative flex-shrink-0">
-                          <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-medium">
+                          <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center text-white text-sm font-medium shadow-lg shadow-cyan-500/20">
                             {msg.avatar}
                           </div>
                         </div>
@@ -565,8 +573,8 @@ export default function Index() {
                               <MessageCircle className="h-3 w-3 text-gray-400" />
                             </div>
                           </div>
-                          <div className="rounded-lg px-3 py-2 inline-block max-w-full bg-[#12182B]">
-                            <p className="text-sm text-white leading-relaxed break-words">
+                          <div className="rounded-lg px-3 py-2 inline-block max-w-full bg-white/[0.03] backdrop-blur-sm border border-white/[0.05]">
+                            <p className="text-sm text-white/90 leading-relaxed break-words">
                               {msg.message}
                             </p>
                           </div>
@@ -585,9 +593,9 @@ export default function Index() {
               )}
             </ChatScrollArea>
 
-            {/* Chat Input */}
+            {/* Modern Glass Chat Input */}
             {activeChatTab === "chat" && (
-              <div className="p-3 bg-[#0c1321] border-t border-slate-700/50">
+              <div className="p-3 border-t border-white/[0.05]">
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
@@ -599,13 +607,13 @@ export default function Index() {
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
                     placeholder="Your message"
-                    className="w-full h-10 px-4 pr-12 bg-slate-700/40 rounded-lg text-white placeholder:text-gray-400 focus:bg-slate-600/40 text-sm"
+                    className="w-full h-10 px-4 pr-12 bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] rounded-lg text-white placeholder:text-gray-500 focus:bg-white/[0.05] focus:border-cyan-400/50 text-sm transition-all duration-300"
                     data-testid="input-chat-message"
                   />
                   <Button
                     type="submit"
                     size="sm"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-500 rounded-lg w-6 h-6 p-0 flex items-center justify-center"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 rounded-lg w-6 h-6 p-0 flex items-center justify-center shadow-lg shadow-cyan-500/20 transition-all duration-300"
                     data-testid="button-send-message"
                   >
                     <Send className="h-3 w-3 text-white" />
