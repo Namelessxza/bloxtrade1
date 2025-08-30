@@ -312,47 +312,47 @@ export default function Index() {
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-6 py-6 bg-transparent relative">
               {/* Trading Bonus Container */}
-              <div className="relative overflow-hidden rounded-3xl p-6 mb-6 h-64" style={{backgroundImage: 'url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+              <div className="relative overflow-hidden rounded-3xl p-6 mb-6 min-h-[280px]" style={{backgroundImage: 'url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
                 {/* Background Overlay */}
                 <div className="absolute inset-0 bg-black/40"></div>
                 
-                <div className="relative z-10 flex items-center justify-between">
+                <div className="relative z-10 h-full flex items-center justify-between">
                   {/* Left Content */}
-                  <div className="flex-1">
-                    <h2 className="text-4xl font-black text-white mb-2">
+                  <div className="flex-1 max-w-md">
+                    <h2 className="text-3xl lg:text-4xl font-black text-white mb-1">
                       TRADE WITH
                     </h2>
-                    <h3 className="text-4xl font-black text-white mb-2">
+                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-1">
                       $5000 BONUS
                     </h3>
-                    <p className="text-2xl font-black text-yellow-300 mb-8">
+                    <p className="text-xl lg:text-2xl font-black text-yellow-300 mb-4">
                       + FREE ITEMS!
                     </p>
                     
                     {/* Timer Section */}
-                    <div className="mb-6">
-                      <p className="text-sm font-semibold text-sky-100 mb-3 uppercase tracking-wider">
+                    <div className="mb-4">
+                      <p className="text-xs font-semibold text-white mb-2 uppercase tracking-wider">
                         TIME LEFT
                       </p>
-                      <div className="flex gap-3">
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-4 py-3 min-w-[70px] text-center border border-white/10 shadow-lg">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
-                          <div className="relative text-2xl font-black text-white">09</div>
+                      <div className="flex gap-2 mb-4">
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-xl px-3 py-2 min-w-[60px] text-center border border-white/10 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl"></div>
+                          <div className="relative text-xl font-black text-white">09</div>
                         </div>
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-4 py-3 min-w-[70px] text-center border border-white/10 shadow-lg">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
-                          <div className="relative text-2xl font-black text-white">11</div>
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-xl px-3 py-2 min-w-[60px] text-center border border-white/10 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl"></div>
+                          <div className="relative text-xl font-black text-white">11</div>
                         </div>
-                        <div className="relative bg-black/20 backdrop-blur-md rounded-2xl px-4 py-3 min-w-[70px] text-center border border-white/10 shadow-lg">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-2xl"></div>
-                          <div className="relative text-2xl font-black text-white">44</div>
+                        <div className="relative bg-black/20 backdrop-blur-md rounded-xl px-3 py-2 min-w-[60px] text-center border border-white/10 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl"></div>
+                          <div className="relative text-xl font-black text-white">44</div>
                         </div>
                       </div>
                     </div>
                     
                     {/* Claim Button */}
                     <button
-                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center gap-2 px-8 py-4 text-lg"
+                      className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white font-bold rounded-xl border border-purple-300 flex items-center gap-2 px-6 py-3 text-base"
                       style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
                     >
                       CLAIM BONUS
@@ -360,10 +360,10 @@ export default function Index() {
                   </div>
                   
                   {/* Right Content - Icon */}
-                  <div className="flex-shrink-0 ml-8">
-                    <div className="w-48 h-48 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-3xl flex items-center justify-center shadow-2xl">
-                      <div className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center">
-                        <div className="w-16 h-16 bg-black rounded-lg"></div>
+                  <div className="flex-shrink-0 ml-4">
+                    <div className="w-32 h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-2xl flex items-center justify-center shadow-2xl">
+                      <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center">
+                        <div className="w-10 h-10 lg:w-12 lg:h-12 bg-black rounded-lg"></div>
                       </div>
                     </div>
                   </div>
