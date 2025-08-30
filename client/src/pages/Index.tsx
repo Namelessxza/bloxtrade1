@@ -362,8 +362,8 @@ export default function Index() {
             </div>
 
             {/* Content Area */}
-            {activeChatTab === "friends" && (
-              <div className="flex-1 overflow-y-auto px-3 py-2 bg-[#1a0d1a]">
+            <ScrollArea className="flex-1 px-3 py-2">
+              {activeChatTab === "friends" && (
                 <div className="space-y-4">
                   {/* Friend Requests */}
                   <div>
@@ -480,17 +480,15 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {activeChatTab === "chat" && (
-              <div className="flex-1 overflow-y-auto px-3 py-2 bg-[#111c36]">
-                <div className="space-y-3">
+              {activeChatTab === "chat" && (
+                <div className="space-y-3 bg-[#0c1321]">
                   {chatMessages.map((msg, index) => {
                     return (
                       <div
                         key={msg.id}
-                        className="flex gap-3 items-start"
+                        className="flex gap-3 items-start bg-[#0c1321]"
                         data-testid={`message-${msg.id}`}
                       >
                         <div className="relative flex-shrink-0">
@@ -525,17 +523,15 @@ export default function Index() {
                     );
                   })}
                 </div>
-              </div>
-            )}
+              )}
 
-            {activeChatTab === "messages" && (
-              <div className="flex-1 overflow-y-auto px-3 py-2 bg-[#1a1a0d]">
+              {activeChatTab === "messages" && (
                 <div className="text-center py-8">
                   <MessageCircle className="h-12 w-12 text-slate-600 mx-auto mb-3" />
                   <div className="text-slate-400">No messages yet</div>
                 </div>
-              </div>
-            )}
+              )}
+            </ScrollArea>
 
             {/* Chat Input */}
             {activeChatTab === "chat" && (
