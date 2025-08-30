@@ -11,7 +11,7 @@ export const AppHeader: React.FC = () => {
   return (
     <header 
       className="h-16 px-6 flex items-center justify-between bg-[#111113]"
-      style={{ backgroundColor: theme.colors.background.secondary }}
+      style={{ backgroundColor: '#111113' }}
     >
       {/* Logo */}
       <Link href="/">
