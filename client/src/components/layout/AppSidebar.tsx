@@ -117,12 +117,32 @@ const ModeButton: React.FC<{
     <button
       onClick={onClick}
       disabled={locked}
-      className="flex-1 px-4 py-2 rounded-lg transition-all flex items-center justify-center gap-2"
+      className="flex-1 px-4 py-2 rounded-lg transition-all flex items-center justify-center gap-2 relative overflow-hidden"
       style={{
-        backgroundColor: active ? theme.colors.primary.full : 'transparent',
+        background: active 
+          ? `linear-gradient(135deg, ${theme.colors.primary.full}, ${theme.colors.accent.blue})`
+          : 'rgba(255, 255, 255, 0.03)',
         color: active ? theme.colors.text.primary : theme.colors.text.tertiary,
         opacity: locked ? 0.5 : 1,
         cursor: locked ? 'not-allowed' : 'pointer',
+        boxShadow: active 
+          ? `0 4px 15px ${theme.colors.primary.full}40, inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1)`
+          : 'none',
+        border: `1px solid ${active ? theme.colors.primary.full + '30' : 'rgba(255, 255, 255, 0.05)'}`,
+      }}
+      onMouseEnter={(e) => {
+        if (!active && !locked) {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
+          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+          e.currentTarget.style.transform = 'translateY(-1px)';
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (!active && !locked) {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+          e.currentTarget.style.transform = 'translateY(0)';
+        }
       }}
     >
       <span className="text-lg">{icon}</span>
@@ -143,21 +163,31 @@ const NavItem: React.FC<{
     <button
       onClick={onClick}
       disabled={item.locked}
-      className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all group"
+      className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all group relative overflow-hidden"
       style={{
-        backgroundColor: selected ? theme.colors.primary['100'] : 'transparent',
+        background: selected 
+          ? `linear-gradient(135deg, ${theme.colors.primary.full}20, ${theme.colors.secondary.full}15)`
+          : 'rgba(255, 255, 255, 0.02)',
         color: selected ? theme.colors.text.primary : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? 'not-allowed' : 'pointer',
+        borderLeft: selected ? `3px solid ${theme.colors.primary.full}` : '3px solid transparent',
+        boxShadow: selected 
+          ? `inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 2px 8px ${theme.colors.primary.full}15`
+          : 'none',
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
-          e.currentTarget.style.backgroundColor = theme.colors.background.hover;
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+          e.currentTarget.style.transform = 'translateX(2px)';
+          e.currentTarget.style.borderLeftColor = `${theme.colors.primary.full}50`;
         }
       }}
       onMouseLeave={(e) => {
         if (!selected) {
-          e.currentTarget.style.backgroundColor = 'transparent';
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.02)';
+          e.currentTarget.style.transform = 'translateX(0)';
+          e.currentTarget.style.borderLeftColor = 'transparent';
         }
       }}
     >
@@ -169,8 +199,11 @@ const NavItem: React.FC<{
         <span 
           className="text-xs px-2 py-0.5 rounded-full font-semibold"
           style={{
-            backgroundColor: selected ? theme.colors.primary.full : theme.colors.primary['200'],
+            background: selected 
+              ? `linear-gradient(135deg, ${theme.colors.primary.full}, ${theme.colors.accent.blue})`
+              : `linear-gradient(135deg, ${theme.colors.primary['200']}, ${theme.colors.primary['300']})`,
             color: theme.colors.text.primary,
+            boxShadow: `0 2px 4px ${theme.colors.primary.full}20`,
           }}
         >
           {item.count}

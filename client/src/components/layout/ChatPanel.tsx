@@ -179,11 +179,11 @@ export const ChatPanel: React.FC = () => {
             <div className="flex -space-x-2">
               {friends.slice(0, 3).map((friend) => (
                 <div key={friend.id} 
-                  className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ring-2"
+                  className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold"
                   style={{
                     background: `linear-gradient(135deg, ${theme.colors.primary.full}, ${theme.colors.secondary.full})`,
                     color: theme.colors.text.primary,
-                    ringColor: theme.colors.background.secondary,
+                    border: `2px solid ${theme.colors.background.secondary}`,
                   }}
                 >
                   {friend.avatar}
@@ -352,17 +352,27 @@ export const ChatPanel: React.FC = () => {
                 }}
               />
               
-              <Button
+              <button
                 type="submit"
-                className="px-4 h-11 rounded-xl font-medium transition-all hover:scale-105"
+                className="px-5 h-11 rounded-xl font-semibold transition-all relative overflow-hidden"
                 style={{
                   background: `linear-gradient(135deg, ${theme.colors.primary.full}, ${theme.colors.accent.blue})`,
-                  boxShadow: `0 4px 15px ${theme.colors.primary.full}40`,
+                  color: theme.colors.text.primary,
+                  boxShadow: `0 4px 15px ${theme.colors.primary.full}40, inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1)`,
+                  border: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = `0 6px 20px ${theme.colors.primary.full}50, inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -2px 0 rgba(0, 0, 0, 0.15)`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = `0 4px 15px ${theme.colors.primary.full}40, inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1)`;
                 }}
               >
-                <Send className="h-4 w-4 mr-2" />
+                <Send className="h-4 w-4 mr-2 inline" />
                 Send
-              </Button>
+              </button>
             </div>
           </form>
         </div>
@@ -408,7 +418,7 @@ const TabButton: React.FC<{
         )}
         {badge && badgeType === 'notification' && (
           <span 
-            className="absolute -top-1 -right-1 text-xs rounded-full px-1.5 py-0.5 min-w-[20px] h-[20px] flex items-center justify-center font-bold animate-pulse"
+            className="absolute -top-1 -right-1 text-xs rounded-full px-1.5 py-0.5 min-w-[20px] h-[20px] flex items-center justify-center font-bold"
             style={{
               background: `linear-gradient(135deg, ${theme.colors.accent.orange}, ${theme.colors.accent.red})`,
               color: theme.colors.text.primary,
@@ -448,7 +458,7 @@ const MessageItem: React.FC<{ message: Message; isLast?: boolean }> = ({ message
           {message.avatar}
         </div>
         {isLast && (
-          <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full animate-pulse"
+          <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full"
             style={{
               backgroundColor: theme.colors.accent.green,
               border: `2px solid ${theme.colors.background.secondary}`,
@@ -549,6 +559,16 @@ const MessageItem: React.FC<{ message: Message; isLast?: boolean }> = ({ message
 };
 
 const FriendRequest: React.FC<{ friend: Friend }> = ({ friend }) => {
+  const getStatusColor = (status: Friend['status']) => {
+    switch (status) {
+      case 'online': return '#10b981';
+      case 'playing': return '#3b82f6';
+      case 'away': return '#eab308';
+      case 'offline': return '#64748b';
+      default: return '#64748b';
+    }
+  };
+
   return (
     <div 
       className="flex items-center justify-between p-3 rounded-xl transition-all hover:scale-[1.02]"

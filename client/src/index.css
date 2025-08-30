@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./styles/buttons.css";
 
 /* Global Reset and Base Styles */
 * {
@@ -110,6 +111,15 @@ select {
   
   .glow-secondary {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
   }
 }
 
