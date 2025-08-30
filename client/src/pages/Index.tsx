@@ -319,57 +319,7 @@ export default function Index() {
           {/* Main Content */}
           <ScrollArea className="flex-1 min-h-0">
             <div className="min-h-full px-6 py-6 bg-transparent relative">
-              {/* Trading Bonus Container */}
-              <div className="relative overflow-hidden rounded-3xl p-6 mb-6 min-h-[200px] backdrop-blur-sm border border-white/[0.08] shadow-2xl" style={{background: 'linear-gradient(135deg, rgba(6,182,212,0.1), rgba(139,92,246,0.1)), url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-                
-                
-                
-                <div className="relative z-10 h-full flex items-center justify-between">
-                  {/* Left Content */}
-                  <div className="flex-1 max-w-4xl ml-[60px]">
-                    <h2 className="text-4xl lg:text-5xl font-black text-white mb-2 drop-shadow-2xl">
-                      <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">TRADE WITH</span>
-                    </h2>
-                    <h3 className="text-4xl lg:text-5xl font-black text-white mb-2 drop-shadow-2xl">
-                      <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">$5000 BONUS</span>
-                    </h3>
-                    <p className="text-2xl lg:text-3xl font-black mb-6 drop-shadow-xl">
-                      <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">+ FREE ITEMS!</span>
-                    </p>
-                    
-                    {/* Timer Section */}
-                    <div className="mb-6">
-                      <p className="text-base font-semibold text-sky-100 mb-3 uppercase tracking-wider">
-                        TIME LEFT
-                      </p>
-                      <div className="flex gap-4">
-                        <div className="relative bg-white/[0.08] backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/20 shadow-xl hover:scale-105 transition-transform duration-300 group">
-                          <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                          <div className="relative text-2xl font-black text-white drop-shadow-lg">09</div>
-                        </div>
-                        <div className="relative bg-white/[0.08] backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/20 shadow-xl hover:scale-105 transition-transform duration-300 group">
-                          <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                          <div className="relative text-2xl font-black text-white drop-shadow-lg">11</div>
-                        </div>
-                        <div className="relative bg-white/[0.08] backdrop-blur-md rounded-2xl px-10 py-4 min-w-[120px] text-center border border-white/20 shadow-xl hover:scale-105 transition-transform duration-300 group">
-                          <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                          <div className="relative text-2xl font-black text-white drop-shadow-lg">44</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Claim Button */}
-                    <button
-                      className="bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 text-white font-bold rounded-xl border border-white/20 flex items-center gap-2 px-20 py-4 text-lg shadow-2xl shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                      <span className="relative z-10">CLAIM BONUS</span>
-                    </button>
-                  </div>
-                  
-                  
-                </div>
-              </div>
+              
             </div>
           </ScrollArea>
         </div>
