@@ -323,7 +323,7 @@ export default function Index() {
               <div className="relative overflow-hidden rounded-3xl p-6 mb-6 min-h-[200px] backdrop-blur-sm border border-white/[0.08] shadow-2xl" style={{background: 'linear-gradient(135deg, rgba(6,182,212,0.1), rgba(139,92,246,0.1)), url("/vca.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
                 {/* Modern Glass Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-purple-900/20"></div>
-                <div className="absolute inset-0 backdrop-blur-[2px]"></div>
+                
                 
                 <div className="relative z-10 h-full flex items-center justify-between">
                   {/* Left Content */}
