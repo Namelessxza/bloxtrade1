@@ -274,17 +274,17 @@ export const ChatPanel: React.FC = () => {
               placeholder="Enter your message"
               className="flex border-input px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm w-full h-12 rounded-full text-sm pl-5 pr-24 border-0 bg-[#0d1520]"
               style={{
-                backgroundColor: '#2c3347',
+                backgroundColor: '#0d1520',
                 color: '#9ca3af',
                 fontSize: '14px',
                 boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.2)',
               }}
               onFocus={(e) => {
-                e.currentTarget.style.backgroundColor = '#343a50';
+                e.currentTarget.style.backgroundColor = '#111827';
                 e.currentTarget.style.outline = 'none';
               }}
               onBlur={(e) => {
-                e.currentTarget.style.backgroundColor = '#2c3347';
+                e.currentTarget.style.backgroundColor = '#0d1520';
               }}
             />
             
@@ -342,7 +342,7 @@ const MessageItem: React.FC<{
   
   return (
     <div 
-      className="flex gap-2.5 items-start px-2 py-1.5 rounded-lg transition-colors"
+      className="flex gap-2.5 items-start px-3 py-1 transition-colors"
       style={{
         backgroundColor: hovered ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
       }}
@@ -370,9 +370,9 @@ const MessageItem: React.FC<{
             }}
           >
             <span style={{
-              color: '#6b7280',
-              fontSize: '8px',
-              fontWeight: '600',
+              color: '#ffffff',
+              fontSize: '9px',
+              fontWeight: '700',
             }}>
               {message.avatarNumber}
             </span>
@@ -382,7 +382,7 @@ const MessageItem: React.FC<{
       
       {/* Message Content */}
       <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 mb-0.5">
+        <div className="flex items-center gap-2 mb-1">
           <span className="text-sm" style={{ 
             color: '#9ca3af',
             fontWeight: '500',
@@ -392,10 +392,11 @@ const MessageItem: React.FC<{
           </span>
           {message.isAdmin && (
             <span 
-              className="px-2 py-0.5 rounded text-[10px] font-semibold"
+              className="px-2 py-0.5 rounded text-[10px] font-bold"
               style={{
-                backgroundColor: '#8b5cf6',
+                background: 'linear-gradient(90deg, #a855f7, #ec4899)',
                 color: '#ffffff',
+                letterSpacing: '0.5px',
               }}
             >
               Admin
@@ -408,13 +409,21 @@ const MessageItem: React.FC<{
             {message.timestamp}
           </span>
         </div>
-        <div className="text-sm break-words" style={{ 
-          color: message.username.startsWith('@') ? '#ec4899' : '#e5e7eb',
-          fontSize: '13px',
-          fontWeight: '400',
-          lineHeight: '1.4',
-        }}>
-          {message.message}
+        <div 
+          className="inline-block px-3 py-2 rounded-2xl"
+          style={{ 
+            backgroundColor: message.isAdmin ? '#2d1b47' : message.username.startsWith('@') ? '#1f2937' : '#1a2332',
+            maxWidth: '85%',
+          }}
+        >
+          <div className="text-sm break-words" style={{ 
+            color: message.username.startsWith('@') ? '#ec4899' : '#e5e7eb',
+            fontSize: '14px',
+            fontWeight: '400',
+            lineHeight: '1.5',
+          }}>
+            {message.message}
+          </div>
         </div>
       </div>
     </div>
