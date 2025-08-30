@@ -215,7 +215,7 @@ export default function Index() {
 
           {/* Profile Button */}
           <Button
-            className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold"
+            className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-bold"
             data-testid="button-profile"
           >
             <User className="h-3 w-3" />
