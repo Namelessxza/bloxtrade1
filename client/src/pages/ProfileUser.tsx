@@ -123,27 +123,57 @@ export default function ProfileUser() {
             {/* Stats Grid */}
             <div className="grid grid-cols-3 gap-8 text-center">
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.totalTrades}</div>
+                <div 
+                  className="text-2xl font-bold text-white"
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                >
+                  {userData.stats.totalTrades}
+                </div>
                 <div className="text-sm text-slate-400">Total trades</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.totalItems}</div>
+                <div 
+                  className="text-2xl font-bold text-white"
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                >
+                  {userData.stats.totalItems}
+                </div>
                 <div className="text-sm text-slate-400">Total items</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.totalValue}</div>
+                <div 
+                  className="text-2xl font-bold text-white"
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                >
+                  {userData.stats.totalValue}
+                </div>
                 <div className="text-sm text-slate-400">Total value</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.topRating}</div>
+                <div 
+                  className="text-2xl font-bold text-white"
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                >
+                  {userData.stats.topRating}
+                </div>
                 <div className="text-sm text-slate-400">Top rating</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.bestDeal}</div>
+                <div 
+                  className="text-2xl font-bold text-white"
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                >
+                  {userData.stats.bestDeal}
+                </div>
                 <div className="text-sm text-slate-400">Best deal</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">{userData.stats.memberSince}</div>
+                <div 
+                  className="text-2xl font-bold text-white"
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}
+                >
+                  {userData.stats.memberSince}
+                </div>
                 <div className="text-sm text-slate-400">Member since</div>
               </div>
             </div>
@@ -232,7 +262,9 @@ export default function ProfileUser() {
                         ) : (
                           <ArrowDown className="w-3 h-3" />
                         )}
-                        {item.value.toFixed(0)}
+                        <span style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'}}>
+                          {item.value.toFixed(0)}
+                        </span>
                       </div>
                     </CardContent>
                   </Card>
