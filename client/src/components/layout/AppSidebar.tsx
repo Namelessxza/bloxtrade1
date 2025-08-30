@@ -56,7 +56,7 @@ export const AppSidebar: React.FC = () => {
       {/* Mode Toggle */}
       <div className="p-4 bg-[#161618]">
         <div 
-          className="flex p-1 rounded-xl bg-[#111113]"
+          className="flex p-1 rounded-xl bg-[#161618]"
           style={{ backgroundColor: theme.colors.background.primary }}
         >
           <ModeButton
