@@ -20,9 +20,7 @@ export const DashboardView: React.FC = () => {
         
         {/* Active Trades Section */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-4" style={{ color: theme.colors.text.primary }}>
-            Active Trades
-          </h2>
+          <h2 className="text-2xl font-bold mb-4" style={{ color: theme.colors.text.primary }}>Pet Sniper</h2>
           <div className="relative">
             {/* Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
