@@ -214,13 +214,14 @@ export default function Index() {
           </Link>
 
           {/* Profile Button */}
-          <Button
-            className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-bold"
+          <button
+            className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-xl border border-cyan-300 flex items-center gap-2 px-4 py-2 text-sm"
+            style={{boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'}}
             data-testid="button-profile"
           >
             <User className="h-3 w-3" />
             Profile
-          </Button>
+          </button>
         </div>
       </header>
       {/* Content Row */}
