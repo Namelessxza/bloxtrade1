@@ -89,7 +89,7 @@ export const AppSidebar: React.FC = () => {
         </div>
       </div>
       {/* Navigation Items with Container */}
-      <div className="flex-1 px-1 bg-[#0C1321] relative overflow-y-auto">
+      <SidebarScrollArea className="flex-1 px-1 bg-[#0C1321] relative">
         <div className="p-3 space-y-1.5 rounded-xl ml-0 mr-1 mt-2 bg-[#09101D]">
           {currentCategories.map((item) => (
             <NavItem
@@ -99,12 +99,8 @@ export const AppSidebar: React.FC = () => {
               onClick={() => !item.locked && setSelectedCategory(item.id)}
             />
           ))}
-          {/* Add some dummy content to test scrolling */}
-          {Array.from({ length: 10 }, (_, i) => (
-            <div key={`dummy-${i}`} className="h-12 bg-[#0a0f1c] rounded-xl mb-2 opacity-30"></div>
-          ))}
         </div>
-      </div>
+      </SidebarScrollArea>
       {/* Bottom Actions */}
       <div className="p-3 space-y-1.5 rounded-xl ml-0 mr-1 mb-2 bg-[#09101D]">
         <NavItem
