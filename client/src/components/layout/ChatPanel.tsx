@@ -143,7 +143,7 @@ export const ChatPanel: React.FC = () => {
       backgroundColor: '#0c1321',
     }}>
       {/* Header */}
-      <div className="px-4 py-3 flex items-center justify-between" style={{
+      <div className="px-4 py-3 flex items-center justify-between bg-[#12182B]" style={{
         backgroundColor: '#0F1520',
         borderBottom: '1px solid rgba(255, 255, 255, 0.04)',
       }}>
@@ -216,7 +216,6 @@ export const ChatPanel: React.FC = () => {
           </button>
         </div>
       </div>
-      
       {/* Messages Area */}
       <ScrollArea className="flex-1 px-3 py-2">
         <div className="space-y-2">
@@ -229,7 +228,6 @@ export const ChatPanel: React.FC = () => {
           <div ref={messagesEndRef} />
         </div>
       </ScrollArea>
-      
       {/* Input Area */}
       <div className="px-4 pb-4 pt-2">
         <form
