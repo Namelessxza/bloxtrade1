@@ -31,6 +31,18 @@ export const AppSidebar: React.FC = () => {
   const [activeMode, setActiveMode] = useState<"games" | "sports">("games");
   const [selectedCategory, setSelectedCategory] = useState("home");
 
+  // Add shimmer animation style
+  React.useEffect(() => {
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
 
   const gameCategories: NavItem[] = [
     { id: "home", label: "Home", icon: Home },
@@ -38,6 +50,7 @@ export const AppSidebar: React.FC = () => {
     { id: "teams", label: "Team Up", icon: Users },
     { id: "rewards", label: "Events", icon: Trophy },
     { id: "inventory", label: "My Trades", icon: Package },
+    { id: "trending", label: "Pet Sniper", icon: MoonStar, count: 24 },
   ];
 
   const sportCategories: NavItem[] = [
@@ -159,12 +172,58 @@ const NavItem: React.FC<{
     <button
       onClick={onClick}
       disabled={item.locked}
-      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl"
+      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden"
       style={{
-        backgroundColor: "transparent",
-        color: theme.colors.text.secondary,
+        background: item.id === "trending" 
+          ? "linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(245, 101, 239, 0.15) 50%, rgba(139, 69, 210, 0.15) 100%)"
+          : selected 
+            ? "linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(6, 182, 212, 0.02) 100%)"
+            : "transparent",
+        color: item.id === "trending"
+          ? "#FFFFFF"
+          : selected
+            ? "#FFFFFF"
+            : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
+        borderLeft: item.id === "trending" 
+          ? "3px solid #a855f7"
+          : selected 
+            ? "3px solid #06b6d4" 
+            : "3px solid transparent",
+        borderTop: "1px solid transparent",
+        borderRight: "1px solid transparent", 
+        borderBottom: "1px solid transparent",
+        borderRadius: "12px",
+        position: "relative",
+        boxShadow: "none",
+      }}
+      onMouseEnter={(e) => {
+        if (!selected && !item.locked) {
+          if (item.id === "trending") {
+            e.currentTarget.style.background = "linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(245, 101, 239, 0.25) 50%, rgba(139, 69, 210, 0.25) 100%)";
+            e.currentTarget.style.borderLeft = "3px solid #a855f7";
+            e.currentTarget.style.boxShadow = "none";
+          } else {
+            e.currentTarget.style.background = "linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(6, 182, 212, 0.02) 100%)";
+            e.currentTarget.style.borderLeft = "3px solid #06b6d4";
+            e.currentTarget.style.color = "#FFFFFF";
+            e.currentTarget.style.boxShadow = "none";
+          }
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (!selected && !item.locked) {
+          if (item.id === "trending") {
+            e.currentTarget.style.background = "linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(245, 101, 239, 0.15) 50%, rgba(139, 69, 210, 0.15) 100%)";
+            e.currentTarget.style.borderLeft = "3px solid #a855f7";
+            e.currentTarget.style.boxShadow = "none";
+          } else {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.borderLeft = "3px solid transparent";
+            e.currentTarget.style.color = theme.colors.text.secondary;
+          }
+        }
       }}
     >
       <div className="flex items-center gap-3 relative z-10">
@@ -173,12 +232,20 @@ const NavItem: React.FC<{
       </div>
       {item.count && (
         <span
-          className="text-xs px-2.5 py-1 rounded-full font-bold"
+          className="text-xs px-2.5 py-1 rounded-full font-bold relative z-10"
           style={{
-            backgroundColor: theme.colors.primary["200"],
-            color: theme.colors.text.primary,
+            backgroundColor: item.id === "trending"
+              ? "#a855f7"
+              : selected
+                ? theme.colors.primary.full
+                : theme.colors.primary["200"],
+            color: item.id === "trending"
+              ? "#FFFFFF"
+              : theme.colors.text.primary,
+            border: item.id === "trending" ? "1px solid rgba(168, 85, 247, 0.5)" : "none",
             minWidth: "24px",
             textAlign: "center",
+            boxShadow: "none",
           }}
         >
           {item.count}
