@@ -88,17 +88,21 @@ export const AppSidebar: React.FC = () => {
         </div>
       </SidebarScrollArea>
       {/* Bottom Actions */}
-      <div className="p-4 space-y-2 bg-[#09101D]">
-        <NavItem
-          item={{ id: 'help', label: 'Help Center', icon: HelpCircle }}
-          selected={false}
-          onClick={() => {}}
-        />
-        <NavItem
-          item={{ id: 'settings', label: 'Settings', icon: Settings }}
-          selected={false}
-          onClick={() => {}}
-        />
+      <div className="p-3 space-y-1.5 bg-[#09101D]">
+        <div className="rounded-lg p-1 bg-[#161618]">
+          <NavItem
+            item={{ id: 'help', label: 'Help Center', icon: HelpCircle }}
+            selected={false}
+            onClick={() => {}}
+          />
+        </div>
+        <div className="rounded-lg p-1 bg-[#161618]">
+          <NavItem
+            item={{ id: 'settings', label: 'Settings', icon: Settings }}
+            selected={false}
+            onClick={() => {}}
+          />
+        </div>
       </div>
     </div>
   );
