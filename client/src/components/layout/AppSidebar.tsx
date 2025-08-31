@@ -57,7 +57,7 @@ export const AppSidebar: React.FC = () => {
       {/* Mode Toggle */}
       <div className="p-4 bg-[#0c1321]">
         <div 
-          className="flex p-1.5 rounded-full bg-[#111113]"
+          className="flex p-1.5 rounded-full bg-[#09101d]"
         >
           <ModeButton
             active={activeMode === 'games'}
