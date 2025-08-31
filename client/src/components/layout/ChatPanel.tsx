@@ -243,17 +243,15 @@ export const ChatPanel: React.FC = () => {
 
             <button
               type="submit"
-              className="w-12 h-12 rounded-xl flex items-center justify-center transition-all"
+              className="w-12 h-12 rounded-xl flex items-center justify-center transition-all bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
               style={{
-                background: 'linear-gradient(to bottom right, #B850E7, #F59BF3)',
-                border: '1px solid #F59BF3',
                 boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.opacity = '0.9';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.opacity = '1';
               }}
             >
               <Send className="h-5 w-5 text-white" style={{ marginLeft: '1px' }} />
