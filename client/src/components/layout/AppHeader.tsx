@@ -122,16 +122,21 @@ export const AppHeader: React.FC = () => {
         
         <Link href="/profile">
           <button
-            className="px-5 py-2 rounded-xl text-sm transition-colors bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-white border border-cyan-300"
+            className="px-5 py-2 rounded-xl text-sm transition-colors"
             style={{
               fontWeight: 600,
-              boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)'
+              background: 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)',
+              color: '#ffffff',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.05)',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.opacity = '0.9';
+              e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.12)';
+              e.currentTarget.style.background = 'linear-gradient(180deg, #303645 0%, #252938 100%)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = '1';
+              e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.08)';
+              e.currentTarget.style.background = 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)';
             }}
           >
             <User className="h-4 w-4 mr-2 inline" />
