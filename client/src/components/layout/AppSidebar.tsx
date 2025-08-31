@@ -183,7 +183,12 @@ const NavItem: React.FC<{
         background: selected 
           ? "linear-gradient(135deg, #00bcd4, #0097a7)"
           : "transparent",
-        border: "none",
+        border: selected 
+          ? "2px solid #06b6d4"
+          : "2px solid transparent",
+        boxShadow: selected 
+          ? "0 0 0 1px rgba(6, 182, 212, 0.3), 0 4px 12px rgba(6, 182, 212, 0.2)"
+          : "none",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
