@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Send, Shield, Globe, Hash, ChevronDown } from 'lucide-react';
+import { Send, Shield, Globe, Hash, ChevronDown, CornerUpLeft } from 'lucide-react';
 
 interface Message {
   id: number;
@@ -296,7 +296,7 @@ const MessageItem: React.FC<{
     <div className="flex items-start gap-2.5 px-2 py-1.5">
       {/* Avatar */}
       <div 
-        className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+        className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
         style={{
           background: getAvatarColor(message.username),
           fontSize: '14px',
@@ -308,27 +308,37 @@ const MessageItem: React.FC<{
       {/* Message content */}
       <div className="flex-1 min-w-0">
         {/* Username and timestamp row */}
-        <div className="flex items-baseline gap-2 mb-0.5">
+        <div className="flex items-center gap-2 mb-1">
           <span style={{ 
             color: '#9ca3af',
-            fontSize: '12px',
+            fontSize: '13px',
             fontWeight: '500',
           }}>
             {message.username}
           </span>
-          <span style={{ 
-            color: '#4a4d6b',
-            fontSize: '10px',
-          }}>
-            {message.timestamp}
-          </span>
+          <div className="flex items-center gap-1">
+            <span style={{ 
+              color: '#4a4d6b',
+              fontSize: '11px',
+            }}>
+              {message.timestamp}
+            </span>
+            <CornerUpLeft 
+              className="h-3 w-3" 
+              style={{ 
+                color: '#4a4d6b',
+                strokeWidth: 2
+              }} 
+            />
+          </div>
         </div>
         
         {/* Message bubble */}
         <div 
-          className="inline-block rounded-lg px-3 py-1.5"
+          className="inline-block px-3.5 py-2"
           style={{ 
             backgroundColor: '#1C214A',
+            borderRadius: '12px',
             maxWidth: '100%',
           }}
         >
