@@ -328,7 +328,7 @@ const MessageItem: React.FC<{
             <CornerUpLeft 
               className="h-3 w-3" 
               style={{ 
-                color: '#ef4444',
+                color: '#ffffff',
                 strokeWidth: 3
               }} 
             />
