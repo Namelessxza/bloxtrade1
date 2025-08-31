@@ -210,7 +210,7 @@ const NavItem: React.FC<{
             e.currentTarget.style.background = "linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(6, 182, 212, 0.02) 100%)";
             e.currentTarget.style.borderLeft = "3px solid #06b6d4";
             e.currentTarget.style.color = "#FFFFFF";
-            e.currentTarget.style.boxShadow = "0 2px 8px rgba(6, 182, 212, 0.15)";
+            e.currentTarget.style.boxShadow = "none";
           }
         }
       }}
