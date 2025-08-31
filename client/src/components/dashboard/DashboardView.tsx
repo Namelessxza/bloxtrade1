@@ -267,10 +267,10 @@ const ActivityItem: React.FC = () => {
         backgroundColor: '#0c1321',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = theme.colors.background.hover;
+        e.currentTarget.style.backgroundColor = '#0c1321';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = theme.colors.background.card;
+        e.currentTarget.style.backgroundColor = '#0c1321';
       }}
     >
       <div
