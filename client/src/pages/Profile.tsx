@@ -77,23 +77,23 @@ export default function Profile() {
     >
       <div className="h-full px-6 py-6 bg-[#09101D]">
         {/* Header */}
-        <div className="rounded-2xl mb-4 p-4" style={{ backgroundColor: '#12182B' }}>
+        <div className="rounded-2xl mb-6 p-6" style={{ backgroundColor: '#12182B' }}>
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Avatar className="h-16 w-16 border-4" style={{ borderColor: theme.colors.primary[300] }}>
+            <div className="flex items-center space-x-4">
+              <Avatar className="h-20 w-20 border-4" style={{ borderColor: theme.colors.primary[300] }}>
                 <AvatarImage src={(user as any)?.profileImageUrl} alt={(user as any)?.firstName || "User"} />
-                <AvatarFallback className="font-bold text-lg" style={{ backgroundColor: theme.colors.primary[200], color: theme.colors.primary.full }}>
+                <AvatarFallback className="font-bold text-xl" style={{ backgroundColor: theme.colors.primary[200], color: theme.colors.primary.full }}>
                   {(user as any)?.firstName?.[0] || (user as any)?.username?.[0] || "U"}
                 </AvatarFallback>
               </Avatar>
               <div>
                 <div className="flex items-center space-x-2">
-                  <h1 className="text-2xl font-bold text-white">
+                  <h1 className="text-3xl font-bold text-white">
                     {(user as any)?.firstName || (user as any)?.username || "Trader"}
                   </h1>
                   {(user as any)?.isPremium && (
                     <Badge 
-                      className="text-white font-bold px-2 py-0.5"
+                      className="text-white font-bold px-2.5 py-0.5"
                       style={{
                         background: "linear-gradient(to bottom right, #B850E7, #F59BF3)",
                         border: "1px solid #F59BF3",
@@ -104,17 +104,17 @@ export default function Profile() {
                     </Badge>
                   )}
                 </div>
-                <p className="text-sm text-gray-400">
+                <p className="text-gray-400">
                   @{(user as any)?.username || "user"} • Member since {new Date((user as any)?.joinDate || Date.now()).toLocaleDateString()}
                 </p>
-                <div className="flex items-center space-x-3 mt-1">
+                <div className="flex items-center space-x-4 mt-2">
                   <div className="flex items-center space-x-1">
-                    <Star className="h-3 w-3 text-yellow-500" />
-                    <span className="text-xs font-medium text-gray-300">{stats?.reputation || 0} reputation</span>
+                    <Star className="h-4 w-4 text-yellow-500" />
+                    <span className="text-sm font-medium text-gray-300">{stats?.reputation || 0} reputation</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <TrendingUp className="h-3 w-3 text-green-500" />
-                    <span className="text-xs font-medium text-gray-300">{Math.round(completionRate)}% completion rate</span>
+                    <TrendingUp className="h-4 w-4 text-green-500" />
+                    <span className="text-sm font-medium text-gray-300">{Math.round(completionRate)}% completion rate</span>
                   </div>
                 </div>
               </div>
@@ -122,7 +122,7 @@ export default function Profile() {
             <div className="flex items-center space-x-2">
               <Link href="/settings">
                 <button
-                  className="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-white flex items-center"
+                  className="px-4 py-2 rounded-xl text-sm font-bold transition-all text-white flex items-center"
                   style={{
                     background: "linear-gradient(to bottom right, #B850E7, #F59BF3)",
                     border: "1px solid #F59BF3",
@@ -136,7 +136,7 @@ export default function Profile() {
                     e.currentTarget.style.opacity = "1";
                   }}
                 >
-                  <Settings className="h-3 w-3 mr-1" />
+                  <Settings className="h-4 w-4 mr-2" />
                   Edit Profile
                 </button>
               </Link>
