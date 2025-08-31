@@ -174,68 +174,31 @@ const NavItem: React.FC<{
       disabled={item.locked}
       className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden"
       style={{
-        backgroundColor: selected ? "rgba(6, 182, 212, 0.15)" : "transparent",
+        backgroundColor: selected ? "rgba(30, 41, 59, 0.5)" : "transparent",
         color: selected
           ? theme.colors.text.primary
           : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
-        background: selected 
-          ? "linear-gradient(135deg, #00bcd4, #0097a7)"
-          : "transparent",
-        border: selected 
-          ? "2px solid #06b6d4"
-          : "2px solid transparent",
-        boxShadow: selected 
-          ? "0 0 0 1px rgba(6, 182, 212, 0.3), 0 4px 12px rgba(6, 182, 212, 0.2)"
-          : "none",
+        borderLeft: selected 
+          ? "3px solid #ef4444"
+          : "3px solid transparent",
+        borderTop: "1px solid transparent",
+        borderRight: "1px solid transparent", 
+        borderBottom: "1px solid transparent",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
-          e.currentTarget.style.backgroundColor = "rgba(6, 182, 212, 0.08)";
-          e.currentTarget.style.border = "1px solid rgba(6, 182, 212, 0.2)";
-          e.currentTarget.style.boxShadow = "0 2px 8px rgba(6, 182, 212, 0.15)";
-          const spotlight = e.currentTarget.querySelector('.nav-spotlight') as HTMLElement;
-          if (spotlight) {
-            spotlight.style.opacity = '1';
-          }
+          e.currentTarget.style.backgroundColor = "rgba(30, 41, 59, 0.3)";
         }
       }}
       onMouseLeave={(e) => {
         if (!selected) {
           e.currentTarget.style.backgroundColor = "transparent";
-          e.currentTarget.style.border = "1px solid transparent";
-          e.currentTarget.style.boxShadow = "none";
-          const spotlight = e.currentTarget.querySelector('.nav-spotlight') as HTMLElement;
-          if (spotlight) {
-            spotlight.style.opacity = '0';
-          }
         }
       }}
     >
-      {/* Spotlight gradient overlay */}
-      <div 
-        className="nav-spotlight absolute inset-0 pointer-events-none transition-opacity duration-300"
-        style={{
-          background: selected 
-            ? 'linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(6, 182, 212, 0.1) 50%, transparent 100%)'
-            : 'linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 100%)',
-          opacity: selected ? '1' : '0',
-          borderRadius: '0.75rem',
-        }}
-      />
       
-      {/* Animated shimmer effect */}
-      {selected && (
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-            animation: 'shimmer 2s infinite',
-            borderRadius: '0.75rem',
-          }}
-        />
-      )}
       <div className="flex items-center gap-3 relative z-10">
         <Icon className="h-5 w-5" />
         <span className="font-medium text-sm">{item.label}</span>
