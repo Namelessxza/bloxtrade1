@@ -75,20 +75,15 @@ export const AppSidebar: React.FC = () => {
         </div>
       </div>
       {/* Navigation Items */}
-      <SidebarScrollArea className="flex-1 px-3 bg-[#0C1321]">
+      <SidebarScrollArea className="flex-1 px-3" style={{ backgroundColor: '#161618' }}>
         <div className="space-y-2 py-3">
           {currentCategories.map((item) => (
-            <div 
+            <NavItem
               key={item.id}
-              className="rounded-lg p-1"
-              style={{ backgroundColor: '#161618' }}
-            >
-              <NavItem
-                item={item}
-                selected={selectedCategory === item.id}
-                onClick={() => !item.locked && setSelectedCategory(item.id)}
-              />
-            </div>
+              item={item}
+              selected={selectedCategory === item.id}
+              onClick={() => !item.locked && setSelectedCategory(item.id)}
+            />
           ))}
         </div>
       </SidebarScrollArea>
