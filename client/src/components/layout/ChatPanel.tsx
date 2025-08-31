@@ -350,6 +350,7 @@ const MessageItem: React.FC<{
             lineHeight: '1.5',
             wordBreak: 'break-word',
             fontFamily: 'Codec Pro Bold, sans-serif',
+            fontWeight: 'bold',
           }}>
             {message.message}
           </span>
