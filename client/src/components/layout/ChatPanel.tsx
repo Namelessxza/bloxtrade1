@@ -318,27 +318,25 @@ const MessageItem: React.FC<{
 
   return (
     <div 
-      className="flex gap-2.5 items-start px-2 py-1"
+      className="px-2 py-1"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Avatar */}
-      <div className="flex-shrink-0">
-        <div 
-          className="w-8 h-8 rounded-full flex items-center justify-center"
-          style={{
-            background: getAvatarColor(message.username),
-            fontSize: '14px',
-          }}
-        >
-          {message.avatar}
-        </div>
-      </div>
-      
-      {/* Message Content */}
-      <div className="flex-1 min-w-0">
-        {/* Username and Admin badge row */}
-        <div className="flex items-center justify-between mb-0.5">
+      {/* Header row with avatar, username, admin badge, and timestamp */}
+      <div className="flex items-center justify-between mb-1">
+        <div className="flex items-center gap-2">
+          {/* Avatar */}
+          <div 
+            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+            style={{
+              background: getAvatarColor(message.username),
+              fontSize: '14px',
+            }}
+          >
+            {message.avatar}
+          </div>
+          
+          {/* Username and admin badge */}
           <div className="flex items-baseline gap-1.5">
             <span style={{ 
               color: '#9ca3af',
@@ -367,19 +365,24 @@ const MessageItem: React.FC<{
               </span>
             )}
           </div>
-          <span style={{ 
-            color: '#4b5563',
-            fontSize: '10px',
-          }}>
-            {message.timestamp}
-          </span>
         </div>
         
-        {/* Message bubble */}
+        {/* Timestamp */}
+        <span style={{ 
+          color: '#4b5563',
+          fontSize: '10px',
+        }}>
+          {message.timestamp}
+        </span>
+      </div>
+      
+      {/* Message bubble positioned under the avatar */}
+      <div className="flex">
+        <div className="w-8 flex-shrink-0" /> {/* Spacer to align with avatar */}
         <div 
-          className="inline-block"
+          className="ml-2"
           style={{
-            maxWidth: 'fit-content',
+            maxWidth: 'calc(100% - 40px)',
           }}
         >
           <div 
@@ -387,12 +390,13 @@ const MessageItem: React.FC<{
               backgroundColor: hovered ? '#1a2337' : '#131a2e',
               transition: 'background-color 0.2s ease',
               borderRadius: '14px',
-              padding: '6px 12px',
+              padding: '8px 12px',
+              display: 'inline-block',
             }}
           >
             <span style={{ 
               color: '#d1d5db',
-              fontSize: '13px',
+              fontSize: '14px',
               fontWeight: '400',
               lineHeight: '1.4',
               wordBreak: 'break-word',
