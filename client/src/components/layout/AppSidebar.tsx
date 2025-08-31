@@ -182,7 +182,9 @@ const NavItem: React.FC<{
         cursor: item.locked ? "not-allowed" : "pointer",
         borderLeft: selected 
           ? "3px solid #06b6d4"
-          : "3px solid transparent",
+          : item.id === "trending" 
+            ? "3px solid #F59BF3"
+            : "3px solid transparent",
         borderTop: "1px solid transparent",
         borderRight: "1px solid transparent", 
         borderBottom: "1px solid transparent",
