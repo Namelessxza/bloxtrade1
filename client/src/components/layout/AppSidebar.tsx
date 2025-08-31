@@ -33,7 +33,7 @@ export const AppSidebar: React.FC = () => {
 
   // Add shimmer animation style
   React.useEffect(() => {
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
       @keyframes shimmer {
         0% { transform: translateX(-100%); }
@@ -51,7 +51,6 @@ export const AppSidebar: React.FC = () => {
     { id: "rewards", label: "Events", icon: Trophy },
     { id: "inventory", label: "My Trades", icon: Package },
     { id: "trending", label: "Pet Sniper", icon: MoonStar, count: 24 },
-    { id: "lottery", label: "Lottery", icon: Coins },
   ];
 
   const sportCategories: NavItem[] = [
@@ -181,15 +180,15 @@ const NavItem: React.FC<{
           : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
-        borderLeft: selected 
+        borderLeft: selected
           ? "3px solid #06b6d4"
-          : item.id === "trending" 
+          : item.id === "trending"
             ? "3px solid #F59BF3"
             : item.id === "lottery"
               ? "3px solid #F59BF3"
               : "3px solid transparent",
         borderTop: "1px solid transparent",
-        borderRight: "1px solid transparent", 
+        borderRight: "1px solid transparent",
         borderBottom: "1px solid transparent",
       }}
       onMouseEnter={(e) => {
@@ -203,7 +202,6 @@ const NavItem: React.FC<{
         }
       }}
     >
-      
       <div className="flex items-center gap-3 relative z-10">
         <Icon className="h-5 w-5" />
         <span className="font-medium text-sm">{item.label}</span>
