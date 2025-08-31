@@ -264,7 +264,7 @@ const ActivityItem: React.FC = () => {
     <div
       className="flex items-center gap-4 p-3 rounded-xl transition-colors bg-[#0C1321]"
       style={{
-        backgroundColor: theme.colors.background.card,
+        backgroundColor: '#0c1321',
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.backgroundColor = theme.colors.background.hover;
