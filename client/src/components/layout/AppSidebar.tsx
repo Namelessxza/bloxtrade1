@@ -74,9 +74,9 @@ export const AppSidebar: React.FC = () => {
           />
         </div>
       </div>
-      {/* Navigation Items with Overlapped Container */}
+      {/* Navigation Items with Container */}
       <SidebarScrollArea className="flex-1 px-3 bg-[#0C1321] relative">
-        <div className="space-y-1 py-2">
+        <div className="p-3 space-y-1.5 rounded-lg mx-2 my-2 bg-[#09101D]">
           {currentCategories.map((item) => (
             <NavItem
               key={item.id}
