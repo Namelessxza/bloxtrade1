@@ -243,45 +243,7 @@ export const ChatPanel: React.FC = () => {
           </div>
         </form>
 
-        <div className="flex items-center gap-3 mt-3">
-          <button
-            type="button"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all"
-            style={{
-              backgroundColor: '#1a1d35',
-              color: '#6b7280',
-              fontFamily: 'Codec Pro Bold, sans-serif',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#252B5C';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#1a1d35';
-            }}
-          >
-            <Shield className="h-4 w-4" />
-            Rules
-          </button>
-
-          <button
-            type="button"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all"
-            style={{
-              backgroundColor: '#1a1d35',
-              color: '#6b7280',
-              fontFamily: 'Codec Pro Bold, sans-serif',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#252B5C';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#1a1d35';
-            }}
-          >
-            <span style={{ fontSize: '16px' }}>😊</span>
-            Emojies
-          </button>
-        </div>
+        
       </div>
     </div>
   );
