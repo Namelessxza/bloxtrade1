@@ -1,11 +1,10 @@
 import React from "react";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { theme } from "@/config/theme";
 
 export const DashboardView: React.FC = () => {
   return (
-    <ScrollArea className="h-full" viewportClassName="bg-[#0C1321]">
-      <div className="min-h-full px-6 py-6 bg-[#09101D]">
+    <div className="h-full overflow-auto bg-[#09101D]">
+      <div className="min-h-full px-6 py-6">
         {/* Featured Games Section */}
         <div className="mb-8">
           <h2
@@ -111,7 +110,7 @@ export const DashboardView: React.FC = () => {
           </div>
         </div>
       </div>
-    </ScrollArea>
+    </div>
   );
 };
 
