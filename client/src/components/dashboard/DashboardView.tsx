@@ -186,15 +186,13 @@ const TradeCard: React.FC = () => {
     <div
       className="rounded-2xl p-4 transition-all cursor-pointer bg-[#0c1321]"
       style={{
-        background: theme.gradients.card,
-        border: `1px solid ${theme.colors.border.subtle}`,
-        boxShadow: theme.shadows.md,
+        backgroundColor: '#0c1321',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = theme.colors.background.hover;
+        e.currentTarget.style.backgroundColor = '#0c1321';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = theme.colors.background.card;
+        e.currentTarget.style.backgroundColor = '#0c1321';
       }}
     >
       <div className="flex items-center justify-between mb-3">
