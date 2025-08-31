@@ -196,9 +196,7 @@ const NavItem: React.FC<{
         borderBottom: "1px solid transparent",
         borderRadius: "12px",
         position: "relative",
-        boxShadow: item.id === "trending" 
-          ? "0 4px 12px rgba(168, 85, 247, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-          : selected
+        boxShadow: selected
             ? "0 2px 8px rgba(6, 182, 212, 0.15)"
             : "none",
       }}
@@ -207,7 +205,7 @@ const NavItem: React.FC<{
           if (item.id === "trending") {
             e.currentTarget.style.background = "linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(245, 101, 239, 0.25) 50%, rgba(139, 69, 210, 0.25) 100%)";
             e.currentTarget.style.borderLeft = "3px solid #a855f7";
-            e.currentTarget.style.boxShadow = "0 6px 16px rgba(168, 85, 247, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)";
+            e.currentTarget.style.boxShadow = "none";
           } else {
             e.currentTarget.style.background = "linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(6, 182, 212, 0.02) 100%)";
             e.currentTarget.style.borderLeft = "3px solid #06b6d4";
@@ -221,7 +219,7 @@ const NavItem: React.FC<{
           if (item.id === "trending") {
             e.currentTarget.style.background = "linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(245, 101, 239, 0.15) 50%, rgba(139, 69, 210, 0.15) 100%)";
             e.currentTarget.style.borderLeft = "3px solid #a855f7";
-            e.currentTarget.style.boxShadow = "0 4px 12px rgba(168, 85, 247, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)";
+            e.currentTarget.style.boxShadow = "none";
           } else {
             e.currentTarget.style.background = "transparent";
             e.currentTarget.style.borderLeft = "3px solid transparent";
@@ -250,7 +248,7 @@ const NavItem: React.FC<{
             border: item.id === "trending" ? "1px solid rgba(168, 85, 247, 0.5)" : "none",
             minWidth: "24px",
             textAlign: "center",
-            boxShadow: item.id === "trending" ? "0 2px 8px rgba(168, 85, 247, 0.4)" : "none",
+            boxShadow: "none",
           }}
         >
           {item.count}
