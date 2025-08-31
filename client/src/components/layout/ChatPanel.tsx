@@ -210,40 +210,37 @@ export const ChatPanel: React.FC = () => {
           className="relative"
         >
           <div className="relative flex items-center gap-3">
-            <Input
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
-              placeholder="Your message"
-              className="flex-1 h-12 rounded-xl text-sm pl-4 pr-4 border-0"
-              style={{
-                backgroundColor: '#1a1d35',
-                color: '#6b7280',
-                fontSize: '14px',
-                fontFamily: 'Codec Pro Bold, sans-serif',
-                fontWeight: 'normal',
-              }}
-            />
-
-            <button
-              type="button"
-              className="w-12 h-12 rounded-xl flex items-center justify-center transition-all"
-              style={{
-                background: 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.05)',
-                fontSize: '18px',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.12)';
-                e.currentTarget.style.background = 'linear-gradient(180deg, #303645 0%, #252938 100%)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.08)';
-                e.currentTarget.style.background = 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)';
-              }}
-            >
-              😊
-            </button>
+            <div className="relative flex-1">
+              <Input
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                placeholder="Your message"
+                className="h-12 rounded-xl text-sm pl-4 pr-12 border-0 w-full"
+                style={{
+                  backgroundColor: '#1a1d35',
+                  color: '#6b7280',
+                  fontSize: '14px',
+                  fontFamily: 'Codec Pro Bold, sans-serif',
+                  fontWeight: 'normal',
+                }}
+              />
+              <button
+                type="button"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 flex items-center justify-center transition-all"
+                style={{
+                  fontSize: '16px',
+                  color: '#6b7280',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#9ca3af';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '#6b7280';
+                }}
+              >
+                😊
+              </button>
+            </div>
 
             <button
               type="submit"
