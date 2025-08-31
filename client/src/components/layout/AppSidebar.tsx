@@ -50,7 +50,6 @@ export const AppSidebar: React.FC = () => {
     { id: "teams", label: "Team Up", icon: Users },
     { id: "rewards", label: "Events", icon: Trophy },
     { id: "inventory", label: "My Trades", icon: Package },
-    { id: "trending", label: "Pet Sniper", icon: MoonStar, count: 24 },
   ];
 
   const sportCategories: NavItem[] = [
