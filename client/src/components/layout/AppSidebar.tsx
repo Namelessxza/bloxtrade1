@@ -74,8 +74,8 @@ export const AppSidebar: React.FC = () => {
           />
         </div>
       </div>
-      {/* Navigation Items */}
-      <SidebarScrollArea className="flex-1 px-3 bg-[#0C1321]">
+      {/* Navigation Items with Overlapped Container */}
+      <SidebarScrollArea className="flex-1 px-3 bg-[#0C1321] relative">
         <div className="space-y-1 py-2">
           {currentCategories.map((item) => (
             <NavItem
@@ -86,18 +86,20 @@ export const AppSidebar: React.FC = () => {
             />
           ))}
         </div>
-      </SidebarScrollArea>
-      {/* Additional Container */}
-      <div className="mx-3 mb-3 p-4 rounded-xl" style={{
-        backgroundColor: theme.colors.background.card,
-        border: `1px solid ${theme.colors.border.subtle}`
-      }}>
-        <div className="text-center">
-          <p className="text-sm" style={{ color: theme.colors.text.secondary }}>
-            Additional Content
-          </p>
+
+        {/* Overlapped Container */}
+        <div className="absolute inset-x-3 top-16 p-3 rounded-xl backdrop-blur-sm" style={{
+          backgroundColor: 'rgba(12, 19, 33, 0.9)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          zIndex: 10
+        }}>
+          <div className="text-center">
+            <p className="text-xs font-medium text-gray-400">
+              Featured Content
+            </p>
+          </div>
         </div>
-      </div>
+      </SidebarScrollArea>
       {/* Bottom Actions */}
       <div className="p-3 space-y-1.5 rounded-lg mx-2 mb-2 bg-[#09101D]">
         <NavItem
