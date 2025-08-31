@@ -168,40 +168,6 @@ export const ChatPanel: React.FC = () => {
             <span style={{ position: 'relative', zIndex: 1 }}>Rules</span>
           </button>
 
-          <button 
-            className="relative px-5 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 overflow-hidden"
-            style={{
-              background: 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)',
-              color: '#ffffff',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.05)',
-            }}
-            onMouseEnter={(e) => {
-              const spotlight = e.currentTarget.querySelector('.spotlight') as HTMLElement;
-              if (spotlight) {
-                spotlight.style.opacity = '1';
-              }
-              e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.12)';
-            }}
-            onMouseLeave={(e) => {
-              const spotlight = e.currentTarget.querySelector('.spotlight') as HTMLElement;
-              if (spotlight) {
-                spotlight.style.opacity = '0.6';
-              }
-              e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.08)';
-            }}
-          >
-            <div 
-              className="spotlight absolute inset-0 pointer-events-none"
-              style={{
-                background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, transparent 70%)',
-                opacity: 0.6,
-                transition: 'opacity 0.3s ease',
-              }}
-            />
-            <span style={{ position: 'relative', zIndex: 1 }}>😊 Emojies</span>
-          </button>
-
           <button
             className="w-10 h-10 rounded-xl flex items-center justify-center transition-all"
             style={{
