@@ -201,7 +201,7 @@ export const ChatPanel: React.FC = () => {
         </div>
       </ScrollArea>
       {/* Input Area */}
-      <div className="px-3 pb-3 pt-2 bg-[0C1321]">
+      <div className="px-3 pb-3 pt-2 bg-[#0C1321]">
         <form
           onSubmit={(e) => {
             e.preventDefault();
