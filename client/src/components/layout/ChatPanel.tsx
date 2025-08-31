@@ -225,6 +225,27 @@ export const ChatPanel: React.FC = () => {
             />
 
             <button
+              type="button"
+              className="w-12 h-12 rounded-xl flex items-center justify-center transition-all"
+              style={{
+                background: 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.05)',
+                fontSize: '18px',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.12)';
+                e.currentTarget.style.background = 'linear-gradient(180deg, #303645 0%, #252938 100%)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.08)';
+                e.currentTarget.style.background = 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)';
+              }}
+            >
+              😊
+            </button>
+
+            <button
               type="submit"
               className="w-12 h-12 rounded-xl flex items-center justify-center transition-all"
               style={{
