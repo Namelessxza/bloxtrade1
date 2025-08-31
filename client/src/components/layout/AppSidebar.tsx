@@ -180,8 +180,14 @@ const NavItem: React.FC<{
           : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
-        border: selected ? "1px solid rgba(6, 182, 212, 0.3)" : "1px solid transparent",
-        boxShadow: selected ? "0 4px 12px rgba(6, 182, 212, 0.2)" : "none",
+        border: selected 
+          ? "2px solid transparent"
+          : "1px solid transparent",
+        backgroundImage: selected 
+          ? "linear-gradient(rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.15)), linear-gradient(135deg, #67e8f9, #06b6d4, #0891b2)"
+          : "none",
+        backgroundOrigin: selected ? "border-box" : "initial",
+        backgroundClip: selected ? "padding-box, border-box" : "initial",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
