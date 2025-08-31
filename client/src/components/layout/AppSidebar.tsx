@@ -176,44 +176,34 @@ const NavItem: React.FC<{
       style={{
         background: item.id === "trending" 
           ? selected
-            ? "rgba(245, 155, 243, 0.18)"
-            : "rgba(245, 155, 243, 0.08)"
+            ? "rgba(245, 155, 243, 0.25)"
+            : "rgba(245, 155, 243, 0.12)"
           : selected 
             ? "rgba(30, 41, 59, 0.5)" 
             : "transparent",
         color: item.id === "trending"
-          ? selected 
-            ? "#FFFFFF"
-            : "#F59BF3"
+          ? "#FFFFFF"
           : selected
             ? theme.colors.text.primary
             : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
-        borderLeft: item.id === "trending"
-          ? "4px solid #F59BF3"
-          : selected
-            ? "3px solid #06b6d4"
-            : "3px solid transparent",
-        border: item.id === "trending" 
-          ? selected
-            ? "1px solid rgba(245, 155, 243, 0.4)"
-            : "1px solid rgba(245, 155, 243, 0.25)"
-          : "1px solid transparent",
+        borderTop: item.id === "trending" ? "2px solid #B850E7" : "1px solid transparent",
+        borderRight: item.id === "trending" ? "1px solid rgba(245, 155, 243, 0.3)" : selected ? "1px solid #06b6d4" : "1px solid transparent",
+        borderBottom: item.id === "trending" ? "2px solid #B850E7" : "1px solid transparent",
+        borderLeft: item.id === "trending" ? "6px solid #F59BF3" : selected ? "3px solid #06b6d4" : "3px solid transparent",
         borderRadius: "12px",
         boxShadow: item.id === "trending" 
-          ? selected
-            ? "0 4px 12px rgba(245, 155, 243, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-            : "0 2px 8px rgba(245, 155, 243, 0.1)"
+          ? "0 6px 20px rgba(245, 155, 243, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)"
           : "none",
         position: "relative",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
           if (item.id === "trending") {
-            e.currentTarget.style.background = "rgba(245, 155, 243, 0.12)";
-            e.currentTarget.style.border = "1px solid rgba(245, 155, 243, 0.35)";
-            e.currentTarget.style.boxShadow = "0 3px 10px rgba(245, 155, 243, 0.12)";
+            e.currentTarget.style.background = "rgba(245, 155, 243, 0.18)";
+            e.currentTarget.style.borderRight = "1px solid rgba(245, 155, 243, 0.5)";
+            e.currentTarget.style.boxShadow = "0 4px 16px rgba(245, 155, 243, 0.2)";
           } else {
             e.currentTarget.style.backgroundColor = "rgba(30, 41, 59, 0.3)";
           }
@@ -222,9 +212,9 @@ const NavItem: React.FC<{
       onMouseLeave={(e) => {
         if (!selected && !item.locked) {
           if (item.id === "trending") {
-            e.currentTarget.style.background = "rgba(245, 155, 243, 0.08)";
-            e.currentTarget.style.border = "1px solid rgba(245, 155, 243, 0.25)";
-            e.currentTarget.style.boxShadow = "0 2px 8px rgba(245, 155, 243, 0.1)";
+            e.currentTarget.style.background = "rgba(245, 155, 243, 0.12)";
+            e.currentTarget.style.borderRight = "1px solid rgba(245, 155, 243, 0.3)";
+            e.currentTarget.style.boxShadow = "0 6px 20px rgba(245, 155, 243, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)";
           } else {
             e.currentTarget.style.backgroundColor = "transparent";
           }
@@ -235,7 +225,7 @@ const NavItem: React.FC<{
         <div 
           className="absolute top-0 left-0 w-full h-full pointer-events-none"
           style={{
-            background: "linear-gradient(90deg, rgba(245, 155, 243, 0.03) 0%, rgba(245, 155, 243, 0.01) 100%)",
+            background: "rgba(184, 80, 231, 0.06)",
             borderRadius: "12px",
           }}
         />
