@@ -52,7 +52,7 @@ export const AppSidebar: React.FC = () => {
 
   return (
     <div className="flex flex-col h-full bg-[#0c1321]" style={{ 
-      backgroundColor: theme.colors.background.secondary 
+      backgroundColor: '#0c1321' 
     }}>
       {/* Mode Toggle */}
       <div className="p-4 bg-[#161618]">
