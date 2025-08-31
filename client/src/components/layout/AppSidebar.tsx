@@ -75,7 +75,7 @@ export const AppSidebar: React.FC = () => {
         </div>
       </div>
       {/* Navigation Items */}
-      <SidebarScrollArea className="flex-1 px-3 bg-[#161618]">
+      <SidebarScrollArea className="flex-1 px-3 bg-[#0C1321]">
         <div className="space-y-1 py-2">
           {currentCategories.map((item) => (
             <NavItem
