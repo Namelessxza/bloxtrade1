@@ -139,7 +139,7 @@ const GameCard: React.FC = () => {
           background: theme.gradients.accent,
         }}
       />
-      <div className="p-4 bg-[#0C1321]" style={{ backgroundColor: "#161618" }}>
+      <div className="p-4 bg-[#0C1321]" style={{ backgroundColor: "#0C1321" }}>
         <h3
           className="font-bold text-lg mb-2"
           style={{ color: theme.colors.text.primary }}
