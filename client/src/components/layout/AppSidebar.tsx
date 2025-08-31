@@ -51,6 +51,7 @@ export const AppSidebar: React.FC = () => {
     { id: "rewards", label: "Events", icon: Trophy },
     { id: "inventory", label: "My Trades", icon: Package },
     { id: "trending", label: "Pet Sniper", icon: MoonStar, count: 24 },
+    { id: "lottery", label: "Lottery", icon: Coins },
   ];
 
   const sportCategories: NavItem[] = [
@@ -184,7 +185,9 @@ const NavItem: React.FC<{
           ? "3px solid #06b6d4"
           : item.id === "trending" 
             ? "3px solid #F59BF3"
-            : "3px solid transparent",
+            : item.id === "lottery"
+              ? "3px solid #F59BF3"
+              : "3px solid transparent",
         borderTop: "1px solid transparent",
         borderRight: "1px solid transparent", 
         borderBottom: "1px solid transparent",
