@@ -75,8 +75,8 @@ export const AppSidebar: React.FC = () => {
         </div>
       </div>
       {/* Navigation Items */}
-      <SidebarScrollArea className="flex-1 px-3" style={{ backgroundColor: '#161618' }}>
-        <div className="space-y-2 py-3">
+      <SidebarScrollArea className="flex-1 px-3 bg-[#0C1321]">
+        <div className="space-y-1 py-2">
           {currentCategories.map((item) => (
             <NavItem
               key={item.id}
@@ -89,26 +89,16 @@ export const AppSidebar: React.FC = () => {
       </SidebarScrollArea>
       {/* Bottom Actions */}
       <div className="p-4 space-y-2 bg-[#09101D]">
-        <div 
-          className="rounded-lg p-1"
-          style={{ backgroundColor: '#161618' }}
-        >
-          <NavItem
-            item={{ id: 'help', label: 'Help Center', icon: HelpCircle }}
-            selected={false}
-            onClick={() => {}}
-          />
-        </div>
-        <div 
-          className="rounded-lg p-1"
-          style={{ backgroundColor: '#161618' }}
-        >
-          <NavItem
-            item={{ id: 'settings', label: 'Settings', icon: Settings }}
-            selected={false}
-            onClick={() => {}}
-          />
-        </div>
+        <NavItem
+          item={{ id: 'help', label: 'Help Center', icon: HelpCircle }}
+          selected={false}
+          onClick={() => {}}
+        />
+        <NavItem
+          item={{ id: 'settings', label: 'Settings', icon: Settings }}
+          selected={false}
+          onClick={() => {}}
+        />
       </div>
     </div>
   );
@@ -168,10 +158,10 @@ const NavItem: React.FC<{
     <button
       onClick={onClick}
       disabled={item.locked}
-      className="w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors group"
+      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-colors group"
       style={{
         backgroundColor: selected 
-          ? 'rgba(255, 255, 255, 0.1)'
+          ? 'rgba(255, 255, 255, 0.08)'
           : 'transparent',
         color: selected ? theme.colors.text.primary : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
@@ -179,7 +169,7 @@ const NavItem: React.FC<{
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
-          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.06)';
+          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.04)';
         }
       }}
       onMouseLeave={(e) => {
@@ -189,7 +179,7 @@ const NavItem: React.FC<{
       }}
     >
       <div className="flex items-center gap-3">
-        <Icon className="h-4 w-4" />
+        <Icon className="h-5 w-5" />
         <span className="font-medium text-sm">{item.label}</span>
       </div>
       {item.count && (
@@ -205,7 +195,7 @@ const NavItem: React.FC<{
           {item.count}
         </span>
       )}
-      {item.locked && <Lock className="h-3 w-3" />}
+      {item.locked && <Lock className="h-4 w-4" />}
     </button>
   );
 };
