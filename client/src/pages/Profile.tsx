@@ -61,7 +61,7 @@ export default function Profile() {
   const completionRate = stats ? (stats.completedTrades / Math.max(stats.totalTrades, 1)) * 100 : 0;
 
   return (
-    <div className="h-full overflow-auto" style={{ backgroundColor: '#09101D' }}>
+    <div className="min-h-screen overflow-y-auto" style={{ backgroundColor: '#09101D' }}>
       {/* Header */}
       <div className="rounded-b-2xl" style={{ backgroundColor: '#12182B' }}>
         <div className="container mx-auto px-6 py-6">
@@ -340,6 +340,35 @@ export default function Profile() {
                     Account Settings
                   </button>
                 </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Extra content to ensure scrolling works */}
+        <div className="container mx-auto px-6 py-8">
+          <div className="space-y-6">
+            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
+              <h3 className="text-xl font-bold text-white mb-4">Additional Information</h3>
+              <p className="text-gray-400 mb-4">This section contains extra content to test scrolling functionality.</p>
+              <div className="space-y-3">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+                  <div key={i} className="p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
+                    <p className="text-gray-300">Test content item {i} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
+              <h3 className="text-xl font-bold text-white mb-4">More Content</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
+                    <h4 className="font-bold text-white mb-2">Item {i}</h4>
+                    <p className="text-gray-400 text-sm">More test content to ensure the page is tall enough to scroll properly.</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
