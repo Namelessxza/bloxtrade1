@@ -175,9 +175,7 @@ const NavItem: React.FC<{
       className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden"
       style={{
         background: item.id === "trending" 
-          ? selected
-            ? "rgba(245, 155, 243, 0.25)"
-            : "rgba(245, 155, 243, 0.12)"
+          ? "linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(245, 101, 239, 0.15) 50%, rgba(139, 69, 210, 0.15) 100%)"
           : selected 
             ? "rgba(30, 41, 59, 0.5)" 
             : "transparent",
@@ -188,18 +186,23 @@ const NavItem: React.FC<{
             : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
-        borderTop: item.id === "trending" ? "2px solid #B850E7" : "1px solid transparent",
-        borderRight: item.id === "trending" ? "1px solid rgba(245, 155, 243, 0.3)" : selected ? "1px solid #06b6d4" : "1px solid transparent",
-        borderBottom: item.id === "trending" ? "2px solid #B850E7" : "1px solid transparent",
-        borderLeft: item.id === "trending" ? "6px solid #F59BF3" : selected ? "3px solid #06b6d4" : "3px solid transparent",
+        border: item.id === "trending" 
+          ? "1px solid rgba(168, 85, 247, 0.4)"
+          : selected 
+            ? "1px solid #06b6d4" 
+            : "1px solid transparent",
         borderRadius: "12px",
         position: "relative",
+        boxShadow: item.id === "trending" 
+          ? "0 4px 12px rgba(168, 85, 247, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+          : "none",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
           if (item.id === "trending") {
-            e.currentTarget.style.background = "rgba(245, 155, 243, 0.18)";
-            e.currentTarget.style.borderRight = "1px solid rgba(245, 155, 243, 0.5)";
+            e.currentTarget.style.background = "linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(245, 101, 239, 0.25) 50%, rgba(139, 69, 210, 0.25) 100%)";
+            e.currentTarget.style.border = "1px solid rgba(168, 85, 247, 0.6)";
+            e.currentTarget.style.boxShadow = "0 6px 16px rgba(168, 85, 247, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)";
           } else {
             e.currentTarget.style.backgroundColor = "rgba(30, 41, 59, 0.3)";
           }
@@ -208,46 +211,35 @@ const NavItem: React.FC<{
       onMouseLeave={(e) => {
         if (!selected && !item.locked) {
           if (item.id === "trending") {
-            e.currentTarget.style.background = "rgba(245, 155, 243, 0.12)";
-            e.currentTarget.style.borderRight = "1px solid rgba(245, 155, 243, 0.3)";
+            e.currentTarget.style.background = "linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(245, 101, 239, 0.15) 50%, rgba(139, 69, 210, 0.15) 100%)";
+            e.currentTarget.style.border = "1px solid rgba(168, 85, 247, 0.4)";
+            e.currentTarget.style.boxShadow = "0 4px 12px rgba(168, 85, 247, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)";
           } else {
             e.currentTarget.style.backgroundColor = "transparent";
           }
         }
       }}
     >
-      {item.id === "trending" && (
-        <div 
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
-          style={{
-            background: "rgba(184, 80, 231, 0.06)",
-            borderRadius: "12px",
-          }}
-        />
-      )}
       <div className="flex items-center gap-3 relative z-10">
         <Icon className="h-5 w-5" />
         <span className="font-medium text-sm">{item.label}</span>
       </div>
       {item.count && (
         <span
-          className="text-xs px-2 py-0.5 rounded-full font-bold relative z-10"
+          className="text-xs px-2.5 py-1 rounded-full font-bold relative z-10"
           style={{
             backgroundColor: item.id === "trending"
-              ? selected
-                ? "#FFFFFF"
-                : "rgba(245, 155, 243, 0.9)"
+              ? "#a855f7"
               : selected
                 ? theme.colors.primary.full
                 : theme.colors.primary["200"],
             color: item.id === "trending"
-              ? selected
-                ? "#B850E7"
-                : "#FFFFFF"
+              ? "#FFFFFF"
               : theme.colors.text.primary,
-            border: item.id === "trending" ? "1px solid rgba(245, 155, 243, 0.3)" : "none",
-            minWidth: "20px",
+            border: item.id === "trending" ? "1px solid rgba(168, 85, 247, 0.5)" : "none",
+            minWidth: "24px",
             textAlign: "center",
+            boxShadow: item.id === "trending" ? "0 2px 8px rgba(168, 85, 247, 0.4)" : "none",
           }}
         >
           {item.count}
