@@ -87,7 +87,25 @@ export const AppSidebar: React.FC = () => {
           ))}
         </div>
 
-        
+
+      {/* Overlapped Container */}
+        <div className="absolute inset-x-3 top-16 p-3 rounded-xl backdrop-blur-sm" style={{
+          backgroundColor: 'rgba(12, 19, 33, 0.9)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          zIndex: 10
+        }}>
+          <div className="text-center">
+            <p className="text-xs font-medium text-gray-400">
+              Featured Content
+            </p>
+          </div>
+        </div>
+
+        {/* Additional div under navigation items */}
+        <div className="mx-3 mt-4 p-4 rounded-xl" style={{
+          backgroundColor: '#09101D'
+        }}>
+        </div>
       </SidebarScrollArea>
       {/* Bottom Actions */}
       <div className="p-3 space-y-1.5 rounded-lg mx-2 mb-2 bg-[#09101D]">
