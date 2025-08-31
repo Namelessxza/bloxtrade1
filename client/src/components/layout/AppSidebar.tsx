@@ -193,9 +193,6 @@ const NavItem: React.FC<{
         borderBottom: item.id === "trending" ? "2px solid #B850E7" : "1px solid transparent",
         borderLeft: item.id === "trending" ? "6px solid #F59BF3" : selected ? "3px solid #06b6d4" : "3px solid transparent",
         borderRadius: "12px",
-        boxShadow: item.id === "trending" 
-          ? "0 6px 20px rgba(245, 155, 243, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)"
-          : "none",
         position: "relative",
       }}
       onMouseEnter={(e) => {
@@ -203,7 +200,6 @@ const NavItem: React.FC<{
           if (item.id === "trending") {
             e.currentTarget.style.background = "rgba(245, 155, 243, 0.18)";
             e.currentTarget.style.borderRight = "1px solid rgba(245, 155, 243, 0.5)";
-            e.currentTarget.style.boxShadow = "0 4px 16px rgba(245, 155, 243, 0.2)";
           } else {
             e.currentTarget.style.backgroundColor = "rgba(30, 41, 59, 0.3)";
           }
@@ -214,7 +210,6 @@ const NavItem: React.FC<{
           if (item.id === "trending") {
             e.currentTarget.style.background = "rgba(245, 155, 243, 0.12)";
             e.currentTarget.style.borderRight = "1px solid rgba(245, 155, 243, 0.3)";
-            e.currentTarget.style.boxShadow = "0 6px 20px rgba(245, 155, 243, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)";
           } else {
             e.currentTarget.style.backgroundColor = "transparent";
           }
