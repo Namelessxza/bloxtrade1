@@ -312,7 +312,7 @@ const MessageItem: React.FC<{
           <span style={{ 
             color: '#9ca3af',
             fontSize: '13px',
-            fontWeight: '500',
+            fontWeight: 'bold',
             fontFamily: 'Codec Pro Bold, sans-serif',
           }}>
             {message.username}
@@ -322,6 +322,7 @@ const MessageItem: React.FC<{
               color: '#4a4d6b',
               fontSize: '11px',
               fontFamily: 'Codec Pro Bold, sans-serif',
+              fontWeight: 'bold',
             }}>
               {message.timestamp}
             </span>
