@@ -262,7 +262,7 @@ const TradeCard: React.FC = () => {
 const ActivityItem: React.FC = () => {
   return (
     <div
-      className="flex items-center gap-4 p-3 rounded-xl transition-colors"
+      className="flex items-center gap-4 p-3 rounded-xl transition-colors bg-[#0C1321]"
       style={{
         backgroundColor: theme.colors.background.card,
       }}
