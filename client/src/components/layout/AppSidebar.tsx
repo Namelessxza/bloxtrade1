@@ -51,7 +51,7 @@ export const AppSidebar: React.FC = () => {
   const currentCategories = activeMode === 'games' ? gameCategories : sportCategories;
   
   return (
-    <div className="flex flex-col h-full" style={{ 
+    <div className="flex flex-col h-full bg-[#0c1321]" style={{ 
       backgroundColor: theme.colors.background.secondary 
     }}>
       {/* Mode Toggle */}
