@@ -31,6 +31,19 @@ export const AppSidebar: React.FC = () => {
   const [activeMode, setActiveMode] = useState<"games" | "sports">("games");
   const [selectedCategory, setSelectedCategory] = useState("home");
 
+  // Add shimmer animation style
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
+
   const gameCategories: NavItem[] = [
     { id: "home", label: "Home", icon: Home },
     { id: "trades", label: "Trading", icon: Activity, count: 3 },
@@ -159,33 +172,70 @@ const NavItem: React.FC<{
     <button
       onClick={onClick}
       disabled={item.locked}
-      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-colors group"
+      className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden"
       style={{
-        backgroundColor: selected ? "rgba(255, 255, 255, 0.08)" : "transparent",
+        backgroundColor: selected ? "rgba(6, 182, 212, 0.15)" : "transparent",
         color: selected
           ? theme.colors.text.primary
           : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
+        border: selected ? "1px solid rgba(6, 182, 212, 0.3)" : "1px solid transparent",
+        boxShadow: selected ? "0 4px 12px rgba(6, 182, 212, 0.2)" : "none",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
-          e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.04)";
+          e.currentTarget.style.backgroundColor = "rgba(6, 182, 212, 0.08)";
+          e.currentTarget.style.border = "1px solid rgba(6, 182, 212, 0.2)";
+          e.currentTarget.style.boxShadow = "0 2px 8px rgba(6, 182, 212, 0.15)";
+          const spotlight = e.currentTarget.querySelector('.nav-spotlight') as HTMLElement;
+          if (spotlight) {
+            spotlight.style.opacity = '1';
+          }
         }
       }}
       onMouseLeave={(e) => {
         if (!selected) {
           e.currentTarget.style.backgroundColor = "transparent";
+          e.currentTarget.style.border = "1px solid transparent";
+          e.currentTarget.style.boxShadow = "none";
+          const spotlight = e.currentTarget.querySelector('.nav-spotlight') as HTMLElement;
+          if (spotlight) {
+            spotlight.style.opacity = '0';
+          }
         }
       }}
     >
-      <div className="flex items-center gap-3">
+      {/* Spotlight gradient overlay */}
+      <div 
+        className="nav-spotlight absolute inset-0 pointer-events-none transition-opacity duration-300"
+        style={{
+          background: selected 
+            ? 'linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(6, 182, 212, 0.1) 50%, transparent 100%)'
+            : 'linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 100%)',
+          opacity: selected ? '1' : '0',
+          borderRadius: '0.75rem',
+        }}
+      />
+      
+      {/* Animated shimmer effect */}
+      {selected && (
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+            animation: 'shimmer 2s infinite',
+            borderRadius: '0.75rem',
+          }}
+        />
+      )}
+      <div className="flex items-center gap-3 relative z-10">
         <Icon className="h-5 w-5" />
         <span className="font-medium text-sm">{item.label}</span>
       </div>
       {item.count && (
         <span
-          className="text-xs px-2 py-0.5 rounded-full font-semibold"
+          className="text-xs px-2 py-0.5 rounded-full font-semibold relative z-10"
           style={{
             backgroundColor: selected
               ? theme.colors.primary.full
@@ -196,7 +246,7 @@ const NavItem: React.FC<{
           {item.count}
         </span>
       )}
-      {item.locked && <Lock className="h-4 w-4" />}
+      {item.locked && <Lock className="h-4 w-4 relative z-10" />}
     </button>
   );
 };
