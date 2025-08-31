@@ -42,7 +42,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         
         {/* Center Content */}
         <div className="flex-1 overflow-hidden" style={{
-          backgroundColor: '#0F1218'
+          backgroundColor: '#0C1321'
         }}>
           {children}
         </div>
