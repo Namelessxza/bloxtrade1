@@ -148,32 +148,32 @@ export default function Profile() {
           {/* Main Profile Info */}
           <div className="lg:col-span-2 space-y-6">
             {/* Trading Stats */}
-            <div className="rounded-2xl p-6 mb-6" style={{ backgroundColor: '#0c1321' }}>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-2">Trading Statistics</h3>
+            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-white mb-1">Trading Statistics</h3>
                 <p className="text-sm text-gray-400">Your trading performance overview</p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="text-center p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
-                  <div className="text-2xl font-bold mb-1" style={{ color: theme.colors.primary.full }} data-testid="stat-total-trades">
+                  <div className="text-2xl font-bold" style={{ color: theme.colors.primary.full }} data-testid="stat-total-trades">
                     {stats?.totalTrades || 0}
                   </div>
                   <p className="text-sm text-gray-400">Total Trades</p>
                 </div>
                 <div className="text-center p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
-                  <div className="text-2xl font-bold text-green-500 mb-1" data-testid="stat-completed-trades">
+                  <div className="text-2xl font-bold text-green-500" data-testid="stat-completed-trades">
                     {stats?.completedTrades || 0}
                   </div>
                   <p className="text-sm text-gray-400">Completed</p>
                 </div>
                 <div className="text-center p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
-                  <div className="text-2xl font-bold text-blue-500 mb-1" data-testid="stat-active-trades">
+                  <div className="text-2xl font-bold text-blue-500" data-testid="stat-active-trades">
                     {stats?.activeTrades || 0}
                   </div>
                   <p className="text-sm text-gray-400">Active</p>
                 </div>
                 <div className="text-center p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
-                  <div className="text-2xl font-bold text-yellow-500 mb-1" data-testid="stat-reputation">
+                  <div className="text-2xl font-bold text-yellow-500" data-testid="stat-reputation">
                     {stats?.reputation || 0}
                   </div>
                   <p className="text-sm text-gray-400">Reputation</p>
@@ -183,8 +183,8 @@ export default function Profile() {
 
             {/* Recent Activity */}
             <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-2">Recent Activity</h3>
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-white mb-1">Recent Activity</h3>
                 <p className="text-sm text-gray-400">Your latest trading actions</p>
               </div>
               <div className="space-y-4">
@@ -200,7 +200,7 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="text-center py-8">
-                  <Calendar className="h-12 w-12 mx-auto mb-4 opacity-50 text-gray-500" />
+                  <Calendar className="h-12 w-12 mx-auto mb-2 opacity-50 text-gray-500" />
                   <p className="text-gray-400">More activity will appear as you start trading</p>
                 </div>
               </div>
@@ -210,10 +210,10 @@ export default function Profile() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Achievements */}
+            {/* Badges */}
             <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-2">Achievements</h3>
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-white mb-1">Achievements</h3>
                 <p className="text-sm text-gray-400">Badges you've earned</p>
               </div>
               {stats?.badges && stats.badges.length > 0 ? (
@@ -238,8 +238,8 @@ export default function Profile() {
               ) : (
                 <div className="text-center py-8">
                   <Trophy className="h-12 w-12 mx-auto mb-4 opacity-50 text-gray-500" />
-                  <p className="text-sm text-gray-400 mb-2">No badges earned yet</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-sm text-gray-400">No badges earned yet</p>
+                  <p className="text-xs text-gray-500 mt-1">
                     Complete trades to start earning achievements!
                   </p>
                 </div>
@@ -248,8 +248,8 @@ export default function Profile() {
 
             {/* Trust & Safety */}
             <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-2">Trust & Safety</h3>
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-white mb-1">Trust & Safety</h3>
                 <p className="text-sm text-gray-400">Your account status</p>
               </div>
               <div className="space-y-4">
@@ -266,11 +266,11 @@ export default function Profile() {
                   </Badge>
                 </div>
                 
-                <div className="h-px bg-gray-800 my-4" />
+                <div className="h-px bg-gray-800" />
                 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <p className="text-sm font-medium text-gray-300">Completion Rate</p>
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-2">
                     <div className="flex-1 rounded-full h-2" style={{ backgroundColor: '#12182B' }}>
                       <div 
                         className="bg-green-500 h-2 rounded-full transition-all duration-500"
@@ -283,7 +283,7 @@ export default function Profile() {
                 
                 {(user as any)?.isPremium && (
                   <>
-                    <div className="h-px bg-gray-800 my-4" />
+                    <div className="h-px bg-gray-800" />
                     <div className="flex items-center space-x-2">
                       <Crown className="h-4 w-4 text-yellow-500" />
                       <span className="text-sm text-gray-300">Premium Member</span>
@@ -295,13 +295,11 @@ export default function Profile() {
 
             {/* Quick Actions */}
             <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-2">Quick Actions</h3>
-              </div>
+              <h3 className="text-xl font-bold text-white mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <Link href="/create-trade">
                   <button
-                    className="w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-all text-white block"
+                    className="w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-all text-white"
                     style={{
                       background: "linear-gradient(to bottom right, #B850E7, #F59BF3)",
                       border: "1px solid #F59BF3",
@@ -320,7 +318,7 @@ export default function Profile() {
                 </Link>
                 <Link href="/my-trades">
                   <button
-                    className="w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-all block"
+                    className="w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-all"
                     style={{
                       backgroundColor: '#12182B',
                       color: theme.colors.text.primary,
@@ -338,7 +336,7 @@ export default function Profile() {
                 </Link>
                 <Link href="/settings">
                   <button
-                    className="w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-all block"
+                    className="w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-all"
                     style={{
                       backgroundColor: '#12182B',
                       color: theme.colors.text.primary,
