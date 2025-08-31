@@ -307,12 +307,13 @@ const MessageItem: React.FC<{
       
       {/* Message content */}
       <div className="flex-1 min-w-0">
-        {/* Username and timestamp row */}
-        <div className="flex items-center gap-2 mb-1">
+        {/* Username row */}
+        <div className="flex items-center justify-between mb-1">
           <span style={{ 
             color: '#9ca3af',
             fontSize: '13px',
             fontWeight: '500',
+            fontFamily: 'Codec Pro Bold, sans-serif',
           }}>
             {message.username}
           </span>
@@ -320,14 +321,15 @@ const MessageItem: React.FC<{
             <span style={{ 
               color: '#4a4d6b',
               fontSize: '11px',
+              fontFamily: 'Codec Pro Bold, sans-serif',
             }}>
               {message.timestamp}
             </span>
             <CornerUpLeft 
               className="h-3 w-3" 
               style={{ 
-                color: '#4a4d6b',
-                strokeWidth: 2
+                color: '#ef4444',
+                strokeWidth: 3
               }} 
             />
           </div>
