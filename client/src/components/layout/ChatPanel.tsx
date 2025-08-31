@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Send, Shield, Globe, Hash, ChevronDown, CornerUpLeft } from 'lucide-react';
+import { Send, Shield, Globe, Hash, ChevronDown, CornerUpLeft, Smile } from 'lucide-react';
 
 interface Message {
   id: number;
@@ -228,7 +228,6 @@ export const ChatPanel: React.FC = () => {
                 type="button"
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 flex items-center justify-center transition-all"
                 style={{
-                  fontSize: '16px',
                   color: '#6b7280',
                 }}
                 onMouseEnter={(e) => {
@@ -238,7 +237,7 @@ export const ChatPanel: React.FC = () => {
                   e.currentTarget.style.color = '#6b7280';
                 }}
               >
-                😊
+                <Smile className="h-5 w-5" />
               </button>
             </div>
 
