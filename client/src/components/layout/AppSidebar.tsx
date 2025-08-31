@@ -75,8 +75,8 @@ export const AppSidebar: React.FC = () => {
         </div>
       </div>
       {/* Navigation Items with Container */}
-      <SidebarScrollArea className="flex-1 px-2 bg-[#0C1321] relative">
-        <div className="p-3 space-y-1.5 rounded-xl mx-2 mt-2 bg-[#09101D]">
+      <SidebarScrollArea className="flex-1 px-1 bg-[#0C1321] relative">
+        <div className="p-3 space-y-1.5 rounded-xl mx-1 mt-2 bg-[#09101D]">
           {currentCategories.map((item) => (
             <NavItem
               key={item.id}
@@ -88,7 +88,7 @@ export const AppSidebar: React.FC = () => {
         </div>
       </SidebarScrollArea>
       {/* Bottom Actions */}
-      <div className="p-3 space-y-1.5 rounded-xl mx-2 mb-2 bg-[#09101D]">
+      <div className="p-3 space-y-1.5 rounded-xl mx-1 mb-2 bg-[#09101D]">
         <NavItem
           item={{ id: 'help', label: 'Help Center', icon: HelpCircle }}
           selected={false}
