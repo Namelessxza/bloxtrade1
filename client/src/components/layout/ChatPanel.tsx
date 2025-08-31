@@ -140,7 +140,7 @@ export const ChatPanel: React.FC = () => {
 
   return (
     <div className="flex flex-col h-full" style={{ 
-      backgroundColor: '#0A0F1C',
+      backgroundColor: '#0c1321',
     }}>
       {/* Header */}
       <div className="px-4 py-3 flex items-center justify-between" style={{
