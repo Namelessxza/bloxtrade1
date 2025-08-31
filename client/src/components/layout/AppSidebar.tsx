@@ -181,7 +181,7 @@ const NavItem: React.FC<{
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
         borderLeft: selected 
-          ? "3px solid #ef4444"
+          ? "3px solid #06b6d4"
           : "3px solid transparent",
         borderTop: "1px solid transparent",
         borderRight: "1px solid transparent", 
