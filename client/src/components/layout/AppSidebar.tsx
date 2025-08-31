@@ -175,34 +175,51 @@ const NavItem: React.FC<{
       className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden"
       style={{
         background: item.id === "trending" 
-          ? "linear-gradient(135deg, rgba(184, 80, 231, 0.15), rgba(245, 155, 243, 0.15))"
+          ? selected
+            ? "linear-gradient(135deg, rgba(184, 80, 231, 0.3), rgba(245, 155, 243, 0.25))"
+            : "linear-gradient(135deg, rgba(184, 80, 231, 0.15), rgba(245, 155, 243, 0.12))"
           : selected 
             ? "rgba(30, 41, 59, 0.5)" 
             : "transparent",
-        color: selected
-          ? theme.colors.text.primary
-          : theme.colors.text.secondary,
+        color: item.id === "trending"
+          ? selected 
+            ? "#FFFFFF"
+            : "#F59BF3"
+          : selected
+            ? theme.colors.text.primary
+            : theme.colors.text.secondary,
         opacity: item.locked ? 0.5 : 1,
         cursor: item.locked ? "not-allowed" : "pointer",
-        borderLeft: selected
-          ? "3px solid #06b6d4"
-          : item.id === "trending"
+        borderLeft: item.id === "trending"
+          ? selected 
             ? "3px solid #F59BF3"
-            : item.id === "lottery"
-              ? "3px solid #F59BF3"
-              : "3px solid transparent",
-        borderTop: "1px solid transparent",
-        borderRight: "1px solid transparent",
-        borderBottom: "1px solid transparent",
+            : "3px solid rgba(245, 155, 243, 0.6)"
+          : selected
+            ? "3px solid #06b6d4"
+            : "3px solid transparent",
+        borderTop: item.id === "trending" ? "1px solid rgba(245, 155, 243, 0.2)" : "1px solid transparent",
+        borderRight: item.id === "trending" ? "1px solid rgba(245, 155, 243, 0.2)" : "1px solid transparent",
+        borderBottom: item.id === "trending" ? "1px solid rgba(245, 155, 243, 0.2)" : "1px solid transparent",
+        borderRadius: "12px",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
-          e.currentTarget.style.backgroundColor = "rgba(30, 41, 59, 0.3)";
+          if (item.id === "trending") {
+            e.currentTarget.style.background = "linear-gradient(135deg, rgba(184, 80, 231, 0.25), rgba(245, 155, 243, 0.2))";
+            e.currentTarget.style.borderLeft = "3px solid rgba(245, 155, 243, 0.8)";
+          } else {
+            e.currentTarget.style.backgroundColor = "rgba(30, 41, 59, 0.3)";
+          }
         }
       }}
       onMouseLeave={(e) => {
-        if (!selected) {
-          e.currentTarget.style.backgroundColor = "transparent";
+        if (!selected && !item.locked) {
+          if (item.id === "trending") {
+            e.currentTarget.style.background = "linear-gradient(135deg, rgba(184, 80, 231, 0.15), rgba(245, 155, 243, 0.12))";
+            e.currentTarget.style.borderLeft = "3px solid rgba(245, 155, 243, 0.6)";
+          } else {
+            e.currentTarget.style.backgroundColor = "transparent";
+          }
         }
       }}
     >
@@ -212,12 +229,23 @@ const NavItem: React.FC<{
       </div>
       {item.count && (
         <span
-          className="text-xs px-2 py-0.5 rounded-full font-semibold relative z-10"
+          className="text-xs px-2 py-0.5 rounded-full font-bold relative z-10"
           style={{
-            backgroundColor: selected
-              ? theme.colors.primary.full
-              : theme.colors.primary["200"],
-            color: theme.colors.text.primary,
+            backgroundColor: item.id === "trending"
+              ? selected
+                ? "#FFFFFF"
+                : "rgba(245, 155, 243, 0.9)"
+              : selected
+                ? theme.colors.primary.full
+                : theme.colors.primary["200"],
+            color: item.id === "trending"
+              ? selected
+                ? "#B850E7"
+                : "#FFFFFF"
+              : theme.colors.text.primary,
+            border: item.id === "trending" ? "1px solid rgba(245, 155, 243, 0.3)" : "none",
+            minWidth: "20px",
+            textAlign: "center",
           }}
         >
           {item.count}
