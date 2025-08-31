@@ -49,7 +49,7 @@ export default function Profile() {
 
   if (isLoading || !isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#09101D' }}>
+      <div className="h-full flex items-center justify-center" style={{ backgroundColor: '#09101D' }}>
         <div className="rounded-2xl p-8 text-center" style={{ backgroundColor: '#0c1321' }}>
           <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
           <p className="text-gray-400">Loading profile...</p>
@@ -61,7 +61,7 @@ export default function Profile() {
   const completionRate = stats ? (stats.completedTrades / Math.max(stats.totalTrades, 1)) * 100 : 0;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#09101D' }}>
+    <div className="h-full overflow-auto" style={{ backgroundColor: '#09101D' }}>
       {/* Header */}
       <div className="rounded-b-2xl" style={{ backgroundColor: '#12182B' }}>
         <div className="container mx-auto px-6 py-6">
