@@ -196,9 +196,7 @@ const NavItem: React.FC<{
         borderBottom: "1px solid transparent",
         borderRadius: "12px",
         position: "relative",
-        boxShadow: selected
-            ? "0 2px 8px rgba(6, 182, 212, 0.15)"
-            : "none",
+        boxShadow: "none",
       }}
       onMouseEnter={(e) => {
         if (!selected && !item.locked) {
@@ -224,7 +222,6 @@ const NavItem: React.FC<{
             e.currentTarget.style.background = "transparent";
             e.currentTarget.style.borderLeft = "3px solid transparent";
             e.currentTarget.style.color = theme.colors.text.secondary;
-            e.currentTarget.style.boxShadow = "none";
           }
         }
       }}
