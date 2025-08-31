@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
 import { 
   Star, 
   Calendar, 
@@ -17,6 +15,7 @@ import {
   Crown
 } from "lucide-react";
 import { Link } from "wouter";
+import { theme } from "@/config/theme";
 
 export default function Profile() {
   const { toast } = useToast();
@@ -37,17 +36,23 @@ export default function Profile() {
     }
   }, [isAuthenticated, isLoading, toast]);
 
-  const { data: stats } = useQuery({
+  const { data: stats } = useQuery<{
+    totalTrades: number;
+    activeTrades: number;
+    completedTrades: number;
+    reputation: number;
+    badges?: any[];
+  }>({
     queryKey: ["/api/dashboard/stats"],
     enabled: isAuthenticated,
   });
 
   if (isLoading || !isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gaming-bg flex items-center justify-center">
-        <div className="gaming-card p-8 text-center">
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#09101D' }}>
+        <div className="rounded-2xl p-8 text-center" style={{ backgroundColor: '#0c1321' }}>
           <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading profile...</p>
+          <p className="text-gray-400">Loading profile...</p>
         </div>
       </div>
     );
@@ -56,231 +61,287 @@ export default function Profile() {
   const completionRate = stats ? (stats.completedTrades / Math.max(stats.totalTrades, 1)) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-gaming-bg">
+    <div className="min-h-screen" style={{ backgroundColor: '#09101D' }}>
       {/* Header */}
-      <div className="border-b border-border/20 bg-gaming-card/50 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-6">
+      <div className="rounded-b-2xl" style={{ backgroundColor: '#12182B' }}>
+        <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <Avatar className="h-20 w-20 border-4 border-primary/30">
+              <Avatar className="h-20 w-20 border-4" style={{ borderColor: theme.colors.primary[300] }}>
                 <AvatarImage src={(user as any)?.profileImageUrl} alt={(user as any)?.firstName || "User"} />
-                <AvatarFallback className="bg-primary/20 text-primary font-bold text-xl">
+                <AvatarFallback className="font-bold text-xl" style={{ backgroundColor: theme.colors.primary[200], color: theme.colors.primary.full }}>
                   {(user as any)?.firstName?.[0] || (user as any)?.username?.[0] || "U"}
                 </AvatarFallback>
               </Avatar>
               <div>
                 <div className="flex items-center space-x-2">
-                  <h1 className="text-3xl font-bold text-foreground">
+                  <h1 className="text-3xl font-bold text-white">
                     {(user as any)?.firstName || (user as any)?.username || "Trader"}
                   </h1>
                   {(user as any)?.isPremium && (
-                    <Badge className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white">
+                    <Badge 
+                      className="text-white font-bold px-2.5 py-0.5"
+                      style={{
+                        background: "linear-gradient(to bottom right, #B850E7, #F59BF3)",
+                        border: "1px solid #F59BF3",
+                      }}
+                    >
                       <Crown className="h-3 w-3 mr-1" />
                       Premium
                     </Badge>
                   )}
                 </div>
-                <p className="text-muted-foreground">
+                <p className="text-gray-400">
                   @{(user as any)?.username || "user"} • Member since {new Date((user as any)?.joinDate || Date.now()).toLocaleDateString()}
                 </p>
                 <div className="flex items-center space-x-4 mt-2">
                   <div className="flex items-center space-x-1">
                     <Star className="h-4 w-4 text-yellow-500" />
-                    <span className="text-sm font-medium">{stats?.reputation || 0} reputation</span>
+                    <span className="text-sm font-medium text-gray-300">{stats?.reputation || 0} reputation</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <TrendingUp className="h-4 w-4 text-green-500" />
-                    <span className="text-sm font-medium">{Math.round(completionRate)}% completion rate</span>
+                    <span className="text-sm font-medium text-gray-300">{Math.round(completionRate)}% completion rate</span>
                   </div>
                 </div>
               </div>
             </div>
             <div className="flex items-center space-x-2">
               <Link href="/settings">
-                <Button variant="outline" className="gaming-button-secondary" data-testid="button-edit-profile">
+                <button
+                  className="px-4 py-2 rounded-xl text-sm font-bold transition-all text-white flex items-center"
+                  style={{
+                    background: "linear-gradient(to bottom right, #B850E7, #F59BF3)",
+                    border: "1px solid #F59BF3",
+                    boxShadow: "inset 0 4px 8px rgba(0,0,0,0.3)",
+                  }}
+                  data-testid="button-edit-profile"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = "0.9";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.opacity = "1";
+                  }}
+                >
                   <Settings className="h-4 w-4 mr-2" />
                   Edit Profile
-                </Button>
+                </button>
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-6 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Profile Info */}
           <div className="lg:col-span-2 space-y-6">
             {/* Trading Stats */}
-            <Card className="gaming-card border-border/20">
-              <CardHeader>
-                <CardTitle>Trading Statistics</CardTitle>
-                <CardDescription>Your trading performance overview</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="text-center p-4 rounded-lg bg-muted/5 border border-border/10">
-                    <div className="text-2xl font-bold text-primary" data-testid="stat-total-trades">
-                      {stats?.totalTrades || 0}
-                    </div>
-                    <p className="text-sm text-muted-foreground">Total Trades</p>
+            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-white mb-1">Trading Statistics</h3>
+                <p className="text-sm text-gray-400">Your trading performance overview</p>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="text-center p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
+                  <div className="text-2xl font-bold" style={{ color: theme.colors.primary.full }} data-testid="stat-total-trades">
+                    {stats?.totalTrades || 0}
                   </div>
-                  <div className="text-center p-4 rounded-lg bg-muted/5 border border-border/10">
-                    <div className="text-2xl font-bold text-green-500" data-testid="stat-completed-trades">
-                      {stats?.completedTrades || 0}
-                    </div>
-                    <p className="text-sm text-muted-foreground">Completed</p>
-                  </div>
-                  <div className="text-center p-4 rounded-lg bg-muted/5 border border-border/10">
-                    <div className="text-2xl font-bold text-blue-500" data-testid="stat-active-trades">
-                      {stats?.activeTrades || 0}
-                    </div>
-                    <p className="text-sm text-muted-foreground">Active</p>
-                  </div>
-                  <div className="text-center p-4 rounded-lg bg-muted/5 border border-border/10">
-                    <div className="text-2xl font-bold text-yellow-500" data-testid="stat-reputation">
-                      {stats?.reputation || 0}
-                    </div>
-                    <p className="text-sm text-muted-foreground">Reputation</p>
-                  </div>
+                  <p className="text-sm text-gray-400">Total Trades</p>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="text-center p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
+                  <div className="text-2xl font-bold text-green-500" data-testid="stat-completed-trades">
+                    {stats?.completedTrades || 0}
+                  </div>
+                  <p className="text-sm text-gray-400">Completed</p>
+                </div>
+                <div className="text-center p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
+                  <div className="text-2xl font-bold text-blue-500" data-testid="stat-active-trades">
+                    {stats?.activeTrades || 0}
+                  </div>
+                  <p className="text-sm text-gray-400">Active</p>
+                </div>
+                <div className="text-center p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
+                  <div className="text-2xl font-bold text-yellow-500" data-testid="stat-reputation">
+                    {stats?.reputation || 0}
+                  </div>
+                  <p className="text-sm text-gray-400">Reputation</p>
+                </div>
+              </div>
+            </div>
 
             {/* Recent Activity */}
-            <Card className="gaming-card border-border/20">
-              <CardHeader>
-                <CardTitle>Recent Activity</CardTitle>
-                <CardDescription>Your latest trading actions</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3 p-3 rounded-lg border border-border/10">
-                    <div className="h-8 w-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                      <TrendingUp className="h-4 w-4 text-green-500" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-medium">Joined GameXchange</p>
-                      <p className="text-xs text-muted-foreground">
-                        {new Date((user as any)?.joinDate || Date.now()).toLocaleDateString()}
-                      </p>
-                    </div>
+            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-white mb-1">Recent Activity</h3>
+                <p className="text-sm text-gray-400">Your latest trading actions</p>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 p-3 rounded-xl" style={{ backgroundColor: '#12182B' }}>
+                  <div className="h-8 w-8 rounded-full flex items-center justify-center" style={{ backgroundColor: theme.colors.accent.green + "20" }}>
+                    <TrendingUp className="h-4 w-4 text-green-500" />
                   </div>
-                  <div className="text-center py-8 text-muted-foreground">
-                    <Calendar className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                    <p>More activity will appear as you start trading</p>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-white">Joined GameXchange</p>
+                    <p className="text-xs text-gray-400">
+                      {new Date((user as any)?.joinDate || Date.now()).toLocaleDateString()}
+                    </p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="text-center py-8">
+                  <Calendar className="h-12 w-12 mx-auto mb-2 opacity-50 text-gray-500" />
+                  <p className="text-gray-400">More activity will appear as you start trading</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Badges */}
-            <Card className="gaming-card border-border/20">
-              <CardHeader>
-                <CardTitle>Achievements</CardTitle>
-                <CardDescription>Badges you've earned</CardDescription>
-              </CardHeader>
-              <CardContent>
-                {stats?.badges && stats.badges.length > 0 ? (
-                  <div className="grid grid-cols-2 gap-3">
-                    {stats.badges.map((badge: any) => (
-                      <div
-                        key={badge.id}
-                        className="text-center p-3 rounded-lg border border-border/10 bg-muted/5"
-                        data-testid={`badge-${badge.badgeType}`}
-                      >
-                        <div className="h-8 w-8 mx-auto mb-2 rounded-full bg-yellow-500/20 flex items-center justify-center">
-                          <Trophy className="h-4 w-4 text-yellow-500" />
-                        </div>
-                        <p className="text-xs font-medium">{badge.badgeName}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {new Date(badge.earnedAt).toLocaleDateString()}
-                        </p>
+            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-white mb-1">Achievements</h3>
+                <p className="text-sm text-gray-400">Badges you've earned</p>
+              </div>
+              {stats?.badges && stats.badges.length > 0 ? (
+                <div className="grid grid-cols-2 gap-3">
+                  {stats.badges.map((badge: any) => (
+                    <div
+                      key={badge.id}
+                      className="text-center p-3 rounded-xl"
+                      style={{ backgroundColor: '#12182B' }}
+                      data-testid={`badge-${badge.badgeType}`}
+                    >
+                      <div className="h-8 w-8 mx-auto mb-2 rounded-full flex items-center justify-center" style={{ backgroundColor: theme.colors.accent.yellow + "20" }}>
+                        <Trophy className="h-4 w-4 text-yellow-500" />
                       </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-center py-8">
-                    <Trophy className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-50" />
-                    <p className="text-sm text-muted-foreground">No badges earned yet</p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Complete trades to start earning achievements!
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                      <p className="text-xs font-medium text-white">{badge.badgeName}</p>
+                      <p className="text-xs text-gray-400">
+                        {new Date(badge.earnedAt).toLocaleDateString()}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <Trophy className="h-12 w-12 mx-auto mb-4 opacity-50 text-gray-500" />
+                  <p className="text-sm text-gray-400">No badges earned yet</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Complete trades to start earning achievements!
+                  </p>
+                </div>
+              )}
+            </div>
 
             {/* Trust & Safety */}
-            <Card className="gaming-card border-border/20">
-              <CardHeader>
-                <CardTitle>Trust & Safety</CardTitle>
-                <CardDescription>Your account status</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
+            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-white mb-1">Trust & Safety</h3>
+                <p className="text-sm text-gray-400">Your account status</p>
+              </div>
+              <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <Shield className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">Account Verified</span>
+                    <span className="text-sm text-gray-300">Account Verified</span>
                   </div>
-                  <Badge variant="outline" className="text-green-500 border-green-500">
+                  <Badge 
+                    variant="outline" 
+                    className="text-green-500 border-green-500"
+                  >
                     Verified
                   </Badge>
                 </div>
                 
-                <Separator />
+                <div className="h-px bg-gray-800" />
                 
                 <div className="space-y-2">
-                  <p className="text-sm font-medium">Completion Rate</p>
+                  <p className="text-sm font-medium text-gray-300">Completion Rate</p>
                   <div className="flex items-center space-x-2">
-                    <div className="flex-1 bg-muted rounded-full h-2">
+                    <div className="flex-1 rounded-full h-2" style={{ backgroundColor: '#12182B' }}>
                       <div 
                         className="bg-green-500 h-2 rounded-full transition-all duration-500"
                         style={{ width: `${completionRate}%` }}
                       />
                     </div>
-                    <span className="text-sm font-medium">{Math.round(completionRate)}%</span>
+                    <span className="text-sm font-medium text-gray-300">{Math.round(completionRate)}%</span>
                   </div>
                 </div>
                 
                 {(user as any)?.isPremium && (
                   <>
-                    <Separator />
+                    <div className="h-px bg-gray-800" />
                     <div className="flex items-center space-x-2">
                       <Crown className="h-4 w-4 text-yellow-500" />
-                      <span className="text-sm">Premium Member</span>
+                      <span className="text-sm text-gray-300">Premium Member</span>
                     </div>
                   </>
                 )}
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             {/* Quick Actions */}
-            <Card className="gaming-card border-border/20">
-              <CardHeader>
-                <CardTitle>Quick Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
+            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
+              <h3 className="text-xl font-bold text-white mb-4">Quick Actions</h3>
+              <div className="space-y-3">
                 <Link href="/create-trade">
-                  <Button className="w-full gaming-button-primary" data-testid="button-create-trade">
+                  <button
+                    className="w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-all text-white"
+                    style={{
+                      background: "linear-gradient(to bottom right, #B850E7, #F59BF3)",
+                      border: "1px solid #F59BF3",
+                      boxShadow: "inset 0 4px 8px rgba(0,0,0,0.3)",
+                    }}
+                    data-testid="button-create-trade"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.opacity = "0.9";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.opacity = "1";
+                    }}
+                  >
                     Create New Trade
-                  </Button>
+                  </button>
                 </Link>
                 <Link href="/my-trades">
-                  <Button variant="outline" className="w-full gaming-button-secondary" data-testid="button-my-trades">
+                  <button
+                    className="w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-all"
+                    style={{
+                      backgroundColor: '#12182B',
+                      color: theme.colors.text.primary,
+                    }}
+                    data-testid="button-my-trades"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#1a2133';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = '#12182B';
+                    }}
+                  >
                     View My Trades
-                  </Button>
+                  </button>
                 </Link>
                 <Link href="/settings">
-                  <Button variant="outline" className="w-full gaming-button-secondary" data-testid="button-settings">
+                  <button
+                    className="w-full px-4 py-2.5 rounded-xl text-sm font-bold transition-all"
+                    style={{
+                      backgroundColor: '#12182B',
+                      color: theme.colors.text.primary,
+                    }}
+                    data-testid="button-settings"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#1a2133';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = '#12182B';
+                    }}
+                  >
                     Account Settings
-                  </Button>
+                  </button>
                 </Link>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </div>
