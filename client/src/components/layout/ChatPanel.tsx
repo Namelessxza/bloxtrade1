@@ -201,7 +201,7 @@ export const ChatPanel: React.FC = () => {
         </div>
       </ScrollArea>
       {/* Input Area */}
-      <div className="px-3 pb-3 pt-2 bg-[#0C1321]">
+      <div className="px-4 pb-4 pt-3 bg-[#0C1321]">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -209,79 +209,79 @@ export const ChatPanel: React.FC = () => {
           }}
           className="relative"
         >
-          <div className="relative flex items-center gap-2">
+          <div className="relative flex items-center gap-3">
             <Input
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Your message"
-              className="flex-1 h-10 rounded-lg text-sm pl-4 pr-4 border-0"
+              className="flex-1 h-12 rounded-xl text-sm pl-4 pr-4 border-0"
               style={{
-                backgroundColor: '#161730',
-                color: '#9ca3af',
-                fontSize: '13px',
+                backgroundColor: '#1a1d35',
+                color: '#6b7280',
+                fontSize: '14px',
+                fontFamily: 'Codec Pro Bold, sans-serif',
+                fontWeight: 'normal',
               }}
             />
 
-            <div className="flex items-center gap-1">
-              <button
-                type="button"
-                className="w-10 h-10 rounded-lg flex items-center justify-center transition-all"
-                style={{
-                  backgroundColor: '#1C214A',
-                  color: '#9ca3af',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#252B5C';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#1C214A';
-                }}
-              >
-                <Shield className="h-5 w-5" />
-              </button>
-
-              <button
-                type="button"
-                className="w-10 h-10 rounded-lg flex items-center justify-center transition-all"
-                style={{
-                  backgroundColor: '#1C214A',
-                  color: '#9ca3af',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#252B5C';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#1C214A';
-                }}
-              >
-                <Globe className="h-5 w-5" />
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="w-12 h-12 rounded-xl flex items-center justify-center transition-all"
+              style={{
+                background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
+                boxShadow: '0 4px 15px rgba(139, 92, 246, 0.4)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
+            >
+              <Send className="h-5 w-5 text-white" style={{ marginLeft: '1px' }} />
+            </button>
           </div>
         </form>
 
-        <div className="flex items-center justify-center gap-1 mt-3">
-          <span className="text-xs" style={{ color: '#4a4d6b' }}>Activate</span>
-          <span className="text-xs" style={{ color: '#7c7fa0' }}>+</span>
-          <span className="text-xs" style={{ color: '#4a4d6b' }}>Go to</span>
-          <span className="text-xs" style={{ color: '#7c7fa0' }}>Settings</span>
-        </div>
+        <div className="flex items-center gap-3 mt-3">
+          <button
+            type="button"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all"
+            style={{
+              backgroundColor: '#1a1d35',
+              color: '#6b7280',
+              fontFamily: 'Codec Pro Bold, sans-serif',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#252B5C';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#1a1d35';
+            }}
+          >
+            <Shield className="h-4 w-4" />
+            Rules
+          </button>
 
-        <button
-          className="fixed bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all"
-          style={{
-            background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
-            boxShadow: '0 4px 15px rgba(139, 92, 246, 0.4)',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.1)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-          }}
-        >
-          <Send className="h-5 w-5 text-white" style={{ marginLeft: '2px' }} />
-        </button>
+          <button
+            type="button"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all"
+            style={{
+              backgroundColor: '#1a1d35',
+              color: '#6b7280',
+              fontFamily: 'Codec Pro Bold, sans-serif',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#252B5C';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#1a1d35';
+            }}
+          >
+            <span style={{ fontSize: '16px' }}>😊</span>
+            Emojies
+          </button>
+        </div>
       </div>
     </div>
   );
