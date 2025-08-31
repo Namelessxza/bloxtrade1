@@ -337,38 +337,39 @@ const MessageItem: React.FC<{
       
       {/* Message Content */}
       <div className="flex-1 min-w-0">
-        {/* Username, Admin badge and timestamp row */}
-        <div className="flex items-baseline gap-1.5 mb-0.5">
-          <span style={{ 
-            color: '#9ca3af',
-            fontWeight: '500',
-            fontSize: '12px',
-            letterSpacing: '-0.01em',
-          }}>
-            {message.username}
-          </span>
-          {message.isAdmin && (
-            <span 
-              style={{
-                background: '#FBBF24',
-                color: '#000000',
-                fontSize: '9px',
-                fontWeight: '700',
-                letterSpacing: '0.5px',
-                textTransform: 'uppercase',
-                padding: '1px 6px',
-                borderRadius: '3px',
-                display: 'inline-block',
-                lineHeight: '1.3',
-              }}
-            >
-              ADMIN
+        {/* Username and Admin badge row */}
+        <div className="flex items-center justify-between mb-0.5">
+          <div className="flex items-baseline gap-1.5">
+            <span style={{ 
+              color: '#9ca3af',
+              fontWeight: '500',
+              fontSize: '12px',
+              letterSpacing: '-0.01em',
+            }}>
+              {message.username}
             </span>
-          )}
+            {message.isAdmin && (
+              <span 
+                style={{
+                  background: '#FBBF24',
+                  color: '#000000',
+                  fontSize: '9px',
+                  fontWeight: '700',
+                  letterSpacing: '0.5px',
+                  textTransform: 'uppercase',
+                  padding: '1px 6px',
+                  borderRadius: '3px',
+                  display: 'inline-block',
+                  lineHeight: '1.3',
+                }}
+              >
+                ADMIN
+              </span>
+            )}
+          </div>
           <span style={{ 
             color: '#4b5563',
             fontSize: '10px',
-            marginLeft: '2px',
           }}>
             {message.timestamp}
           </span>
