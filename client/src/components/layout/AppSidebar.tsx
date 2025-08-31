@@ -29,7 +29,7 @@ interface NavItem {
 export const AppSidebar: React.FC = () => {
   const [activeMode, setActiveMode] = useState<'games' | 'sports'>('games');
   const [selectedCategory, setSelectedCategory] = useState('home');
-  
+
   const gameCategories: NavItem[] = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'trending', label: 'Trending', icon: TrendingUp, count: 24 },
@@ -40,18 +40,18 @@ export const AppSidebar: React.FC = () => {
     { id: 'coins', label: 'Coins Shop', icon: Coins },
     { id: 'teams', label: 'Teams', icon: Users },
   ];
-  
+
   const sportCategories: NavItem[] = [
     { id: 'football', label: 'Football', icon: Trophy },
     { id: 'basketball', label: 'Basketball', icon: Activity },
     { id: 'esports', label: 'Esports', icon: Gamepad2 },
     { id: 'tennis', label: 'Tennis', icon: Trophy },
   ];
-  
+
   const currentCategories = activeMode === 'games' ? gameCategories : sportCategories;
-  
+
   return (
-    <div className="flex flex-col h-full" style={{ 
+    <div className="flex flex-col h-full bg-[#0c1321]" style={{ 
       backgroundColor: theme.colors.background.secondary 
     }}>
       {/* Mode Toggle */}
@@ -87,6 +87,19 @@ export const AppSidebar: React.FC = () => {
           ))}
         </div>
       </SidebarScrollArea>
+
+      {/* Additional Container */}
+      <div className="mx-3 mb-3 p-4 rounded-xl" style={{
+        backgroundColor: theme.colors.background.card,
+        border: `1px solid ${theme.colors.border.subtle}`
+      }}>
+        <div className="text-center">
+          <p className="text-sm" style={{ color: theme.colors.text.secondary }}>
+            Additional Content
+          </p>
+        </div>
+      </div>
+
       {/* Bottom Actions */}
       <div className="p-3 space-y-1.5 bg-[#0C1321] rounded-lg mx-2 mb-2">
         <NavItem
@@ -153,7 +166,7 @@ const NavItem: React.FC<{
   onClick: () => void;
 }> = ({ item, selected, onClick }) => {
   const Icon = item.icon;
-  
+
   return (
     <button
       onClick={onClick}
