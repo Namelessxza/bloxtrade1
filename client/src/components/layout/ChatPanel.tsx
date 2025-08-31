@@ -339,7 +339,7 @@ const MessageItem: React.FC<{
         <div 
           className="inline-block px-3.5 py-2 bg-[#12182B]"
           style={{ 
-            backgroundColor: '#1C214A',
+            backgroundColor: '#12182B',
             borderRadius: '12px',
             maxWidth: '100%',
           }}
