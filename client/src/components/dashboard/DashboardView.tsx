@@ -184,7 +184,7 @@ const GameCard: React.FC = () => {
 const TradeCard: React.FC = () => {
   return (
     <div
-      className="rounded-2xl p-4 transition-all cursor-pointer"
+      className="rounded-2xl p-4 transition-all cursor-pointer bg-[#0c1321]"
       style={{
         background: theme.gradients.card,
         border: `1px solid ${theme.colors.border.subtle}`,
