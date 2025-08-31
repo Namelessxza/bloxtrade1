@@ -55,7 +55,7 @@ export const AppSidebar: React.FC = () => {
       backgroundColor: '#0c1321' 
     }}>
       {/* Mode Toggle */}
-      <div className="p-4 bg-[#161618]">
+      <div className="p-4 bg-[#0c1321]">
         <div 
           className="flex p-1.5 rounded-full bg-[#111113]"
         >
