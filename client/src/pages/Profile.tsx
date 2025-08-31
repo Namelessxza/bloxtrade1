@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { 
@@ -16,6 +15,10 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { theme } from "@/config/theme";
+import { MainLayout } from '@/components/layout/MainLayout';
+import { AppHeader } from '@/components/layout/AppHeader';
+import { AppSidebar } from '@/components/layout/AppSidebar';
+import { ChatPanel } from '@/components/layout/ChatPanel';
 
 export default function Profile() {
   const { toast } = useToast();
@@ -49,22 +52,32 @@ export default function Profile() {
 
   if (isLoading || !isAuthenticated) {
     return (
-      <div className="h-full flex items-center justify-center" style={{ backgroundColor: '#09101D' }}>
-        <div className="rounded-2xl p-8 text-center" style={{ backgroundColor: '#0c1321' }}>
-          <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading profile...</p>
+      <MainLayout
+        header={<AppHeader />}
+        sidebar={<AppSidebar />}
+        rightPanel={<ChatPanel />}
+      >
+        <div className="h-full flex items-center justify-center bg-[#09101D]">
+          <div className="rounded-2xl p-8 text-center" style={{ backgroundColor: '#0c1321' }}>
+            <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
+            <p className="text-gray-400">Loading profile...</p>
+          </div>
         </div>
-      </div>
+      </MainLayout>
     );
   }
 
   const completionRate = stats ? (stats.completedTrades / Math.max(stats.totalTrades, 1)) * 100 : 0;
 
   return (
-    <div className="min-h-screen overflow-y-auto" style={{ backgroundColor: '#09101D' }}>
-      {/* Header */}
-      <div className="rounded-b-2xl" style={{ backgroundColor: '#12182B' }}>
-        <div className="container mx-auto px-6 py-6">
+    <MainLayout
+      header={<AppHeader />}
+      sidebar={<AppSidebar />}
+      rightPanel={<ChatPanel />}
+    >
+      <div className="h-full px-6 py-6 bg-[#09101D]">
+        {/* Header */}
+        <div className="rounded-2xl mb-6 p-6" style={{ backgroundColor: '#12182B' }}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Avatar className="h-20 w-20 border-4" style={{ borderColor: theme.colors.primary[300] }}>
@@ -130,9 +143,7 @@ export default function Profile() {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="container mx-auto px-6 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Profile Info */}
           <div className="lg:col-span-2 space-y-6">
@@ -192,6 +203,19 @@ export default function Profile() {
                   <Calendar className="h-12 w-12 mx-auto mb-2 opacity-50 text-gray-500" />
                   <p className="text-gray-400">More activity will appear as you start trading</p>
                 </div>
+              </div>
+            </div>
+            
+            {/* Extra content to test scrolling */}
+            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
+              <h3 className="text-xl font-bold text-white mb-4">Additional Information</h3>
+              <p className="text-gray-400 mb-4">This section contains extra content to test scrolling functionality.</p>
+              <div className="space-y-3">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+                  <div key={i} className="p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
+                    <p className="text-gray-300">Test content item {i} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -342,31 +366,15 @@ export default function Profile() {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-        
-        {/* Extra content to ensure scrolling works */}
-        <div className="container mx-auto px-6 py-8">
-          <div className="space-y-6">
-            <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
-              <h3 className="text-xl font-bold text-white mb-4">Additional Information</h3>
-              <p className="text-gray-400 mb-4">This section contains extra content to test scrolling functionality.</p>
-              <div className="space-y-3">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-                  <div key={i} className="p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
-                    <p className="text-gray-300">Test content item {i} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  </div>
-                ))}
-              </div>
-            </div>
             
+            {/* More test content */}
             <div className="rounded-2xl p-6" style={{ backgroundColor: '#0c1321' }}>
               <h3 className="text-xl font-bold text-white mb-4">More Content</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div className="grid grid-cols-1 gap-4">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
                   <div key={i} className="p-4 rounded-xl" style={{ backgroundColor: '#12182B' }}>
                     <h4 className="font-bold text-white mb-2">Item {i}</h4>
-                    <p className="text-gray-400 text-sm">More test content to ensure the page is tall enough to scroll properly.</p>
+                    <p className="text-gray-400 text-sm">More test content to ensure the page is tall enough to scroll properly. This content helps verify that scrolling works correctly.</p>
                   </div>
                 ))}
               </div>
@@ -374,6 +382,6 @@ export default function Profile() {
           </div>
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 }
