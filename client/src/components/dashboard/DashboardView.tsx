@@ -5,7 +5,7 @@ import { theme } from "@/config/theme";
 export const DashboardView: React.FC = () => {
   return (
     <ScrollArea className="h-full" viewportClassName="bg-[#0C1321]">
-      <div className="min-h-full px-6 py-6 bg-[#0C1321]">
+      <div className="min-h-full px-6 py-6 bg-[#09101D]">
         {/* Featured Games Section */}
         <div className="mb-8">
           <h2
@@ -139,7 +139,7 @@ const GameCard: React.FC = () => {
           background: theme.gradients.accent,
         }}
       />
-      <div className="p-4 bg-[#09101D]" style={{ backgroundColor: "#09101D" }}>
+      <div className="p-4 bg-[#0C1321]" style={{ backgroundColor: "#0C1321" }}>
         <h3
           className="font-bold text-lg mb-2"
           style={{ color: theme.colors.text.primary }}
