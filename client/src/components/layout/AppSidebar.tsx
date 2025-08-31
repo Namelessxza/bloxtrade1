@@ -87,7 +87,6 @@ export const AppSidebar: React.FC = () => {
           ))}
         </div>
       </SidebarScrollArea>
-
       {/* Additional Container */}
       <div className="mx-3 mb-3 p-4 rounded-xl" style={{
         backgroundColor: theme.colors.background.card,
@@ -99,9 +98,8 @@ export const AppSidebar: React.FC = () => {
           </p>
         </div>
       </div>
-
       {/* Bottom Actions */}
-      <div className="p-3 space-y-1.5 bg-[#0C1321] rounded-lg mx-2 mb-2">
+      <div className="p-3 space-y-1.5 rounded-lg mx-2 mb-2 bg-[#09101D]">
         <NavItem
           item={{ id: 'help', label: 'Help Center', icon: HelpCircle }}
           selected={false}
