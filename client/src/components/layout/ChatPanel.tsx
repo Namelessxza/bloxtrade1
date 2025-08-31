@@ -376,22 +376,14 @@ const MessageItem: React.FC<{
         </span>
       </div>
       
-      {/* Message bubble positioned under the avatar */}
-      <div className="flex">
-        <div className="w-8 flex-shrink-0" /> {/* Spacer to align with avatar */}
-        <div 
-          className="ml-2"
-          style={{
-            maxWidth: 'calc(100% - 40px)',
-          }}
-        >
+      {/* Message bubble */}
+      <div className="flex items-start gap-2 mb-1">
+        <div className="flex-1">
           <div 
+            className="inline-block px-3 py-2 rounded-xl bg-[#13192D]"
             style={{ 
-              backgroundColor: hovered ? '#1a2337' : '#131a2e',
-              transition: 'background-color 0.2s ease',
-              borderRadius: '14px',
-              padding: '8px 12px',
-              display: 'inline-block',
+              backgroundColor: '#13192D',
+              maxWidth: '85%',
             }}
           >
             <span style={{ 
