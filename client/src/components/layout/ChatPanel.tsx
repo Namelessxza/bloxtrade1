@@ -209,8 +209,8 @@ export const ChatPanel: React.FC = () => {
           }}
           className="relative"
         >
-          <div className="relative flex items-center gap-3">
-            <div className="relative flex-1">
+          <div className="relative flex items-center gap-3 justify-end">
+            <div className="relative w-64">
               <Input
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
