@@ -220,7 +220,7 @@ export const ChatPanel: React.FC = () => {
                   backgroundColor: '#1a1d35',
                   color: '#6b7280',
                   fontSize: '14px',
-                  fontFamily: 'Codec Pro Bold, sans-serif',
+                  fontFamily: 'CoreSansA65Bold',
                   fontWeight: 'normal',
                 }}
               />
@@ -289,7 +289,7 @@ const MessageItem: React.FC<{
             color: '#9ca3af',
             fontSize: '13px',
             fontWeight: 'bold',
-            fontFamily: 'Codec Pro Bold, sans-serif',
+            fontFamily: 'CoreSansA65Bold',
           }}>
             {message.username}
           </span>
@@ -297,7 +297,7 @@ const MessageItem: React.FC<{
             <span style={{ 
               color: '#4a4d6b',
               fontSize: '11px',
-              fontFamily: 'Codec Pro Bold, sans-serif',
+              fontFamily: 'CoreSansA65Bold',
               fontWeight: 'bold',
             }}>
               {message.timestamp}
@@ -326,7 +326,7 @@ const MessageItem: React.FC<{
             fontSize: '13px',
             lineHeight: '1.5',
             wordBreak: 'break-word',
-            fontFamily: 'Codec Pro Bold',
+            fontFamily: 'CoreSansA65Bold',
             fontWeight: 'bold',
           }}>
             {message.message}
