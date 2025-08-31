@@ -217,16 +217,16 @@ export default function Profile() {
                 <p className="text-sm text-gray-400">Badges you've earned</p>
               </div>
               {stats?.badges && stats.badges.length > 0 ? (
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2">
                   {stats.badges.map((badge: any) => (
                     <div
                       key={badge.id}
-                      className="text-center p-3 rounded-xl"
+                      className="text-center p-2 rounded-xl"
                       style={{ backgroundColor: '#12182B' }}
                       data-testid={`badge-${badge.badgeType}`}
                     >
-                      <div className="h-8 w-8 mx-auto mb-2 rounded-full flex items-center justify-center" style={{ backgroundColor: theme.colors.accent.yellow + "20" }}>
-                        <Trophy className="h-4 w-4 text-yellow-500" />
+                      <div className="h-6 w-6 mx-auto mb-1 rounded-full flex items-center justify-center" style={{ backgroundColor: theme.colors.accent.yellow + "20" }}>
+                        <Trophy className="h-3 w-3 text-yellow-500" />
                       </div>
                       <p className="text-xs font-medium text-white">{badge.badgeName}</p>
                       <p className="text-xs text-gray-400">
@@ -236,8 +236,8 @@ export default function Profile() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8">
-                  <Trophy className="h-12 w-12 mx-auto mb-4 opacity-50 text-gray-500" />
+                <div className="text-center py-4">
+                  <Trophy className="h-8 w-8 mx-auto mb-2 opacity-50 text-gray-500" />
                   <p className="text-sm text-gray-400">No badges earned yet</p>
                   <p className="text-xs text-gray-500 mt-1">
                     Complete trades to start earning achievements!
