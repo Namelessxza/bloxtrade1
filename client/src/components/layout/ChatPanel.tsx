@@ -304,7 +304,6 @@ const MessageItem: React.FC<{
       >
         {message.avatar}
       </div>
-      
       {/* Message content */}
       <div className="flex-1 min-w-0">
         {/* Username row */}
@@ -338,7 +337,7 @@ const MessageItem: React.FC<{
         
         {/* Message bubble */}
         <div 
-          className="inline-block px-3.5 py-2"
+          className="inline-block px-3.5 py-2 bg-[#12182B]"
           style={{ 
             backgroundColor: '#1C214A',
             borderRadius: '12px',
