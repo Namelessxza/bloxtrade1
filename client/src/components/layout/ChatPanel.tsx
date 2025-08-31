@@ -188,10 +188,9 @@ export const ChatPanel: React.FC = () => {
           </button>
         </div>
       </div>
-
       {/* Messages Area */}
       <ScrollArea className="flex-1 px-3 py-2">
-        <div className="space-y-1">
+        <div className="space-y-1 bg-[#0C1321]">
           {messages.map((msg) => (
             <MessageItem 
               key={msg.id} 
@@ -201,7 +200,6 @@ export const ChatPanel: React.FC = () => {
           <div ref={messagesEndRef} />
         </div>
       </ScrollArea>
-
       {/* Input Area */}
       <div className="px-3 pb-3 pt-2">
         <form
