@@ -88,7 +88,7 @@ export const AppSidebar: React.FC = () => {
         </div>
       </SidebarScrollArea>
       {/* Bottom Actions */}
-      <div className="p-3 space-y-1.5 bg-[#0C1321] rounded-lg mx-2 mb-2">
+      <div className="p-3 space-y-1.5 bg-[#09101D] rounded-lg mx-2 mb-2">
         <NavItem
           item={{ id: 'help', label: 'Help Center', icon: HelpCircle }}
           selected={false}
