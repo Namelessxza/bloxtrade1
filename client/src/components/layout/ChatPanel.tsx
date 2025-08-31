@@ -245,8 +245,9 @@ export const ChatPanel: React.FC = () => {
               type="submit"
               className="w-12 h-12 rounded-xl flex items-center justify-center transition-all"
               style={{
-                background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
-                boxShadow: '0 4px 15px rgba(139, 92, 246, 0.4)',
+                background: 'linear-gradient(to bottom right, #B850E7, #F59BF3)',
+                border: '1px solid #F59BF3',
+                boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.3)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'scale(1.05)';
