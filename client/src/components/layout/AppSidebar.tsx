@@ -174,7 +174,11 @@ const NavItem: React.FC<{
       disabled={item.locked}
       className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden"
       style={{
-        backgroundColor: selected ? "rgba(30, 41, 59, 0.5)" : "transparent",
+        background: item.id === "trending" 
+          ? "linear-gradient(135deg, rgba(184, 80, 231, 0.15), rgba(245, 155, 243, 0.15))"
+          : selected 
+            ? "rgba(30, 41, 59, 0.5)" 
+            : "transparent",
         color: selected
           ? theme.colors.text.primary
           : theme.colors.text.secondary,
