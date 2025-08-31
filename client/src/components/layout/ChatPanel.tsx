@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Send, Shield, Globe } from 'lucide-react';
+import { Send, Shield, Globe, Hash, ChevronDown } from 'lucide-react';
 
 interface Message {
   id: number;
@@ -115,29 +115,78 @@ export const ChatPanel: React.FC = () => {
       backgroundColor: '#0D0E24',
     }}>
       {/* Header */}
-      <div className="px-4 py-3 flex items-center justify-between" style={{
-        backgroundColor: '#0D0E24',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+      <div className="px-4 py-3 flex items-center justify-between bg-[#12182B] rounded-t-xl" style={{
+        backgroundColor: '#12182B',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.04)',
       }}>
-        <div className="flex items-center gap-3">
-          <span className="text-gray-400 text-xs font-medium uppercase tracking-wider">
-            FREE RAIN
-          </span>
-          <div className="flex items-center gap-1">
-            <span className="text-white font-bold text-lg">$90,000</span>
-            <span className="text-green-400 font-bold text-lg">67</span>
+        <div className="flex items-center gap-2.5">
+          <div className="flex items-center justify-center w-7 h-7 rounded-full" style={{
+            background: 'linear-gradient(135deg, #00d4ff 0%, #0099ff 100%)',
+            boxShadow: '0 0 15px rgba(0, 212, 255, 0.25)',
+          }}>
+            <Hash className="h-4 w-4 text-white" style={{ strokeWidth: 2.5 }} />
           </div>
+          <span className="text-white font-bold text-lg" style={{
+            letterSpacing: '-0.01em',
+          }}>
+            Chat
+          </span>
         </div>
 
-        <button 
-          className="px-4 py-1.5 rounded-full text-xs font-bold transition-all"
-          style={{
-            background: 'linear-gradient(90deg, #00ff88 0%, #00cc88 100%)',
-            color: '#000000',
-          }}
-        >
-          Join
-        </button>
+        <div className="flex items-center gap-2">
+          <button 
+            className="relative px-5 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 overflow-hidden"
+            style={{
+              background: 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)',
+              color: '#ffffff',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.05)',
+            }}
+            onMouseEnter={(e) => {
+              const spotlight = e.currentTarget.querySelector('.spotlight') as HTMLElement;
+              if (spotlight) {
+                spotlight.style.opacity = '1';
+              }
+              e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.12)';
+            }}
+            onMouseLeave={(e) => {
+              const spotlight = e.currentTarget.querySelector('.spotlight') as HTMLElement;
+              if (spotlight) {
+                spotlight.style.opacity = '0.6';
+              }
+              e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.08)';
+            }}
+          >
+            <div 
+              className="spotlight absolute inset-0 pointer-events-none"
+              style={{
+                background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, transparent 70%)',
+                opacity: 0.6,
+                transition: 'opacity 0.3s ease',
+              }}
+            />
+            <span style={{ position: 'relative', zIndex: 1 }}>Rules</span>
+          </button>
+
+          <button
+            className="w-10 h-10 rounded-xl flex items-center justify-center transition-all"
+            style={{
+              background: 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.05)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.12)';
+              e.currentTarget.style.background = 'linear-gradient(180deg, #303645 0%, #252938 100%)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.08)';
+              e.currentTarget.style.background = 'linear-gradient(180deg, #2a3142 0%, #1f2433 100%)';
+            }}
+          >
+            <ChevronDown className="h-5 w-5" style={{ color: '#ffffff', strokeWidth: 2 }} />
+          </button>
+        </div>
       </div>
 
       {/* Messages Area */}
